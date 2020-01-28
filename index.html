@@ -41,15 +41,15 @@
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
     localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
+    path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="Howard Yu">
+<meta property="og:title" content="Howard&#39;s nest">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Howard Yu">
+<meta property="og:site_name" content="Howard&#39;s nest">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Howard Howon Yu">
 <meta name="twitter:card" content="summary">
@@ -66,7 +66,7 @@
   };
 </script>
 
-  <title>Howard Yu</title>
+  <title>Howard's nest</title>
   
 
 
@@ -110,7 +110,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Howard Yu</span>
+        <span class="site-title">Howard's nest</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -132,6 +132,16 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -165,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/python-basic-syntax/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/TIL-mathematics-201028-linear-algebra-function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -174,12 +184,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard Yu">
+      <meta itemprop="name" content="Howard's nest">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/28/python-basic-syntax/" class="post-title-link" itemprop="url">파이썬 기본 문법</a>
+            <a href="/2020/01/28/TIL-mathematics-201028-linear-algebra-function/" class="post-title-link" itemprop="url">선형대수(200124)</a>
         </h1>
 
         <div class="post-meta">
@@ -190,7 +200,114 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-01-28 14:25:55 / Modified: 17:24:22" itemprop="dateCreated datePublished" datetime="2020-01-28T14:25:55+09:00">2020-01-28</time>
+              <time title="Created: 2020-01-28 20:45:39 / Modified: 20:51:52" itemprop="dateCreated datePublished" datetime="2020-01-28T20:45:39+09:00">2020-01-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="선형대수학"><a href="#선형대수학" class="headerlink" title="선형대수학"></a>선형대수학</h2><ul>
+<li>PCA(Principal Component Analysis) : 주성분 분석<ul>
+<li>차원축소와 투영 == 특이분해의 로우-랭크 근사문제</li>
+<li>근사 성능을 높이기 위해 원점을 지나는 조건을 삭제</li>
+<li>쓸모있는 정보를 유지하며 더 작은차원의 벡터들로 선형변환하고자 하는것.</li>
+<li>변환후 차원을 맞추기 위해 다시 역변환, 그리고 원래 벡터와 변환후 벡터 비교</li>
+</ul>
+</li>
+</ul>
+<h2 id="함수"><a href="#함수" class="headerlink" title="함수"></a>함수</h2><ul>
+<li>함수와 변수</li>
+<li>연속과 불연속함수</li>
+<li>데이터분석에서 자주 등장하는 불연속함수<ul>
+<li>부호함수</li>
+<li>단위계단함수</li>
+<li>지시함수</li>
+</ul>
+</li>
+<li>역함수</li>
+<li>다항식함수</li>
+<li>지수함수</li>
+<li>로지스틱함수</li>
+<li>로그함수</li>
+<li>소프트플러스 함수</li>
+<li>다변수함수 &amp; 다변수 다출력 함수</li>
+<li>함수의 평행이동 및 스케일링</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/28/python-2020-01-28-python-basic-syntax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/python-2020-01-28-python-basic-syntax/" class="post-title-link" itemprop="url">파이썬 기본 문법</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-28 14:25:55 / Modified: 18:36:22" itemprop="dateCreated datePublished" datetime="2020-01-28T14:25:55+09:00">2020-01-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -242,7 +359,7 @@
 <li>동적타이핑(파이썬)<ul>
 <li>변수 선언시 저장되는 값에 따라서 자동으로 데이터 타입이 설정됩니다. 파이썬의 특징중 하나 입니다.<ul>
 <li>기본 데이터 타입 : int(정수), float(실수), bool(True 혹은 False), str(문자열)</li>
-<li>컬렉션 데이터 타입 : list, tuple, dict<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 기본 데이터 타입 int, float, bool, str</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">1.2</span></span><br><span class="line">c = <span class="literal">True</span> <span class="comment">#False</span></span><br><span class="line">d = <span class="string">"data"</span></span><br><span class="line"><span class="comment"># 데이터 타입을 확인하는 함수 type()</span></span><br><span class="line">type(a), type(b),type(c),type(d)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># (int, float, bool, str)</span></span><br></pre></td></tr></table></figure>
+<li>컬렉션 데이터 타입 : list, tuple, dict<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 기본 데이터 타입 int, float, bool, str</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">1.2</span></span><br><span class="line">c = <span class="literal">True</span> <span class="comment">#False</span></span><br><span class="line">d = <span class="string">"data"</span></span><br><span class="line"><span class="comment"># 데이터 타입을 확인하는 함수 type()</span></span><br><span class="line">type(a),type(b),type(c),type(d)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># (int, float, bool, str)</span></span><br></pre></td></tr></table></figure>
 
 
 </li>
@@ -250,6 +367,419 @@
 </li>
 </ul>
 </li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/25/TIL-git-200125-hexo-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/25/TIL-git-200125-hexo-blog/" class="post-title-link" itemprop="url">블로그 사이드바 수정</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-25 18:19:55" itemprop="dateCreated datePublished" datetime="2020-01-25T18:19:55+09:00">2020-01-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-28 18:00:05" itemprop="dateModified" datetime="2020-01-28T18:00:05+09:00">2020-01-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Customize-hexo-blog"><a href="#Customize-hexo-blog" class="headerlink" title="Customize hexo blog"></a>Customize hexo blog</h2><ul>
+<li><p>Customize config.yml file to build the sidebar.</p>
+</li>
+<li><p>Edited the css file to set the avatar icon. </p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/24/TIL-mathematics-201024-linear-algebra/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/24/TIL-mathematics-201024-linear-algebra/" class="post-title-link" itemprop="url">선형대수(200124)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-24 12:45:33" itemprop="dateCreated datePublished" datetime="2020-01-24T12:45:33+09:00">2020-01-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-28 17:58:03" itemprop="dateModified" datetime="2020-01-28T17:58:03+09:00">2020-01-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Essence-of-linear-algebra-by-3blue1brown-Part-2"><a href="#Essence-of-linear-algebra-by-3blue1brown-Part-2" class="headerlink" title="Essence of linear algebra by 3blue1brown / Part.2"></a>Essence of linear algebra by 3blue1brown / Part.2</h2><ul>
+<li><p>크래머 공식 : 왜 전체 행렬의 행렬식 / 특정 행렬의 행렬식이 성립되는지.</p>
+</li>
+<li><p>선형대수학의 범용성 : 선형대수학의 실수배와 합의 “8가지 공리”만 만족하면 어떤 형테는 벡터로 취급할수 있다.</p>
+</li>
+<li><p>좌표 변환 : 기저벡터와 좌표와의 관계 </p>
+</li>
+<li><p>선형종속, 선형독립</p>
+</li>
+<li><p>랭크</p>
+</li>
+<li><p>고유값 분해</p>
+<ul>
+<li>고유값, 고유벡터</li>
+<li>특성방정식</li>
+<li>고유값의 개수와 행렬식, 대각식의 연관</li>
+<li>대각화 </li>
+<li>분산 행렬</li>
+</ul>
+</li>
+<li><p>특이값 분해</p>
+<ul>
+<li>특이값 분해 행렬의 크기</li>
+<li>특이값 분해의 축소형</li>
+</ul>
+</li>
+<li><p>1차원 근사</p>
+<ul>
+<li>벡터w와 점ai들 과의 거리 구하는 방법</li>
+</ul>
+</li>
+<li><p>k차원 근사</p>
+<ul>
+<li>1차원 근사에서 확장한 개념</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/23/TIL-mathematics-201023-linear-algebra/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/23/TIL-mathematics-201023-linear-algebra/" class="post-title-link" itemprop="url">선형대수(200123)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-23 13:44:52" itemprop="dateCreated datePublished" datetime="2020-01-23T13:44:52+09:00">2020-01-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-28 18:00:37" itemprop="dateModified" datetime="2020-01-28T18:00:37+09:00">2020-01-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Essence-of-linear-algebra-by-3blue1brown"><a href="#Essence-of-linear-algebra-by-3blue1brown" class="headerlink" title="Essence of linear algebra by 3blue1brown"></a>Essence of linear algebra by 3blue1brown</h2><ul>
+<li><p>Vector</p>
+</li>
+<li><p>Span</p>
+</li>
+<li><p>Basis vector</p>
+</li>
+<li><p>Matric multipication as composition</p>
+</li>
+<li><p>Three-dimensional linear transformations</p>
+</li>
+<li><p>Determinant</p>
+</li>
+<li><p>Column space and null space</p>
+</li>
+<li><p>Dot products</p>
+</li>
+<li><p>Cross products</p>
+</li>
+<li><p>Eigenvectors and Eigenvalues</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/23/TIL-git-200122-start-git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/23/TIL-git-200122-start-git/" class="post-title-link" itemprop="url">GIT 시작</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-23 13:30:47" itemprop="dateCreated datePublished" datetime="2020-01-23T13:30:47+09:00">2020-01-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-28 18:00:17" itemprop="dateModified" datetime="2020-01-28T18:00:17+09:00">2020-01-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Today-I-Learned"><a href="#Today-I-Learned" class="headerlink" title="Today I Learned.."></a>Today I Learned..</h2><ol>
+<li><p>Linux</p>
+<ul>
+<li>history</li>
+<li>shell : bash, zsh</li>
+<li>basic command </li>
+<li><code>$ ls</code></li>
+<li><code>$ cd</code></li>
+<li><code>$ mkdir</code></li>
+<li><code>$ rm</code></li>
+<li>..<br>.</li>
+</ul>
+</li>
+<li><p>Vim</p>
+<ul>
+<li>mode</li>
+<li>normal : command (perss ESC on any mode) </li>
+<li>Insert : edit text file (press i on normal mode)</li>
+<li>Visual : do with text block (press v on normal mode)</li>
+</ul>
+</li>
+<li><p>Git</p>
+<ul>
+<li>4steps</li>
+<li>workspace : source code editing</li>
+<li>stage :<code>$ git add &lt;filename&gt;</code> </li>
+<li>local repository :<code>$ git commit</code>,  feat,docs,conf,etc.. and write down the discription</li>
+<li>remote repository :<code>$ git push origin master</code></li>
+<li>start :<code>$ git init</code>,<code>$ git clone</code></li>
+<li>make origin :<code>$ git remote add origin &lt;URL&gt;</code></li>
+<li><code>$ git status</code> : Check the status before doing anything with git!!!</li>
+</ul>
+</li>
+<li><p>TIL convention</p>
+</li>
+<li><p>Start vlog with hexo</p>
+<ul>
+<li>installation</li>
+<li>configuration</li>
+<li>start project</li>
+<li>create post</li>
+<li>theme</li>
+</ul>
+</li>
+</ol>
+<h2 id="Tomorrow-will-do"><a href="#Tomorrow-will-do" class="headerlink" title="Tomorrow will do.."></a>Tomorrow will do..</h2><ul>
+<li></li>
 </ul>
 
       
@@ -335,12 +865,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
