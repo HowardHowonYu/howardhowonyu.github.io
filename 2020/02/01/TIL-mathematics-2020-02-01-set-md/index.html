@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="집합 집합  set : mutable frozenset : immutable   집합의 크기  len()   합집합과 교집합  union(), | : 합집합 intersection(), &amp; : 교집합   전체집합, 부분집합, 여집합  부분 집합 : issubset()   차집합과 여집합  differencd(), -    부분집합  합집합과 교집합의">
+  <meta name="description" content="집합 집합 set : mutable, 리스트, 딕셔너리와 같이 수정이 가능(딕셔너리의 key값이 될수 없는 자료형) frozenset : immutable, 튜블과 같이 수정이 불가능   집합의 크기 len()   합집합과 교집합 union() 매서드 혹은 | : 합집합 intersection() 매서드 혹은 &amp; : 교집합   전체집합, 부분집합,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="집합">
 <meta property="og:url" content="http://yoursite.com/2020/02/01/TIL-mathematics-2020-02-01-set-md/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="집합 집합  set : mutable frozenset : immutable   집합의 크기  len()   합집합과 교집합  union(), | : 합집합 intersection(), &amp; : 교집합   전체집합, 부분집합, 여집합  부분 집합 : issubset()   차집합과 여집합  differencd(), -    부분집합  합집합과 교집합의">
+<meta property="og:description" content="집합 집합 set : mutable, 리스트, 딕셔너리와 같이 수정이 가능(딕셔너리의 key값이 될수 없는 자료형) frozenset : immutable, 튜블과 같이 수정이 불가능   집합의 크기 len()   합집합과 교집합 union() 매서드 혹은 | : 합집합 intersection() 매서드 혹은 &amp; : 교집합   전체집합, 부분집합,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-01T09:54:57.000Z">
-<meta property="article:modified_time" content="2020-02-01T09:59:28.333Z">
+<meta property="article:modified_time" content="2020-02-02T06:05:28.293Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="Math">
 <meta property="article:tag" content="Optimization">
@@ -203,10 +203,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-01 18:54:57 / Modified: 18:59:28" itemprop="dateCreated datePublished" datetime="2020-02-01T18:54:57+09:00">2020-02-01</time>
+              <time title="Created: 2020-02-01 18:54:57" itemprop="dateCreated datePublished" datetime="2020-02-01T18:54:57+09:00">2020-02-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-02 15:05:28" itemprop="dateModified" datetime="2020-02-02T15:05:28+09:00">2020-02-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -231,37 +237,30 @@
 
       
         <h2 id="집합"><a href="#집합" class="headerlink" title="집합"></a>집합</h2><ul>
-<li><p>집합</p>
-<ul>
-<li>set : mutable</li>
-<li>frozenset : immutable</li>
+<li>집합<ul>
+<li>set : mutable, 리스트, 딕셔너리와 같이 수정이 가능(딕셔너리의 key값이 될수 없는 자료형)</li>
+<li>frozenset : immutable, 튜블과 같이 수정이 불가능</li>
 </ul>
 </li>
-<li><p>집합의 크기</p>
-<ul>
+<li>집합의 크기<ul>
 <li>len()</li>
 </ul>
 </li>
-<li><p>합집합과 교집합</p>
-<ul>
-<li>union(), | : 합집합</li>
-<li>intersection(), &amp; : 교집합</li>
+<li>합집합과 교집합<ul>
+<li>union() 매서드 혹은 | : 합집합</li>
+<li>intersection() 매서드 혹은 &amp; : 교집합</li>
 </ul>
 </li>
-<li><p>전체집합, 부분집합, 여집합</p>
-<ul>
-<li>부분 집합 : issubset()</li>
+<li>전체집합, 부분집합, 여집합<ul>
+<li>부분 집합 : issubset(), True 나 False를 반환</li>
 </ul>
 </li>
-<li><p>차집합과 여집합</p>
-<ul>
+<li>차집합과 여집합<ul>
 <li>differencd(), - </li>
 </ul>
 </li>
-<li><p>부분집합</p>
-</li>
-<li><p>합집합과 교집합의 분배 법칙</p>
-</li>
+<li>부분집합</li>
+<li>합집합과 교집합의 분배 법칙</li>
 </ul>
 
     </div>
