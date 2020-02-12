@@ -175,6 +175,222 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/TIL-SQL-2020-02-12-mysql-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/12/TIL-SQL-2020-02-12-mysql-md/" class="post-title-link" itemprop="url">mySQL 공부 퀴즈 정리</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-12 19:36:35 / Modified: 19:37:53" itemprop="dateCreated datePublished" datetime="2020-02-12T19:36:35+09:00">2020-02-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="world-sql-데이터로-푼-퀴즈"><a href="#world-sql-데이터로-푼-퀴즈" class="headerlink" title="world.sql 데이터로 푼 퀴즈"></a>world.sql 데이터로 푼 퀴즈</h1><h3 id="quiz1-country-테이블에서-중복을-제거"><a href="#quiz1-country-테이블에서-중복을-제거" class="headerlink" title="quiz1 : country 테이블에서 중복을 제거"></a>quiz1 : country 테이블에서 중복을 제거</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span>(Continent)</span><br><span class="line"><span class="keyword">FROM</span> country;</span><br></pre></td></tr></table></figure>
+<h3 id="quiz2-한국-도시-중에서-인구가-100만명-이상인-도시를-내림차순-으로-정리"><a href="#quiz2-한국-도시-중에서-인구가-100만명-이상인-도시를-내림차순-으로-정리" class="headerlink" title="quiz2 : 한국 도시 중에서 인구가 100만명 이상인 도시를 내림차순 으로 정리"></a>quiz2 : 한국 도시 중에서 인구가 100만명 이상인 도시를 내림차순 으로 정리</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Name</span>, Population</span><br><span class="line"><span class="keyword">FROM</span> city</span><br><span class="line"><span class="keyword">WHERE</span> CountryCode = <span class="string">"KOR"</span> <span class="keyword">AND</span> Population &gt; <span class="number">1000000</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Population <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="quiz3-city-테이블에서-인구가-800만에서-1000만-사이의-도시이름-나라-코드를-출력하고-인구수순-내림차순으로-정리"><a href="#quiz3-city-테이블에서-인구가-800만에서-1000만-사이의-도시이름-나라-코드를-출력하고-인구수순-내림차순으로-정리" class="headerlink" title="quiz3 : city 테이블에서 인구가 800만에서 1000만 사이의 도시이름, 나라 코드를 출력하고, 인구수순 내림차순으로 정리"></a>quiz3 : city 테이블에서 인구가 800만에서 1000만 사이의 도시이름, 나라 코드를 출력하고, 인구수순 내림차순으로 정리</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Name</span>, CountryCode, Population</span><br><span class="line"><span class="keyword">FROM</span> city</span><br><span class="line"><span class="keyword">WHERE</span> Population <span class="keyword">BETWEEN</span> <span class="number">8000000</span> <span class="keyword">AND</span> <span class="number">10000000</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Population <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="quiz4-country-테이블에서-1940년-부터-1950년까지-독립한-국가를-조회하고-인구수순-내림차순으로-정리"><a href="#quiz4-country-테이블에서-1940년-부터-1950년까지-독립한-국가를-조회하고-인구수순-내림차순으로-정리" class="headerlink" title="quiz4: country 테이블에서 1940년 부터 1950년까지 독립한 국가를 조회하고 인구수순 내림차순으로 정리"></a>quiz4: country 테이블에서 1940년 부터 1950년까지 독립한 국가를 조회하고 인구수순 내림차순으로 정리</h3><p>NameIndep이란 컬럼을 새로 만들어서 이름(독립연도)가 들어가도록 만들었음</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Code, <span class="keyword">concat</span>(<span class="keyword">Name</span>,<span class="string">"("</span>,IndepYear,<span class="string">")"</span>) <span class="keyword">as</span> NameIndep, Continent, Population</span><br><span class="line"><span class="keyword">FROM</span> country</span><br><span class="line"><span class="keyword">WHERE</span> IndepYear <span class="keyword">BETWEEN</span> <span class="number">1940</span> <span class="keyword">AND</span> <span class="number">1950</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> IndepYear <span class="keyword">ASC</span>, Population <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="quiz5-countrylanguage-테이블에서-영어-스페인어-한국어를-95-이상-사용하는-나라를-오름차순으로-정리"><a href="#quiz5-countrylanguage-테이블에서-영어-스페인어-한국어를-95-이상-사용하는-나라를-오름차순으로-정리" class="headerlink" title="quiz5 : countrylanguage 테이블에서 영어, 스페인어, 한국어를 95%이상 사용하는 나라를 오름차순으로 정리"></a>quiz5 : countrylanguage 테이블에서 영어, 스페인어, 한국어를 95%이상 사용하는 나라를 오름차순으로 정리</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CountryCode, <span class="keyword">Language</span>, Percentage </span><br><span class="line"><span class="comment">-- / 100 붙여서 브로드캐스팅 연산으로 1 = 100% 로 변경 가능</span></span><br><span class="line"><span class="keyword">FROM</span> countrylanguage</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">Language</span> <span class="keyword">in</span> (<span class="string">"English"</span>,<span class="string">"Spanish"</span>,<span class="string">"Korean"</span>) <span class="keyword">AND</span> Percentage &gt;= <span class="number">95.0</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Percentage;</span><br></pre></td></tr></table></figure>
+<h3 id="quiz6-country테이블에서-code가-A로-시작하고-governmentform에-Republic이-포함되는-데이터를-조회"><a href="#quiz6-country테이블에서-code가-A로-시작하고-governmentform에-Republic이-포함되는-데이터를-조회" class="headerlink" title="quiz6 : country테이블에서 code가 A로 시작하고 governmentform에 Republic이 포함되는 데이터를 조회"></a>quiz6 : country테이블에서 code가 A로 시작하고 governmentform에 Republic이 포함되는 데이터를 조회</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Code, <span class="keyword">Name</span>, Continent, GovernmentForm, Population</span><br><span class="line"><span class="keyword">FROM</span> country</span><br><span class="line"><span class="keyword">WHERE</span> Code <span class="keyword">like</span> <span class="string">"A%"</span> <span class="keyword">AND</span> GovernmentForm <span class="keyword">like</span> <span class="string">'%Republic%'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="city-테이블에서-나라별-도시의-갯수를-출력"><a href="#city-테이블에서-나라별-도시의-갯수를-출력" class="headerlink" title="city 테이블에서 나라별 도시의 갯수를 출력"></a>city 테이블에서 나라별 도시의 갯수를 출력</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CountryCode, <span class="keyword">count</span>(CountryCode)</span><br><span class="line"><span class="keyword">FROM</span> city</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> CountryCode;</span><br></pre></td></tr></table></figure>
+<h3 id="countrylanguage-테이블에서-전체-언어의-갯수를-출력"><a href="#countrylanguage-테이블에서-전체-언어의-갯수를-출력" class="headerlink" title="countrylanguage 테이블에서 전체 언어의 갯수를 출력"></a>countrylanguage 테이블에서 전체 언어의 갯수를 출력</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">count</span>(<span class="keyword">distinct</span>(<span class="keyword">Language</span>))</span><br><span class="line"><span class="keyword">FROM</span> countrylanguage;</span><br></pre></td></tr></table></figure>
+<h3 id="대륙별-인구수와-GNP의-최대값을-출력"><a href="#대륙별-인구수와-GNP의-최대값을-출력" class="headerlink" title="대륙별 인구수와 GNP의 최대값을 출력"></a>대륙별 인구수와 GNP의 최대값을 출력</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> continent, <span class="keyword">sum</span>(population)</span><br><span class="line"><span class="keyword">FROM</span> country</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> continent;</span><br></pre></td></tr></table></figure>
+<h3 id="대륙별-전체인구를-구하고-5억-이상인-대륙만-출력"><a href="#대륙별-전체인구를-구하고-5억-이상인-대륙만-출력" class="headerlink" title="대륙별 전체인구를 구하고 5억 이상인 대륙만 출력"></a>대륙별 전체인구를 구하고 5억 이상인 대륙만 출력</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> continent,<span class="keyword">sum</span>(population) <span class="keyword">as</span> TotalPopulation</span><br><span class="line"><span class="keyword">FROM</span> country</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> continent</span><br><span class="line"><span class="keyword">HAVING</span> TotalPopulation &gt; <span class="number">500000000</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="HAVING-GROUP-BY가-실행되고-난-결과에-조건을-추가-즉-GROUP-BY-밑에-WHERE는-GROUP-BY전에-위에-필터링"><a href="#HAVING-GROUP-BY가-실행되고-난-결과에-조건을-추가-즉-GROUP-BY-밑에-WHERE는-GROUP-BY전에-위에-필터링" class="headerlink" title="HAVING : GROUP BY가 실행되고 난 결과에 조건을 추가, 즉 GROUP BY 밑에(WHERE는 GROUP BY전에(위에)필터링)"></a>HAVING : GROUP BY가 실행되고 난 결과에 조건을 추가, 즉 GROUP BY 밑에(WHERE는 GROUP BY전에(위에)필터링)</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/SQL-2020-02-12-mySQL-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/12/SQL-2020-02-12-mySQL-md/" class="post-title-link" itemprop="url">mySQL</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-12 17:23:48 / Modified: 19:38:03" itemprop="dateCreated datePublished" datetime="2020-02-12T17:23:48+09:00">2020-02-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">mySQL</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-기본-명령"><a href="#1-기본-명령" class="headerlink" title="1. 기본 명령"></a>1. 기본 명령</h1><h2 id="확인"><a href="#확인" class="headerlink" title="확인"></a>확인</h2><ul>
+<li><code>SHOW DATABASE</code> : 현재 데이터 베이스 확인</li>
+</ul>
+<h2 id="생성"><a href="#생성" class="headerlink" title="생성"></a>생성</h2><ul>
+<li><code>CREATE DATABASE</code></li>
+<li><code>CREATE TABLE</code></li>
+</ul>
+<h2 id="데이터-베이스-선택-확인"><a href="#데이터-베이스-선택-확인" class="headerlink" title="데이터 베이스 선택 확인"></a>데이터 베이스 선택 확인</h2><ul>
+<li><code>SELECT DATABASE()</code></li>
+</ul>
+<h1 id="2-테이블-생성"><a href="#2-테이블-생성" class="headerlink" title="2. 테이블 생성"></a>2. 테이블 생성</h1><ul>
+<li>좌측이 컬럼의 이름, 우측이 컬럼에 들어갈 데이터 타입<blockquote>
+<p>;(세미콜론) 단위로 끊어서 실행하니. 꼭 주의해서 붙여줄것!</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> user1(</span><br><span class="line">    user_id <span class="built_in">INT</span>,</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">    email <span class="built_in">VARCHAR</span>(<span class="number">30</span>),</span><br><span class="line">    age <span class="built_in">INT</span>(<span class="number">3</span>),</span><br><span class="line">    rdate <span class="built_in">DATE</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>데이터 타입에 추가로 조건을 줄수 있다.</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> user2(</span><br><span class="line">	user_id <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">  	<span class="comment">-- PRIMARY KEY : unique + not null 조건을 가짐</span></span><br><span class="line">  	<span class="comment">-- AUTO_INCREMENT : 1씩 증가한다</span></span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">10</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	email <span class="built_in">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">UNIQUE</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	</span><br><span class="line">	<span class="comment">-- 데이터가 없으면 '30 들어간다'</span></span><br><span class="line">	age <span class="built_in">INT</span>(<span class="number">3</span>) <span class="keyword">DEFAULT</span> <span class="number">30</span>,</span><br><span class="line">	</span><br><span class="line">	<span class="comment">-- 현재시간이 자동으로 들어가는 데이터 타입</span></span><br><span class="line">	rdate <span class="built_in">TIMESTAMP</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-수정-Alter"><a href="#3-수정-Alter" class="headerlink" title="3. 수정 Alter"></a>3. 수정 Alter</h1><h2 id="데이터-베이스-수정"><a href="#데이터-베이스-수정" class="headerlink" title="데이터 베이스 수정"></a>데이터 베이스 수정</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">"character_set_database"</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> <span class="keyword">test</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> = utf8;</span><br></pre></td></tr></table></figure>
+
+<h2 id="테이블-추가-수정-삭제"><a href="#테이블-추가-수정-삭제" class="headerlink" title="테이블 추가, 수정, 삭제"></a>테이블 추가, 수정, 삭제</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> user2 <span class="keyword">ADD</span> tmp <span class="built_in">TEXT</span>;</span><br><span class="line"><span class="comment">-- user2 테이블에 텍스트 타입을 가지고 있는 tmp라는 컬럼 추가</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> user2 <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> tmp <span class="built_in">INT</span>(<span class="number">3</span>);</span><br><span class="line"><span class="comment">-- tmp컬럼을 인트타입으로 변경</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> user2 <span class="keyword">DROP</span> tmp;</span><br><span class="line"><span class="comment">-- tmp 컬럼을 삭제</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> user1 <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> = utf8;</span><br><span class="line"><span class="comment">-- user1테이블을 utf8로 변경</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Drop"><a href="#Drop" class="headerlink" title="Drop"></a>Drop</h2><h2 id="데이터-베이스-삭제"><a href="#데이터-베이스-삭제" class="headerlink" title="데이터 베이스 삭제"></a>데이터 베이스 삭제</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> tmp;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> tmp;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> test3;</span><br></pre></td></tr></table></figure>
+
+<h2 id="테이블-삭제"><a href="#테이블-삭제" class="headerlink" title="테이블 삭제"></a>테이블 삭제</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> user3;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATABASE</span>();</span><br></pre></td></tr></table></figure>
+
+<h2 id="Insert-데이터-추가"><a href="#Insert-데이터-추가" class="headerlink" title="Insert : 데이터 추가"></a>Insert : 데이터 추가</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> user1(user_id, <span class="keyword">name</span>, email, age, rdate)</span><br><span class="line"><span class="comment">-- user1 테이블에 각 컬럼에다</span></span><br><span class="line"><span class="keyword">VALUE</span>(<span class="number">2</span>,<span class="string">"howard2"</span>,<span class="string">'yoohowon@gmail.com'</span>,<span class="number">31</span>,<span class="keyword">now</span>()),</span><br><span class="line">(<span class="number">3</span>,<span class="string">"a"</span>,<span class="string">'owon@gmail.com'</span>,<span class="number">15</span>,<span class="keyword">now</span>()),</span><br><span class="line">(<span class="number">4</span>,<span class="string">"peter"</span>,<span class="string">'yoohowon@gmail.com'</span>,<span class="number">12</span>,<span class="keyword">now</span>()),</span><br><span class="line">(<span class="number">5</span>,<span class="string">"po"</span>,<span class="string">'yohowon@gmail.com'</span>,<span class="number">2</span>,<span class="keyword">now</span>()),</span><br><span class="line">(<span class="number">6</span>,<span class="string">"hord"</span>,<span class="string">'yoohowon@gmail.com'</span>,<span class="number">56</span>,<span class="keyword">now</span>());</span><br><span class="line"><span class="comment">-- 이런 값들을 준다, </span></span><br><span class="line"><span class="comment">-- rdate는 TIMESTAMP 타입, now()는 현재 시간을 입력</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="4-SELECT-데이터-조회"><a href="#4-SELECT-데이터-조회" class="headerlink" title="4. SELECT : 데이터 조회"></a>4. SELECT : 데이터 조회</h1><blockquote>
+<p>컬럼명, 불러올때 as로 이름 지정 가능</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 컬럼이름, 불러올때 as로 이름 지정 가능</span></span><br><span class="line"><span class="keyword">SELECT</span> user_id <span class="keyword">as</span> <span class="string">"아이디"</span>, <span class="keyword">name</span> <span class="keyword">as</span> <span class="string">"이름"</span>, age <span class="keyword">as</span> <span class="string">"나이"</span></span><br><span class="line"><span class="comment">-- 테이블 이름</span></span><br><span class="line"><span class="keyword">FROM</span> user1;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 전체 선택</span></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> user1;</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-DISTINCT-중복제거"><a href="#5-DISTINCT-중복제거" class="headerlink" title="5. DISTINCT 중복제거"></a>5. DISTINCT 중복제거</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span>(<span class="keyword">name</span>)</span><br><span class="line"><span class="keyword">FROM</span> user1;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="6-WHERE-조건검색"><a href="#6-WHERE-조건검색" class="headerlink" title="6. WHERE 조건검색"></a>6. WHERE 조건검색</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 30세 이상인 사용자를 검색해서 이름의 종류(UNIQUE 한) 개수를 출력</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(<span class="keyword">DISTINCT</span>(<span class="keyword">name</span>))</span><br><span class="line"><span class="keyword">FROM</span> user1</span><br><span class="line"><span class="keyword">WHERE</span> age &gt;= <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> user1</span><br><span class="line"><span class="keyword">WHERE</span> age &gt;= <span class="number">20</span> <span class="keyword">AND</span> age &lt; <span class="number">40</span>;</span><br><span class="line"><span class="comment">-- AND 가능</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="범위데이터-가져오기-BETWEEN-A-AND-B"><a href="#범위데이터-가져오기-BETWEEN-A-AND-B" class="headerlink" title="범위데이터 가져오기 : BETWEEN A AND B"></a>범위데이터 가져오기 : BETWEEN A AND B</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> user1</span><br><span class="line"><span class="keyword">WHERE</span> age <span class="keyword">BETWEEN</span> <span class="number">20</span> <span class="keyword">AND</span> <span class="number">39</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="ORDER-BY-정렬"><a href="#ORDER-BY-정렬" class="headerlink" title="ORDER BY ,정렬"></a>ORDER BY ,정렬</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> user1</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">name</span>, age <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>내림차순, 오름차순 정렬</p>
+<blockquote>
+<p>ASC: asending<br>DESC : descending</p>
+</blockquote>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 나이가 20세 에서 40세 사이에 있는 사용자를 이름 순으로 정렬하고, 중복데이터를 제거 해서 출력</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span>(<span class="keyword">name</span>)</span><br><span class="line"><span class="keyword">FROM</span> user1</span><br><span class="line"><span class="keyword">WHERE</span> age <span class="keyword">BETWEEN</span> <span class="number">20</span> <span class="keyword">AND</span> <span class="number">40</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">name</span> <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, age, <span class="keyword">concat</span>(<span class="keyword">name</span>,<span class="string">"("</span>,age,<span class="string">")"</span>) <span class="keyword">as</span> name_age</span><br><span class="line"><span class="keyword">FROM</span> user1;</span><br></pre></td></tr></table></figure>
+<h2 id="like-where-절에서-특정-문자열이-들어간-데이터-조회"><a href="#like-where-절에서-특정-문자열이-들어간-데이터-조회" class="headerlink" title="like : where 절에서 특정 문자열이 들어간 데이터 조회"></a>like : where 절에서 특정 문자열이 들어간 데이터 조회</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> user1</span><br><span class="line"><span class="comment">-- %%앞 뒤에 어떤 문자나 숫자가 온다는 뜻</span></span><br><span class="line"><span class="keyword">WHERE</span> email <span class="keyword">like</span> <span class="string">"%@gmail.%"</span>;</span><br><span class="line"><span class="comment">-- WHERE email not like "%@gmail.%"</span></span><br><span class="line"><span class="comment">-- # 처음부터 시작</span></span><br><span class="line"><span class="comment">-- WHERE email like "p%"</span></span><br></pre></td></tr></table></figure>
+<h2 id="in-여러-개의-조건을-조회할때-사용"><a href="#in-여러-개의-조건을-조회할때-사용" class="headerlink" title="in : 여러 개의 조건을 조회할때 사용"></a>in : 여러 개의 조건을 조회할때 사용</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> user1</span><br><span class="line"><span class="comment">-- WHERE name ="howard" or name="po" or name="hord" 보다 아래가 나음</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">name</span> <span class="keyword">in</span> (<span class="string">'howard'</span>,<span class="string">'po'</span>,<span class="string">'hord'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="in의-활용-서브-쿼리"><a href="#in의-활용-서브-쿼리" class="headerlink" title="in의 활용 : 서브 쿼리"></a>in의 활용 : 서브 쿼리</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> user1</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">name</span> <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span>(<span class="keyword">name</span>)</span><br><span class="line">	<span class="keyword">from</span> user1</span><br><span class="line">	<span class="keyword">WHERE</span> age &gt; <span class="number">30</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="LIMIT-출력-갯수-제한"><a href="#LIMIT-출력-갯수-제한" class="headerlink" title="LIMIT : 출력 갯수 제한"></a>LIMIT : 출력 갯수 제한</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> user1</span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> user1</span><br><span class="line"><span class="comment">-- 3번째 부터 밑으로 5개 </span></span><br><span class="line"><span class="keyword">LIMIT</span> <span class="number">3</span>,<span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="6-UPDATE-데이터를-수정"><a href="#6-UPDATE-데이터를-수정" class="headerlink" title="6. UPDATE : 데이터를 수정"></a>6. UPDATE : 데이터를 수정</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> user1</span><br><span class="line"><span class="keyword">SET</span> age=<span class="number">30</span>, rdate=<span class="string">"2019-12-12"</span></span><br><span class="line"><span class="keyword">WHERE</span> age <span class="keyword">BETWEEN</span> <span class="number">30</span> <span class="keyword">AND</span> <span class="number">39</span>;</span><br><span class="line"><span class="comment">-- age 컬럼의 값이 30~39인 경우 age=30으로 하고, rdate="2019-12-12로 바꾼다</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-DELETE"><a href="#7-DELETE" class="headerlink" title="7. DELETE"></a>7. DELETE</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> user1</span><br><span class="line"><span class="keyword">WHERE</span> rdate &lt; <span class="string">"2020-02-12"</span>;</span><br><span class="line"><span class="comment">-- rdate가 "2020-02-12"보다 낮은경우 지워라</span></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> user1;</span><br></pre></td></tr></table></figure>
+<h2 id="HAVING"><a href="#HAVING" class="headerlink" title="HAVING"></a>HAVING</h2><blockquote>
+<p>GROUP BY가 실행되고 난 결과에 조건을 추가, 즉 GROUP BY 밑에(WHERE는 GROUP BY전에(위에)필터링)</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/TIL-mathematics-2020-02-11-math-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -488,8 +704,19 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-10 18:55:19" itemprop="dateModified" datetime="2020-02-10T18:55:19+09:00">2020-02-10</time>
+                <time title="Modified: 2020-02-12 19:37:32" itemprop="dateModified" datetime="2020-02-12T19:37:32+09:00">2020-02-12</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+            </span>
 
           
 
@@ -507,7 +734,7 @@
 </ul>
 <h2 id="새로운-컬럼만들고-소문자로-바꿔줌"><a href="#새로운-컬럼만들고-소문자로-바꿔줌" class="headerlink" title="새로운 컬럼만들고 소문자로 바꿔줌"></a>새로운 컬럼만들고 소문자로 바꿔줌</h2><p><code>df[&#39;컬럼 이름&#39;] = df[&#39;Gender&#39;].str.lower()</code></p>
 <h1 id="값을-세줌"><a href="#값을-세줌" class="headerlink" title="값을 세줌"></a>값을 세줌</h1><p><code>df[&#39;컬럼 이름&#39;].value_counts()</code></p>
-<h2 id="숫자는-바로-NaN으로-바꿀수-없음-문자열로-바꾼후-NaN값으로-수정후-다시-원레-데이터-타입으로-돌아오는-방법-사용"><a href="#숫자는-바로-NaN으로-바꿀수-없음-문자열로-바꾼후-NaN값으로-수정후-다시-원레-데이터-타입으로-돌아오는-방법-사용" class="headerlink" title="숫자는 바로 NaN으로 바꿀수 없음, 문자열로 바꾼후 NaN값으로 수정후 다시 원레 데이터 타입으로 돌아오는 방법 사용"></a>숫자는 바로 NaN으로 바꿀수 없음, 문자열로 바꾼후 NaN값으로 수정후 다시 원레 데이터 타입으로 돌아오는 방법 사용</h2><h1 id="특정-컬럼의-값들을-기준으로-내가-원하는-컬럼의-값의-평균"><a href="#특정-컬럼의-값들을-기준으로-내가-원하는-컬럼의-값의-평균" class="headerlink" title="특정 컬럼의 값들을 기준으로 내가 원하는 컬럼의 값의 평균"></a>특정 컬럼의 값들을 기준으로 내가 원하는 컬럼의 값의 평균</h1><p>height_mean_by_gender = df.groupby([‘값이 기준이 되는 컬럼’])[‘내가 평균을 구하고자 하는 컬럼’].mean()<br>height_mean_by_gender</p>
+<h1 id="특정-컬럼의-값들을-기준으로-내가-원하는-컬럼의-값의-평균"><a href="#특정-컬럼의-값들을-기준으로-내가-원하는-컬럼의-값의-평균" class="headerlink" title="특정 컬럼의 값들을 기준으로 내가 원하는 컬럼의 값의 평균"></a>특정 컬럼의 값들을 기준으로 내가 원하는 컬럼의 값의 평균</h1><p>height_mean_by_gender = df.groupby([‘값이 기준이 되는 컬럼’])[‘내가 평균을 구하고자 하는 컬럼’].mean()<br>height_mean_by_gender</p>
 
       
     </div>
@@ -1225,221 +1452,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/04/python-2020-02-04-python-condition-loop-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/04/python-2020-02-04-python-condition-loop-md/" class="post-title-link" itemprop="url">조건문, 반복문</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-04 20:53:21" itemprop="dateCreated datePublished" datetime="2020-02-04T20:53:21+09:00">2020-02-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-05 18:49:03" itemprop="dateModified" datetime="2020-02-05T18:49:03+09:00">2020-02-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="조건문"><a href="#조건문" class="headerlink" title="조건문"></a>조건문</h1><p>특정 조건에 따라서, 코드를 실행하고자 할때 사용합니다.</p>
-<h3 id="if-else-elif"><a href="#if-else-elif" class="headerlink" title="if, else, elif"></a>if, else, elif</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#조건부분에 bool 데이터 타입 이외의 데이터 타입이 오면 bool로 형변환 되어 판단</span></span><br><span class="line"><span class="keyword">if</span> <span class="literal">False</span> :</span><br><span class="line">    print(<span class="string">'python'</span>)</span><br><span class="line">    </span><br><span class="line">print(<span class="string">'done'</span>)</span><br><span class="line"><span class="comment"># done</span></span><br><span class="line"></span><br><span class="line">number = <span class="number">5</span></span><br><span class="line"><span class="keyword">if</span> number % <span class="number">2</span> :</span><br><span class="line">    print(<span class="string">'홀수'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'짝수'</span>)</span><br><span class="line"><span class="comment"># 홀수</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>정반대의 조건 이면 else, 그게 아니면 elif를 사용합니다.<br>elif를 만족하면 조건문을 빠져 나옵니다. 즉 아래쪽의 코드를 실행하지 않습니다.</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 지갑에 돈이 10000원 이상 있으면 택시를 타고</span></span><br><span class="line"><span class="comment"># 그리고 5000원 이상, 10000원 미만이 있으면 버스를 탑니다.</span></span><br><span class="line"><span class="comment"># 그렇지 않으면 걸어 갑니다.</span></span><br><span class="line">money = <span class="number">2000</span></span><br><span class="line"><span class="keyword">if</span> money &gt;= <span class="number">10000</span>:</span><br><span class="line">    print(<span class="string">'택시를 타고 집에 간다.'</span>)</span><br><span class="line"><span class="keyword">elif</span> money &gt;= <span class="number">5000</span>:</span><br><span class="line">    print(<span class="string">'광역 버스를 타고 집에 간다.'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'걸어서 집에 갑니다.'</span>)</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="반복문"><a href="#반복문" class="headerlink" title="반복문"></a>반복문</h1><p>반복되는 코드를 실행할때 사용합니다.</p>
-<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># while</span></span><br><span class="line">data = <span class="number">3</span></span><br><span class="line"><span class="keyword">while</span> data: <span class="comment">#조건이 False가 될때까지 구문의 코드를 실행</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#반복되는 코드</span></span><br><span class="line">    print(data)</span><br><span class="line">    data -=<span class="number">1</span>  </span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
-<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>iterable한 값을 하나씩 꺼내서 variable에 대입 시킨후 코드를 iterable변수의 값 갯수 만큼 실행합니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for &lt;variable&gt; in &lt;iterables&gt;:</span><br><span class="line">    &lt;code&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for를 이용하여 코드를 100번 실행</span></span><br><span class="line"><span class="comment"># range 함수 : iterable한 데이터 타입을 만듦</span></span><br><span class="line">list(range(<span class="number">100</span>))</span><br><span class="line">result = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">    result += data</span><br><span class="line">result</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>continue : 조건부분으로 올라가서 코드가 실행됩니다.</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ls = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="comment">#짝수만 출력하는 식</span></span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> ls : </span><br><span class="line">    <span class="keyword">if</span> data % <span class="number">2</span> : <span class="comment"># data가 홀수가 되면 continue를 실행, </span></span><br><span class="line">                  <span class="comment"># %2했을 때 나머지 0 되면 False 밑에 있는 코드 실행</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment">#data가 짝수이면 print를 실행, 끝에 ' '추가</span></span><br><span class="line">    print(data,end = <span class="string">" "</span>)</span><br><span class="line"><span class="comment"># 2 4 6</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>연습문제 1</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">subjects = [<span class="string">"korean"</span>,<span class="string">"english"</span>,<span class="string">"math"</span>]</span><br><span class="line">scores = [<span class="number">80</span>,<span class="number">90</span>,<span class="number">100</span>]</span><br><span class="line"><span class="comment"># for문에서 iterable 데이터가 tuple로 나오면 여러개 변수로 받을수 있습니다.</span></span><br><span class="line"><span class="comment"># subjects, scores 각각 list데이터를 zip으로 묶은다음 받아줄 각각 받아줄 변수 2개를 설정</span></span><br><span class="line"><span class="keyword">for</span> subject,point <span class="keyword">in</span> zip(subjects,scores): </span><br><span class="line">    print(subject,point)</span><br><span class="line"><span class="comment">#zip 같은 인덱스 끼리 튜플로 묶어줌, 튜플이 구성되어 있는 안의 요소 개수 만큼 변수 받아 줘야 합니다.</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>연습문제 2</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> num2 <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> num1 <span class="keyword">in</span> range(<span class="number">2</span>,<span class="number">10</span>):</span><br><span class="line">        print(<span class="string">"&#123;&#125;*&#123;&#125;=&#123;&#125; "</span>.format(num1,num2,num1*num2),end=<span class="string">"\t"</span>)</span><br><span class="line">    print()</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="list-comprehention"><a href="#list-comprehention" class="headerlink" title="list comprehention"></a>list comprehention</h3><p>리스트 데이터를 만들어주는 방법입니다. for문 보다 빠르게 동작합니다</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ls = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">ls2 = [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>]</span><br><span class="line"></span><br><span class="line">result = [data**<span class="number">2</span> <span class="keyword">for</span> data <span class="keyword">in</span> ls]</span><br><span class="line">result</span><br><span class="line">result2 = &#123;key:value <span class="keyword">for</span> key,value <span class="keyword">in</span> zip(ls,ls2)&#125;</span><br><span class="line">print(result, result2)</span><br><span class="line"><span class="comment"># [1, 4, 9, 16, 25, 36] &#123;1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f'&#125;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/04/TIL-mathematics-2020-02-04-probability-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/04/TIL-mathematics-2020-02-04-probability-md/" class="post-title-link" itemprop="url">결합확률, 조건부확률, 베이즈정리</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-02-04 19:53:59 / Modified: 20:31:46" itemprop="dateCreated datePublished" datetime="2020-02-04T19:53:59+09:00">2020-02-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/" itemprop="url" rel="index">
-                    <span itemprop="name">TIL..</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="결합확률-joint-probability"><a href="#결합확률-joint-probability" class="headerlink" title="결합확률(joint probability)"></a>결합확률(joint probability)</h2><ul>
-<li>사건 A와 B가 동시에 일어날 확률</li>
-<li>P(A,B)</li>
-</ul>
-<h2 id="주변확률-marginal-probability"><a href="#주변확률-marginal-probability" class="headerlink" title="주변확률(marginal probability)"></a>주변확률(marginal probability)</h2><ul>
-<li>결합확률과 대비되는 개념, 결합되지 않은 개별 사건의 확률</li>
-<li>P(A), P(B)</li>
-</ul>
-<h2 id="조건부확률-conditional-probability"><a href="#조건부확률-conditional-probability" class="headerlink" title="조건부확률(conditional probability)"></a>조건부확률(conditional probability)</h2><ul>
-<li>B가 사실일 경우의 사건 A에 대한 확률</li>
-<li>P(A|B)</li>
-<li>표본이 사건 B에 속한다는 새로운 사실을 알게 되었을때, 이 표본이 사건 A에 속한다는 사실의 정확성이 어떻게 변하는지를 알려준다</li>
-</ul>
-<h2 id="독립-independent"><a href="#독립-independent" class="headerlink" title="독립(independent)"></a>독립(independent)</h2><ul>
-<li>사건 A와 사건 B의 결합확률의 값이, P(A,B) = P(A) * P(B)이면, <strong>A와 B는 독립</strong>이다</li>
-</ul>
-<h2 id="결합확률의-정의를-바꾸면"><a href="#결합확률의-정의를-바꾸면" class="headerlink" title="결합확률의 정의를 바꾸면"></a>결합확률의 정의를 바꾸면</h2><ul>
-<li><strong>P(A,B) = P(A|B) * P(B)</strong></li>
-</ul>
-<h2 id="사슬법칙-chain-rule"><a href="#사슬법칙-chain-rule" class="headerlink" title="사슬법칙(chain rule)"></a>사슬법칙(chain rule)</h2><ul>
-<li>조건부확률과 결합확률의 관계를 확장한 법칙</li>
-</ul>
-<h2 id="확률변수-random-variable"><a href="#확률변수-random-variable" class="headerlink" title="확률변수(random variable)"></a>확률변수(random variable)</h2><ul>
-<li>확률적인 숫자값을 출력하는 변수, 정확히 어떤 숫자가 나올지 예측할수는 없는 기계</li>
-</ul>
-<h2 id="베이즈정리-Bayesian-rule"><a href="#베이즈정리-Bayesian-rule" class="headerlink" title="베이즈정리(Bayesian rule)"></a>베이즈정리(Bayesian rule)</h2><h3 id="P-A-B-P-B-A-P-A-P-B"><a href="#P-A-B-P-B-A-P-A-P-B" class="headerlink" title="P(A|B) = P(B|A) * P(A) / P(B)"></a>P(A|B) = P(B|A) * P(A) / P(B)</h3><ul>
-<li>P(A|B) : 사후확률(posterior) - 사건 B가 발생한 후 갱신(업데이트)된 사건 A의 확률</li>
-<li>P(B|A) : 가능도(likelihood) - 사건 A가 발생한 경우 B의 확률</li>
-<li>P(A) : 사전확률(prior) - 사건 B가 발생하기전에 가지고 있던 사건 A의 확률</li>
-<li>P(B) : 정규화상수(normaliziong constant) 또는 증거(evidence) - 확률의 크기 조정</li>
-</ul>
-<h2 id="베이즈-정리의-확장1"><a href="#베이즈-정리의-확장1" class="headerlink" title="베이즈 정리의 확장1"></a>베이즈 정리의 확장1</h2><ul>
-<li>정규화상수는 같은 값이 되므로, 사후확률은 가능도와 사전확률의 곱에 비례한다. 따라서 사건을 비교할때는, 분모를 제외하고 비교한다.</li>
-</ul>
-<h2 id="베이즈-정리의-확장2"><a href="#베이즈-정리의-확장2" class="headerlink" title="베이즈 정리의 확장2"></a>베이즈 정리의 확장2</h2><ul>
-<li>베이즈 정리에서 추가로 C라는 사건이 갱신되면 </li>
-<li>P(A|B,C) = P(C|A,B) * P(A|C) / P(B|C)라는 식이 만들어 진다.</li>
-<li>공동전제를 제거 혹은 추가가 가능하기 떄문에, 위 식을 P(A|C) = P(C|A) * P(A) / P(C)로 바꿀수 있다.</li>
-<li>제거후 베이즈 정리가 성립되면 Ok!</li>
-<li>몬티홀 문제</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1512,20 +1524,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
