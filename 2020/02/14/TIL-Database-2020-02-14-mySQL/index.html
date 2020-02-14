@@ -48,14 +48,17 @@
 
   <meta name="description" content="QUIZ사용하는 언어가 3가지 이하인 국가중 도시인구가 300만 이상인 도시를 아래와 같이 조회하세요. 123456select country.code, city_population_languages.city_name, city_population_languages.population, country.name, city_population_languages.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mongDB, mySQL quiz">
+<meta property="og:title" content="mySQL quiz">
 <meta property="og:url" content="http://yoursite.com/2020/02/14/TIL-Database-2020-02-14-mySQL/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
 <meta property="og:description" content="QUIZ사용하는 언어가 3가지 이하인 국가중 도시인구가 300만 이상인 도시를 아래와 같이 조회하세요. 123456select country.code, city_population_languages.city_name, city_population_languages.population, country.name, city_population_languages.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-14T10:59:14.000Z">
-<meta property="article:modified_time" content="2020-02-14T11:31:34.888Z">
+<meta property="article:modified_time" content="2020-02-14T11:39:01.660Z">
 <meta property="article:author" content="Howard Howon Yu">
+<meta property="article:tag" content="mySQL">
+<meta property="article:tag" content="database">
+<meta property="article:tag" content="quiz">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/02/14/TIL-Database-2020-02-14-mySQL/">
@@ -70,7 +73,7 @@
   };
 </script>
 
-  <title>mongDB, mySQL quiz | Howard's nest</title>
+  <title>mySQL quiz | Howard's nest</title>
   
 
 
@@ -138,14 +141,14 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
-
-  </li>
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -192,7 +195,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          mongDB, mySQL quiz
+          mySQL quiz
         </h1>
 
         <div class="post-meta">
@@ -203,7 +206,18 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-02-14 19:59:14 / Modified: 20:31:34" itemprop="dateCreated datePublished" datetime="2020-02-14T19:59:14+09:00">2020-02-14</time>
+              <time title="Created: 2020-02-14 19:59:14 / Modified: 20:39:01" itemprop="dateCreated datePublished" datetime="2020-02-14T19:59:14+09:00">2020-02-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -224,6 +238,12 @@
 <p>VIEW를 이용한 분할관리</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> city_population_languages <span class="keyword">as</span></span><br><span class="line"><span class="keyword">select</span> city_population.name <span class="keyword">as</span> city_name, countrylanguage.countrycode,</span><br><span class="line">	<span class="keyword">count</span>(countrylanguage.language) <span class="keyword">as</span> language_count, </span><br><span class="line">	<span class="keyword">group_concat</span>(countrylanguage.language) <span class="keyword">as</span> languages, 	city_population.population</span><br><span class="line">	<span class="keyword">from</span> countrylanguage</span><br><span class="line">	<span class="keyword">join</span></span><br><span class="line">		(<span class="keyword">select</span> <span class="keyword">name</span>, population, countrycode</span><br><span class="line">		<span class="keyword">from</span> city</span><br><span class="line">		<span class="keyword">where</span> population &gt;= <span class="number">3000000</span>) <span class="keyword">as</span> city_population</span><br><span class="line">	<span class="keyword">on</span> countrylanguage.countrycode = city_population.countrycode</span><br><span class="line">	<span class="keyword">group</span> <span class="keyword">by</span> countrylanguage.CountryCode, city_population.population, city_population.name </span><br><span class="line">	<span class="keyword">having</span> language_count &lt;= <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>group by 할때 ,로 여러개 동시에 group by 할수 있음<br>group by countrylanguage.CountryCode, city_population.population, city_population.name 처럼 여러개로 했었으면 더 빨리 풀수 있었음</p>
+</blockquote>
+<h2 id="QUIZ-1"><a href="#QUIZ-1" class="headerlink" title="QUIZ"></a>QUIZ</h2><p> ,로 구분해서 좌측부터 겹치는 부분만 걸러가면서 오른쪽으로 진행<br> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> category.name, <span class="keyword">sum</span>(payment.amount) <span class="keyword">as</span> total_amount</span><br><span class="line"><span class="keyword">from</span> payment, rental, inventory, film_category, <span class="keyword">category</span></span><br><span class="line"><span class="keyword">where</span> payment.rental_id = rental.rental_id</span><br><span class="line">	<span class="keyword">and</span> rental.inventory_id = inventory.inventory_id</span><br><span class="line">		<span class="keyword">and</span> inventory.film_id = film_category.film_id</span><br><span class="line">			<span class="keyword">and</span> film_category.category_id = category.category_id</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> category.name</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> total_amount <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure></p>
+
     </div>
 
     
@@ -231,6 +251,11 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mySQL/" rel="tag"># mySQL</a>
+              <a href="/tags/database/" rel="tag"># database</a>
+              <a href="/tags/quiz/" rel="tag"># quiz</a>
+          </div>
 
         
 
@@ -238,8 +263,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/13/TIL-Database-2020-02-13-mysql-study/" rel="prev" title="200213-mySQL 공부 퀴즈 정리">
-      <i class="fa fa-chevron-left"></i> 200213-mySQL 공부 퀴즈 정리
+    <a href="/2020/02/13/TIL-Database-2020-02-13-mysql-study/" rel="prev" title="mySQL 공부 퀴즈 정리">
+      <i class="fa fa-chevron-left"></i> mySQL 공부 퀴즈 정리
     </a></div>
       <div class="post-nav-item">
     <a href="/2020/02/14/Database-2020-02-14-mongdb/" rel="next" title="MongDB">
@@ -304,7 +329,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#QUIZ"><span class="nav-number">1.</span> <span class="nav-text">QUIZ</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#QUIZ"><span class="nav-number">1.</span> <span class="nav-text">QUIZ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QUIZ-1"><span class="nav-number">2.</span> <span class="nav-text">QUIZ</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
