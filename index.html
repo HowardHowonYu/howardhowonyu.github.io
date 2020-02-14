@@ -175,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/TIL-SQL-2020-02-13-mysql-study/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/Database-2020-02-14-mongdb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -189,7 +189,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/13/TIL-SQL-2020-02-13-mysql-study/" class="post-title-link" itemprop="url">200213-mySQL 공부 퀴즈 정리</a>
+            <a href="/2020/02/14/Database-2020-02-14-mongdb/" class="post-title-link" itemprop="url">MongDB</a>
         </h1>
 
         <div class="post-meta">
@@ -200,7 +200,237 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-02-13 19:28:13 / Modified: 19:36:00" itemprop="dateCreated datePublished" datetime="2020-02-13T19:28:13+09:00">2020-02-13</time>
+              <time title="Created: 2020-02-14 20:31:09 / Modified: 20:33:32" itemprop="dateCreated datePublished" datetime="2020-02-14T20:31:09+09:00">2020-02-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MongDB/" itemprop="url" rel="index">
+                    <span itemprop="name">MongDB</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="MongDB"><a href="#MongDB" class="headerlink" title="MongDB"></a>MongDB</h2><table>
+<thead>
+<tr>
+<th><strong>SQL</strong></th>
+<th><strong>MongoDB</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Table</td>
+<td>collection</td>
+</tr>
+<tr>
+<td>row,record</td>
+<td>document</td>
+</tr>
+</tbody></table>
+<h3 id="컬렉션-생성"><a href="#컬렉션-생성" class="headerlink" title="컬렉션 생성"></a>컬렉션 생성</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">use dss</span><br><span class="line">db.createCollection(<span class="string">"user"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">db.createCollection(<span class="string">"user2"</span>,</span><br><span class="line">    &#123;<span class="attr">autoIndexId</span>:<span class="literal">true</span>, <span class="attr">capped</span>:<span class="literal">true</span>, <span class="attr">size</span>:<span class="number">50</span>, <span class="attr">max</span>:<span class="number">5</span>&#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">-- 지우기</span><br><span class="line">db.user.drop()</span><br></pre></td></tr></table></figure>
+<p>크기가 500바이트, document 최대 5개 까지, 5개가 되기전에 용량이 500바이트를 넘기면, 제일 과거의 데이터를 삭제하면서 들어감</p>
+<h3 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.user1.insert(&#123;<span class="string">"subject"</span>:<span class="string">"python"</span>,<span class="string">"level"</span>:<span class="number">3</span>&#125;)</span><br><span class="line">db.user1.insert(&#123;<span class="string">"subject"</span>:<span class="string">"web"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;)</span><br><span class="line">db.user1.insert(&#123;<span class="string">"subject"</span>:<span class="string">"sql"</span>,<span class="string">"level"</span>:<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>여러개 Insert<br>SQL 처럼 collection 생성하고 넣을 필요 없이. 이름 정해서 데이터 바로 넣으면 그냥 생성됨</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.info.insert([</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"python"</span>,<span class="string">"level"</span>:<span class="number">3</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"web"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"sql"</span>,<span class="string">"level"</span>:<span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"python"</span>,<span class="string">"level"</span>:<span class="number">3</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"web"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"sql"</span>,<span class="string">"level"</span>:<span class="number">1</span>&#125;,</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>제약조건이 있으면 remove 쓸수 없음</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.remove(&#123;<span class="attr">level</span>:<span class="number">2</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="FIND-필터링"><a href="#FIND-필터링" class="headerlink" title="FIND (필터링)"></a>FIND (필터링)</h2><blockquote>
+<p>find(query, projection)<br>query : where 절<br>projection : select, 보여지는 filed</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="string">"subject"</span>:<span class="string">"python"</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>lte : 작거나 같다</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="string">"level"</span>:  &#123;<span class="attr">$lte</span>:<span class="number">2</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>in : 선택</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="string">"subject"</span>: &#123;<span class="attr">$in</span>: [<span class="string">"java"</span>,<span class="string">"python"</span>]&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>논리연산자 : $or, $and, $not, $nor</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="attr">$and</span> : [&#123;<span class="string">"subject"</span>:<span class="string">"python"</span>&#125;,&#123;<span class="string">"level"</span>:&#123;<span class="attr">$gte</span>:<span class="number">3</span>&#125;&#125;]&#125;)</span><br><span class="line">db.info.find(&#123;<span class="attr">$nor</span> : [&#123;<span class="string">"subject"</span>:<span class="string">"python"</span>&#125;,&#123;<span class="string">"level"</span>:&#123;<span class="attr">$gte</span>:<span class="number">3</span>&#125;&#125;]&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>자바스크립트 문법</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="attr">$where</span>:<span class="string">"this.level == 1"</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>projection : mysql에서 select 할때 column 지정</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;&#125;,&#123;<span class="string">"_id"</span>:<span class="literal">false</span>,<span class="string">"level"</span>:<span class="literal">false</span>&#125;)</span><br><span class="line">db.info.find(&#123;&#125;,&#123;<span class="string">"subject"</span>:<span class="literal">true</span>,<span class="string">"level"</span>:<span class="literal">true</span>&#125;)</span><br><span class="line">db.info.find(&#123;&#125;,&#123;<span class="string">"subject"</span>:<span class="literal">true</span>,<span class="string">"level"</span>:<span class="literal">true</span>,<span class="string">"_id"</span>:<span class="literal">false</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>sort : 1(오름차순),-1(내림차순)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">1</span>&#125;)</span><br><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">-1</span>&#125;)</span><br><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">-1</span>,<span class="string">"subject"</span>:<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>limit &amp; skip : limit는 아래로 몇개, skip은 몇개 뛰어넘고 그 다음 부터 시작</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- limit</span><br><span class="line">db.info.find().limit(<span class="number">3</span>)</span><br><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">1</span>&#125;).limit(<span class="number">3</span>)</span><br><span class="line">-- skip </span><br><span class="line">db.info.find().skip(<span class="number">2</span>).limit(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.info.update(</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"html"</span>&#125;,<span class="comment">//query</span></span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"sass"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;<span class="comment">//수정할내용</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>upsert : 데이터가 있으면 update, 없으면 insert<br>기본적으로 1개만 업데이트. multi:true 해줘야 여러개 업데이트</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.info.update(</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"less"</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"less"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"upsert"</span>:<span class="literal">true</span>&#125; </span><br><span class="line">    -- subject에 less가 없는데 upsert: <span class="literal">true</span>이므로 &#123;<span class="string">"subject"</span>:<span class="string">"less"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;로 데이터 입력했음</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="set-unset"><a href="#set-unset" class="headerlink" title="$set, $unset"></a>$set, $unset</h2><p>특정 데이터를 수정</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.info.update(</span><br><span class="line">    &#123;<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"$set"</span>:&#123;<span class="string">"level"</span>:<span class="number">1</span>&#125;&#125;,</span><br><span class="line">    &#123;<span class="attr">multi</span>:<span class="literal">true</span>&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><p>함수 사용가능</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> showSkip = <span class="function"><span class="keyword">function</span>(<span class="params">start</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> db.info.find().skip(start<span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">showSkip(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/TIL-Database-2020-02-14-mySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/14/TIL-Database-2020-02-14-mySQL/" class="post-title-link" itemprop="url">mongDB, mySQL quiz</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-14 19:59:14 / Modified: 20:31:34" itemprop="dateCreated datePublished" datetime="2020-02-14T19:59:14+09:00">2020-02-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="QUIZ"><a href="#QUIZ" class="headerlink" title="QUIZ"></a>QUIZ</h2><p>사용하는 언어가 3가지 이하인 국가중 도시인구가 300만 이상인 도시를 아래와 같이 조회하세요.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> country.code, city_population_languages.city_name, city_population_languages.population, country.name, city_population_languages.language_count, city_population_languages.languages</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">join</span></span><br><span class="line">	city_population_languages</span><br><span class="line"><span class="keyword">on</span> country.code = city_population_languages.countrycode</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> city_population_languages.population <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>VIEW를 이용한 분할관리</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> city_population_languages <span class="keyword">as</span></span><br><span class="line"><span class="keyword">select</span> city_population.name <span class="keyword">as</span> city_name, countrylanguage.countrycode,</span><br><span class="line">	<span class="keyword">count</span>(countrylanguage.language) <span class="keyword">as</span> language_count, </span><br><span class="line">	<span class="keyword">group_concat</span>(countrylanguage.language) <span class="keyword">as</span> languages, 	city_population.population</span><br><span class="line">	<span class="keyword">from</span> countrylanguage</span><br><span class="line">	<span class="keyword">join</span></span><br><span class="line">		(<span class="keyword">select</span> <span class="keyword">name</span>, population, countrycode</span><br><span class="line">		<span class="keyword">from</span> city</span><br><span class="line">		<span class="keyword">where</span> population &gt;= <span class="number">3000000</span>) <span class="keyword">as</span> city_population</span><br><span class="line">	<span class="keyword">on</span> countrylanguage.countrycode = city_population.countrycode</span><br><span class="line">	<span class="keyword">group</span> <span class="keyword">by</span> countrylanguage.CountryCode, city_population.population, city_population.name </span><br><span class="line">	<span class="keyword">having</span> language_count &lt;= <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/TIL-Database-2020-02-13-mysql-study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/13/TIL-Database-2020-02-13-mysql-study/" class="post-title-link" itemprop="url">200213-mySQL 공부 퀴즈 정리</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-13 19:28:13" itemprop="dateCreated datePublished" datetime="2020-02-13T19:28:13+09:00">2020-02-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-14 20:34:56" itemprop="dateModified" datetime="2020-02-14T20:34:56+09:00">2020-02-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -254,7 +484,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/SQL-2020-02-13-mySQL-md/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/Database-2020-02-13-mySQL-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -268,7 +498,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/13/SQL-2020-02-13-mySQL-md/" class="post-title-link" itemprop="url">mySQL 2</a>
+            <a href="/2020/02/13/Database-2020-02-13-mySQL-md/" class="post-title-link" itemprop="url">mySQL 2</a>
         </h1>
 
         <div class="post-meta">
@@ -277,10 +507,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-13 19:11:25 / Modified: 19:27:30" itemprop="dateCreated datePublished" datetime="2020-02-13T19:11:25+09:00">2020-02-13</time>
+              <time title="Created: 2020-02-13 19:11:25" itemprop="dateCreated datePublished" datetime="2020-02-13T19:11:25+09:00">2020-02-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-14 20:33:49" itemprop="dateModified" datetime="2020-02-14T20:33:49+09:00">2020-02-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -365,7 +601,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/TIL-SQL-2020-02-12-mysql-md/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/TIL-Database-2020-02-12-mysql-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -379,7 +615,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/12/TIL-SQL-2020-02-12-mysql-md/" class="post-title-link" itemprop="url">200212-mySQL 공부 퀴즈 정리</a>
+            <a href="/2020/02/12/TIL-Database-2020-02-12-mysql-md/" class="post-title-link" itemprop="url">200212-mySQL 공부 퀴즈 정리</a>
         </h1>
 
         <div class="post-meta">
@@ -453,7 +689,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/SQL-2020-02-12-mySQL-md/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/Database-2020-02-12-mySQL-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -467,7 +703,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/12/SQL-2020-02-12-mySQL-md/" class="post-title-link" itemprop="url">mySQL 1</a>
+            <a href="/2020/02/12/Database-2020-02-12-mySQL-md/" class="post-title-link" itemprop="url">mySQL 1</a>
         </h1>
 
         <div class="post-meta">
@@ -484,7 +720,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-13 19:11:52" itemprop="dateModified" datetime="2020-02-13T19:11:52+09:00">2020-02-13</time>
+                <time title="Modified: 2020-02-14 20:31:40" itemprop="dateModified" datetime="2020-02-14T20:31:40+09:00">2020-02-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1095,358 +1331,6 @@ height_mean_by_gender</code></p>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/python-2020-02-06-python-class-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/06/python-2020-02-06-python-class-md/" class="post-title-link" itemprop="url">클래스</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-06 21:43:47" itemprop="dateCreated datePublished" datetime="2020-02-06T21:43:47+09:00">2020-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-08 16:57:33" itemprop="dateModified" datetime="2020-02-08T16:57:33+09:00">2020-02-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="클래스"><a href="#클래스" class="headerlink" title="클래스"></a>클래스</h1><p>변수와 함수를 묶어 놓은 개념입니다.</p>
-<blockquote>
-<p><strong>사용방법</strong></p>
-<ol>
-<li>변수와 함수가 들어있는 클래스를 선언합니다.</li>
-<li>클래스를 객체로 만들어서 클래스 안에 선언된 변수와 함수를 사용합니다.</li>
-</ol>
-</blockquote>
-<h2 id="기본-클래스의-사용"><a href="#기본-클래스의-사용" class="headerlink" title="기본 클래스의 사용"></a>기본 클래스의 사용</h2><blockquote>
-<p>클래스의 선언</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 클래스에서 사용되는 함수의 첫번째 파라미터는 self를 쓴다</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator</span>:</span></span><br><span class="line">     </span><br><span class="line">    num1 = <span class="number">1</span></span><br><span class="line">    num2 = <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">plus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 + self.num2</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 - self.num2</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>클래스의 사용</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">calc = Calculator()</span><br><span class="line">calc</span><br><span class="line"><span class="comment"># 위의 클래스의 선언에서 self는 함수가 포함된 객체 여기서는 calc</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">calc.num1, calc.num2, calc.plus(), calc.minus()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1, 2, 3, -1</span></span><br><span class="line"><span class="comment"># 객체로 만들어 클래서에서 선언한 함수를 가져다 쓴다.</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="객체지향"><a href="#객체지향" class="headerlink" title="객체지향"></a>객체지향</h2><p>실제 세계를 코드에 반영해서 개발하는 방법입니다.</p>
-<ul>
-<li>여러명의 개발자가 코드를 효율적으로 작성해서 프로젝트를 완성시키기 위한 방법</li>
-<li>설계도 작성(class) -&gt; 실제 물건(object)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj = <span class="string">"python"</span> </span><br><span class="line"><span class="comment">#문자열 데이터 타입을 가지는 '객체' (기본 데이터 타입)</span></span><br><span class="line">obj.upper()</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="생성자"><a href="#생성자" class="headerlink" title="생성자"></a>생성자</h2><p>클래스가 객체로 생성될때 실행되는 함수이며, 변수(재료)를 추가할때 사용합니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 생성자 함수 : __init__</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,num1,num2=<span class="number">10</span>)</span>:</span> <span class="comment">#키워드 아규먼트, 디폴트파라미터 사용가능 </span></span><br><span class="line">        self.num1 = num1</span><br><span class="line">        self.num2 = num2</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">plus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 + self.num2</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 - self.num2</span><br><span class="line"></span><br><span class="line">calc = Calculator(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">calc.plus()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="상속"><a href="#상속" class="headerlink" title="상속"></a>상속</h2><p>클래스의 기능을 가져다가 기능을 수정하거나 추가할때 사용하는 방법</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator1</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,num1,num2)</span>:</span></span><br><span class="line">        self.num1 = num1</span><br><span class="line">        self.num2 = num2</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">plus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 + self.num2</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 - self.num2</span><br><span class="line"></span><br><span class="line">calc1 = Calculator1(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">calc1.plus(), calc1.minus()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3,-1</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>매서드 오버라이딩 : 부모 클래스에서 상속받은 매서드를 수정</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 상속을 사용하여 minus 함수 추가</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator2</span><span class="params">(Calculator)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 * self.num2</span><br><span class="line"></span><br><span class="line">calc2 = Calculator2(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">calc2.plus(),calc2.minus()     </span><br><span class="line"></span><br><span class="line"><span class="comment"># 3, 2</span></span><br></pre></td></tr></table></figure>
-<p>Calcultor1이 가지고 있는 plus매서드를 그대로 상속받았고, minus매서드는 오버라이딩을 통해 곱해주는 기능으로 바꿨습니다.</p>
-<h2 id="다중-상속"><a href="#다중-상속" class="headerlink" title="다중 상속"></a>다중 상속</h2><p>여러개의 클래스를 상속받을수 있습니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Iphone1</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calling</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Calling"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Iphone2</span>:</span>    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send_msg</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"SendMsg"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Iphone3</span><span class="params">(Iphone1,Iphone2)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">internet</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Internet"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iphone = Iphone3()</span><br><span class="line">iphone3.calling(),iphone3.send_msg(),iphone3.internet()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Calling, SendMsg, Internet</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Super"><a href="#Super" class="headerlink" title="Super"></a>Super</h2><p>부모 클래스에서 사용된 함수의 안의 코드를 가져다가 자식 클래스의 함수에서 재사용할때 사용합니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Iphone4</span><span class="params">(Iphone3)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">question</span><span class="params">(self)</span>:</span></span><br><span class="line">        super().calling()</span><br><span class="line"></span><br><span class="line">iphone4 = Iphone4()</span><br><span class="line">iphone4.question()</span><br><span class="line"></span><br><span class="line"><span class="comment"># calling</span></span><br></pre></td></tr></table></figure>
-<p>상속받은 부모클래스의 calling 매서드의 코드를 가져왔습니다.</p>
-<h2 id="class의-getter-setter"><a href="#class의-getter-setter" class="headerlink" title="class의 getter, setter"></a>class의 getter, setter</h2><p> 객체의 내부 변수에 접근할때 특정 로직(제약 조건)을 거쳐서 접근시키는 방법입니다.</p>
-<blockquote>
-<p>property(geeter,setter)로 제약을 줍니다.</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,first_name)</span>:</span></span><br><span class="line">        self.first_name = first_name</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setter</span><span class="params">(self,first_name)</span>:</span></span><br><span class="line">        print(<span class="string">"Setter"</span>)</span><br><span class="line">        self.first_name = first_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getter</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Getter"</span>)</span><br><span class="line">        <span class="keyword">return</span> self.first_name</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">disp</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.first_name)</span><br><span class="line">        </span><br><span class="line">    name = property(getter,setter)</span><br><span class="line"></span><br><span class="line">user1 = User(<span class="string">"andy"</span>)</span><br><span class="line">user1.disp()</span><br><span class="line"></span><br><span class="line"><span class="comment"># andy</span></span><br><span class="line"></span><br><span class="line">user1.name = <span class="string">"john"</span></span><br><span class="line"><span class="comment"># Setter</span></span><br><span class="line">user1.name</span><br><span class="line"><span class="comment"># Getter</span></span><br><span class="line"><span class="comment"># 'john'</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="non-public"><a href="#non-public" class="headerlink" title="non public"></a>non public</h2><p>‘mangling’ 이라는 방식으로 다이렉트로 객체의 변수와 매서드에 접근하지 못하게 하는 방법입니다.<br>변수 앞에 __붙이는 방식으로 구현합니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,num1,num2)</span>:</span></span><br><span class="line">        self.num1 = num1</span><br><span class="line">        self.__num2 = num2 </span><br><span class="line">        <span class="comment">#실제로는 객체가 선언 될떄는 self._Caculator__num2라는 이름으로 바뀜</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getter</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__num2</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setter</span><span class="params">(self,__num2)</span>:</span></span><br><span class="line">        <span class="comment"># num2에 0이 들어가지 않도록 함</span></span><br><span class="line">        <span class="keyword">if</span> num2 == <span class="number">0</span>:</span><br><span class="line">             num2 = <span class="number">1</span></span><br><span class="line">        self.__num2 = num2</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__disp</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.num1,self.__num2)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">div</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.__disp()</span><br><span class="line">        <span class="keyword">return</span> self.num1 / self.__num2</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    number2 = property(getter,setter)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>매서드</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">calc = Calculator(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">calc.div()</span><br><span class="line"></span><br><span class="line"><span class="comment"># div()매서드에서 __disp()라는 mangling 방식으로 처리된 매서드를 실행해서 1 2 라는 출력이 나오고, div가 리턴하는 0.5라는 값도 함께 나옴</span></span><br><span class="line"><span class="comment"># 1 2</span></span><br><span class="line"><span class="comment"># 0.5</span></span><br><span class="line"></span><br><span class="line">calc.__disp()</span><br><span class="line"><span class="comment"># 실행안됨. </span></span><br><span class="line"></span><br><span class="line">calc._Calculator__disp()</span><br><span class="line"><span class="comment"># 위의 이름으로 실행할수 있음.</span></span><br><span class="line"><span class="comment"># 1 2</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>변수</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">calc.num2 = <span class="number">0</span> </span><br><span class="line"><span class="comment">#위에 클래스에서는 num2라는 이름의 변수는 없음, 대신 새로 만들어 지게 됨</span></span><br><span class="line">calc.__num2 = <span class="number">0</span> </span><br><span class="line"><span class="comment"># 역시 __num2 라는  새로운 변수를 생성</span></span><br><span class="line">calc._Calculator__num2 </span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="comment"># 클래스 안의 __num2와 같음</span></span><br></pre></td></tr></table></figure>
-<h2 id="is-a-와-has-a"><a href="#is-a-와-has-a" class="headerlink" title="is a 와 has a"></a>is a 와 has a</h2><p>클래스를 설계하는 두가지 개념 입니다.</p>
-<blockquote>
-<p><strong>A is a B</strong></p>
-<blockquote>
-<p>A는 B이다. 상속을 이용해서 클래스를 만드는 방법</p>
-</blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># is a 개념으로 설계</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,email)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.email = email</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person2</span><span class="params">(Person)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">info</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.name,self.email)</span><br><span class="line"></span><br><span class="line">p = Person2(<span class="string">"andy"</span>,<span class="string">"andy@gmail.com"</span>)</span><br><span class="line"></span><br><span class="line">p.info()</span><br><span class="line"><span class="comment"># andy andy@gmail.com</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>A has a B</strong></p>
-<blockquote>
-<p>A는 B를 가진다. A가 B객체를 가지고 클래스를 만드는 방법</p>
-</blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># has a 개념으로 설계 : 객체안에 객체를 가지고 있다</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name_str = name</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Email</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,email)</span>:</span></span><br><span class="line">        self.email_str = email</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name_obj,email_obj)</span>:</span></span><br><span class="line">        self.name = name_obj</span><br><span class="line">        self.email = email_obj</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">info</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(name.name_str,email.email_str)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">name = Name(<span class="string">"andy"</span>)</span><br><span class="line">email = Email(<span class="string">"andy@gmail.com"</span>)</span><br><span class="line"><span class="comment">#객체 안에 객체를 가지고 있다</span></span><br><span class="line">p = Person(email,name)</span><br><span class="line"></span><br><span class="line">p.info()</span><br><span class="line"><span class="comment"># andy andy@gmail.com</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Magic-Special-Method"><a href="#Magic-Special-Method" class="headerlink" title="Magic(Special) Method"></a>Magic(Special) Method</h2><p>비교연산자</p>
-<ul>
-<li><code>__eq__</code> : ==</li>
-<li><code>__ne__</code> : !=</li>
-<li><code>__lt__</code> : &lt;</li>
-</ul>
-<p>산술연산자</p>
-<ul>
-<li><code>__add__</code> : +</li>
-<li><code>__sub__</code> : -</li>
-<li><code>__repr__</code>: 객체의 내용을 출력(개발자용)</li>
-<li><code>__str__</code> : 객체의 내용을 출력</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Txt</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,txt)</span>:</span></span><br><span class="line">        self.txt = txt</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__eq__</span><span class="params">(self,txt_obj)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.txt.lower() == txt_obj.txt.lower()</span><br><span class="line">        <span class="comment"># 소문자로 변환해서 비교 언산자를 실행합니다.</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Txt(txt=&#123;&#125;)"</span>.format(self)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.txt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">t1 = Txt(<span class="string">"python"</span>)</span><br><span class="line">t2 = Txt(<span class="string">"PYTHON"</span>)</span><br><span class="line">t3 = t1</span><br><span class="line"></span><br><span class="line">t1 == t2, t1 == t3, t2 == t3</span><br><span class="line"><span class="comment"># __eq__ 실행</span></span><br><span class="line"><span class="comment"># (True, True, True)</span></span><br><span class="line"></span><br><span class="line">t1</span><br><span class="line"><span class="comment"># __repr__  실행</span></span><br><span class="line"><span class="comment"># Txt(txt=python)</span></span><br><span class="line"></span><br><span class="line">print(t1)</span><br><span class="line"><span class="comment"># python</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/TIL-mathematics-2020-02-06-probability-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/06/TIL-mathematics-2020-02-06-probability-md/" class="post-title-link" itemprop="url">확률적 데이터와 확률변수</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-02-06 21:17:45 / Modified: 21:39:17" itemprop="dateCreated datePublished" datetime="2020-02-06T21:17:45+09:00">2020-02-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/" itemprop="url" rel="index">
-                    <span itemprop="name">TIL..</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="결정론적-데이터"><a href="#결정론적-데이터" class="headerlink" title="결정론적 데이터"></a>결정론적 데이터</h2><ul>
-<li>이미 결정되어 바뀌지 않는 데이터(성별 등)<h2 id="확률적-데이터"><a href="#확률적-데이터" class="headerlink" title="확률적 데이터"></a>확률적 데이터</h2></li>
-<li>여러 조건, 상황에 따라 데이터값이 영향을 받거나, 측정시 오차가 생길수 있는 데이터</li>
-</ul>
-<h2 id="분포-distribution"><a href="#분포-distribution" class="headerlink" title="분포(distribution)"></a>분포(distribution)</h2><ul>
-<li>어떤값이 자주 등장, 혹은 드물게 등장하는지를 나타낸 것</li>
-<li>카운트 플롯(번주형 데이터)과 히스토그램(실수형 데이터)으로 표현</li>
-</ul>
-<h2 id="기술통계-descriptive-stastics"><a href="#기술통계-descriptive-stastics" class="headerlink" title="기술통계(descriptive stastics)"></a>기술통계(descriptive stastics)</h2><ul>
-<li>표본평균, 표본중앙값, 표본최빈값</li>
-<li>표본분산, 표본표준편차</li>
-<li>표본비대칭도, 표본첨도</li>
-</ul>
-<h2 id="표본중앙값-sample-median"><a href="#표본중앙값-sample-median" class="headerlink" title="표본중앙값(sample median)"></a>표본중앙값(sample median)</h2><ul>
-<li>자료를 크기별로 정렬해서 가장 중앙에 위치하는 값</li>
-</ul>
-<h2 id="표본최빈값-sample-mode"><a href="#표본최빈값-sample-mode" class="headerlink" title="표본최빈값(sample mode)"></a>표본최빈값(sample mode)</h2><ul>
-<li>가장 빈번하게 나오는 값</li>
-</ul>
-<h2 id="단봉-분포-uni-modal-다봉분포-multi-nodal"><a href="#단봉-분포-uni-modal-다봉분포-multi-nodal" class="headerlink" title="단봉 분포(uni modal), 다봉분포(multi nodal)"></a>단봉 분포(uni modal), 다봉분포(multi nodal)</h2><h2 id="대칭-분포"><a href="#대칭-분포" class="headerlink" title="대칭 분포"></a>대칭 분포</h2><ul>
-<li>표본평균을 기준으로 대칭인 대칭분포이면, 표본중앙값 = 표본평균</li>
-<li>대칭분포이면서 하나의 최고값을 가지는 단봉분포이면, 표본최빈값 = 표본평균</li>
-<li>대칭분포를 비대칭으로 만드는 데이터가 더해지면(outlier) 표본평균 &gt; 중앙값 &gt; 최빈값 순으로 영향을 받는다.</li>
-</ul>
-<h2 id="분산-variance-과-표준편차-standard-deviation"><a href="#분산-variance-과-표준편차-standard-deviation" class="headerlink" title="분산(variance)과 표준편차(standard deviation)"></a>분산(variance)과 표준편차(standard deviation)</h2><ul>
-<li>표준편차 = 분산의 양의 제곱근</li>
-<li></li>
-<li>편향 표본분산 : 데이터와 평균 사이의 거리의 제곱의 평균</li>
-<li>비편향 표본분산 :  데이터와 평균 사이의 거리의 제곱의 평균할떄 N-1로 나눔</li>
-</ul>
-<h2 id="표본-비대칭도-sample-skewness"><a href="#표본-비대칭도-sample-skewness" class="headerlink" title="표본 비대칭도(sample skewness)"></a>표본 비대칭도(sample skewness)</h2><ul>
-<li>데이터와 평균 사이의 거리의 3제곱 이용</li>
-<li>0이면 대칭, 음수이면 표본평균값 기준 왼쪽, 양수이면 오른쪽</li>
-</ul>
-<h2 id="표본첨도-sample-kuerosis"><a href="#표본첨도-sample-kuerosis" class="headerlink" title="표본첨도(sample kuerosis)"></a>표본첨도(sample kuerosis)</h2><ul>
-<li>4제곱 이용</li>
-<li>데이터가 중앙에 몰려있는 정도를 정밀하게 비교할때 사용. 사람눈으로 구분 힘듦</li>
-</ul>
-<h2 id="표본모멘트-sample-momoent"><a href="#표본모멘트-sample-momoent" class="headerlink" title="표본모멘트(sample momoent)"></a>표본모멘트(sample momoent)</h2><ul>
-<li>k제곱을 이용함</li>
-</ul>
-<h1 id="확률변수"><a href="#확률변수" class="headerlink" title="확률변수"></a>확률변수</h1><ul>
-<li>데이터 생성기, 수학적으로 확률공간의 표본을 입력받아서 실수인 숫자로 바꾸어 출력하는 함수!</li>
-</ul>
-<h2 id="이산확률변수"><a href="#이산확률변수" class="headerlink" title="이산확률변수"></a>이산확률변수</h2><ul>
-<li>연속적이지 않고 떨어져 있도록 정의할수 있는 확률변수(주사위,동전)</li>
-</ul>
-<h2 id="연속확률변수"><a href="#연속확률변수" class="headerlink" title="연속확률변수"></a>연속확률변수</h2><ul>
-<li>연속적이고 무한대의 실수 표본값을 가지는 확률변수(원판의 각도)</li>
-</ul>
-<h2 id="확률변수를-이용한-데이터-분석"><a href="#확률변수를-이용한-데이터-분석" class="headerlink" title="확률변수를 이용한 데이터 분석"></a>확률변수를 이용한 데이터 분석</h2><ol>
-<li>데이터 수집 및 전처리</li>
-<li>수집한 데이터를 임의의 확률변수의 표본 데이터라 가정</li>
-<li>확률변수의 확률분포함수 모양 결정 = “역설계, 추정”</li>
-<li>결정된 확률변수로 다음에 생성될 데이터의 특성 예측</li>
-</ol>
-<h2 id="확률변수의-기대값"><a href="#확률변수의-기대값" class="headerlink" title="확률변수의 기대값"></a>확률변수의 기대값</h2><ul>
-<li>E[X] 는 범함수:함수를 받아 함수를 뱉어내는 함수</li>
-<li>이산확률변수의 기대값은 표본공간의 원소 x_i의 가중평균</li>
-<li>연속확률변수의 기대값은 p(x)를 가중치로 하여 모든 가능한 표본x를 적분한값</li>
-</ul>
-<h2 id="확률변수의-변환"><a href="#확률변수의-변환" class="headerlink" title="확률변수의 변환"></a>확률변수의 변환</h2><ul>
-<li>기존의 확률변수를 사용하여 새로운 확률변수를 만드는것</li>
-</ul>
-<h2 id="기대값의-성질"><a href="#기대값의-성질" class="headerlink" title="기대값의 성질"></a>기대값의 성질</h2><ul>
-<li>E[c] = c</li>
-<li>E[cX] = cE[X]</li>
-<li>E[X+Y] = E[X] + E[Y]</li>
-<li>E[cX+xY] = cE[X] + xE[Y]</li>
-</ul>
-<h2 id="통계량"><a href="#통계량" class="headerlink" title="통계량"></a>통계량</h2><ul>
-<li>데이터집합의 모든 값을 정해진 어떤 공식에 넣어서 하나의 숫자를 구한 것</li>
-</ul>
-<h2 id="기대값과-표본평균의-관계"><a href="#기대값과-표본평균의-관계" class="headerlink" title="기대값과 표본평균의 관계"></a>기대값과 표본평균의 관계</h2><ul>
-<li>E[Xbar] = E[X] : 평균의 중앙위치는 원래 데이터의 중앙위치와 같다</li>
-</ul>
-<h2 id="중앙값"><a href="#중앙값" class="headerlink" title="중앙값"></a>중앙값</h2><ul>
-<li>확률변수의 중앙값은 중앙값보다 큰 값이 나올 확률과 작은 값이 나올 확률이 0.5로 같은 값</li>
-</ul>
-<h2 id="최빈값"><a href="#최빈값" class="headerlink" title="최빈값"></a>최빈값</h2><ul>
-<li>이산확률분포에서 : 가장 확률값이 큰수</li>
-<li>연속확률분포에서 : 확률밀도함수 p(x)의 값이 가장 큰 확률변수</li>
-</ul>
-<h2 id="확률분포의-분산-variation"><a href="#확률분포의-분산-variation" class="headerlink" title="확률분포의 분산(variation)"></a>확률분포의 분산(variation)</h2><ul>
-<li>Var[X]</li>
-</ul>
-<h2 id="분산의-성질"><a href="#분산의-성질" class="headerlink" title="분산의 성질"></a>분산의 성질</h2><ul>
-<li>Var[X] &gt;= 0</li>
-<li>Var[C] = 0</li>
-<li>Var[cX] = c**2Var[X]</li>
-<li>Var[X] = E[X<strong>2] - m</strong>2</li>
-<li>Var[X+Y] = Var[X] + Var[Y] + 2E[(X-m)(Y-m)]</li>
-</ul>
-<h2 id="확률변수의-독립"><a href="#확률변수의-독립" class="headerlink" title="확률변수의 독립"></a>확률변수의 독립</h2><ul>
-<li>두 확률변수가 서로에게 영향을 미치지 않는다</li>
-<li>E[(X-m)(Y-m)] = 0</li>
-<li>Var[X+Y] = Var[X] + Var[Y]</li>
-</ul>
-<h2 id="표본분산의-기대값"><a href="#표본분산의-기대값" class="headerlink" title="표본분산의 기대값"></a>표본분산의 기대값</h2><ul>
-<li><h2 id="비대칭도와-첨도"><a href="#비대칭도와-첨도" class="headerlink" title="비대칭도와 첨도"></a>비대칭도와 첨도</h2></li>
-<li><p>비대칭도는 3차 모멘트 , 첨도는 4차 모멘트</p>
-</li>
-</ul>
-<h2 id="모멘트"><a href="#모멘트" class="headerlink" title="모멘트"></a>모멘트</h2><ul>
-<li>기대값, 분산은 확률분포의 모멘트</li>
-<li>E[Y] = E[X]가 같고 여러 제곱들이 계속 같으면</li>
-<li>X와 Y는 같은 확률분포</li>
-</ul>
-<h1 id="다변수-확률변수"><a href="#다변수-확률변수" class="headerlink" title="다변수 확률변수"></a>다변수 확률변수</h1><h2 id="이산확률변수-에서-다변수-확률변수"><a href="#이산확률변수-에서-다변수-확률변수" class="headerlink" title="이산확률변수 에서 다변수 확률변수"></a>이산확률변수 에서 다변수 확률변수</h2><ul>
-<li>결합확률질량함수</li>
-<li>주변확률질량함수</li>
-<li>조건부확률질량함수</li>
-</ul>
-<h2 id="연속확률변수-에서-다변수-확률변수"><a href="#연속확률변수-에서-다변수-확률변수" class="headerlink" title="연속확률변수 에서 다변수 확률변수"></a>연속확률변수 에서 다변수 확률변수</h2><ul>
-<li>결합누적확률분포함수<ul>
-<li>결합확률밀도함수</li>
-<li>결함확률밀도함수</li>
-<li>조건부확률밀도함수</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1519,20 +1403,20 @@ height_mean_by_gender</code></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
