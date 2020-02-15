@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="SQLAlchemypython 에서 사용하는 ORM ORM : Object Relational Mapping 데이터 베이스를 객체화 시켜서 데이터 베이스에 있는 데이터를 CRUD(create,read,update,delete)할수 있다.쿼리 대신 함수 형태로 CRUD를 할수 있다.사용하는 데이터 베이스를 변경하는 경우 엔진을 바꾸면 됨.  123from s">
+  <meta name="description" content="SQL in python 데이터 베이스 연결  1234567import MySQLdbdb &#x3D; MySQLdb.connect(    &quot;12.345.678.910&quot;, # database server public ip    &quot;root&quot;,          # user    &quot;test&quot;,           # password    &quot;world&quot;,         # d">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL과 파이썬">
+<meta property="og:title" content="MySQL과 파이썬, SQLAlchemy">
 <meta property="og:url" content="http://yoursite.com/2020/02/15/Database-2020-02-15-mysql-with-python/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="SQLAlchemypython 에서 사용하는 ORM ORM : Object Relational Mapping 데이터 베이스를 객체화 시켜서 데이터 베이스에 있는 데이터를 CRUD(create,read,update,delete)할수 있다.쿼리 대신 함수 형태로 CRUD를 할수 있다.사용하는 데이터 베이스를 변경하는 경우 엔진을 바꾸면 됨.  123from s">
+<meta property="og:description" content="SQL in python 데이터 베이스 연결  1234567import MySQLdbdb &#x3D; MySQLdb.connect(    &quot;12.345.678.910&quot;, # database server public ip    &quot;root&quot;,          # user    &quot;test&quot;,           # password    &quot;world&quot;,         # d">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-15T07:45:19.000Z">
-<meta property="article:modified_time" content="2020-02-15T08:01:06.868Z">
+<meta property="article:modified_time" content="2020-02-15T08:05:08.379Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="mySQL">
 <meta property="article:tag" content="database">
@@ -73,7 +73,7 @@
   };
 </script>
 
-  <title>MySQL과 파이썬 | Howard's nest</title>
+  <title>MySQL과 파이썬, SQLAlchemy | Howard's nest</title>
   
 
 
@@ -195,7 +195,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          MySQL과 파이썬
+          MySQL과 파이썬, SQLAlchemy
         </h1>
 
         <div class="post-meta">
@@ -206,7 +206,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-02-15 16:45:19 / Modified: 17:01:06" itemprop="dateCreated datePublished" datetime="2020-02-15T16:45:19+09:00">2020-02-15</time>
+              <time title="Created: 2020-02-15 16:45:19 / Modified: 17:05:08" itemprop="dateCreated datePublished" datetime="2020-02-15T16:45:19+09:00">2020-02-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,7 +231,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="SQLAlchemy"><a href="#SQLAlchemy" class="headerlink" title="SQLAlchemy"></a>SQLAlchemy</h2><p>python 에서 사용하는 ORM</p>
+        <h2 id="SQL-in-python"><a href="#SQL-in-python" class="headerlink" title="SQL in python"></a>SQL in python</h2><blockquote>
+<p>데이터 베이스 연결</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> MySQLdb</span><br><span class="line">db = MySQLdb.connect(</span><br><span class="line">    <span class="string">"12.345.678.910"</span>, <span class="comment"># database server public ip</span></span><br><span class="line">    <span class="string">"root"</span>,          <span class="comment"># user</span></span><br><span class="line">    <span class="string">"test"</span>,           <span class="comment"># password</span></span><br><span class="line">    <span class="string">"world"</span>,         <span class="comment"># database name</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>쿼리 작성</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QUERY = <span class="string">"""</span></span><br><span class="line"><span class="string">    SHOW TABLES;</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>쿼리 실행</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curs = db.cursor()</span><br><span class="line">curs.execute(QUERY)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>데이터 베이스의 테이블들의 이름을 출력</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rows = curs.fetchall()</span><br></pre></td></tr></table></figure>
+
+<h2 id="판다스-데이터프레임으로-가져오기"><a href="#판다스-데이터프레임으로-가져오기" class="headerlink" title="판다스 데이터프레임으로 가져오기"></a>판다스 데이터프레임으로 가져오기</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">QUERY = <span class="string">"""</span></span><br><span class="line"><span class="string">    SELECT *</span></span><br><span class="line"><span class="string">    FROM city_population_languages</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">df = pd.read_sql(QUERY,db)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="SQLAlchemy"><a href="#SQLAlchemy" class="headerlink" title="SQLAlchemy"></a>SQLAlchemy</h2><p>python 에서 사용하는 ORM</p>
 <h4 id="ORM-Object-Relational-Mapping"><a href="#ORM-Object-Relational-Mapping" class="headerlink" title="ORM : Object Relational Mapping"></a>ORM : Object Relational Mapping</h4><blockquote>
 <p>데이터 베이스를 객체화 시켜서 데이터 베이스에 있는 데이터를 CRUD(create,read,update,delete)할수 있다.<br>쿼리 대신 함수 형태로 CRUD를 할수 있다.<br>사용하는 데이터 베이스를 변경하는 경우 엔진을 바꾸면 됨.</p>
 </blockquote>
@@ -299,7 +320,10 @@
     <a href="/2020/02/14/Database-2020-02-14-mongdb/" rel="prev" title="MongDB">
       <i class="fa fa-chevron-left"></i> MongDB
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/15/Database-2020-02-15-sqlalchemy/" rel="next" title="sqlalchemy">
+      sqlalchemy <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -359,7 +383,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQLAlchemy"><span class="nav-number">1.</span> <span class="nav-text">SQLAlchemy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ORM-Object-Relational-Mapping"><span class="nav-number">1.0.1.</span> <span class="nav-text">ORM : Object Relational Mapping</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#데이터-베이스-연결-유저이름-비밀번호"><span class="nav-number">1.1.</span> <span class="nav-text">데이터 베이스 연결 :&#x2F;&#x2F;유저이름.비밀번호</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#테이블-객체-생성을-위한-클래스-작성"><span class="nav-number">1.2.</span> <span class="nav-text">테이블 객체 생성을 위한 클래스 작성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#데이터-베이스와-객체를-연결"><span class="nav-number">1.3.</span> <span class="nav-text">데이터 베이스와 객체를 연결</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Insert"><span class="nav-number">1.4.</span> <span class="nav-text">1. Insert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Select"><span class="nav-number">1.5.</span> <span class="nav-text">2. Select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Updata"><span class="nav-number">1.6.</span> <span class="nav-text">3. Updata</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Delete"><span class="nav-number">1.7.</span> <span class="nav-text">4. Delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-With-Pandas"><span class="nav-number">1.8.</span> <span class="nav-text">5. With Pandas</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-판다스로-데이터-불러오기"><span class="nav-number">1.9.</span> <span class="nav-text">6.판다스로 데이터 불러오기</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-in-python"><span class="nav-number">1.</span> <span class="nav-text">SQL in python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#판다스-데이터프레임으로-가져오기"><span class="nav-number">2.</span> <span class="nav-text">판다스 데이터프레임으로 가져오기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQLAlchemy"><span class="nav-number">3.</span> <span class="nav-text">SQLAlchemy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ORM-Object-Relational-Mapping"><span class="nav-number">3.0.1.</span> <span class="nav-text">ORM : Object Relational Mapping</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#데이터-베이스-연결-유저이름-비밀번호"><span class="nav-number">3.1.</span> <span class="nav-text">데이터 베이스 연결 :&#x2F;&#x2F;유저이름.비밀번호</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#테이블-객체-생성을-위한-클래스-작성"><span class="nav-number">3.2.</span> <span class="nav-text">테이블 객체 생성을 위한 클래스 작성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#데이터-베이스와-객체를-연결"><span class="nav-number">3.3.</span> <span class="nav-text">데이터 베이스와 객체를 연결</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Insert"><span class="nav-number">3.4.</span> <span class="nav-text">1. Insert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Select"><span class="nav-number">3.5.</span> <span class="nav-text">2. Select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Updata"><span class="nav-number">3.6.</span> <span class="nav-text">3. Updata</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Delete"><span class="nav-number">3.7.</span> <span class="nav-text">4. Delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-With-Pandas"><span class="nav-number">3.8.</span> <span class="nav-text">5. With Pandas</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-판다스로-데이터-불러오기"><span class="nav-number">3.9.</span> <span class="nav-text">6.판다스로 데이터 불러오기</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -375,7 +399,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
