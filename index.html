@@ -333,10 +333,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-14 20:31:09 / Modified: 20:39:34" itemprop="dateCreated datePublished" datetime="2020-02-14T20:31:09+09:00">2020-02-14</time>
+              <time title="Created: 2020-02-14 20:31:09" itemprop="dateCreated datePublished" datetime="2020-02-14T20:31:09+09:00">2020-02-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-17 14:25:45" itemprop="dateModified" datetime="2020-02-17T14:25:45+09:00">2020-02-17</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -363,17 +369,25 @@
           <h2 id="MongDB"><a href="#MongDB" class="headerlink" title="MongDB"></a>MongDB</h2><table>
 <thead>
 <tr>
-<th><strong>SQL</strong></th>
-<th><strong>MongoDB</strong></th>
+<th><strong>RDBMS</strong></th>
+<th><strong>NoSQL(Not Only SQL)</strong></th>
 </tr>
 </thead>
 <tbody><tr>
+<td>Database</td>
+<td>Database</td>
+</tr>
+<tr>
 <td>Table</td>
 <td>collection</td>
 </tr>
 <tr>
-<td>row,record</td>
+<td>Row,Record</td>
 <td>document</td>
+</tr>
+<tr>
+<td>Column</td>
+<td>Key/Filed</td>
 </tr>
 </tbody></table>
 <h3 id="컬렉션-생성"><a href="#컬렉션-생성" class="headerlink" title="컬렉션 생성"></a>컬렉션 생성</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">use dss</span><br><span class="line">db.createCollection(<span class="string">"user"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">db.createCollection(<span class="string">"user2"</span>,</span><br><span class="line">    &#123;<span class="attr">autoIndexId</span>:<span class="literal">true</span>, <span class="attr">capped</span>:<span class="literal">true</span>, <span class="attr">size</span>:<span class="number">50</span>, <span class="attr">max</span>:<span class="number">5</span>&#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">-- 지우기</span><br><span class="line">db.user.drop()</span><br></pre></td></tr></table></figure>
@@ -484,7 +498,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-02-14 19:59:14 / Modified: 20:39:01" itemprop="dateCreated datePublished" datetime="2020-02-14T19:59:14+09:00">2020-02-14</time>
+              <time title="Created: 2020-02-14 19:59:14 / Modified: 21:04:31" itemprop="dateCreated datePublished" datetime="2020-02-14T19:59:14+09:00">2020-02-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
