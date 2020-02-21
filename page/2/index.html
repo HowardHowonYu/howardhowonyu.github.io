@@ -175,6 +175,183 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/TIL-Database-2020-02-14-mySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/14/TIL-Database-2020-02-14-mySQL/" class="post-title-link" itemprop="url">mySQL quiz</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-14 19:59:14 / Modified: 21:04:31" itemprop="dateCreated datePublished" datetime="2020-02-14T19:59:14+09:00">2020-02-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="QUIZ"><a href="#QUIZ" class="headerlink" title="QUIZ"></a>QUIZ</h2><p>사용하는 언어가 3가지 이하인 국가중 도시인구가 300만 이상인 도시를 아래와 같이 조회하세요.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> country.code, city_population_languages.city_name, city_population_languages.population, country.name, city_population_languages.language_count, city_population_languages.languages</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">join</span></span><br><span class="line">	city_population_languages</span><br><span class="line"><span class="keyword">on</span> country.code = city_population_languages.countrycode</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> city_population_languages.population <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>VIEW를 이용한 분할관리</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> city_population_languages <span class="keyword">as</span></span><br><span class="line"><span class="keyword">select</span> city_population.name <span class="keyword">as</span> city_name, countrylanguage.countrycode,</span><br><span class="line">	<span class="keyword">count</span>(countrylanguage.language) <span class="keyword">as</span> language_count, </span><br><span class="line">	<span class="keyword">group_concat</span>(countrylanguage.language) <span class="keyword">as</span> languages, 	city_population.population</span><br><span class="line">	<span class="keyword">from</span> countrylanguage</span><br><span class="line">	<span class="keyword">join</span></span><br><span class="line">		(<span class="keyword">select</span> <span class="keyword">name</span>, population, countrycode</span><br><span class="line">		<span class="keyword">from</span> city</span><br><span class="line">		<span class="keyword">where</span> population &gt;= <span class="number">3000000</span>) <span class="keyword">as</span> city_population</span><br><span class="line">	<span class="keyword">on</span> countrylanguage.countrycode = city_population.countrycode</span><br><span class="line">	<span class="keyword">group</span> <span class="keyword">by</span> countrylanguage.CountryCode, city_population.population, city_population.name </span><br><span class="line">	<span class="keyword">having</span> language_count &lt;= <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>group by 할때 ,로 여러개 동시에 group by 할수 있음<br>group by countrylanguage.CountryCode, city_population.population, city_population.name 처럼 여러개로 했었으면 더 빨리 풀수 있었음</p>
+</blockquote>
+<h2 id="QUIZ-1"><a href="#QUIZ-1" class="headerlink" title="QUIZ"></a>QUIZ</h2><p> ,로 구분해서 좌측부터 겹치는 부분만 걸러가면서 오른쪽으로 진행<br> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> category.name, <span class="keyword">sum</span>(payment.amount) <span class="keyword">as</span> total_amount</span><br><span class="line"><span class="keyword">from</span> payment, rental, inventory, film_category, <span class="keyword">category</span></span><br><span class="line"><span class="keyword">where</span> payment.rental_id = rental.rental_id</span><br><span class="line">	<span class="keyword">and</span> rental.inventory_id = inventory.inventory_id</span><br><span class="line">		<span class="keyword">and</span> inventory.film_id = film_category.film_id</span><br><span class="line">			<span class="keyword">and</span> film_category.category_id = category.category_id</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> category.name</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> total_amount <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/TIL-Database-2020-02-13-mysql-study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/13/TIL-Database-2020-02-13-mysql-study/" class="post-title-link" itemprop="url">mySQL 공부 퀴즈 정리</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-13 19:28:13" itemprop="dateCreated datePublished" datetime="2020-02-13T19:28:13+09:00">2020-02-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-14 20:39:37" itemprop="dateModified" datetime="2020-02-14T20:39:37+09:00">2020-02-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="멕시코보다-인구가-많은-나라이름과-인구수를-조회후-인구수-순으로-내림차순-정리"><a href="#멕시코보다-인구가-많은-나라이름과-인구수를-조회후-인구수-순으로-내림차순-정리" class="headerlink" title="멕시코보다 인구가 많은 나라이름과 인구수를 조회후, 인구수 순으로 내림차순 정리"></a>멕시코보다 인구가 많은 나라이름과 인구수를 조회후, 인구수 순으로 내림차순 정리</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> world;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> ,population</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> population <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">0</span>,<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="국가별-몇개의-도시가-있는지-조회하고-도시수-순으로-10위까지-내림차순-정렬"><a href="#국가별-몇개의-도시가-있는지-조회하고-도시수-순으로-10위까지-내림차순-정렬" class="headerlink" title="국가별 몇개의 도시가 있는지 조회하고 도시수 순으로 10위까지 내림차순 정렬"></a>국가별 몇개의 도시가 있는지 조회하고 도시수 순으로 10위까지 내림차순 정렬</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> country.name, <span class="keyword">count</span>(city.countrycode) <span class="keyword">as</span> <span class="keyword">count</span></span><br><span class="line"><span class="keyword">from</span> city</span><br><span class="line"><span class="keyword">join</span> country</span><br><span class="line"><span class="keyword">on</span> city.countrycode = country.code</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> country.name</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">count</span> <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">0</span>,<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="언어별-사용인구를-출력하고-사용인구-순으로-10위까지-내림차순"><a href="#언어별-사용인구를-출력하고-사용인구-순으로-10위까지-내림차순" class="headerlink" title="언어별 사용인구를 출력하고 사용인구 순으로 10위까지 내림차순"></a>언어별 사용인구를 출력하고 사용인구 순으로 10위까지 내림차순</h4><p><strong>언어별 퍼센트가 있어서 계산후 합산 했었어야 함</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> countrylanguage.Language,  <span class="keyword">round</span>(<span class="keyword">sum</span>(country.population * countrylanguage.Percentage)) <span class="keyword">as</span> <span class="keyword">count</span></span><br><span class="line"><span class="keyword">from</span> countrylanguage</span><br><span class="line"><span class="keyword">join</span> country</span><br><span class="line"><span class="keyword">on</span> country.Code = countrylanguage.CountryCode</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> countrylanguage.Language</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">count</span> <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">0</span>,<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="나라-전체-인구의-10-이상인-도시에서-도시인구가-500만이-넘는-도시를-아래와-같이-조사"><a href="#나라-전체-인구의-10-이상인-도시에서-도시인구가-500만이-넘는-도시를-아래와-같이-조사" class="headerlink" title="나라 전체 인구의 10% 이상인 도시에서 도시인구가 500만이 넘는 도시를 아래와 같이 조사"></a>나라 전체 인구의 10% 이상인 도시에서 도시인구가 500만이 넘는 도시를 아래와 같이 조사</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> city.name, city.countrycode, country.name, <span class="keyword">round</span>((city.population / country.population * <span class="number">100</span>),<span class="number">2</span>) <span class="keyword">as</span> percentage</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">join</span> (</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">name</span>,countrycode, population</span><br><span class="line">	<span class="keyword">from</span> city</span><br><span class="line">	<span class="keyword">where</span> population &gt;= <span class="number">5000000</span>) <span class="keyword">as</span> city</span><br><span class="line"><span class="keyword">on</span> city.countrycode = country.code</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> percentage <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">0</span>,<span class="number">6</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="면적이-10000km-2이상인-국가의-인구밀도-1km-2당-인구수-를-구하고-인구밀도가-200이상인-국가들이-사용하고-있는-언어수가-5가지-이상인-라라를-조회하세요"><a href="#면적이-10000km-2이상인-국가의-인구밀도-1km-2당-인구수-를-구하고-인구밀도가-200이상인-국가들이-사용하고-있는-언어수가-5가지-이상인-라라를-조회하세요" class="headerlink" title="면적이 10000km^2이상인 국가의 인구밀도(1km^2당 인구수)를 구하고 인구밀도가 200이상인 국가들이 사용하고 있는 언어수가 5가지 이상인 라라를 조회하세요."></a>면적이 10000km^2이상인 국가의 인구밀도(1km^2당 인구수)를 구하고 인구밀도가 200이상인 국가들이 사용하고 있는 언어수가 5가지 이상인 라라를 조회하세요.</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>, <span class="keyword">count</span>(<span class="keyword">language</span>) <span class="keyword">as</span> language_count</span><br><span class="line"><span class="keyword">from</span> countrylanguage</span><br><span class="line"><span class="keyword">join</span> (</span><br><span class="line"></span><br><span class="line">	<span class="keyword">select</span> country.code, country.name, <span class="keyword">round</span>((country.population /surfacearea.SurfaceArea)) <span class="keyword">as</span> density</span><br><span class="line">	<span class="keyword">from</span> country</span><br><span class="line">		<span class="keyword">join</span> (</span><br><span class="line">			<span class="keyword">select</span> code, <span class="keyword">name</span>, surfacearea</span><br><span class="line">			<span class="keyword">from</span> country</span><br><span class="line">			<span class="keyword">where</span> surfacearea &gt; <span class="number">10000</span>) <span class="keyword">as</span> surfacearea</span><br><span class="line">			</span><br><span class="line">	<span class="keyword">on</span> country.code = surfacearea.code</span><br><span class="line">	<span class="keyword">having</span> density &gt;= <span class="number">200</span></span><br><span class="line">	<span class="keyword">order</span> <span class="keyword">by</span> density <span class="keyword">DESC</span>) <span class="keyword">as</span> <span class="keyword">test</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">on</span> test.code = countrylanguage.countrycode</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">having</span> language_count &gt;= <span class="number">5</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> language_count <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="가장-돈을-많이-지불한-상위-5명의-고객의-이름과-지불-금액-출력"><a href="#가장-돈을-많이-지불한-상위-5명의-고객의-이름과-지불-금액-출력" class="headerlink" title="가장 돈을 많이 지불한 상위 5명의 고객의 이름과 지불 금액 출력"></a>가장 돈을 많이 지불한 상위 5명의 고객의 이름과 지불 금액 출력</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> customer.customer_id,<span class="keyword">concat</span>(customer.first_name,<span class="string">' '</span>,customer.last_name) <span class="keyword">as</span> full_name,<span class="keyword">sum</span>(payment.amount) <span class="keyword">as</span> amount</span><br><span class="line"><span class="keyword">from</span> customer</span><br><span class="line"><span class="keyword">join</span> payment</span><br><span class="line"><span class="keyword">on</span> payment.customer_id = customer.customer_id</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> customer.customer_id</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> amount <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">0</span>,<span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="배우별-영화-출연-횟수-출력-상위-10개"><a href="#배우별-영화-출연-횟수-출력-상위-10개" class="headerlink" title="배우별 영화 출연 횟수 출력 (상위 10개)"></a>배우별 영화 출연 횟수 출력 (상위 10개)</h4><blockquote>
+<ul>
+<li>컬럼: 배우이름, 출연횟수</li>
+<li>출연횟수 순으로 내림차순</li>
+</ul>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> actor.actor_id, <span class="keyword">concat</span>(actor.first_name, <span class="string">' '</span>, actor.last_name) <span class="keyword">as</span> full_name, <span class="keyword">count</span>(<span class="keyword">concat</span>(actor.first_name, <span class="string">' '</span>, actor.last_name)) <span class="keyword">as</span> <span class="keyword">count</span></span><br><span class="line"><span class="keyword">from</span> actor</span><br><span class="line"><span class="keyword">join</span> film_actor</span><br><span class="line"><span class="keyword">on</span> actor.actor_id = film_actor.actor_id</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> actor.actor_id</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">count</span> <span class="keyword">DESC</span>, full_name</span><br><span class="line"><span class="keyword">limit</span> <span class="number">0</span>,<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="영화-카테고리별-수입-데이터를-내림차순으로-정렬"><a href="#영화-카테고리별-수입-데이터를-내림차순으로-정렬" class="headerlink" title="영화 카테고리별 수입 데이터를 내림차순으로 정렬"></a>영화 카테고리별 수입 데이터를 내림차순으로 정렬</h4><blockquote>
+<p>payment,rental,inventory,film_category,category</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> merged_rental_id.name, <span class="keyword">sum</span>(payment.amount) <span class="keyword">as</span> total_amount</span><br><span class="line"><span class="keyword">from</span> payment</span><br><span class="line"><span class="keyword">join</span></span><br><span class="line">		(<span class="keyword">select</span> rental.rental_id, merged_inventory_id.name</span><br><span class="line">		<span class="keyword">from</span> rental</span><br><span class="line">		<span class="keyword">join</span></span><br><span class="line">				(<span class="keyword">select</span> inventory.inventory_id, inventory.film_id, merged_film_id.name</span><br><span class="line">				<span class="keyword">from</span> inventory</span><br><span class="line">				<span class="keyword">join</span> (</span><br><span class="line">						<span class="keyword">select</span> category.category_id, category.name, film_category.film_id</span><br><span class="line">						<span class="keyword">from</span> <span class="keyword">category</span></span><br><span class="line">						<span class="keyword">join</span> film_category</span><br><span class="line">						<span class="keyword">on</span> category.category_id = film_category.category_id) <span class="keyword">as</span> merged_film_id</span><br><span class="line">						<span class="comment"># as에서 지정해준 이름으로 안의 컬럼을 찾아 들어간다</span></span><br><span class="line">				<span class="keyword">on</span> inventory.film_id = merged_film_id.film_id) <span class="keyword">as</span> merged_inventory_id</span><br><span class="line">		<span class="keyword">on</span> merged_inventory_id.inventory_id = rental.inventory_id) <span class="keyword">as</span> merged_rental_id</span><br><span class="line"><span class="keyword">on</span> merged_rental_id.rental_id = payment.rental_id</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> total_amount <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">0</span>,<span class="number">11</span>;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/Database-2020-02-13-mySQL-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1184,281 +1361,6 @@ height_mean_by_gender</code></p>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/TIL-mathematics-2020-02-06-probability-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/06/TIL-mathematics-2020-02-06-probability-md/" class="post-title-link" itemprop="url">확률적 데이터와 확률변수</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-02-06 21:17:45 / Modified: 21:39:17" itemprop="dateCreated datePublished" datetime="2020-02-06T21:17:45+09:00">2020-02-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/" itemprop="url" rel="index">
-                    <span itemprop="name">TIL..</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="결정론적-데이터"><a href="#결정론적-데이터" class="headerlink" title="결정론적 데이터"></a>결정론적 데이터</h2><ul>
-<li>이미 결정되어 바뀌지 않는 데이터(성별 등)<h2 id="확률적-데이터"><a href="#확률적-데이터" class="headerlink" title="확률적 데이터"></a>확률적 데이터</h2></li>
-<li>여러 조건, 상황에 따라 데이터값이 영향을 받거나, 측정시 오차가 생길수 있는 데이터</li>
-</ul>
-<h2 id="분포-distribution"><a href="#분포-distribution" class="headerlink" title="분포(distribution)"></a>분포(distribution)</h2><ul>
-<li>어떤값이 자주 등장, 혹은 드물게 등장하는지를 나타낸 것</li>
-<li>카운트 플롯(번주형 데이터)과 히스토그램(실수형 데이터)으로 표현</li>
-</ul>
-<h2 id="기술통계-descriptive-stastics"><a href="#기술통계-descriptive-stastics" class="headerlink" title="기술통계(descriptive stastics)"></a>기술통계(descriptive stastics)</h2><ul>
-<li>표본평균, 표본중앙값, 표본최빈값</li>
-<li>표본분산, 표본표준편차</li>
-<li>표본비대칭도, 표본첨도</li>
-</ul>
-<h2 id="표본중앙값-sample-median"><a href="#표본중앙값-sample-median" class="headerlink" title="표본중앙값(sample median)"></a>표본중앙값(sample median)</h2><ul>
-<li>자료를 크기별로 정렬해서 가장 중앙에 위치하는 값</li>
-</ul>
-<h2 id="표본최빈값-sample-mode"><a href="#표본최빈값-sample-mode" class="headerlink" title="표본최빈값(sample mode)"></a>표본최빈값(sample mode)</h2><ul>
-<li>가장 빈번하게 나오는 값</li>
-</ul>
-<h2 id="단봉-분포-uni-modal-다봉분포-multi-nodal"><a href="#단봉-분포-uni-modal-다봉분포-multi-nodal" class="headerlink" title="단봉 분포(uni modal), 다봉분포(multi nodal)"></a>단봉 분포(uni modal), 다봉분포(multi nodal)</h2><h2 id="대칭-분포"><a href="#대칭-분포" class="headerlink" title="대칭 분포"></a>대칭 분포</h2><ul>
-<li>표본평균을 기준으로 대칭인 대칭분포이면, 표본중앙값 = 표본평균</li>
-<li>대칭분포이면서 하나의 최고값을 가지는 단봉분포이면, 표본최빈값 = 표본평균</li>
-<li>대칭분포를 비대칭으로 만드는 데이터가 더해지면(outlier) 표본평균 &gt; 중앙값 &gt; 최빈값 순으로 영향을 받는다.</li>
-</ul>
-<h2 id="분산-variance-과-표준편차-standard-deviation"><a href="#분산-variance-과-표준편차-standard-deviation" class="headerlink" title="분산(variance)과 표준편차(standard deviation)"></a>분산(variance)과 표준편차(standard deviation)</h2><ul>
-<li>표준편차 = 분산의 양의 제곱근</li>
-<li></li>
-<li>편향 표본분산 : 데이터와 평균 사이의 거리의 제곱의 평균</li>
-<li>비편향 표본분산 :  데이터와 평균 사이의 거리의 제곱의 평균할떄 N-1로 나눔</li>
-</ul>
-<h2 id="표본-비대칭도-sample-skewness"><a href="#표본-비대칭도-sample-skewness" class="headerlink" title="표본 비대칭도(sample skewness)"></a>표본 비대칭도(sample skewness)</h2><ul>
-<li>데이터와 평균 사이의 거리의 3제곱 이용</li>
-<li>0이면 대칭, 음수이면 표본평균값 기준 왼쪽, 양수이면 오른쪽</li>
-</ul>
-<h2 id="표본첨도-sample-kuerosis"><a href="#표본첨도-sample-kuerosis" class="headerlink" title="표본첨도(sample kuerosis)"></a>표본첨도(sample kuerosis)</h2><ul>
-<li>4제곱 이용</li>
-<li>데이터가 중앙에 몰려있는 정도를 정밀하게 비교할때 사용. 사람눈으로 구분 힘듦</li>
-</ul>
-<h2 id="표본모멘트-sample-momoent"><a href="#표본모멘트-sample-momoent" class="headerlink" title="표본모멘트(sample momoent)"></a>표본모멘트(sample momoent)</h2><ul>
-<li>k제곱을 이용함</li>
-</ul>
-<h1 id="확률변수"><a href="#확률변수" class="headerlink" title="확률변수"></a>확률변수</h1><ul>
-<li>데이터 생성기, 수학적으로 확률공간의 표본을 입력받아서 실수인 숫자로 바꾸어 출력하는 함수!</li>
-</ul>
-<h2 id="이산확률변수"><a href="#이산확률변수" class="headerlink" title="이산확률변수"></a>이산확률변수</h2><ul>
-<li>연속적이지 않고 떨어져 있도록 정의할수 있는 확률변수(주사위,동전)</li>
-</ul>
-<h2 id="연속확률변수"><a href="#연속확률변수" class="headerlink" title="연속확률변수"></a>연속확률변수</h2><ul>
-<li>연속적이고 무한대의 실수 표본값을 가지는 확률변수(원판의 각도)</li>
-</ul>
-<h2 id="확률변수를-이용한-데이터-분석"><a href="#확률변수를-이용한-데이터-분석" class="headerlink" title="확률변수를 이용한 데이터 분석"></a>확률변수를 이용한 데이터 분석</h2><ol>
-<li>데이터 수집 및 전처리</li>
-<li>수집한 데이터를 임의의 확률변수의 표본 데이터라 가정</li>
-<li>확률변수의 확률분포함수 모양 결정 = “역설계, 추정”</li>
-<li>결정된 확률변수로 다음에 생성될 데이터의 특성 예측</li>
-</ol>
-<h2 id="확률변수의-기대값"><a href="#확률변수의-기대값" class="headerlink" title="확률변수의 기대값"></a>확률변수의 기대값</h2><ul>
-<li>E[X] 는 범함수:함수를 받아 함수를 뱉어내는 함수</li>
-<li>이산확률변수의 기대값은 표본공간의 원소 x_i의 가중평균</li>
-<li>연속확률변수의 기대값은 p(x)를 가중치로 하여 모든 가능한 표본x를 적분한값</li>
-</ul>
-<h2 id="확률변수의-변환"><a href="#확률변수의-변환" class="headerlink" title="확률변수의 변환"></a>확률변수의 변환</h2><ul>
-<li>기존의 확률변수를 사용하여 새로운 확률변수를 만드는것</li>
-</ul>
-<h2 id="기대값의-성질"><a href="#기대값의-성질" class="headerlink" title="기대값의 성질"></a>기대값의 성질</h2><ul>
-<li>E[c] = c</li>
-<li>E[cX] = cE[X]</li>
-<li>E[X+Y] = E[X] + E[Y]</li>
-<li>E[cX+xY] = cE[X] + xE[Y]</li>
-</ul>
-<h2 id="통계량"><a href="#통계량" class="headerlink" title="통계량"></a>통계량</h2><ul>
-<li>데이터집합의 모든 값을 정해진 어떤 공식에 넣어서 하나의 숫자를 구한 것</li>
-</ul>
-<h2 id="기대값과-표본평균의-관계"><a href="#기대값과-표본평균의-관계" class="headerlink" title="기대값과 표본평균의 관계"></a>기대값과 표본평균의 관계</h2><ul>
-<li>E[Xbar] = E[X] : 평균의 중앙위치는 원래 데이터의 중앙위치와 같다</li>
-</ul>
-<h2 id="중앙값"><a href="#중앙값" class="headerlink" title="중앙값"></a>중앙값</h2><ul>
-<li>확률변수의 중앙값은 중앙값보다 큰 값이 나올 확률과 작은 값이 나올 확률이 0.5로 같은 값</li>
-</ul>
-<h2 id="최빈값"><a href="#최빈값" class="headerlink" title="최빈값"></a>최빈값</h2><ul>
-<li>이산확률분포에서 : 가장 확률값이 큰수</li>
-<li>연속확률분포에서 : 확률밀도함수 p(x)의 값이 가장 큰 확률변수</li>
-</ul>
-<h2 id="확률분포의-분산-variation"><a href="#확률분포의-분산-variation" class="headerlink" title="확률분포의 분산(variation)"></a>확률분포의 분산(variation)</h2><ul>
-<li>Var[X]</li>
-</ul>
-<h2 id="분산의-성질"><a href="#분산의-성질" class="headerlink" title="분산의 성질"></a>분산의 성질</h2><ul>
-<li>Var[X] &gt;= 0</li>
-<li>Var[C] = 0</li>
-<li>Var[cX] = c**2Var[X]</li>
-<li>Var[X] = E[X<strong>2] - m</strong>2</li>
-<li>Var[X+Y] = Var[X] + Var[Y] + 2E[(X-m)(Y-m)]</li>
-</ul>
-<h2 id="확률변수의-독립"><a href="#확률변수의-독립" class="headerlink" title="확률변수의 독립"></a>확률변수의 독립</h2><ul>
-<li>두 확률변수가 서로에게 영향을 미치지 않는다</li>
-<li>E[(X-m)(Y-m)] = 0</li>
-<li>Var[X+Y] = Var[X] + Var[Y]</li>
-</ul>
-<h2 id="표본분산의-기대값"><a href="#표본분산의-기대값" class="headerlink" title="표본분산의 기대값"></a>표본분산의 기대값</h2><ul>
-<li><h2 id="비대칭도와-첨도"><a href="#비대칭도와-첨도" class="headerlink" title="비대칭도와 첨도"></a>비대칭도와 첨도</h2></li>
-<li><p>비대칭도는 3차 모멘트 , 첨도는 4차 모멘트</p>
-</li>
-</ul>
-<h2 id="모멘트"><a href="#모멘트" class="headerlink" title="모멘트"></a>모멘트</h2><ul>
-<li>기대값, 분산은 확률분포의 모멘트</li>
-<li>E[Y] = E[X]가 같고 여러 제곱들이 계속 같으면</li>
-<li>X와 Y는 같은 확률분포</li>
-</ul>
-<h1 id="다변수-확률변수"><a href="#다변수-확률변수" class="headerlink" title="다변수 확률변수"></a>다변수 확률변수</h1><h2 id="이산확률변수-에서-다변수-확률변수"><a href="#이산확률변수-에서-다변수-확률변수" class="headerlink" title="이산확률변수 에서 다변수 확률변수"></a>이산확률변수 에서 다변수 확률변수</h2><ul>
-<li>결합확률질량함수</li>
-<li>주변확률질량함수</li>
-<li>조건부확률질량함수</li>
-</ul>
-<h2 id="연속확률변수-에서-다변수-확률변수"><a href="#연속확률변수-에서-다변수-확률변수" class="headerlink" title="연속확률변수 에서 다변수 확률변수"></a>연속확률변수 에서 다변수 확률변수</h2><ul>
-<li>결합누적확률분포함수<ul>
-<li>결합확률밀도함수</li>
-<li>결함확률밀도함수</li>
-<li>조건부확률밀도함수</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/Coding-2020-02-06-set-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/06/Coding-2020-02-06-set-md/" class="post-title-link" itemprop="url">체육복을 빌리자</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-02-06 18:55:54 / Modified: 19:03:14" itemprop="dateCreated datePublished" datetime="2020-02-06T18:55:54+09:00">2020-02-06</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="체육복-문제"><a href="#체육복-문제" class="headerlink" title="체육복 문제"></a>체육복 문제</h2><ul>
-<li>출처 : <a href="https://programmers.co.kr/learn/courses/30/lessons/42862" target="_blank" rel="noopener">https://programmers.co.kr/learn/courses/30/lessons/42862</a></li>
-</ul>
-<p>점심시간에 도둑이 들어, 일부 학생이 체육복을 도난당했습니다. 다행히 여벌 체육복이 있는 학생이 이들에게 체육복을 빌려주려 합니다. 학생들의 번호는 체격 순으로 매겨져 있어, 바로 앞번호의 학생이나 바로 뒷번호의 학생에게만 체육복을 빌려줄 수 있습니다. 예를 들어, 4번 학생은 3번 학생이나 5번 학생에게만 체육복을 빌려줄 수 있습니다. 체육복이 없으면 수업을 들을 수 없기 때문에 체육복을 적절히 빌려 최대한 많은 학생이 체육수업을 들어야 합니다.</p>
-<p>전체 학생의 수 n, 체육복을 도난당한 학생들의 번호가 담긴 배열 lost, 여벌의 체육복을 가져온 학생들의 번호가 담긴 배열 reserve가 매개변수로 주어질 때, 체육수업을 들을 수 있는 학생의 최댓값을 return 하도록 solution 함수를 작성해주세요.</p>
-<blockquote>
-<p>제한사항</p>
-<ul>
-<li>전체 학생의 수는 2명 이상 30명 이하입니다.</li>
-<li>체육복을 도난당한 학생의 수는 1명 이상 n명 이하이고 중복되는 번호는 없습니다.</li>
-<li>여벌의 체육복을 가져온 학생의 수는 1명 이상 n명 이하이고 중복되는 번호는 없습니다.</li>
-<li>여벌 체육복이 있는 학생만 다른 학생에게 체육복을 빌려줄 수 있습니다.</li>
-<li>여벌 체육복을 가져온 학생이 체육복을 도난당했을 수 있습니다. 이때 이 학생은 체육복을 하나만 도난당했다고 가정하며, 남은 체육복이 하나이기에 다른 학생에게는 체육복을 빌려줄 수 없습니다. </li>
-</ul>
-</blockquote>
-<p>입출력 예</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n	lost	reserve	    return</span><br><span class="line">5	[2, 4]	[1, 3, 5]	5</span><br><span class="line">5	[2, 4]	[3]	        4</span><br><span class="line">3	[3]     [1]	        2</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="생각해야-할-부분"><a href="#생각해야-할-부분" class="headerlink" title="생각해야 할 부분"></a>생각해야 할 부분</h2><ul>
-<li>lost와 reserve를 비교하여 중복제거(reseve 학생중에 도난맞은 학생이 있을수도 있음)</li>
-<li>필터링한 lost와 reserve를 대조</li>
-<li>n에서 대조후 최종 lost의 길이 만큼 빼주면 됨</li>
-</ul>
-<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><ul>
-<li>set으로 바꿔주면 중복도 제거(조건)될뿐 아니라 연산이 가능하기 때문에, lost와 reserve에 중복된 학생들을 거를수 있었음.</li>
-</ul>
-<h2 id="최종"><a href="#최종" class="headerlink" title="최종"></a>최종</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(n, lost, reserve)</span>:</span></span><br><span class="line">    <span class="comment">#조건</span></span><br><span class="line">    <span class="keyword">if</span> (n &gt; <span class="number">30</span> <span class="keyword">or</span> <span class="number">2</span> &gt; n) <span class="keyword">or</span> (len(reserve) &lt; <span class="number">0</span> <span class="keyword">or</span> len(reserve) &gt;= n):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">        set_reserve = set(reserve) - set(lost)</span><br><span class="line">        set_lost = set(lost) - set(reserve)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> set_reserve:</span><br><span class="line">            <span class="keyword">if</span> k<span class="number">-1</span> <span class="keyword">in</span> set_lost:</span><br><span class="line">                set_lost.remove(k<span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">elif</span> k+<span class="number">1</span> <span class="keyword">in</span> set_lost:</span><br><span class="line">                set_lost.remove(k+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> n-len(set_lost)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1531,7 +1433,7 @@ height_mean_by_gender</code></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1544,7 +1446,7 @@ height_mean_by_gender</code></p>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
