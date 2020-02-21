@@ -175,6 +175,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/TIL-crawling-2020-02-21-crawling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/21/TIL-crawling-2020-02-21-crawling/" class="post-title-link" itemprop="url">HTML 파싱을 이용한 크롤링</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-21 18:52:59 / Modified: 19:15:54" itemprop="dateCreated datePublished" datetime="2020-02-21T18:52:59+09:00">2020-02-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="HTML-데이터-파싱을-이용한-크롤링"><a href="#HTML-데이터-파싱을-이용한-크롤링" class="headerlink" title="HTML 데이터 파싱을 이용한 크롤링"></a>HTML 데이터 파싱을 이용한 크롤링</h2><ul>
+<li><ol>
+<li>웹페이지 분석 : URL 찾기</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>요청 -&gt; 응답 : HTML(str) 가져오기</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>HTML(str) -&gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&gt; 데이터프레임으로 변환</li>
+</ol>
+</li>
+</ul>
+<h2 id="HTML-str-gt-BeautifulSoup-obj-css-selecter-gt-DF"><a href="#HTML-str-gt-BeautifulSoup-obj-css-selecter-gt-DF" class="headerlink" title="HTML(str) -&gt; BeautifulSoup obj(css-selecter) -&gt; DF"></a>HTML(str) -&gt; BeautifulSoup obj(css-selecter) -&gt; DF</h2><ul>
+<li>BeautifulSoup라는 클래스의 매서드 활용 response안에 있는 애들을 BeautifulSoup으로 HTML로 파싱</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># requests.get 매서드로 요철</span></span><br><span class="line">response = requests.get(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># response.content로 내용 선택, html.parser로 HTML로 파싱</span></span><br><span class="line">dom = BeautifulSoup(response.content, <span class="string">"html.parser"</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="bs4-BeautifulSoupr"><a href="#bs4-BeautifulSoupr" class="headerlink" title="bs4.BeautifulSoupr"></a>bs4.BeautifulSoupr</h4><p>select 매서드 : 여러개의 element 객체를 리스트로 가져옴<br>select_one 매서드 : 하나의 element 객체를 가져옴</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 크롬 개발자 도구에서 copy selector했을때 id가 나올때 까지 찾아 복사함</span></span><br><span class="line"><span class="comment"># 리스트안의 딕셔너리 형태로 만들어줌&#123;"컬럼명":내용&#125;</span></span><br><span class="line">datas = []</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> elements:</span><br><span class="line">    datas.append(&#123;</span><br><span class="line">        <span class="string">"title"</span>: element.select_one(<span class="string">'.tit_g'</span>).text.strip().replace(<span class="string">"\n"</span>,<span class="string">""</span>), <span class="comment">#tit_g이름의 클래스 안에 텍스트를 잡음</span></span><br><span class="line">        <span class="string">"link"</span> : element.select_one(<span class="string">'a'</span>).get(<span class="string">"href"</span>), <span class="comment">#href속성의 값을 가져옴</span></span><br><span class="line">    &#125;)</span><br><span class="line">article_df = pd.DataFrame(datas)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/TIL-mathematics-2020-02-20-regression-analysis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -388,10 +468,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-20 14:16:02 / Modified: 14:32:31" itemprop="dateCreated datePublished" datetime="2020-02-20T14:16:02+09:00">2020-02-20</time>
+              <time title="Created: 2020-02-20 14:16:02" itemprop="dateCreated datePublished" datetime="2020-02-20T14:16:02+09:00">2020-02-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-21 18:55:14" itemprop="dateModified" datetime="2020-02-21T18:55:14+09:00">2020-02-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -428,6 +514,9 @@
 <li>request, response 하기 : json을 얻음</li>
 <li>문자열 json 데이터를 dict로 파싱후 데이터 프레임으로 생성</li>
 </ol>
+<h2 id="requests-get-url-headers-params"><a href="#requests-get-url-headers-params" class="headerlink" title="requests.get(url,headers=params)"></a>requests.get(url,headers=params)</h2><ul>
+<li>params라는 변수에 딕셔너리 형해로, user agent, cookie등을 임의로 설정을 해주는 방식으로 해결</li>
+</ul>
 <h2 id="정규화-Normalization"><a href="#정규화-Normalization" class="headerlink" title="정규화 : Normalization"></a>정규화 : Normalization</h2><ul>
 <li><code>z = (x - min(x)) / (max(x) - min(x))</code></li>
 <li>같은 기준을 놓고 비교하기 위한 절차</li>
@@ -1159,123 +1248,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/Database-2020-02-13-mySQL-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/13/Database-2020-02-13-mySQL-md/" class="post-title-link" itemprop="url">mySQL 2</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-13 19:11:25" itemprop="dateCreated datePublished" datetime="2020-02-13T19:11:25+09:00">2020-02-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-14 20:39:34" itemprop="dateModified" datetime="2020-02-14T20:39:34+09:00">2020-02-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">mySQL</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h1><h3 id="left-join"><a href="#left-join" class="headerlink" title="left join"></a>left join</h3><p>왼쪽 테이블을 기준으로 왼쪽 테이블의 모든 데이터가 출력되고 매핑되는 키값이 없으면 NULL로 출력된다.</p>
-<blockquote>
-<p>두 테이블을 합쳐 id, name, addr 출력</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> addr.id ,addr.addr, <span class="keyword">IFNULL</span>(user.name,<span class="string">"-"</span>) <span class="keyword">as</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">FROM</span> addr</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">ON</span> user.user_id = addr.user_id;</span><br></pre></td></tr></table></figure>
-
-<h3 id="right-join"><a href="#right-join" class="headerlink" title="right join"></a>right join</h3><p>오른쪽 테이블을 기준으로 왼쪽 테이블의 모든 데이터가 출력되고 매핑되는 키값이 없으면 NULL로 출력된다.</p>
-<blockquote>
-<p>두 테이블을 합쳐 id, name, addr 출력</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> addr.id, user.name, <span class="keyword">IFNULL</span>(addr.addr,<span class="string">'='</span>) <span class="keyword">as</span> addr</span><br><span class="line"><span class="keyword">FROM</span> addr</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">ON</span> user.user_id = addr.user_id;</span><br></pre></td></tr></table></figure>
-<h3 id="union-outer-join"><a href="#union-outer-join" class="headerlink" title="union(outer join)"></a>union(outer join)</h3><p>select 문의 결과를 합쳐서 출력</p>
-<blockquote>
-<p>자동으로 중복을 제거 </p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span> addr</span><br><span class="line"><span class="keyword">from</span> addr;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line"><span class="keyword">select</span> addr</span><br><span class="line"><span class="keyword">from</span> addr;</span><br></pre></td></tr></table></figure>
-<h3 id="outer-join"><a href="#outer-join" class="headerlink" title="outer join"></a>outer join</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> user.name, addr.addr, addr.user_id</span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> addr</span><br><span class="line"><span class="keyword">on</span> user.user_id = addr.user_id</span><br><span class="line"><span class="keyword">union</span> </span><br><span class="line"><span class="keyword">select</span> user.name, addr.addr, addr.user_id</span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">right</span> <span class="keyword">join</span> addr</span><br><span class="line"><span class="keyword">on</span> user.user_id = addr.user_id;</span><br></pre></td></tr></table></figure>
-<h1 id="SUB-QUERY"><a href="#SUB-QUERY" class="headerlink" title="SUB-QUERY"></a>SUB-QUERY</h1><p>쿼리문 안에 쿼리가 있는 문법</p>
-<h3 id="select-from-where"><a href="#select-from-where" class="headerlink" title="select, from, where"></a>select, from, where</h3><blockquote>
-<p>전체 나라수, 전체 도시수, 전체 언어수를 출력</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*)</span><br><span class="line"><span class="keyword">from</span> country) <span class="keyword">as</span> total_country,</span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*)</span><br><span class="line"><span class="keyword">from</span> city) <span class="keyword">as</span> total_city,</span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span>(<span class="keyword">language</span>))</span><br><span class="line"><span class="keyword">from</span> countrylanguage) <span class="keyword">as</span> total_language;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>800만 이상이 되는 도시의 국가 코드, 도시이름, 도시인구수를 출력</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	(<span class="keyword">select</span> countrycode, <span class="keyword">name</span>, population</span><br><span class="line">	<span class="keyword">from</span> city</span><br><span class="line">	<span class="keyword">where</span> population &gt;= <span class="number">8000000</span>) <span class="keyword">as</span> city</span><br><span class="line"><span class="keyword">join</span></span><br><span class="line">	(<span class="keyword">select</span> code, <span class="keyword">name</span></span><br><span class="line">	<span class="keyword">from</span> country) <span class="keyword">as</span> country</span><br><span class="line"><span class="keyword">on</span> city.countrycode = country.code;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>800만 이상 도시의 국가코드, 국가 이름, 대통령 이름 출력</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> code, <span class="keyword">name</span>, HeadOfState</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">where</span> code <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">distinct</span>(Countrycode)</span><br><span class="line">	<span class="keyword">from</span> city</span><br><span class="line">	<span class="keyword">where</span> population &gt;= <span class="number">8000000</span>);</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"><span class="comment"># INDEX</span></span><br><span class="line">데이터를 검색할때 바르게 찾을수 있도록 해주는 기능</span><br><span class="line">index를 해주면 <span class="keyword">insert</span>가 느려짐. 아무때나 쓰는건 아님</span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">`SQL</span></span><br><span class="line"><span class="string">use employees;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">explain</span></span><br><span class="line"><span class="string">select count(*)</span></span><br><span class="line"><span class="string">from salaries</span></span><br><span class="line"><span class="string">where to_date &gt; "2000-01-01";</span></span><br></pre></td></tr></table></figure>
-<h3 id="index-추가"><a href="#index-추가" class="headerlink" title="index 추가"></a>index 추가</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> tdate</span><br><span class="line"><span class="comment">-- salaries 테이블에  to_data에 인덱스를 만든다.</span></span><br><span class="line"><span class="keyword">on</span> salaries (<span class="keyword">to_date</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="index-삭제"><a href="#index-삭제" class="headerlink" title="index 삭제"></a>index 삭제</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">index</span> tdate</span><br><span class="line"><span class="keyword">on</span> salaries;</span><br></pre></td></tr></table></figure>
-
-<h1 id="VIEW"><a href="#VIEW" class="headerlink" title="VIEW"></a>VIEW</h1><p> 쿼리문에 대한 결과를 저장하는 개념</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> world;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> code_name <span class="keyword">as</span> </span><br><span class="line"><span class="keyword">select</span> code, <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> country;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>*찍어주면 code_name라는 view에서 만들어진 country.code 와 country.name을 불러줌<br>즉 *는 (select code, name from country) as code_name 임</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> city</span><br><span class="line"><span class="keyword">join</span> code_name</span><br><span class="line"><span class="keyword">on</span> city.countrycode = code_name.code;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1348,7 +1320,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

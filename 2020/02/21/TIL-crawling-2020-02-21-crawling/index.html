@@ -46,17 +46,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="HTML 데이터 파싱을 이용한 크롤링  웹페이지 분석 : URL 찾기    요청 -&gt; 응답 : HTML(str) 가져오기    HTML(str) -&gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&gt; 데이터프레임으로 변환    HTML(str) -&gt; BeautifulSoup obj(css-selecte">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML 파싱을 이용한 크롤링">
+<meta property="og:url" content="http://yoursite.com/2020/02/21/TIL-crawling-2020-02-21-crawling/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
+<meta property="og:description" content="HTML 데이터 파싱을 이용한 크롤링  웹페이지 분석 : URL 찾기    요청 -&gt; 응답 : HTML(str) 가져오기    HTML(str) -&gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&gt; 데이터프레임으로 변환    HTML(str) -&gt; BeautifulSoup obj(css-selecte">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-28T09:14:04.000Z">
-<meta property="article:modified_time" content="2020-01-30T12:40:23.190Z">
+<meta property="article:published_time" content="2020-02-21T09:52:59.000Z">
+<meta property="article:modified_time" content="2020-02-21T10:15:54.526Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/tags/">
+<link rel="canonical" href="http://yoursite.com/2020/02/21/TIL-crawling-2020-02-21-crawling/">
 
 
 <script id="page-configurations">
@@ -64,12 +66,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Tags | Howard's nest
-  </title>
+  <title>HTML 파싱을 이용한 크롤링 | Howard's nest</title>
   
 
 
@@ -169,52 +170,102 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="en">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/TIL-crawling-2020-02-21-crawling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTML 파싱을 이용한 크롤링
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">Tags
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
 
-<div class="post-meta">
+              <time title="Created: 2020-02-21 18:52:59 / Modified: 19:15:54" itemprop="dateCreated datePublished" datetime="2020-02-21T18:52:59+09:00">2020-02-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="HTML-데이터-파싱을-이용한-크롤링"><a href="#HTML-데이터-파싱을-이용한-크롤링" class="headerlink" title="HTML 데이터 파싱을 이용한 크롤링"></a>HTML 데이터 파싱을 이용한 크롤링</h2><ul>
+<li><ol>
+<li>웹페이지 분석 : URL 찾기</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>요청 -&gt; 응답 : HTML(str) 가져오기</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>HTML(str) -&gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&gt; 데이터프레임으로 변환</li>
+</ol>
+</li>
+</ul>
+<h2 id="HTML-str-gt-BeautifulSoup-obj-css-selecter-gt-DF"><a href="#HTML-str-gt-BeautifulSoup-obj-css-selecter-gt-DF" class="headerlink" title="HTML(str) -&gt; BeautifulSoup obj(css-selecter) -&gt; DF"></a>HTML(str) -&gt; BeautifulSoup obj(css-selecter) -&gt; DF</h2><ul>
+<li>BeautifulSoup라는 클래스의 매서드 활용 response안에 있는 애들을 BeautifulSoup으로 HTML로 파싱</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># requests.get 매서드로 요철</span></span><br><span class="line">response = requests.get(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># response.content로 내용 선택, html.parser로 HTML로 파싱</span></span><br><span class="line">dom = BeautifulSoup(response.content, <span class="string">"html.parser"</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="bs4-BeautifulSoupr"><a href="#bs4-BeautifulSoupr" class="headerlink" title="bs4.BeautifulSoupr"></a>bs4.BeautifulSoupr</h4><p>select 매서드 : 여러개의 element 객체를 리스트로 가져옴<br>select_one 매서드 : 하나의 element 객체를 가져옴</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 크롬 개발자 도구에서 copy selector했을때 id가 나올때 까지 찾아 복사함</span></span><br><span class="line"><span class="comment"># 리스트안의 딕셔너리 형태로 만들어줌&#123;"컬럼명":내용&#125;</span></span><br><span class="line">datas = []</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> elements:</span><br><span class="line">    datas.append(&#123;</span><br><span class="line">        <span class="string">"title"</span>: element.select_one(<span class="string">'.tit_g'</span>).text.strip().replace(<span class="string">"\n"</span>,<span class="string">""</span>), <span class="comment">#tit_g이름의 클래스 안에 텍스트를 잡음</span></span><br><span class="line">        <span class="string">"link"</span> : element.select_one(<span class="string">'a'</span>).get(<span class="string">"href"</span>), <span class="comment">#href속성의 값을 가져옴</span></span><br><span class="line">    &#125;)</span><br><span class="line">article_df = pd.DataFrame(datas)</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/20/TIL-mathematics-2020-02-20-regression-analysis/" rel="prev" title="데이터 전처리">
+      <i class="fa fa-chevron-left"></i> 데이터 전처리
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              42 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/3blue1brown/" style="font-size: 14.57px; color: #b1b1b1">3blue1brown</a> <a href="/tags/Algorithm/" style="font-size: 14.57px; color: #b1b1b1">Algorithm</a> <a href="/tags/Class/" style="font-size: 12px; color: #ccc">Class</a> <a href="/tags/Decorator/" style="font-size: 12px; color: #ccc">Decorator</a> <a href="/tags/Docstring/" style="font-size: 12px; color: #ccc">Docstring</a> <a href="/tags/GIT/" style="font-size: 12px; color: #ccc">GIT</a> <a href="/tags/Inner-function/" style="font-size: 12px; color: #ccc">Inner function</a> <a href="/tags/Linux/" style="font-size: 12px; color: #ccc">Linux</a> <a href="/tags/Math/" style="font-size: 30px; color: #111">Math</a> <a href="/tags/MongDB/" style="font-size: 12px; color: #ccc">MongDB</a> <a href="/tags/Oauth/" style="font-size: 12px; color: #ccc">Oauth</a> <a href="/tags/Optimization/" style="font-size: 14.57px; color: #b1b1b1">Optimization</a> <a href="/tags/Probability/" style="font-size: 24.86px; color: #464646">Probability</a> <a href="/tags/Python/" style="font-size: 27.43px; color: #2c2c2c">Python</a> <a href="/tags/SQLALchemy/" style="font-size: 12px; color: #ccc">SQLALchemy</a> <a href="/tags/Scope/" style="font-size: 12px; color: #ccc">Scope</a> <a href="/tags/Vim/" style="font-size: 12px; color: #ccc">Vim</a> <a href="/tags/crawling/" style="font-size: 14.57px; color: #b1b1b1">crawling</a> <a href="/tags/database/" style="font-size: 24.86px; color: #464646">database</a> <a href="/tags/function/" style="font-size: 14.57px; color: #b1b1b1">function</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/tags/json/" style="font-size: 12px; color: #ccc">json</a> <a href="/tags/linear-algebra/" style="font-size: 19.71px; color: #7c7c7c">linear algebra</a> <a href="/tags/map-filter-reduce/" style="font-size: 12px; color: #ccc">map, filter, reduce</a> <a href="/tags/mySQL/" style="font-size: 22.29px; color: #616161">mySQL</a> <a href="/tags/pandas/" style="font-size: 12px; color: #ccc">pandas</a> <a href="/tags/python/" style="font-size: 14.57px; color: #b1b1b1">python</a> <a href="/tags/quiz/" style="font-size: 17.14px; color: #979797">quiz</a> <a href="/tags/robots-txt/" style="font-size: 12px; color: #ccc">robots.txt</a> <a href="/tags/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5/" style="font-size: 12px; color: #ccc">객체 지향</a> <a href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/" style="font-size: 12px; color: #ccc">데이터 타입</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 12px; color: #ccc">반복문</a> <a href="/tags/%EB%B3%80%EC%88%98-%EC%84%A0%EC%96%B8/" style="font-size: 12px; color: #ccc">변수 선언</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90/" style="font-size: 12px; color: #ccc">생성자</a> <a href="/tags/%EC%8B%9C%EA%B0%81%ED%99%94/" style="font-size: 12px; color: #ccc">시각화</a> <a href="/tags/%EC%8B%9D%EB%B3%84%EC%9E%90/" style="font-size: 12px; color: #ccc">식별자</a> <a href="/tags/%EC%A0%95%EA%B7%9C%ED%99%94/" style="font-size: 12px; color: #ccc">정규화</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 12px; color: #ccc">조건문</a> <a href="/tags/%EC%BB%AC%EB%A0%89%EC%85%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/" style="font-size: 12px; color: #ccc">컬렉션 데이터 타입</a> <a href="/tags/%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0%EC%99%80-%EC%95%84%EA%B7%9C%EB%A8%BC%ED%8A%B8/" style="font-size: 12px; color: #ccc">파라미터와 아규먼트</a> <a href="/tags/%ED%95%A8%EC%88%98/" style="font-size: 12px; color: #ccc">함수</a> <a href="/tags/%ED%9A%8C%EA%B8%B0%EB%B6%84%EC%84%9D/" style="font-size: 14.57px; color: #b1b1b1">회기분석</a>
-            </div>
-          </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
   </div>
 
 
@@ -266,6 +317,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-데이터-파싱을-이용한-크롤링"><span class="nav-number">1.</span> <span class="nav-text">HTML 데이터 파싱을 이용한 크롤링</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-str-gt-BeautifulSoup-obj-css-selecter-gt-DF"><span class="nav-number">2.</span> <span class="nav-text">HTML(str) -&gt; BeautifulSoup obj(css-selecter) -&gt; DF</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bs4-BeautifulSoupr"><span class="nav-number">2.0.1.</span> <span class="nav-text">bs4.BeautifulSoupr</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
