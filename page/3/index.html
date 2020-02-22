@@ -184,6 +184,168 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/python-2020-02-06-python-class-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/python-2020-02-06-python-class-md/" class="post-title-link" itemprop="url">클래스</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 21:43:47" itemprop="dateCreated datePublished" datetime="2020-02-06T21:43:47+09:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-21 19:51:54" itemprop="dateModified" datetime="2020-02-21T19:51:54+09:00">2020-02-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="클래스"><a href="#클래스" class="headerlink" title="클래스"></a>클래스</h1><p>변수와 함수를 묶어 놓은 개념입니다.</p>
+<blockquote>
+<p><strong>사용방법</strong></p>
+<ol>
+<li>변수와 함수가 들어있는 클래스를 선언합니다.</li>
+<li>클래스를 객체로 만들어서 클래스 안에 선언된 변수와 함수를 사용합니다.</li>
+</ol>
+</blockquote>
+<h2 id="기본-클래스의-사용"><a href="#기본-클래스의-사용" class="headerlink" title="기본 클래스의 사용"></a>기본 클래스의 사용</h2><blockquote>
+<p>클래스의 선언</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 클래스에서 사용되는 함수의 첫번째 파라미터는 self를 쓴다</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator</span>:</span></span><br><span class="line">     </span><br><span class="line">    num1 = <span class="number">1</span></span><br><span class="line">    num2 = <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">plus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 + self.num2</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 - self.num2</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>클래스의 사용</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">calc = Calculator()</span><br><span class="line">calc</span><br><span class="line"><span class="comment"># 위의 클래스의 선언에서 self는 함수가 포함된 객체 여기서는 calc</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">calc.num1, calc.num2, calc.plus(), calc.minus()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1, 2, 3, -1</span></span><br><span class="line"><span class="comment"># 객체로 만들어 클래서에서 선언한 함수를 가져다 쓴다.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="객체지향"><a href="#객체지향" class="headerlink" title="객체지향"></a>객체지향</h2><p>실제 세계를 코드에 반영해서 개발하는 방법입니다.</p>
+<ul>
+<li>여러명의 개발자가 코드를 효율적으로 작성해서 프로젝트를 완성시키기 위한 방법</li>
+<li>설계도 작성(class) -&gt; 실제 물건(object)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj = <span class="string">"python"</span> </span><br><span class="line"><span class="comment">#문자열 데이터 타입을 가지는 '객체' (기본 데이터 타입)</span></span><br><span class="line">obj.upper()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="생성자"><a href="#생성자" class="headerlink" title="생성자"></a>생성자</h2><p>클래스가 객체로 생성될때 실행되는 함수이며, 변수(재료)를 추가할때 사용합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 생성자 함수 : __init__</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,num1,num2=<span class="number">10</span>)</span>:</span> <span class="comment">#키워드 아규먼트, 디폴트파라미터 사용가능 </span></span><br><span class="line">        self.num1 = num1</span><br><span class="line">        self.num2 = num2</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">plus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 + self.num2</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 - self.num2</span><br><span class="line"></span><br><span class="line">calc = Calculator(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">calc.plus()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="상속"><a href="#상속" class="headerlink" title="상속"></a>상속</h2><p>클래스의 기능을 가져다가 기능을 수정하거나 추가할때 사용하는 방법</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator1</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,num1,num2)</span>:</span></span><br><span class="line">        self.num1 = num1</span><br><span class="line">        self.num2 = num2</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">plus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 + self.num2</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 - self.num2</span><br><span class="line"></span><br><span class="line">calc1 = Calculator1(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">calc1.plus(), calc1.minus()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3,-1</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>매서드 오버라이딩 : 부모 클래스에서 상속받은 매서드를 수정</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 상속을 사용하여 minus 함수 추가</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator2</span><span class="params">(Calculator)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minus</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.num1 * self.num2</span><br><span class="line"></span><br><span class="line">calc2 = Calculator2(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">calc2.plus(),calc2.minus()     </span><br><span class="line"></span><br><span class="line"><span class="comment"># 3, 2</span></span><br></pre></td></tr></table></figure>
+<p>Calcultor1이 가지고 있는 plus매서드를 그대로 상속받았고, minus매서드는 오버라이딩을 통해 곱해주는 기능으로 바꿨습니다.</p>
+<h2 id="다중-상속"><a href="#다중-상속" class="headerlink" title="다중 상속"></a>다중 상속</h2><p>여러개의 클래스를 상속받을수 있습니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Iphone1</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calling</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Calling"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Iphone2</span>:</span>    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send_msg</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"SendMsg"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Iphone3</span><span class="params">(Iphone1,Iphone2)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">internet</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Internet"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iphone = Iphone3()</span><br><span class="line">iphone3.calling(),iphone3.send_msg(),iphone3.internet()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Calling, SendMsg, Internet</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Super"><a href="#Super" class="headerlink" title="Super"></a>Super</h2><p>부모 클래스에서 사용된 함수의 안의 코드를 가져다가 자식 클래스의 함수에서 재사용할때 사용합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Iphone4</span><span class="params">(Iphone3)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">question</span><span class="params">(self)</span>:</span></span><br><span class="line">        super().calling()</span><br><span class="line"></span><br><span class="line">iphone4 = Iphone4()</span><br><span class="line">iphone4.question()</span><br><span class="line"></span><br><span class="line"><span class="comment"># calling</span></span><br></pre></td></tr></table></figure>
+<p>상속받은 부모클래스의 calling 매서드의 코드를 가져왔습니다.</p>
+<h2 id="class의-getter-setter"><a href="#class의-getter-setter" class="headerlink" title="class의 getter, setter"></a>class의 getter, setter</h2><p> 객체의 내부 변수에 접근할때 특정 로직(제약 조건)을 거쳐서 접근시키는 방법입니다.</p>
+<blockquote>
+<p>property(geeter,setter)로 제약을 줍니다.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,first_name)</span>:</span></span><br><span class="line">        self.first_name = first_name</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setter</span><span class="params">(self,first_name)</span>:</span></span><br><span class="line">        print(<span class="string">"Setter"</span>)</span><br><span class="line">        self.first_name = first_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getter</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Getter"</span>)</span><br><span class="line">        <span class="keyword">return</span> self.first_name</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">disp</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.first_name)</span><br><span class="line">        </span><br><span class="line">    name = property(getter,setter)</span><br><span class="line"></span><br><span class="line">user1 = User(<span class="string">"andy"</span>)</span><br><span class="line">user1.disp()</span><br><span class="line"></span><br><span class="line"><span class="comment"># andy</span></span><br><span class="line"></span><br><span class="line">user1.name = <span class="string">"john"</span></span><br><span class="line"><span class="comment"># Setter</span></span><br><span class="line">user1.name</span><br><span class="line"><span class="comment"># Getter</span></span><br><span class="line"><span class="comment"># 'john'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="non-public"><a href="#non-public" class="headerlink" title="non public"></a>non public</h2><p>‘mangling’ 이라는 방식으로 다이렉트로 객체의 변수와 매서드에 접근하지 못하게 하는 방법입니다.<br>변수 앞에 __붙이는 방식으로 구현합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,num1,num2)</span>:</span></span><br><span class="line">        self.num1 = num1</span><br><span class="line">        self.__num2 = num2 </span><br><span class="line">        <span class="comment">#실제로는 객체가 선언 될떄는 self._Caculator__num2라는 이름으로 바뀜</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getter</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__num2</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setter</span><span class="params">(self,__num2)</span>:</span></span><br><span class="line">        <span class="comment"># num2에 0이 들어가지 않도록 함</span></span><br><span class="line">        <span class="keyword">if</span> num2 == <span class="number">0</span>:</span><br><span class="line">             num2 = <span class="number">1</span></span><br><span class="line">        self.__num2 = num2</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__disp</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.num1,self.__num2)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">div</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.__disp()</span><br><span class="line">        <span class="keyword">return</span> self.num1 / self.__num2</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    number2 = property(getter,setter)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>매서드</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">calc = Calculator(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">calc.div()</span><br><span class="line"></span><br><span class="line"><span class="comment"># div()매서드에서 __disp()라는 mangling 방식으로 처리된 매서드를 실행해서 1 2 라는 출력이 나오고, div가 리턴하는 0.5라는 값도 함께 나옴</span></span><br><span class="line"><span class="comment"># 1 2</span></span><br><span class="line"><span class="comment"># 0.5</span></span><br><span class="line"></span><br><span class="line">calc.__disp()</span><br><span class="line"><span class="comment"># 실행안됨. </span></span><br><span class="line"></span><br><span class="line">calc._Calculator__disp()</span><br><span class="line"><span class="comment"># 위의 이름으로 실행할수 있음.</span></span><br><span class="line"><span class="comment"># 1 2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>변수</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">calc.num2 = <span class="number">0</span> </span><br><span class="line"><span class="comment">#위에 클래스에서는 num2라는 이름의 변수는 없음, 대신 새로 만들어 지게 됨</span></span><br><span class="line">calc.__num2 = <span class="number">0</span> </span><br><span class="line"><span class="comment"># 역시 __num2 라는  새로운 변수를 생성</span></span><br><span class="line">calc._Calculator__num2 </span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="comment"># 클래스 안의 __num2와 같음</span></span><br></pre></td></tr></table></figure>
+<h2 id="is-a-와-has-a"><a href="#is-a-와-has-a" class="headerlink" title="is a 와 has a"></a>is a 와 has a</h2><p>클래스를 설계하는 두가지 개념 입니다.</p>
+<blockquote>
+<p><strong>A is a B</strong></p>
+<blockquote>
+<p>A는 B이다. 상속을 이용해서 클래스를 만드는 방법</p>
+</blockquote>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># is a 개념으로 설계</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,email)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.email = email</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person2</span><span class="params">(Person)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">info</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.name,self.email)</span><br><span class="line"></span><br><span class="line">p = Person2(<span class="string">"andy"</span>,<span class="string">"andy@gmail.com"</span>)</span><br><span class="line"></span><br><span class="line">p.info()</span><br><span class="line"><span class="comment"># andy andy@gmail.com</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>A has a B</strong></p>
+<blockquote>
+<p>A는 B를 가진다. A가 B객체를 가지고 클래스를 만드는 방법</p>
+</blockquote>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># has a 개념으로 설계 : 객체안에 객체를 가지고 있다</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name_str = name</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Email</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,email)</span>:</span></span><br><span class="line">        self.email_str = email</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name_obj,email_obj)</span>:</span></span><br><span class="line">        self.name = name_obj</span><br><span class="line">        self.email = email_obj</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">info</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(name.name_str,email.email_str)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">name = Name(<span class="string">"andy"</span>)</span><br><span class="line">email = Email(<span class="string">"andy@gmail.com"</span>)</span><br><span class="line"><span class="comment">#객체 안에 객체를 가지고 있다</span></span><br><span class="line">p = Person(email,name)</span><br><span class="line"></span><br><span class="line">p.info()</span><br><span class="line"><span class="comment"># andy andy@gmail.com</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Magic-Special-Method"><a href="#Magic-Special-Method" class="headerlink" title="Magic(Special) Method"></a>Magic(Special) Method</h2><p>비교연산자</p>
+<ul>
+<li><code>__eq__</code> : ==</li>
+<li><code>__ne__</code> : !=</li>
+<li><code>__lt__</code> : &lt;</li>
+</ul>
+<p>산술연산자</p>
+<ul>
+<li><code>__add__</code> : +</li>
+<li><code>__sub__</code> : -</li>
+<li><code>__repr__</code>: 객체의 내용을 출력(개발자용)</li>
+<li><code>__str__</code> : 객체의 내용을 출력</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Txt</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,txt)</span>:</span></span><br><span class="line">        self.txt = txt</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__eq__</span><span class="params">(self,txt_obj)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.txt.lower() == txt_obj.txt.lower()</span><br><span class="line">        <span class="comment"># 소문자로 변환해서 비교 언산자를 실행합니다.</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Txt(txt=&#123;&#125;)"</span>.format(self)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.txt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">t1 = Txt(<span class="string">"python"</span>)</span><br><span class="line">t2 = Txt(<span class="string">"PYTHON"</span>)</span><br><span class="line">t3 = t1</span><br><span class="line"></span><br><span class="line">t1 == t2, t1 == t3, t2 == t3</span><br><span class="line"><span class="comment"># __eq__ 실행</span></span><br><span class="line"><span class="comment"># (True, True, True)</span></span><br><span class="line"></span><br><span class="line">t1</span><br><span class="line"><span class="comment"># __repr__  실행</span></span><br><span class="line"><span class="comment"># Txt(txt=python)</span></span><br><span class="line"></span><br><span class="line">print(t1)</span><br><span class="line"><span class="comment"># python</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/TIL-mathematics-2020-02-06-probability-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1270,132 +1432,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/30/TIL-mathematics-201030-function-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/30/TIL-mathematics-201030-function-md/" class="post-title-link" itemprop="url">함수 미분, 적분, 행렬 미분</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-30 21:17:43" itemprop="dateCreated datePublished" datetime="2020-01-30T21:17:43+09:00">2020-01-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-03 22:27:26" itemprop="dateModified" datetime="2020-02-03T22:27:26+09:00">2020-02-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/" itemprop="url" rel="index">
-                    <span itemprop="name">TIL..</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="심파이를-사용한-함수-미분"><a href="#심파이를-사용한-함수-미분" class="headerlink" title="심파이를 사용한 함수 미분"></a>심파이를 사용한 함수 미분</h2><ul>
-<li>최적화에 필요한 미분 </li>
-<li>기울기 : 또는 민감도</li>
-<li>수치미분 : 대략적인 기울기 구함</li>
-<li>미분 : 도함수를 만들어 내는 작업</li>
-<li>도함수 : 변수를 입력했을때 그 순간의 기울기를 출력하는 함수</li>
-<li>미분공식 5가지<ol>
-<li>기본 미분공식 : 상수, 거듭제곱</li>
-<li>선형조합법칙 </li>
-<li>곱셈법칙</li>
-<li>연쇄법칙</li>
-<li>로그함수의 연쇄법칙</li>
-</ol>
-</li>
-<li>편미분 : 둘 이상의 독립변수를 가지는 다변수 함수의 미분</li>
-<li>다변수 함수의 연쇄법칙</li>
-<li>2차 편미분 : 편미분에 대한 2차 도함수. 각 미분에 쓰이는 독립변수를 자유롭게 사용</li>
-<li>테일러 전개 : 함수의 기울기를 안다면, 함수의 모양 근사화 가능</li>
-</ul>
-<h2 id="적분"><a href="#적분" class="headerlink" title="적분"></a>적분</h2><ul>
-<li>미분과 반대 개념 : 도함수를 원래 함수로 돌리는 것</li>
-<li>편미분의 부정적분 : 마지막 상수항이 C(y),C(x)처럼 함수 일수도 있음</li>
-<li>다차 도함수와 다중적분 : x로 편미분한후 y로 편미분한 함수는, y로 적분후 x로 다시 적분해야 한다</li>
-<li>정적분 : 독립변수 x가 [a,b]구간 사이일때, 함수 f(x)의 값과 수평선이 이르는 면적을 구하는 행위</li>
-<li>수치적분 : 함수를 아주 작은 구간으로 나누어 실제면적 계산하는 노가다</li>
-<li>다변수 정적분 : 입력변수가 여러개인 함수의 정적분</li>
-<li>다차원 함수의 단일 정적분 : 결과값이 함수가 됨, x만 입력받고 y는 정해지지 않는 상수로 보기 때문</li>
-</ul>
-<h2 id="행렬의-미분"><a href="#행렬의-미분" class="headerlink" title="행렬의 미분"></a>행렬의 미분</h2><ul>
-<li>독립변수가 벡터나 행렬, 혹은 백터나 행렬을 출력하는 것</li>
-<li>스칼라를 벡터로 미분하는 경우 : 결과를 열벡터로 표시하고 이를 그레디언트 벡터라고 한다<ul>
-<li>평면상에 컨투어 플롯으로 나타내고, 그레디언트 벡터를 화살표로 나타낸것을 퀴버플롯이라 한다<ul>
-<li>그레디언트 벡터의<ol>
-<li>크기는 기울기를 의미. 기울기가 클수록 함수 곡면의 기울기가 커진다.</li>
-<li>방향은 함수 곡면의 기울기가 가장 큰 방향. 즉, 단위길이당 함수값(높이)가 가장크게 증가하는 방향</li>
-<li>방향은 등고선의 방향과 직교한다</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>행렬 미분법칙<ol>
-<li>선형모형 </li>
-<li>이차형식</li>
-<li>행렬과 벡터의 곱의 미분</li>
-<li>행렬곱의 대각성분</li>
-<li>행렬식의 로그</li>
-</ol>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1468,7 +1504,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1481,7 +1517,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
