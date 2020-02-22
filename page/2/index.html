@@ -184,6 +184,141 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/15/Database-2020-02-15-mysql-with-python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/15/Database-2020-02-15-mysql-with-python/" class="post-title-link" itemprop="url">MySQL과 파이썬, SQLAlchemy</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-15 16:45:19 / Modified: 17:05:08" itemprop="dateCreated datePublished" datetime="2020-02-15T16:45:19+09:00">2020-02-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">mySQL</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="SQL-in-python"><a href="#SQL-in-python" class="headerlink" title="SQL in python"></a>SQL in python</h2><blockquote>
+<p>데이터 베이스 연결</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> MySQLdb</span><br><span class="line">db = MySQLdb.connect(</span><br><span class="line">    <span class="string">"12.345.678.910"</span>, <span class="comment"># database server public ip</span></span><br><span class="line">    <span class="string">"root"</span>,          <span class="comment"># user</span></span><br><span class="line">    <span class="string">"test"</span>,           <span class="comment"># password</span></span><br><span class="line">    <span class="string">"world"</span>,         <span class="comment"># database name</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>쿼리 작성</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QUERY = <span class="string">"""</span></span><br><span class="line"><span class="string">    SHOW TABLES;</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>쿼리 실행</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curs = db.cursor()</span><br><span class="line">curs.execute(QUERY)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>데이터 베이스의 테이블들의 이름을 출력</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rows = curs.fetchall()</span><br></pre></td></tr></table></figure>
+
+<h2 id="판다스-데이터프레임으로-가져오기"><a href="#판다스-데이터프레임으로-가져오기" class="headerlink" title="판다스 데이터프레임으로 가져오기"></a>판다스 데이터프레임으로 가져오기</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">QUERY = <span class="string">"""</span></span><br><span class="line"><span class="string">    SELECT *</span></span><br><span class="line"><span class="string">    FROM city_population_languages</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">df = pd.read_sql(QUERY,db)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="SQLAlchemy"><a href="#SQLAlchemy" class="headerlink" title="SQLAlchemy"></a>SQLAlchemy</h2><p>python 에서 사용하는 ORM</p>
+<h4 id="ORM-Object-Relational-Mapping"><a href="#ORM-Object-Relational-Mapping" class="headerlink" title="ORM : Object Relational Mapping"></a>ORM : Object Relational Mapping</h4><blockquote>
+<p>데이터 베이스를 객체화 시켜서 데이터 베이스에 있는 데이터를 CRUD(create,read,update,delete)할수 있다.<br>쿼리 대신 함수 형태로 CRUD를 할수 있다.<br>사용하는 데이터 베이스를 변경하는 경우 엔진을 바꾸면 됨.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.ext.declarative <span class="keyword">import</span> declarative_base</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.orm <span class="keyword">import</span> sessionmaker <span class="comment">#sql에 연결 시켜주는 함수</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="데이터-베이스-연결-유저이름-비밀번호"><a href="#데이터-베이스-연결-유저이름-비밀번호" class="headerlink" title="데이터 베이스 연결 ://유저이름.비밀번호"></a>데이터 베이스 연결 ://유저이름.비밀번호</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">engine = create_engine(<span class="string">"mysql://root:***@12.345.67.789/test"</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="테이블-객체-생성을-위한-클래스-작성"><a href="#테이블-객체-생성을-위한-클래스-작성" class="headerlink" title="테이블 객체 생성을 위한 클래스 작성"></a>테이블 객체 생성을 위한 클래스 작성</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Base = declarative_base()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(Base)</span>:</span></span><br><span class="line">    </span><br><span class="line">    __tablename__ = <span class="string">"user"</span> <span class="comment">#테이블 이름</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#컬럼 데이터 타입 작성</span></span><br><span class="line">    user_id = Column(Integer,primary_key=<span class="literal">True</span>)</span><br><span class="line">    name = Column(String(<span class="number">20</span>))</span><br><span class="line">    email = Column(String(<span class="number">30</span>))</span><br><span class="line">    age = Column(Integer)</span><br><span class="line">    rdate = Column(DateTime)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 생성자 함수</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,email,age,rdate)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.email = email</span><br><span class="line">        self.age = age</span><br><span class="line">        self.rdate = rdate</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># repr 함수</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;User &#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;&gt;"</span>.format(</span><br><span class="line">            self.name, self.email, self.age, self.rdate)</span><br></pre></td></tr></table></figure>
+
+<h3 id="데이터-베이스와-객체를-연결"><a href="#데이터-베이스와-객체를-연결" class="headerlink" title="데이터 베이스와 객체를 연결"></a>데이터 베이스와 객체를 연결</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># engine에 연결된 데이터 베이스(test)에 테이블 생성</span></span><br><span class="line">Base.metadata.create_all(engine)</span><br><span class="line"><span class="comment"># 데이터 베이스에 session 연결</span></span><br><span class="line">Session = sessionmaker(engine)</span><br><span class="line"><span class="comment"># 클래스를 return  받고</span></span><br><span class="line">session = Session()</span><br><span class="line"><span class="comment"># 객체 생성</span></span><br><span class="line"><span class="comment"># session은 데이터 베이스와 연결된 객체</span></span><br></pre></td></tr></table></figure>
+
+<p>데이터 베이스 연결 -&gt; 테이블 객체 생성을 위한 클래스 작성 -&gt; 데이터 베이스와 객체를 연결후 사용</p>
+<h3 id="1-Insert"><a href="#1-Insert" class="headerlink" title="1. Insert"></a>1. Insert</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># insert</span></span><br><span class="line">user = User(<span class="string">"howard"</span>,<span class="string">"howard@thisisemail.com"</span>,<span class="number">27</span>,<span class="string">"2016-03-21"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># session 객체에 데이터가 저장</span></span><br><span class="line">session.add(user)</span><br><span class="line"><span class="comment"># run tranaction : 이순간 데이터 베이스에 저장</span></span><br><span class="line">session.commit()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>여러 동작을 한 tranction으로 묶어서 tranaction이 실행되는 동안은 다른 Task가 들어오지 못함.(예: 은행 계좌 출금 과정)</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># insert 여러개</span></span><br><span class="line">users = [</span><br><span class="line">    User(<span class="string">"alice"</span>,<span class="string">"alice@gmail.com"</span>,<span class="number">25</span>,<span class="string">"2018-02-21"</span>),</span><br><span class="line">    User(<span class="string">"andy"</span>,<span class="string">"andy@daum.net"</span>,<span class="number">33</span>,<span class="string">"2015-10-21"</span>),</span><br><span class="line">]</span><br><span class="line">session.add_all(users) <span class="comment"># 데이터 저장</span></span><br><span class="line">session.commit() <span class="comment"># commit으로 데이터 베이스에 저장</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>rollback : session안에 있는 객체를 초기화</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.rollback()</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Select"><a href="#2-Select" class="headerlink" title="2. Select"></a>2. Select</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># select all</span></span><br><span class="line">results = session.query(User).all()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>filter : ==, !=, &gt;, &lt;, &lt;=, &gt;=, like, in 다 쓸수 있음.<br>SQL WHERE 처럼 사용 가능</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">results = session.query(User).filter(User.name==<span class="string">"howard"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># filter : like</span></span><br><span class="line">results = session.query(User).filter(User.email.like(<span class="string">"%gmail%"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># filter : in_</span></span><br><span class="line">results = session.query(User).filter(User.name.in_([<span class="string">"alice"</span>,<span class="string">"andy"</span>]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># filter : or_</span></span><br><span class="line">results = session.query(User).filter(or_(User.name == <span class="string">"howard"</span>, User.age == <span class="number">33</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># order by : desc, asc(내림차순, 오름차순 정렬)</span></span><br><span class="line">results = session.query(User).order_by(User.age.desc())</span><br><span class="line"></span><br><span class="line"><span class="comment"># count</span></span><br><span class="line">session.query(User).count()</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Updata"><a href="#3-Updata" class="headerlink" title="3. Updata"></a>3. Updata</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># data에 andy의 row데이터 가져와서</span></span><br><span class="line">data = session.query(User).filter(User.name == <span class="string">"howard"</span>).one()</span><br><span class="line"><span class="comment"># age라는 칸에 30 넣어주고</span></span><br><span class="line">data.age = <span class="number">30</span></span><br><span class="line"><span class="comment"># session에 담아서</span></span><br><span class="line">session.add(data)</span><br><span class="line"><span class="comment"># commit</span></span><br><span class="line">session.commit()</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-Delete"><a href="#4-Delete" class="headerlink" title="4. Delete"></a>4. Delete</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># delete row</span></span><br><span class="line">session.query(User).filter(User.name == <span class="string">'jin'</span>).delete()</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete table</span></span><br><span class="line"><span class="comment"># User클래스에서 지정된 테이블인 user만 지워짐</span></span><br><span class="line">User.__table__.drop(engine)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-With-Pandas"><a href="#5-With-Pandas" class="headerlink" title="5. With Pandas"></a>5. With Pandas</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># 데이터 프레임을 데이터 베이스에 넣기</span></span><br><span class="line">iris_df = sns.load_dataset(<span class="string">"iris"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># iris_df 데이터를 iris라는 이름으로 </span></span><br><span class="line"><span class="comment"># engine에서 지정된 데이터 베이스로 보낸다. </span></span><br><span class="line"><span class="comment"># 만약 존재한다면 대체(replace)한다.</span></span><br><span class="line">iris_df.to_sql(name=<span class="string">"iris"</span>,con=engine,if_exists=<span class="string">"replace"</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-판다스로-데이터-불러오기"><a href="#6-판다스로-데이터-불러오기" class="headerlink" title="6.판다스로 데이터 불러오기"></a>6.판다스로 데이터 불러오기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># QUERY문 만들어서 판다스로 불러오기</span></span><br><span class="line">QUERY = <span class="string">"""</span></span><br><span class="line"><span class="string">    SELECT *</span></span><br><span class="line"><span class="string">    FROM iris</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">city_df = pd.read_sql(QUERY,engine)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/Database-2020-02-14-mongdb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1251,131 +1386,11 @@ height_mean_by_gender</code></p>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/07/TIL-mathematics-2020-02-07-probability-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/07/TIL-mathematics-2020-02-07-probability-md/" class="post-title-link" itemprop="url">공분산, 상관계수, 조건부 기대값과 예측문제</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-02-07 20:05:29 / Modified: 20:20:28" itemprop="dateCreated datePublished" datetime="2020-02-07T20:05:29+09:00">2020-02-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/" itemprop="url" rel="index">
-                    <span itemprop="name">TIL..</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="독립과-상관"><a href="#독립과-상관" class="headerlink" title="독립과 상관"></a>독립과 상관</h2><ul>
-<li>확률변수 X의 표본값이 달라져서 다른 확률변수Y의 조건부 분포 모양이 달라질때 서로 상관관계라 한다.</li>
-<li>반대의 경우를 독립이라 한다.<ul>
-<li>Pxy(x,y) = px(x)py(y) -&gt; 분리간으 다변수 함수 참고</li>
-<li>Pxyz(x,y,z) : X,Y,Z 중 어느 두 확률변수를 골라도 독립이다.</li>
-</ul>
-</li>
-</ul>
-<h2 id="반복시행"><a href="#반복시행" class="headerlink" title="반복시행"></a>반복시행</h2><ul>
-<li>같은 확률변수에서 여러번 표본데이터를 가져오는 경우, 이 표본들은 서로 독립인 확률변수들 에서 나온 표본이다.</li>
-</ul>
-<h2 id="조건부-확률분포"><a href="#조건부-확률분포" class="headerlink" title="조건부 확률분포"></a>조건부 확률분포</h2><ul>
-<li>독립인 두 확률변수의 조건부확률밀도함수 = 주변확률밀도함수</li>
-<li>pdf의 모양을 보고 독립여부를 판단할수 있어야 한다.</li>
-</ul>
-<h2 id="독립확률변수의-기대값과-분산"><a href="#독립확률변수의-기대값과-분산" class="headerlink" title="독립확률변수의 기대값과 분산"></a>독립확률변수의 기대값과 분산</h2><ul>
-<li><p>E[XY] = E[X]*E[Y]</p>
-</li>
-<li><p>E[(X-mx)(Y-my)] = 0</p>
-</li>
-<li><p>Var[X+Y] = Var[X] + Var[Y]</p>
-</li>
-</ul>
-<h2 id="표본공분산-sample-convience-과-표본상관계수-sample-corrlation-coefficient"><a href="#표본공분산-sample-convience-과-표본상관계수-sample-corrlation-coefficient" class="headerlink" title="표본공분산(sample convience)과 표본상관계수(sample corrlation coefficient)"></a>표본공분산(sample convience)과 표본상관계수(sample corrlation coefficient)</h2><ul>
-<li>표본공분산은 분산의 모양과 원점에서 얼마나 멀리 떨어져 있는지를 알수 있다.</li>
-<li>표본상관계수는 크기정보는 사라지고 모양정보(방향성)만 남음.</li>
-<li>-1&lt;= 표본상관계수 &lt;= 1</li>
-<li>표본상관계수 = 0이면 무상관(독립과는 다른개념) </li>
-</ul>
-<h2 id="비선형-상관관계"><a href="#비선형-상관관계" class="headerlink" title="비선형 상관관계"></a>비선형 상관관계</h2><ul>
-<li>상관계수(피어슨 상관계수는) 비선형관계를 가진 데이터들의 상관관계를 잘 표현하지 못함(엔스콤 데이터 예시)</li>
-</ul>
-<h2 id="다변수-확률변수의-표본공분산"><a href="#다변수-확률변수의-표본공분산" class="headerlink" title="다변수 확률변수의 표본공분산"></a>다변수 확률변수의 표본공분산</h2><ul>
-<li>벡터표본값을 가지는 다변수 확률변수의 공분산.</li>
-<li>표본공분산행렬을 만들어 낸다.</li>
-</ul>
-<h2 id="다변수-확률변수의-공분산"><a href="#다변수-확률변수의-공분산" class="headerlink" title="다변수 확률변수의 공분산"></a>다변수 확률변수의 공분산</h2><h2 id="조건부-기대값"><a href="#조건부-기대값" class="headerlink" title="조건부 기대값"></a>조건부 기대값</h2><ul>
-<li>조건이 되는 확률변수 X에 따라 값이 달라지는 “확률변수”</li>
-<li>결정론적 함수값</li>
-</ul>
-<h1 id="예측문제"><a href="#예측문제" class="headerlink" title="예측문제"></a>예측문제</h1><ul>
-<li>X의 값을 알고 있을떄 Y를 알아내는 것</li>
-<li>분류 : Y가 이산확률변수일때, 입력이 주어져서 카테고리값이 나온다(0,1, 맞거나 틀리거나)</li>
-<li>회기분석 : Y가 연속확률변수일때, 실수값이 나온다. </li>
-</ul>
-<h2 id="조건부-분산"><a href="#조건부-분산" class="headerlink" title="조건부 분산"></a>조건부 분산</h2><h2 id="전체분산의-법칙"><a href="#전체분산의-법칙" class="headerlink" title="전체분산의 법칙"></a>전체분산의 법칙</h2><ul>
-<li>편향-분산상충법칙</li>
-<li>Var[Y] = E[(yhat-y)**2] + Var[yhat]</li>
-<li>고정된 값이기 때문에, = 예측오차 상승 + 예측모델의 복잡도 하락</li>
-<li>고정된 값이기 때문에, = 예측오차 하락 + 예측모델의 복잡도 상승</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1443,7 +1458,7 @@ height_mean_by_gender</code></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1456,7 +1471,7 @@ height_mean_by_gender</code></p>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
