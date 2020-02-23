@@ -14,6 +14,17 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
+    <script>
+      var url = window.location.href;     // Returns full URL
+      if(!url.includes("localhost:4000")){
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-134152064-2');
+          }
+    </script>
+
 
 
 <script id="hexo-configurations">
@@ -68,6 +79,15 @@
 
   <title>Archive | Howard's nest</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-134152064-2');
+      }
+    </script>
 
 
 
