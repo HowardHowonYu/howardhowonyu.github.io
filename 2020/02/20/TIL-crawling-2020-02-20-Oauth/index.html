@@ -56,8 +56,8 @@
 <meta property="article:published_time" content="2020-02-20T05:25:11.000Z">
 <meta property="article:modified_time" content="2020-02-20T05:38:32.080Z">
 <meta property="article:author" content="Howard Howon Yu">
-<meta property="article:tag" content="Oauth">
 <meta property="article:tag" content="crawling">
+<meta property="article:tag" content="Oauth">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/02/20/TIL-crawling-2020-02-20-Oauth/">
@@ -74,21 +74,14 @@
 
   <title>Oauth, fake_useragent 활용 | Howard's nest</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
     <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-134152064-2',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-134152064-2');
       }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
     </script>
 
 
@@ -284,8 +277,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Oauth/" rel="tag"># Oauth</a>
               <a href="/tags/crawling/" rel="tag"># crawling</a>
+              <a href="/tags/Oauth/" rel="tag"># Oauth</a>
           </div>
 
         
