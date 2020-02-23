@@ -57,9 +57,9 @@
 <meta property="article:modified_time" content="2020-02-21T10:37:06.932Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="Python">
-<meta property="article:tag" content="객체 지향">
 <meta property="article:tag" content="module">
 <meta property="article:tag" content="package">
+<meta property="article:tag" content="객체 지향">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/02/21/python-2020-02-21-python-module-package/">
@@ -76,14 +76,21 @@
 
   <title>모듈과 패키지 | Howard's nest</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
     <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-134152064-2');
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-134152064-2',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
       }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
     </script>
 
 
@@ -277,9 +284,9 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Python/" rel="tag"># Python</a>
-              <a href="/tags/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5/" rel="tag"># 객체 지향</a>
               <a href="/tags/module/" rel="tag"># module</a>
               <a href="/tags/package/" rel="tag"># package</a>
+              <a href="/tags/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5/" rel="tag"># 객체 지향</a>
           </div>
 
         

@@ -57,8 +57,8 @@
 <meta property="article:modified_time" content="2020-02-21T10:51:54.074Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="Python">
-<meta property="article:tag" content="Class">
 <meta property="article:tag" content="객체 지향">
+<meta property="article:tag" content="Class">
 <meta property="article:tag" content="생성자">
 <meta name="twitter:card" content="summary">
 
@@ -76,14 +76,21 @@
 
   <title>클래스 | Howard's nest</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
     <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-134152064-2');
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-134152064-2',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
       }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
     </script>
 
 
@@ -344,8 +351,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Python/" rel="tag"># Python</a>
-              <a href="/tags/Class/" rel="tag"># Class</a>
               <a href="/tags/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5/" rel="tag"># 객체 지향</a>
+              <a href="/tags/Class/" rel="tag"># Class</a>
               <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90/" rel="tag"># 생성자</a>
           </div>
 
