@@ -58,15 +58,15 @@
   };
 </script>
 
-  <meta name="description" content="최적화 문제 함수의 값을 최대화 혹은 최소화 하는 변수 x의 값을 찾는것 그리드 서치 &#x2F; 수치적 최적화 기울기 필요조건 최대경사법 : 스텝사이즈를 잘 선택해야함 진동현상 : 함수 곡면의 모양이 계곡처럼 생길 경우 뉴턴방법 : 목적 함수가 2차 도함수(헤시안행렬)이라는 가정하에 한번에 최저점을 찾는다 준 뉴턴방법    sp.minimize(목적함수, 초깃값">
+  <meta name="description" content="최적화 문제">
 <meta property="og:type" content="article">
 <meta property="og:title" content="최적화 문제">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/01/31/TIL-mathematics-2020-01-31-optimization-md/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="최적화 문제 함수의 값을 최대화 혹은 최소화 하는 변수 x의 값을 찾는것 그리드 서치 &#x2F; 수치적 최적화 기울기 필요조건 최대경사법 : 스텝사이즈를 잘 선택해야함 진동현상 : 함수 곡면의 모양이 계곡처럼 생길 경우 뉴턴방법 : 목적 함수가 2차 도함수(헤시안행렬)이라는 가정하에 한번에 최저점을 찾는다 준 뉴턴방법    sp.minimize(목적함수, 초깃값">
+<meta property="og:description" content="최적화 문제">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-31T11:38:17.000Z">
-<meta property="article:modified_time" content="2020-02-02T05:56:31.019Z">
+<meta property="article:modified_time" content="2020-02-23T07:53:28.859Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="Math">
 <meta property="article:tag" content="Optimization">
@@ -233,7 +233,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-02 14:56:31" itemprop="dateModified" datetime="2020-02-02T14:56:31+09:00">2020-02-02</time>
+                <time title="Modified: 2020-02-23 16:53:28" itemprop="dateModified" datetime="2020-02-23T16:53:28+09:00">2020-02-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,6 +243,12 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/TIL/" itemprop="url" rel="index">
                     <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
                   </a>
                 </span>
             </span>
@@ -258,7 +264,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="최적화-문제"><a href="#최적화-문제" class="headerlink" title="최적화 문제"></a>최적화 문제</h2><ul>
+        <h2 id="최적화-문제"><a href="#최적화-문제" class="headerlink" title="최적화 문제"></a>최적화 문제</h2><a id="more"></a>
+<ul>
 <li>함수의 값을 최대화 혹은 최소화 하는 변수 x의 값을 찾는것</li>
 <li>그리드 서치 / 수치적 최적화<ul>
 <li>기울기 필요조건</li>
@@ -396,7 +403,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

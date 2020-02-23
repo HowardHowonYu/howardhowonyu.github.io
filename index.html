@@ -220,10 +220,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-22 21:16:02 / Modified: 21:21:29" itemprop="dateCreated datePublished" datetime="2020-02-22T21:16:02+09:00">2020-02-22</time>
+              <time title="Created: 2020-02-22 21:16:02" itemprop="dateCreated datePublished" datetime="2020-02-22T21:16:02+09:00">2020-02-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-23 16:44:37" itemprop="dateModified" datetime="2020-02-23T16:44:37+09:00">2020-02-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -254,47 +260,14 @@
 
       
           <h1 id="CSS-Selector"><a href="#CSS-Selector" class="headerlink" title="CSS Selector"></a>CSS Selector</h1><p>HTML 엘리먼트에 CSS 스타일을 적용시킬때 엘리먼트를 선택하기 위한 입니다.</p>
-<h4 id="1-태그-이름으로-선택"><a href="#1-태그-이름으로-선택" class="headerlink" title="1. 태그 이름으로 선택"></a>1. 태그 이름으로 선택</h4><p>“data 1 엘리먼트를 선택”</p>
-<ul>
-<li>css-selector : <code>div</code></li>
-</ul>
-<h4 id="2-아이디-값으로-선택"><a href="#2-아이디-값으로-선택" class="headerlink" title="2. 아이디 값으로 선택"></a>2. 아이디 값으로 선택</h4><p>“data 2를 아이디 값으로 선택”</p>
-<ul>
-<li>css-selector : <code>#text</code></li>
-</ul>
-<h4 id="3-클래스-값으로-선택"><a href="#3-클래스-값으로-선택" class="headerlink" title="3.클래스 값으로 선택"></a>3.클래스 값으로 선택</h4><p>“data 3를 클래스 값으로 선택”</p>
-<ul>
-<li>css-selector : <code>.no1</code></li>
-<li><code>.dss-txt</code> : data2, data 3가 선택 </li>
-</ul>
-<h4 id="4-속성값으로-선택"><a href="#4-속성값으로-선택" class="headerlink" title="4. 속성값으로 선택"></a>4. 속성값으로 선택</h4><p>“data 4를 속성값으로 선택”</p>
-<ul>
-<li>css-selector : <code>[val=&quot;d4&quot;]</code>, <code>[id=&quot;da4&quot;]</code></li>
-</ul>
-<h4 id="5-혼합해서-사용"><a href="#5-혼합해서-사용" class="headerlink" title="5. 혼합해서 사용"></a>5. 혼합해서 사용</h4><p>“span 태그, class 값이 no5인 엘리먼트 선택”</p>
-<ul>
-<li>css-selector : <code>span.no5</code></li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrap"</span>&gt;</span>data 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"dss-txt no1"</span>&gt;</span>data 2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"dss-txt no2"</span> <span class="attr">val</span>=<span class="string">"d3"</span>&gt;</span>data 3<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"da4"</span> <span class="attr">val</span>=<span class="string">"d4"</span>&gt;</span>data 4<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"no5"</span> &gt;</span>data 5<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="6-not-selector"><a href="#6-not-selector" class="headerlink" title="6. not selector"></a>6. not selector</h4><p>선택된 엘리먼트에서 특정 조건의 엘리먼트를 제거해서 선택<br>data 2 엘리먼트만 제외한 ds 클래스를 선택</p>
-<ul>
-<li>css-selector : <code>.ds:not(.dss2)</code></li>
-</ul>
-<h4 id="7-nth-child"><a href="#7-nth-child" class="headerlink" title="7.nth-child"></a>7.nth-child</h4><p>n번째의 엘리먼트를 선택</p>
-<p>data 3 선택하는 방법</p>
-<ul>
-<li>css-selector : <code>.ds:nth-child(3)</code><br>뒤의 조건(.ds라는 클래스를 가진 상위 클래스의 자식중에 3번째)이 먼저, 다음 ds라는 클래스를 가진거를 선택</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>data 0<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss1"</span>&gt;</span>data 1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss2"</span>&gt;</span>data 2<span class="tag">&lt;/<span class="name">p</span>&gt;</span> # 얘도 3번째 ds</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss3"</span>&gt;</span>data 3<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss4"</span>&gt;</span>data 4<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss1"</span>&gt;</span>data 1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss2"</span>&gt;</span>data 2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss3"</span>&gt;</span>data 3<span class="tag">&lt;/<span class="name">p</span>&gt;</span> # 얘도 3번째 ds</span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss4"</span>&gt;</span>data 4<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ds"</span>&gt;</span> data5<span class="tag">&lt;/<span class="name">div</span>&gt;</span> # 얘도 3번째 ds</span><br></pre></td></tr></table></figure>
-
-<h4 id="8-계층구조로-엘리먼트-선택"><a href="#8-계층구조로-엘리먼트-선택" class="headerlink" title="8. 계층구조로 엘리먼트 선택"></a>8. 계층구조로 엘리먼트 선택</h4><p>바로 아래 단계의 엘리먼트 선택</p>
-<ul>
-<li><code>.wrap-1 &gt; h5</code> : inner 1선택<br>모든 하위 엘리먼트를 선택</li>
-<li><code>.wrap-1 h5</code> : inner 1,inner 2선택<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap-1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h5</span>&gt;</span>inner 1 <span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap-2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h5</span>&gt;</span>inner 2 <span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/22/TIL-crawling-2020-02-22-crawling-css/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -336,10 +309,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-22 19:38:19 / Modified: 21:21:37" itemprop="dateCreated datePublished" datetime="2020-02-22T19:38:19+09:00">2020-02-22</time>
+              <time title="Created: 2020-02-22 19:38:19" itemprop="dateCreated datePublished" datetime="2020-02-22T19:38:19+09:00">2020-02-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-23 16:56:05" itemprop="dateModified" datetime="2020-02-23T16:56:05+09:00">2020-02-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -372,76 +351,15 @@
           <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><ul>
 <li>Hyper Text Markup Language</li>
 <li>웹 문서를 작성하는 마크업 언어입니다.</li>
-<li>웹페이지를 구성하는 언어에는 3종류가 있습니다.<ul>
-<li>HTML : 화면의 레이아웃이나 텍스트</li>
-<li>CSS : 화면의 색상 크기 등의 스타일</li>
-<li>Javascript : 화면의 클릭, 드래그 등등의 이벤트</li>
 </ul>
-</li>
-</ul>
-<h2 id="1-1-HTML의-구성요소"><a href="#1-1-HTML의-구성요소" class="headerlink" title="1.1 HTML의 구성요소"></a>1.1 HTML의 구성요소</h2><p><strong><code>Document</code></strong></p>
-<ul>
-<li>페이지 전체</li>
-</ul>
-<p><strong><code>element</code></strong></p>
-<ul>
-<li>계층적 구조로 이루어져 있으며 모여서 Document가 됩니다.</li>
-<li>시작 태그와 끝 태그로 구성되어 있습니다. <code>&lt;div&gt; &lt;/div&gt;</code></li>
-</ul>
-<p><strong><code>Tag</code></strong></p>
-<ul>
-<li>시작태그와 끝 태그로 엘리먼트를 구성합니다.</li>
-<li>시작 태그에는 여러가지 속성값들이 들어 있습니다.</li>
-<li>태그와 태그 사이에는 문자열 데이터를 가질수 있습니다.</li>
-<li>태그의 이름에 따라서 태그의 목적이 달라집니다.</li>
-</ul>
-<p><strong><code>Attribute</code></strong></p>
-<ul>
-<li>시작 태그 안에 포함되는 속성값입니다.</li>
-<li><code>id</code>, <code>class</code> : 엘리먼트를 선택하기 위한 목적으로 만들어진 속성값입니다.</li>
-<li>이 외에도 다양한 속성값이 존재 합니다.</li>
-</ul>
-<h3 id="1-2-속성값"><a href="#1-2-속성값" class="headerlink" title="1.2 속성값"></a>1.2 속성값</h3><p><strong><code>id</code></strong> : 웹페이지에서 유일한 값입니다.<br><strong><code>class</code></strong> :</p>
-<ul>
-<li>웹 페이지 내에서 여러개의 class가 존재합니다.</li>
-<li>하나의 엘리먼트에 여러개의 class를 부여할수 있습니다.</li>
-</ul>
-<p><strong><code>type</code></strong> : 엘리먼트 형태를 결정합니다. (button, checkbox 등)<br><strong><code>style</code></strong> : CSS 스타일 값을 적용할수 있습니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btn-1"</span> <span class="attr">class</span>=<span class="string">"bt no1"</span><span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">style</span>=<span class="string">"color:red;"</span> &gt;</span>HTML 1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btn-2"</span> <span class="attr">class</span>=<span class="string">"bt no2"</span><span class="attr">type</span>=<span class="string">"button"</span>&gt;</span>HTML 2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="1-3-태그의-종류"><a href="#1-3-태그의-종류" class="headerlink" title="1.3 태그의 종류"></a>1.3 태그의 종류</h3><p><strong><code>Head</code></strong> : 제목을 나타낼때 사용합니다. h1부터 숫자가 커질수록 작아집니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Python<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong><code>p</code></strong> : 한줄의 문자열을 출력하기 위한 태그입니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>파이썬은 재미있습니다.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>내일은 휴강입니다.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong><code>div</code></strong> : 레이아웃을 나타내는 태그이고, 가장 많이 사용됩니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>html 1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>html 2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>html 3<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong><code>table</code></strong> : row와 column이 있는 테이블 모양을 나타낼때 사용되는 태그입니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">caption</span>&gt;</span>테이블 제목<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>코드<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>회사명<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>0001<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>애플<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">td</span>&gt;</span>0002<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>네이버<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong><code>ul</code></strong>,<strong><code>li</code></strong> : 리스트를 나타내는 태그입니다. 하나의 ul에 다수의 li태그를 가집니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>data 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>data 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>data 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong><code>a</code></strong> : 링크를 출력하는 태그입니다. <code>href</code> 속성값에 이동할 URL을 입력합니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"howardhowonyu.github.io"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>Howard's nest<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong><code>img</code></strong> : 이미지를 불러오는 태그 입니다. <code>src</code> 속성값에 이미지의 URL을 입력합니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span> =<span class="string">"width:200px;"</span><span class="attr">src</span>=<span class="string">"이곳에 이미지의 URL을 입력합니다."</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong><code>iframe</code></strong> : 외부 URL 링크의 페이지를 보여주기 위한 태그입니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"https://howardhowonyu.github.io/"</span> <span class="attr">width</span>=<span class="string">"100%;"</span> <span class="attr">height</span>=<span class="string">"400px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong><code>input</code></strong> : 여러 형태의 값을 입력받는 요소들을 만드는 태그입니다.</p>
-<ul>
-<li>text : 문자를 입력받습니다.</li>
-<li>password : 비밀번호(****)형태로 입력 받습니다.</li>
-<li>radio : n지 선다의 답을 받습니다.</li>
-<li>checkbox : 체크박스를 만듭니다.<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">placeholder</span>=<span class="string">"비밀번호"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"data"</span>&gt;</span>radio 1<span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"data"</span>&gt;</span>radio 2<span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span>checkbox 1<span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p><strong><code>select,option</code></strong>:  옵션을 선택할수 있는 드랍다운 형태를 만드는  태그입니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span>&gt;</span>data 1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span>&gt;</span>data 2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/22/TIL-crawling-2020-02-22-html-css-selector/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -483,10 +401,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-21 19:30:49 / Modified: 19:42:59" itemprop="dateCreated datePublished" datetime="2020-02-21T19:30:49+09:00">2020-02-21</time>
+              <time title="Created: 2020-02-21 19:30:49" itemprop="dateCreated datePublished" datetime="2020-02-21T19:30:49+09:00">2020-02-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-23 16:40:54" itemprop="dateModified" datetime="2020-02-23T16:40:54+09:00">2020-02-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -511,21 +435,14 @@
 
       
           <h1 id="TRY-EXCEPT"><a href="#TRY-EXCEPT" class="headerlink" title="TRY, EXCEPT"></a>TRY, EXCEPT</h1><p>에러가 발생해도 코드의 실행을 계속 하고 싶을 때 사용합니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ls = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># try구문을 실행</span></span><br><span class="line"><span class="keyword">try</span>: </span><br><span class="line">    print(ls[<span class="number">3</span>])</span><br><span class="line"><span class="comment"># 오류가 발생해도 코드의 실행을 마치고 e라는 변수에 오류 메세지를 담습니다.</span></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(<span class="string">"error"</span>)</span><br><span class="line">    print(e)</span><br><span class="line">print(<span class="string">"Done!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># error</span></span><br><span class="line"><span class="comment"># name 'ls' is not defined</span></span><br><span class="line"><span class="comment"># Done!</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="FINALLY"><a href="#FINALLY" class="headerlink" title="FINALLY"></a>FINALLY</h1><p>try, except 구문 실행된후 finally 구문이 실행됩니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="number">1</span>/<span class="number">0</span></span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">"error"</span>)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    print(<span class="string">"Done!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># error</span></span><br><span class="line"><span class="comment"># Done!</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>코딩 실행 중간에 에러가 발생하면 변수안에 계속 데이터를 가지고 있고, 이는 낭비입니다.<br>때문에 try던 except건 간에 어쨋든 “실행 되면 finally 변수안에 데이터 지워줘” 라고 할때 사용합니다.</p>
-</blockquote>
-<h1 id="RAISE"><a href="#RAISE" class="headerlink" title="RAISE"></a>RAISE</h1><p>강제로 에러를 발생시키는 명령입니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="number">1</span>/<span class="number">0</span></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(<span class="string">"error"</span>)</span><br><span class="line">    <span class="keyword">raise</span>(e)</span><br><span class="line">    </span><br><span class="line">print(<span class="string">"Done!"</span>)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>except때문에 코드 실행이 완료 되어야 하지만 raise()떄문에 강제로 에러가 발생됩니다.</p>
-</blockquote>
-<h1 id="에러-메세지-생성"><a href="#에러-메세지-생성" class="headerlink" title="에러 메세지 생성"></a>에러 메세지 생성</h1><p>“Number grater than 10”<br>10이상의 숫자가 입력되어야 한다는 에러 메세지를 만들어보면,</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Exception 이라는 클래스를 상속 </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Lownumber</span><span class="params">(Exception)</span>:</span> </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span> <span class="comment">#에러 메세지 오버라이팅</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Number grater than 10"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">input_number</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> num &lt;= <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">raise</span> Lownumber() <span class="comment">#Lownumber 클래스를 사용</span></span><br><span class="line">    print(num)</span><br><span class="line"></span><br><span class="line">input_number(<span class="number">12</span>)</span><br><span class="line"><span class="comment"># 12</span></span><br><span class="line"></span><br><span class="line">input_number(<span class="number">8</span>)</span><br><span class="line"><span class="comment"># 에러메세지 출력</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">#Lownumber                                 Traceback (most recent call last)</span></span><br><span class="line"><span class="comment">#&lt;ipython-input-19-8684a0e33c0b&gt; in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#----&gt; 1 input_number(8)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#&lt;ipython-input-17-bf4895dc7d57&gt; in input_number(num)</span></span><br><span class="line"><span class="comment">#      1 def input_number(num):</span></span><br><span class="line"><span class="comment">#      2     if num &lt;= 10:</span></span><br><span class="line"><span class="comment">#----&gt; 3         raise Lownumber() #Lownumber 클래스를 사용</span></span><br><span class="line"><span class="comment">#      4     print("10")</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Lownumber: Number grater than 10</span></span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/21/python-2020-02-21-try-except-finally-raise/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -567,10 +484,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-21 19:19:18 / Modified: 19:37:06" itemprop="dateCreated datePublished" datetime="2020-02-21T19:19:18+09:00">2020-02-21</time>
+              <time title="Created: 2020-02-21 19:19:18" itemprop="dateCreated datePublished" datetime="2020-02-21T19:19:18+09:00">2020-02-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-23 16:40:53" itemprop="dateModified" datetime="2020-02-23T16:40:53+09:00">2020-02-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -595,32 +518,14 @@
 
       
           <h1 id="Module-amp-Package"><a href="#Module-amp-Package" class="headerlink" title="Module &amp; Package"></a>Module &amp; Package</h1><p>모듈 : 변수, 함수, 클래스를 모아놓은 (.py)라는 이름의 확장자를 가진 파일입니다.<br>패키지 : 모듈의 기능을 디렉토리별로 정리해 놓은 개념입니다.</p>
-<h2 id="Module-모듈"><a href="#Module-모듈" class="headerlink" title="Module(모듈)"></a>Module(모듈)</h2><p>모듈 생성</p>
-<blockquote>
-<p>매직 매서드를 사용한 모듈 생성</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dss.py라는 이름의 모듈 생성</span></span><br><span class="line">%%writefile dss.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모듈안에 함수 및 클래스를 생성</span></span><br><span class="line">num = <span class="number">1234</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">disp1</span><span class="params">(msg)</span>:</span></span><br><span class="line">    print(<span class="string">"disp1"</span>,msg)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">disp2</span><span class="params">(msg)</span>:</span></span><br><span class="line">    print(<span class="string">"disp2"</span>,msg)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calc</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">plus</span><span class="params">(self,*args)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> sum(args)</span><br></pre></td></tr></table></figure>
-<p>모듈 호출 </p>
-<blockquote>
-<p><code>import &quot;모듈 이름&quot;</code>으로 호출</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dss </span><br><span class="line"></span><br><span class="line"><span class="comment"># 모듈 속 변수</span></span><br><span class="line">dss.num</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모듈 속 함수</span></span><br><span class="line">dss.disp1(<span class="string">"python"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 클래스로 객체 생성</span></span><br><span class="line">calc = dss.Calc()</span><br></pre></td></tr></table></figure>
-
-<h2 id="Package-패키지"><a href="#Package-패키지" class="headerlink" title="Package(패키지)"></a>Package(패키지)</h2><p>패키지의 생성</p>
-<ul>
-<li>패키지 생성시 디렉토리에 <strong>init</strong>.py 파일을 추가해야 합니다.</li>
-<li>단, python 3.3버전 이상에서는 필요 없습니다.</li>
-<li>패키지의 위치 : 특정 디렉토리(pip,conda등으로 설치하는 등)에 있는 패키지는 어디에서나 import 가능합니다.</li>
-</ul>
-<p>주피터 노트북에서 패키지 설치</p>
-<ul>
-<li><code>school $ python setup.py</code> </li>
-<li>커널 리스타트 해야 패키지가 적용됩니다.<blockquote>
-<p>develop : 개발자모드, 코드를 수정하면 설치된 패키지도 같이 수정됩니다.<br>build : 일반모드, 코드로 수정하면 다시 설치해야 수정된 코드가 적용됩니다.</p>
-</blockquote>
-</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/21/python-2020-02-21-python-module-package/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -670,7 +575,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-22 19:38:33" itemprop="dateModified" datetime="2020-02-22T19:38:33+09:00">2020-02-22</time>
+                <time title="Modified: 2020-02-23 16:44:40" itemprop="dateModified" datetime="2020-02-23T16:44:40+09:00">2020-02-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -680,6 +585,12 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/TIL/" itemprop="url" rel="index">
                     <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Crawling/" itemprop="url" rel="index">
+                    <span itemprop="name">Crawling</span>
                   </a>
                 </span>
             </span>
@@ -698,19 +609,17 @@
           <h2 id="HTML-데이터-파싱을-이용한-크롤링"><a href="#HTML-데이터-파싱을-이용한-크롤링" class="headerlink" title="HTML 데이터 파싱을 이용한 크롤링"></a>HTML 데이터 파싱을 이용한 크롤링</h2><ol>
 <li>웹페이지 분석 : URL 찾기</li>
 <li>요청 -&gt; 응답 : HTML(str) 가져오기</li>
-<li>HTML(str) -&gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&gt; 데이터프레임으로 변환</li>
-</ol>
-<h2 id="크롤링-과정"><a href="#크롤링-과정" class="headerlink" title="크롤링 과정"></a>크롤링 과정</h2><ul>
-<li>BeautifulSoup라는 클래스의 매서드 활용 response안에 있는 애들을 BeautifulSoup으로 HTML로 파싱</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># requests.get 매서드로 요철</span></span><br><span class="line">response = requests.get(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># response.content로 내용 선택, html.parser로 HTML로 파싱</span></span><br><span class="line">dom = BeautifulSoup(response.content, <span class="string">"html.parser"</span>)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<h4 id="bs4-BeautifulSoupr"><a href="#bs4-BeautifulSoupr" class="headerlink" title="bs4.BeautifulSoupr"></a><code>bs4.BeautifulSoupr</code></h4><p>select 매서드 : 여러개의 element 객체를 리스트로 가져옴<br>select_one 매서드 : 하나의 element 객체를 가져옴</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 크롬 개발자 도구에서 copy selector했을때 id가 나올때 까지 찾아 복사함</span></span><br><span class="line"><span class="comment"># 리스트안의 딕셔너리 형태로 만들어줌&#123;"컬럼명":내용&#125;</span></span><br><span class="line">datas = []</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> elements:</span><br><span class="line">    datas.append(&#123;</span><br><span class="line">        <span class="string">"title"</span>: element.select_one(<span class="string">'.tit_g'</span>).text.strip().replace(<span class="string">"\n"</span>,<span class="string">""</span>), <span class="comment">#tit_g이름의 클래스 안에 텍스트를 잡음</span></span><br><span class="line">        <span class="string">"link"</span> : element.select_one(<span class="string">'a'</span>).get(<span class="string">"href"</span>), <span class="comment">#href속성의 값을 가져옴</span></span><br><span class="line">    &#125;)</span><br><span class="line">article_df = pd.DataFrame(datas)</span><br></pre></td></tr></table></figure>
+<li>HTML(str) -&gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&gt; 데이터프레임으로 변환
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/21/TIL-crawling-2020-02-21-crawling/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
-    </div>
+    </li></ol></div>
 
     
     
@@ -758,7 +667,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-21 18:50:44" itemprop="dateModified" datetime="2020-02-21T18:50:44+09:00">2020-02-21</time>
+                <time title="Modified: 2020-02-23 16:54:20" itemprop="dateModified" datetime="2020-02-23T16:54:20+09:00">2020-02-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -768,6 +677,12 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/TIL/" itemprop="url" rel="index">
                     <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
                   </a>
                 </span>
             </span>
@@ -842,10 +757,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-20 14:25:11 / Modified: 14:38:32" itemprop="dateCreated datePublished" datetime="2020-02-20T14:25:11+09:00">2020-02-20</time>
+              <time title="Created: 2020-02-20 14:25:11" itemprop="dateCreated datePublished" datetime="2020-02-20T14:25:11+09:00">2020-02-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-23 16:44:44" itemprop="dateModified" datetime="2020-02-23T16:44:44+09:00">2020-02-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -854,6 +775,12 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/TIL/" itemprop="url" rel="index">
                     <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Crawling/" itemprop="url" rel="index">
+                    <span itemprop="name">Crawling</span>
                   </a>
                 </span>
             </span>
@@ -870,37 +797,17 @@
 
       
           <h2 id="Oauth"><a href="#Oauth" class="headerlink" title="Oauth"></a>Oauth</h2><ul>
-<li>개념 : 서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급해주는 절차</li>
-</ul>
-<blockquote>
-<p>1단계: 서비스에서 페이스북, 구글등에 등록을 요청하면, request_token을 발급<br>2단계: 유저가 서비스에서 서드파티의 데이터를 가져오고자 하면, 서드파티에 oauth page를 띄움, 수락하면 이 유저에 대한 access_token을 발급<br>3단계: 서비스는 request_token과 access_token으로 서드파티에 데이터를 요청하고 받아옴</p>
-</blockquote>
-<h2 id="Oauth를-활용한-구글-스프레드시트-데이터-업로드-작업-순서"><a href="#Oauth를-활용한-구글-스프레드시트-데이터-업로드-작업-순서" class="headerlink" title="Oauth를 활용한 구글 스프레드시트 데이터 업로드 작업 순서"></a>Oauth를 활용한 구글 스프레드시트 데이터 업로드 작업 순서</h2><ol>
-<li>oauth 인증 파일 생성</li>
-<li>프로젝트 생성<ul>
-<li>라이브러리 탭선택: Google Drive API, Google sheet API 사용설정</li>
-<li>Oauth 동의화면<ul>
-<li>어플리케이션 이름 설정</li>
-<li>google api 범위 추가: drive, spreadsheets</li>
-<li>저장</li>
-</ul>
-</li>
-<li>사용자 인증정보<ul>
-<li>Oauth클라이언트 ID 만들기</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>스프레드 시트에 크롤링한 데이터 저장 및 로드</li>
-</ol>
-<h2 id="fake-useragent"><a href="#fake-useragent" class="headerlink" title="fake_useragent"></a>fake_useragent</h2><ul>
-<li>user_agent를 랜덤으로 생성하는 패키지</li>
-<li>headers에 임의로 값을 지정해주고 requests해주는 방법으로 데이터 접근 가능</li>
-<li>user-agent외에도 refere(접근 이전에 방문했던 페이지의 URL)등도 지정<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">"https://finance.daum.net/api/exchanges/summaries"</span></span><br><span class="line">headers=&#123;</span><br><span class="line">    <span class="string">"user-agent"</span> : UserAgent().chrome,</span><br><span class="line">    <span class="string">"referer"</span> : <span class="string">"https://finance.daum.net/exchanges"</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url,headers=headers)</span><br><span class="line">response</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+<li>서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급해주는 입니다.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/20/TIL-crawling-2020-02-20-Oauth/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
-    </div>
+    </li></ul></div>
 
     
     
@@ -948,7 +855,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-21 18:55:14" itemprop="dateModified" datetime="2020-02-21T18:55:14+09:00">2020-02-21</time>
+                <time title="Modified: 2020-02-23 16:44:47" itemprop="dateModified" datetime="2020-02-23T16:44:47+09:00">2020-02-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -958,6 +865,12 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/TIL/" itemprop="url" rel="index">
                     <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Crawling/" itemprop="url" rel="index">
+                    <span itemprop="name">Crawling</span>
                   </a>
                 </span>
             </span>
@@ -976,40 +889,17 @@
           <h2 id="web-crawling"><a href="#web-crawling" class="headerlink" title="web crawling"></a>web crawling</h2><ol>
 <li>requests : json : 동적페이지(URL 변경 없이 데이터를 수정 및 추가)</li>
 <li>requests : html : 정적페이지(URL 변경 으로 데이터를 수정 및 추가)</li>
-<li>selenium : web browser : 1,2 번 방법을 사용하지 못할때 사용, 브라우저를 직접 조작</li>
-</ol>
-<h2 id="json"><a href="#json" class="headerlink" title="json"></a>json</h2><ul>
-<li>문자열 데이터를 dict로 바꿔서 저장</li>
-</ul>
-<h2 id="크롤링-절차"><a href="#크롤링-절차" class="headerlink" title="크롤링 절차"></a>크롤링 절차</h2><ol>
-<li>웹서비스 분석 : URL 분석하기, </li>
-<li>request, response 하기 : json을 얻음</li>
-<li>문자열 json 데이터를 dict로 파싱후 데이터 프레임으로 생성</li>
-</ol>
-<h2 id="requests-get-url-headers-params"><a href="#requests-get-url-headers-params" class="headerlink" title="requests.get(url,headers=params)"></a>requests.get(url,headers=params)</h2><ul>
-<li>params라는 변수에 딕셔너리 형해로, user agent, cookie등을 임의로 설정을 해주는 방식으로 해결</li>
-</ul>
-<h2 id="정규화-Normalization"><a href="#정규화-Normalization" class="headerlink" title="정규화 : Normalization"></a>정규화 : Normalization</h2><ul>
-<li><code>z = (x - min(x)) / (max(x) - min(x))</code></li>
-<li>같은 기준을 놓고 비교하기 위한 절차</li>
-</ul>
-<h2 id="API로-날씨-정보-가져오기"><a href="#API로-날씨-정보-가져오기" class="headerlink" title="API로 날씨 정보 가져오기"></a>API로 날씨 정보 가져오기</h2><ul>
-<li>darksky.net 서비스를 이용</li>
-<li>restAPI : 키값을 감춰서 깔끔한 URL을 만들수 있다. </li>
-</ul>
-<h2 id="직방-데이터-크롤링"><a href="#직방-데이터-크롤링" class="headerlink" title="직방 데이터 크롤링"></a>직방 데이터 크롤링</h2><ul>
-<li>동이름을 입력하여 아파트 메물을 데이터 프레임으로 만드는 작업</li>
-<li><code>%%writefile</code> -&gt; 모듈화 하여 저장</li>
-</ul>
-<h2 id="robots-txt"><a href="#robots-txt" class="headerlink" title="robots.txt"></a>robots.txt</h2><ul>
-<li>각 도메인 별로 접근 권한 등의 규칙을 저장해 놓은 파일<blockquote>
-<p>예) User-agent : *<br>   Allow : / </p>
-</blockquote>
-</li>
-</ul>
-
+<li>selenium : web browser : 1,2 번 방법을 사용하지 못할때 사용, 브라우저를 직접 조작
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/20/TIL-crawling-2020-02-20-crawling/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
-    </div>
+    </li></ol></div>
 
     
     
@@ -1057,7 +947,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-21 18:38:10" itemprop="dateModified" datetime="2020-02-21T18:38:10+09:00">2020-02-21</time>
+                <time title="Modified: 2020-02-23 17:04:28" itemprop="dateModified" datetime="2020-02-23T17:04:28+09:00">2020-02-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1067,6 +957,12 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/TIL/" itemprop="url" rel="index">
                     <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/%ED%9A%8C%EA%B8%B0%EB%B6%84%EC%84%9D/" itemprop="url" rel="index">
+                    <span itemprop="name">회기분석</span>
                   </a>
                 </span>
             </span>
@@ -1181,10 +1077,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-17 22:32:43 / Modified: 22:39:52" itemprop="dateCreated datePublished" datetime="2020-02-17T22:32:43+09:00">2020-02-17</time>
+              <time title="Created: 2020-02-17 22:32:43" itemprop="dateCreated datePublished" datetime="2020-02-17T22:32:43+09:00">2020-02-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-23 16:54:14" itemprop="dateModified" datetime="2020-02-23T16:54:14+09:00">2020-02-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -1193,6 +1095,12 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/TIL/" itemprop="url" rel="index">
                     <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
                   </a>
                 </span>
             </span>
@@ -1323,7 +1231,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

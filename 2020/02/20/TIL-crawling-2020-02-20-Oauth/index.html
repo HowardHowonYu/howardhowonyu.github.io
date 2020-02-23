@@ -58,15 +58,15 @@
   };
 </script>
 
-  <meta name="description" content="Oauth 개념 : 서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급해주는 절차   1단계: 서비스에서 페이스북, 구글등에 등록을 요청하면, request_token을 발급2단계: 유저가 서비스에서 서드파티의 데이터를 가져오고자 하면, 서드파티에 oauth page를 띄움, 수락하면 이 유저에 대">
+  <meta name="description" content="Oauth 서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급해주는 입니다.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oauth, fake_useragent 활용">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/02/20/TIL-crawling-2020-02-20-Oauth/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="Oauth 개념 : 서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급해주는 절차   1단계: 서비스에서 페이스북, 구글등에 등록을 요청하면, request_token을 발급2단계: 유저가 서비스에서 서드파티의 데이터를 가져오고자 하면, 서드파티에 oauth page를 띄움, 수락하면 이 유저에 대">
+<meta property="og:description" content="Oauth 서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급해주는 입니다.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-20T05:25:11.000Z">
-<meta property="article:modified_time" content="2020-02-20T05:38:32.080Z">
+<meta property="article:modified_time" content="2020-02-23T07:44:44.451Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="crawling">
 <meta property="article:tag" content="Oauth">
@@ -225,10 +225,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-20 14:25:11 / Modified: 14:38:32" itemprop="dateCreated datePublished" datetime="2020-02-20T14:25:11+09:00">2020-02-20</time>
+              <time title="Created: 2020-02-20 14:25:11" itemprop="dateCreated datePublished" datetime="2020-02-20T14:25:11+09:00">2020-02-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-23 16:44:44" itemprop="dateModified" datetime="2020-02-23T16:44:44+09:00">2020-02-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -237,6 +243,12 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/TIL/" itemprop="url" rel="index">
                     <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Crawling/" itemprop="url" rel="index">
+                    <span itemprop="name">Crawling</span>
                   </a>
                 </span>
             </span>
@@ -253,7 +265,10 @@
 
       
         <h2 id="Oauth"><a href="#Oauth" class="headerlink" title="Oauth"></a>Oauth</h2><ul>
-<li>개념 : 서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급해주는 절차</li>
+<li>서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급해주는 입니다.<a id="more"></a>
+
+
+</li>
 </ul>
 <blockquote>
 <p>1단계: 서비스에서 페이스북, 구글등에 등록을 요청하면, request_token을 발급<br>2단계: 유저가 서비스에서 서드파티의 데이터를 가져오고자 하면, 서드파티에 oauth page를 띄움, 수락하면 이 유저에 대한 access_token을 발급<br>3단계: 서비스는 request_token과 access_token으로 서드파티에 데이터를 요청하고 받아옴</p>
@@ -388,7 +403,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

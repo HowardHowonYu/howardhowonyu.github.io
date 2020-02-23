@@ -58,15 +58,15 @@
   };
 </script>
 
-  <meta name="description" content="world.sql 데이터로 푼 퀴즈quiz1 : country 테이블에서 중복을 제거12SELECT DISTINCT(Continent)FROM country; quiz2 : 한국 도시 중에서 인구가 100만명 이상인 도시를 내림차순 으로 정리1234SELECT Name, PopulationFROM cityWHERE CountryCode &#x3D; &quot;KOR&quot; AND">
+  <meta name="description" content="world.sql 데이터로 푼 퀴즈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mySQL 공부 퀴즈 정리">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/02/12/TIL-Database-2020-02-12-mysql-md/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="world.sql 데이터로 푼 퀴즈quiz1 : country 테이블에서 중복을 제거12SELECT DISTINCT(Continent)FROM country; quiz2 : 한국 도시 중에서 인구가 100만명 이상인 도시를 내림차순 으로 정리1234SELECT Name, PopulationFROM cityWHERE CountryCode &#x3D; &quot;KOR&quot; AND">
+<meta property="og:description" content="world.sql 데이터로 푼 퀴즈">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-12T10:36:35.000Z">
-<meta property="article:modified_time" content="2020-02-14T11:39:33.737Z">
+<meta property="article:modified_time" content="2020-02-23T07:47:08.730Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="mySQL">
 <meta property="article:tag" content="database">
@@ -234,7 +234,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-14 20:39:33" itemprop="dateModified" datetime="2020-02-14T20:39:33+09:00">2020-02-14</time>
+                <time title="Modified: 2020-02-23 16:47:08" itemprop="dateModified" datetime="2020-02-23T16:47:08+09:00">2020-02-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,6 +244,12 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/TIL/" itemprop="url" rel="index">
                     <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
                   </a>
                 </span>
             </span>
@@ -259,7 +265,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="world-sql-데이터로-푼-퀴즈"><a href="#world-sql-데이터로-푼-퀴즈" class="headerlink" title="world.sql 데이터로 푼 퀴즈"></a>world.sql 데이터로 푼 퀴즈</h1><h3 id="quiz1-country-테이블에서-중복을-제거"><a href="#quiz1-country-테이블에서-중복을-제거" class="headerlink" title="quiz1 : country 테이블에서 중복을 제거"></a>quiz1 : country 테이블에서 중복을 제거</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span>(Continent)</span><br><span class="line"><span class="keyword">FROM</span> country;</span><br></pre></td></tr></table></figure>
+        <h1 id="world-sql-데이터로-푼-퀴즈"><a href="#world-sql-데이터로-푼-퀴즈" class="headerlink" title="world.sql 데이터로 푼 퀴즈"></a>world.sql 데이터로 푼 퀴즈</h1><a id="more"></a>
+
+<h3 id="quiz1-country-테이블에서-중복을-제거"><a href="#quiz1-country-테이블에서-중복을-제거" class="headerlink" title="quiz1 : country 테이블에서 중복을 제거"></a>quiz1 : country 테이블에서 중복을 제거</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span>(Continent)</span><br><span class="line"><span class="keyword">FROM</span> country;</span><br></pre></td></tr></table></figure>
 <h3 id="quiz2-한국-도시-중에서-인구가-100만명-이상인-도시를-내림차순-으로-정리"><a href="#quiz2-한국-도시-중에서-인구가-100만명-이상인-도시를-내림차순-으로-정리" class="headerlink" title="quiz2 : 한국 도시 중에서 인구가 100만명 이상인 도시를 내림차순 으로 정리"></a>quiz2 : 한국 도시 중에서 인구가 100만명 이상인 도시를 내림차순 으로 정리</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Name</span>, Population</span><br><span class="line"><span class="keyword">FROM</span> city</span><br><span class="line"><span class="keyword">WHERE</span> CountryCode = <span class="string">"KOR"</span> <span class="keyword">AND</span> Population &gt; <span class="number">1000000</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Population <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="quiz3-city-테이블에서-인구가-800만에서-1000만-사이의-도시이름-나라-코드를-출력하고-인구수순-내림차순으로-정리"><a href="#quiz3-city-테이블에서-인구가-800만에서-1000만-사이의-도시이름-나라-코드를-출력하고-인구수순-내림차순으로-정리" class="headerlink" title="quiz3 : city 테이블에서 인구가 800만에서 1000만 사이의 도시이름, 나라 코드를 출력하고, 인구수순 내림차순으로 정리"></a>quiz3 : city 테이블에서 인구가 800만에서 1000만 사이의 도시이름, 나라 코드를 출력하고, 인구수순 내림차순으로 정리</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Name</span>, CountryCode, Population</span><br><span class="line"><span class="keyword">FROM</span> city</span><br><span class="line"><span class="keyword">WHERE</span> Population <span class="keyword">BETWEEN</span> <span class="number">8000000</span> <span class="keyword">AND</span> <span class="number">10000000</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Population <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="quiz4-country-테이블에서-1940년-부터-1950년까지-독립한-국가를-조회하고-인구수순-내림차순으로-정리"><a href="#quiz4-country-테이블에서-1940년-부터-1950년까지-독립한-국가를-조회하고-인구수순-내림차순으로-정리" class="headerlink" title="quiz4: country 테이블에서 1940년 부터 1950년까지 독립한 국가를 조회하고 인구수순 내림차순으로 정리"></a>quiz4: country 테이블에서 1940년 부터 1950년까지 독립한 국가를 조회하고 인구수순 내림차순으로 정리</h3><p>NameIndep이란 컬럼을 새로 만들어서 이름(독립연도)가 들어가도록 만들었음</p>
@@ -380,7 +388,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

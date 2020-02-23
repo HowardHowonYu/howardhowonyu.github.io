@@ -58,15 +58,15 @@
   };
 </script>
 
-  <meta name="description" content="멕시코보다 인구가 많은 나라이름과 인구수를 조회후, 인구수 순으로 내림차순 정리123456use world;select name ,populationfrom countryorder by population DESClimit 0,10;   국가별 몇개의 도시가 있는지 조회하고 도시수 순으로 10위까지 내림차순 정렬1234567select country.nam">
+  <meta name="description" content="world.sql 데이터로 푼 퀴즈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mySQL 공부 퀴즈 정리">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/02/13/TIL-Database-2020-02-13-mysql-study/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="멕시코보다 인구가 많은 나라이름과 인구수를 조회후, 인구수 순으로 내림차순 정리123456use world;select name ,populationfrom countryorder by population DESClimit 0,10;   국가별 몇개의 도시가 있는지 조회하고 도시수 순으로 10위까지 내림차순 정렬1234567select country.nam">
+<meta property="og:description" content="world.sql 데이터로 푼 퀴즈">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-13T10:28:13.000Z">
-<meta property="article:modified_time" content="2020-02-14T11:39:37.181Z">
+<meta property="article:modified_time" content="2020-02-23T07:45:14.580Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="mySQL">
 <meta property="article:tag" content="database">
@@ -234,7 +234,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-14 20:39:37" itemprop="dateModified" datetime="2020-02-14T20:39:37+09:00">2020-02-14</time>
+                <time title="Modified: 2020-02-23 16:45:14" itemprop="dateModified" datetime="2020-02-23T16:45:14+09:00">2020-02-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,6 +244,12 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/TIL/" itemprop="url" rel="index">
                     <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
                   </a>
                 </span>
             </span>
@@ -259,7 +265,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="멕시코보다-인구가-많은-나라이름과-인구수를-조회후-인구수-순으로-내림차순-정리"><a href="#멕시코보다-인구가-많은-나라이름과-인구수를-조회후-인구수-순으로-내림차순-정리" class="headerlink" title="멕시코보다 인구가 많은 나라이름과 인구수를 조회후, 인구수 순으로 내림차순 정리"></a>멕시코보다 인구가 많은 나라이름과 인구수를 조회후, 인구수 순으로 내림차순 정리</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> world;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> ,population</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> population <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">0</span>,<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+        <h1 id="world-sql-데이터로-푼-퀴즈"><a href="#world-sql-데이터로-푼-퀴즈" class="headerlink" title="world.sql 데이터로 푼 퀴즈"></a>world.sql 데이터로 푼 퀴즈</h1><a id="more"></a>
+
+<h4 id="멕시코보다-인구가-많은-나라이름과-인구수를-조회후-인구수-순으로-내림차순-정리"><a href="#멕시코보다-인구가-많은-나라이름과-인구수를-조회후-인구수-순으로-내림차순-정리" class="headerlink" title="멕시코보다 인구가 많은 나라이름과 인구수를 조회후, 인구수 순으로 내림차순 정리"></a>멕시코보다 인구가 많은 나라이름과 인구수를 조회후, 인구수 순으로 내림차순 정리</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> world;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> ,population</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> population <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">0</span>,<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 
 
 <h4 id="국가별-몇개의-도시가-있는지-조회하고-도시수-순으로-10위까지-내림차순-정렬"><a href="#국가별-몇개의-도시가-있는지-조회하고-도시수-순으로-10위까지-내림차순-정렬" class="headerlink" title="국가별 몇개의 도시가 있는지 조회하고 도시수 순으로 10위까지 내림차순 정렬"></a>국가별 몇개의 도시가 있는지 조회하고 도시수 순으로 10위까지 내림차순 정렬</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> country.name, <span class="keyword">count</span>(city.countrycode) <span class="keyword">as</span> <span class="keyword">count</span></span><br><span class="line"><span class="keyword">from</span> city</span><br><span class="line"><span class="keyword">join</span> country</span><br><span class="line"><span class="keyword">on</span> city.countrycode = country.code</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> country.name</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">count</span> <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">0</span>,<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
@@ -366,7 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#멕시코보다-인구가-많은-나라이름과-인구수를-조회후-인구수-순으로-내림차순-정리"><span class="nav-number">1.</span> <span class="nav-text">멕시코보다 인구가 많은 나라이름과 인구수를 조회후, 인구수 순으로 내림차순 정리</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#국가별-몇개의-도시가-있는지-조회하고-도시수-순으로-10위까지-내림차순-정렬"><span class="nav-number">2.</span> <span class="nav-text">국가별 몇개의 도시가 있는지 조회하고 도시수 순으로 10위까지 내림차순 정렬</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#언어별-사용인구를-출력하고-사용인구-순으로-10위까지-내림차순"><span class="nav-number">3.</span> <span class="nav-text">언어별 사용인구를 출력하고 사용인구 순으로 10위까지 내림차순</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#나라-전체-인구의-10-이상인-도시에서-도시인구가-500만이-넘는-도시를-아래와-같이-조사"><span class="nav-number">4.</span> <span class="nav-text">나라 전체 인구의 10% 이상인 도시에서 도시인구가 500만이 넘는 도시를 아래와 같이 조사</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#면적이-10000km-2이상인-국가의-인구밀도-1km-2당-인구수-를-구하고-인구밀도가-200이상인-국가들이-사용하고-있는-언어수가-5가지-이상인-라라를-조회하세요"><span class="nav-number">5.</span> <span class="nav-text">면적이 10000km^2이상인 국가의 인구밀도(1km^2당 인구수)를 구하고 인구밀도가 200이상인 국가들이 사용하고 있는 언어수가 5가지 이상인 라라를 조회하세요.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#가장-돈을-많이-지불한-상위-5명의-고객의-이름과-지불-금액-출력"><span class="nav-number">6.</span> <span class="nav-text">가장 돈을 많이 지불한 상위 5명의 고객의 이름과 지불 금액 출력</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#배우별-영화-출연-횟수-출력-상위-10개"><span class="nav-number">7.</span> <span class="nav-text">배우별 영화 출연 횟수 출력 (상위 10개)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#영화-카테고리별-수입-데이터를-내림차순으로-정렬"><span class="nav-number">8.</span> <span class="nav-text">영화 카테고리별 수입 데이터를 내림차순으로 정렬</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#world-sql-데이터로-푼-퀴즈"><span class="nav-number">1.</span> <span class="nav-text">world.sql 데이터로 푼 퀴즈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#멕시코보다-인구가-많은-나라이름과-인구수를-조회후-인구수-순으로-내림차순-정리"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">멕시코보다 인구가 많은 나라이름과 인구수를 조회후, 인구수 순으로 내림차순 정리</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#국가별-몇개의-도시가-있는지-조회하고-도시수-순으로-10위까지-내림차순-정렬"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">국가별 몇개의 도시가 있는지 조회하고 도시수 순으로 10위까지 내림차순 정렬</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#언어별-사용인구를-출력하고-사용인구-순으로-10위까지-내림차순"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">언어별 사용인구를 출력하고 사용인구 순으로 10위까지 내림차순</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#나라-전체-인구의-10-이상인-도시에서-도시인구가-500만이-넘는-도시를-아래와-같이-조사"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">나라 전체 인구의 10% 이상인 도시에서 도시인구가 500만이 넘는 도시를 아래와 같이 조사</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#면적이-10000km-2이상인-국가의-인구밀도-1km-2당-인구수-를-구하고-인구밀도가-200이상인-국가들이-사용하고-있는-언어수가-5가지-이상인-라라를-조회하세요"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">면적이 10000km^2이상인 국가의 인구밀도(1km^2당 인구수)를 구하고 인구밀도가 200이상인 국가들이 사용하고 있는 언어수가 5가지 이상인 라라를 조회하세요.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#가장-돈을-많이-지불한-상위-5명의-고객의-이름과-지불-금액-출력"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">가장 돈을 많이 지불한 상위 5명의 고객의 이름과 지불 금액 출력</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#배우별-영화-출연-횟수-출력-상위-10개"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">배우별 영화 출연 횟수 출력 (상위 10개)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#영화-카테고리별-수입-데이터를-내림차순으로-정렬"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">영화 카테고리별 수입 데이터를 내림차순으로 정렬</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -388,7 +396,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

@@ -58,15 +58,15 @@
   };
 </script>
 
-  <meta name="description" content="QUIZ사용하는 언어가 3가지 이하인 국가중 도시인구가 300만 이상인 도시를 아래와 같이 조회하세요. 123456select country.code, city_population_languages.city_name, city_population_languages.population, country.name, city_population_languages.">
+  <meta name="description" content="world.sql 데이터로 푼 퀴즈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mySQL quiz">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/02/14/TIL-Database-2020-02-14-mySQL/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="QUIZ사용하는 언어가 3가지 이하인 국가중 도시인구가 300만 이상인 도시를 아래와 같이 조회하세요. 123456select country.code, city_population_languages.city_name, city_population_languages.population, country.name, city_population_languages.">
+<meta property="og:description" content="world.sql 데이터로 푼 퀴즈">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-14T10:59:14.000Z">
-<meta property="article:modified_time" content="2020-02-14T12:04:31.763Z">
+<meta property="article:modified_time" content="2020-02-23T07:45:18.352Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="mySQL">
 <meta property="article:tag" content="database">
@@ -226,10 +226,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-14 19:59:14 / Modified: 21:04:31" itemprop="dateCreated datePublished" datetime="2020-02-14T19:59:14+09:00">2020-02-14</time>
+              <time title="Created: 2020-02-14 19:59:14" itemprop="dateCreated datePublished" datetime="2020-02-14T19:59:14+09:00">2020-02-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-23 16:45:18" itemprop="dateModified" datetime="2020-02-23T16:45:18+09:00">2020-02-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -238,6 +244,12 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/TIL/" itemprop="url" rel="index">
                     <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
                   </a>
                 </span>
             </span>
@@ -253,7 +265,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="QUIZ"><a href="#QUIZ" class="headerlink" title="QUIZ"></a>QUIZ</h2><p>사용하는 언어가 3가지 이하인 국가중 도시인구가 300만 이상인 도시를 아래와 같이 조회하세요.</p>
+        <h1 id="world-sql-데이터로-푼-퀴즈"><a href="#world-sql-데이터로-푼-퀴즈" class="headerlink" title="world.sql 데이터로 푼 퀴즈"></a>world.sql 데이터로 푼 퀴즈</h1><a id="more"></a>
+
+<h2 id="QUIZ"><a href="#QUIZ" class="headerlink" title="QUIZ"></a>QUIZ</h2><p>사용하는 언어가 3가지 이하인 국가중 도시인구가 300만 이상인 도시를 아래와 같이 조회하세요.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> country.code, city_population_languages.city_name, city_population_languages.population, country.name, city_population_languages.language_count, city_population_languages.languages</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">join</span></span><br><span class="line">	city_population_languages</span><br><span class="line"><span class="keyword">on</span> country.code = city_population_languages.countrycode</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> city_population_languages.population <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -351,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#QUIZ"><span class="nav-number">1.</span> <span class="nav-text">QUIZ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QUIZ-1"><span class="nav-number">2.</span> <span class="nav-text">QUIZ</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#world-sql-데이터로-푼-퀴즈"><span class="nav-number">1.</span> <span class="nav-text">world.sql 데이터로 푼 퀴즈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#QUIZ"><span class="nav-number">1.1.</span> <span class="nav-text">QUIZ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QUIZ-1"><span class="nav-number">1.2.</span> <span class="nav-text">QUIZ</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -373,7 +387,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
