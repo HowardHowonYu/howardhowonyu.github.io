@@ -58,15 +58,21 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Howard&#39;s nest">
-<meta property="og:url" content="https://howardhowonyu.github.io/categories/TIL/%ED%9A%8C%EA%B8%B0%EB%B6%84%EC%84%9D/index.html">
+  <meta name="description" content="범주형 데이터혈액형, 성별과 같이 종류를 표시하는 데이터">
+<meta property="og:type" content="article">
+<meta property="og:title" content="범주형 데이터 처리">
+<meta property="og:url" content="https://howardhowonyu.github.io/2020/02/24/TIL-regression-analysis-2020-02-24-machine-learning2/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
+<meta property="og:description" content="범주형 데이터혈액형, 성별과 같이 종류를 표시하는 데이터">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-24T13:26:01.000Z">
+<meta property="article:modified_time" content="2020-02-24T13:34:06.084Z">
 <meta property="article:author" content="Howard Howon Yu">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="머신러닝">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://howardhowonyu.github.io/categories/TIL/%ED%9A%8C%EA%B8%B0%EB%B6%84%EC%84%9D/">
+<link rel="canonical" href="https://howardhowonyu.github.io/2020/02/24/TIL-regression-analysis-2020-02-24-machine-learning2/">
 
 
 <script id="page-configurations">
@@ -74,11 +80,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Category: 회기분석 | Howard's nest</title>
+  <title>범주형 데이터 처리 | Howard's nest</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
     <script>
@@ -192,48 +198,124 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">회기분석
-          <small>Category</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/24/TIL-regression-analysis-2020-02-24-machine-learning2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          범주형 데이터 처리
         </h2>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-24 22:26:01 / Modified: 22:34:06" itemprop="dateCreated datePublished" datetime="2020-02-24T22:26:01+09:00">2020-02-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index">
+                    <span itemprop="name">머신러닝</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h2 class="collection-header">2020</h2>
+        <h1 id="범주형-데이터"><a href="#범주형-데이터" class="headerlink" title="범주형 데이터"></a>범주형 데이터</h1><p>혈액형, 성별과 같이 종류를 표시하는 데이터</p>
+<a id="more"></a>
+
+<h2 id="범주형-데이터의-변형"><a href="#범주형-데이터의-변형" class="headerlink" title="범주형 데이터의 변형"></a>범주형 데이터의 변형</h2><ul>
+<li>더미변수화</li>
+<li>카테고리 임베딩</li>
+</ul>
+<h2 id="더미변수화"><a href="#더미변수화" class="headerlink" title="더미변수화"></a>더미변수화</h2><p>0 또는 1만 가지는 값으로 어떤 특징의 존재 여부를 표시.<br>이진지시자(Boolean indicator),이진변수(binary variable),지시변수(indicator variable),설계변수(design variable),처치(treatment)등으로 불린다.</p>
+<h2 id="patsy를-활용한-더미변수화"><a href="#patsy를-활용한-더미변수화" class="headerlink" title="patsy를 활용한 더미변수화"></a>patsy를 활용한 더미변수화</h2><ul>
+<li>풀랭크 방식<br>  patsy패키지의 <code>dmatrix()</code>함수는 범주값을 더미변수로 바꿔준다.  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> patsy <span class="keyword">import</span> dmatrix</span><br><span class="line">df = pd.DataFrame([<span class="string">"A"</span>, <span class="string">"B"</span>], columns=[<span class="string">"x"</span>])</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line">dmatrix(<span class="string">"x + 0"</span>, df1)</span><br></pre></td></tr></table></figure></li>
+<li>축소랭크 방식<br>  특정한 하나의 범주값을 기준값으로 하고 기준값에 대응하는 더미변수의 가중치는 항상 1로 한다.<br>  더미변수화 할떄 <code>dmatrix()</code>함수의 문자열에 +0을 생략함</li>
+</ul>
+<h2 id="두개의-범주형-변수"><a href="#두개의-범주형-변수" class="headerlink" title="두개의 범주형 변수"></a>두개의 범주형 변수</h2><ul>
+<li>통합 축소형 방식</li>
+<li>상호작용 방식</li>
+</ul>
+<h2 id="카테고리-임베딩"><a href="#카테고리-임베딩" class="headerlink" title="카테고리 임베딩"></a>카테고리 임베딩</h2><p>범주값 대신 범주값의 특성을 나타내는 연속값 혹은 연속값 벡터를 사용<br>예를들어 운동선수의 이름을 나타내는 범주값의 경우, 운동선수의 나이, 연봉, 신체능력치 등을 사용하고, 지역명을 나타내느 범주값은 지역의 면적, 인구수 등을 사용한다.</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2020-02-18T22:09:46+09:00" content="2020-02-18">
-          02-18
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Math/" rel="tag"># Math</a>
+              <a href="/tags/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" rel="tag"># 머신러닝</a>
+          </div>
 
-      <h3 class="post-title">
-          <a class="post-title-link" href="/2020/02/18/TIL-regression-analysis-2020-02-18-regression-analysis/" itemprop="url">
-            <span itemprop="name">데이터 분석, 데이터 전처리 기초</span>
-          </a>
-      </h3>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/24/TIL-regression-analysis-2020-02-24-machine-learning/" rel="prev" title="데이터 전처리 기초 2">
+      <i class="fa fa-chevron-left"></i> 데이터 전처리 기초 2
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/24/TIL-regression-analysis-2020-02-24-machine-learning3/" rel="next" title="선형회귀분석의 기초">
+      선형회귀분석의 기초 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -284,6 +366,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#범주형-데이터"><span class="nav-number">1.</span> <span class="nav-text">범주형 데이터</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#범주형-데이터의-변형"><span class="nav-number">1.1.</span> <span class="nav-text">범주형 데이터의 변형</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#더미변수화"><span class="nav-number">1.2.</span> <span class="nav-text">더미변수화</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#patsy를-활용한-더미변수화"><span class="nav-number">1.3.</span> <span class="nav-text">patsy를 활용한 더미변수화</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#두개의-범주형-변수"><span class="nav-number">1.4.</span> <span class="nav-text">두개의 범주형 변수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#카테고리-임베딩"><span class="nav-number">1.5.</span> <span class="nav-text">카테고리 임베딩</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -298,14 +381,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -316,6 +399,14 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hvd2FyZGhvd29ueXU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;howardhowonyu"><i class="fa fa-fw fa-github"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnlvb2hvd29uQGdtYWlsLmNvbQ==" title="E-Mail → mailto:yoohowon@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+      </span>
+  </div>
 
 
 

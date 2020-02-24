@@ -60,16 +60,16 @@
 
   <meta name="description" content="데이터 분석이란? 데이터 간의 관계를 사용하여 우리가 원하는 새로운 출력데이터를 만들어 내는 과정  예측 여러가지 입력 데이터를 주면, 데이터 분석의 결과로 다른 데이터를 출력  입력데이터(input data), 출력데이터(output data) 독립변수, 특징, 설명변수 종속변수, 라벨, 클라스(카테고리 값)  규칙기반과 학습기반 규칙기반 방법은 사람이">
 <meta property="og:type" content="article">
-<meta property="og:title" content="데이터 분석, 데이터 전처리 기초">
+<meta property="og:title" content="데이터 분석">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/02/18/TIL-regression-analysis-2020-02-18-regression-analysis/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
 <meta property="og:description" content="데이터 분석이란? 데이터 간의 관계를 사용하여 우리가 원하는 새로운 출력데이터를 만들어 내는 과정  예측 여러가지 입력 데이터를 주면, 데이터 분석의 결과로 다른 데이터를 출력  입력데이터(input data), 출력데이터(output data) 독립변수, 특징, 설명변수 종속변수, 라벨, 클라스(카테고리 값)  규칙기반과 학습기반 규칙기반 방법은 사람이">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-18T13:09:46.000Z">
-<meta property="article:modified_time" content="2020-02-23T08:04:28.698Z">
+<meta property="article:modified_time" content="2020-02-24T13:20:19.007Z">
 <meta property="article:author" content="Howard Howon Yu">
-<meta property="article:tag" content="회기분석">
 <meta property="article:tag" content="python">
+<meta property="article:tag" content="머신러닝">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://howardhowonyu.github.io/2020/02/18/TIL-regression-analysis-2020-02-18-regression-analysis/">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>데이터 분석, 데이터 전처리 기초 | Howard's nest</title>
+  <title>데이터 분석 | Howard's nest</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
     <script>
@@ -216,7 +216,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          데이터 분석, 데이터 전처리 기초
+          데이터 분석
         </h2>
 
         <div class="post-meta">
@@ -233,7 +233,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-23 17:04:28" itemprop="dateModified" datetime="2020-02-23T17:04:28+09:00">2020-02-23</time>
+                <time title="Modified: 2020-02-24 22:20:19" itemprop="dateModified" datetime="2020-02-24T22:20:19+09:00">2020-02-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -247,8 +247,14 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/%ED%9A%8C%EA%B8%B0%EB%B6%84%EC%84%9D/" itemprop="url" rel="index">
-                    <span itemprop="name">회기분석</span>
+                  <a href="/categories/TIL/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index">
+                    <span itemprop="name">머신러닝</span>
                   </a>
                 </span>
             </span>
@@ -304,23 +310,6 @@
 <li>클러스터링 : 비슷한 데이터를 같은 그룹으로 모으는것</li>
 <li>imputation(impating): 빠진 그림을 채우는 등의 작업</li>
 </ul>
-<h1 id="데이터-전처리에-사용하는-패키지"><a href="#데이터-전처리에-사용하는-패키지" class="headerlink" title="데이터 전처리에 사용하는 패키지"></a>데이터 전처리에 사용하는 패키지</h1><h2 id="missingno"><a href="#missingno" class="headerlink" title="missingno"></a>missingno</h2><ul>
-<li>결측데이터를 검색하여 시각화 함</li>
-<li><code>.bar()</code>, <code>.matrix()</code>함수로 확인</li>
-</ul>
-<h2 id="scikit-learn-패키지의-SimpleImputer-클래스"><a href="#scikit-learn-패키지의-SimpleImputer-클래스" class="headerlink" title="scikit-learn 패키지의 SimpleImputer 클래스"></a>scikit-learn 패키지의 SimpleImputer 클래스</h2><ul>
-<li>결측값을 채우고자 할때, strategy 인수를 “mean”으로 하면 중앙값 “median”으로 하면 중앙값, “most_frequent”로 하면 최빈값을 대체값으로 사용한다.</li>
-</ul>
-<h2 id="patsy"><a href="#patsy" class="headerlink" title="patsy"></a>patsy</h2><ul>
-<li>데이터를 선택, 변환, 추가, 스케일링 함</li>
-<li><code>dmatrx()</code> 함수를 사용하면 데이터 프레임에 상수항을 추가하거나 원하는 데이터만 선택하거나 변형할 수 있다.</li>
-<li>스케일링을 위한 함수 <ul>
-<li>center(): 평균을 0으로 스케일링</li>
-<li>standardize(): 평균을 0으로하고 표준편차를 1로 스케일링</li>
-<li>scale(): standardize() 과 같음</li>
-</ul>
-</li>
-</ul>
 
     </div>
 
@@ -330,8 +319,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%ED%9A%8C%EA%B8%B0%EB%B6%84%EC%84%9D/" rel="tag"># 회기분석</a>
               <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" rel="tag"># 머신러닝</a>
           </div>
 
         
@@ -406,7 +395,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#데이터-분석이란"><span class="nav-number">1.</span> <span class="nav-text">데이터 분석이란?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#예측"><span class="nav-number">2.</span> <span class="nav-text">예측</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#입력데이터-input-data-출력데이터-output-data"><span class="nav-number">3.</span> <span class="nav-text">입력데이터(input data), 출력데이터(output data)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#규칙기반과-학습기반"><span class="nav-number">4.</span> <span class="nav-text">규칙기반과 학습기반</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#지도학습"><span class="nav-number">5.</span> <span class="nav-text">지도학습</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#인코딩"><span class="nav-number">6.</span> <span class="nav-text">인코딩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#입력차원"><span class="nav-number">7.</span> <span class="nav-text">입력차원</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#카테고리값"><span class="nav-number">8.</span> <span class="nav-text">카테고리값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#회기분석과-분류문제"><span class="nav-number">9.</span> <span class="nav-text">회기분석과 분류문제</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#비지도-학습"><span class="nav-number">10.</span> <span class="nav-text">비지도 학습</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#데이터-전처리에-사용하는-패키지"><span class="nav-number"></span> <span class="nav-text">데이터 전처리에 사용하는 패키지</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#missingno"><span class="nav-number">1.</span> <span class="nav-text">missingno</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scikit-learn-패키지의-SimpleImputer-클래스"><span class="nav-number">2.</span> <span class="nav-text">scikit-learn 패키지의 SimpleImputer 클래스</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#patsy"><span class="nav-number">3.</span> <span class="nav-text">patsy</span></a></li></ol></li></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#데이터-분석이란"><span class="nav-number">1.</span> <span class="nav-text">데이터 분석이란?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#예측"><span class="nav-number">2.</span> <span class="nav-text">예측</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#입력데이터-input-data-출력데이터-output-data"><span class="nav-number">3.</span> <span class="nav-text">입력데이터(input data), 출력데이터(output data)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#규칙기반과-학습기반"><span class="nav-number">4.</span> <span class="nav-text">규칙기반과 학습기반</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#지도학습"><span class="nav-number">5.</span> <span class="nav-text">지도학습</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#인코딩"><span class="nav-number">6.</span> <span class="nav-text">인코딩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#입력차원"><span class="nav-number">7.</span> <span class="nav-text">입력차원</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#카테고리값"><span class="nav-number">8.</span> <span class="nav-text">카테고리값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#회기분석과-분류문제"><span class="nav-number">9.</span> <span class="nav-text">회기분석과 분류문제</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#비지도-학습"><span class="nav-number">10.</span> <span class="nav-text">비지도 학습</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -421,14 +410,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -439,6 +428,14 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hvd2FyZGhvd29ueXU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;howardhowonyu"><i class="fa fa-fw fa-github"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnlvb2hvd29uQGdtYWlsLmNvbQ==" title="E-Mail → mailto:yoohowon@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+      </span>
+  </div>
 
 
 
