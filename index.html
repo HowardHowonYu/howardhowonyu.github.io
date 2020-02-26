@@ -197,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/25/TIL-machine-learning-2020-02-25-machinelearning2/">
+    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -211,7 +211,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/25/TIL-machine-learning-2020-02-25-machinelearning2/" class="post-title-link" itemprop="url">범주형 독립변수</a>
+            <a href="/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning2/" class="post-title-link" itemprop="url">확률론적 선형 회귀모형</a>
         </h2>
 
         <div class="post-meta">
@@ -222,7 +222,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-02-25 22:36:19 / Modified: 22:42:20" itemprop="dateCreated datePublished" datetime="2020-02-25T22:36:19+09:00">2020-02-25</time>
+              <time title="Created: 2020-02-26 10:17:59 / Modified: 10:32:49" itemprop="dateCreated datePublished" datetime="2020-02-26T10:17:59+09:00">2020-02-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -259,34 +259,203 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="범주형-변수가-하나인-경우"><a href="#범주형-변수가-하나인-경우" class="headerlink" title="범주형 변수가 하나인 경우"></a>범주형 변수가 하나인 경우</h2><ul>
-<li>더미변수 방법은 변주형 변수를 두개의 변수로 바꾸는 것</li>
-</ul>
-<h3 id="풀랭크-방식과-축소랭크-방식"><a href="#풀랭크-방식과-축소랭크-방식" class="headerlink" title="풀랭크 방식과 축소랭크 방식"></a>풀랭크 방식과 축소랭크 방식</h3><ul>
-<li>풀랭크 : 더미변수의 값을 원핫인코딩 방식으로 지정.</li>
-<li>축소랭크 : 특정한 하나의 범주값을 기준값으로 하고 기준값에 대응하는 더미변수의 가중치는 항상 1로 놓는다.</li>
-</ul>
-<blockquote>
-<p>월별기온예측<br>    - 풀랭크 방식: 각 월의 대표값<br>    - 축소랭크 방식: 기준값(1월의 평균기온)에서 “차이”가 얼마나 나는가</p>
-</blockquote>
-<h2 id="두개-이상의-범주형-변수가-있는-경우"><a href="#두개-이상의-범주형-변수가-있는-경우" class="headerlink" title="두개 이상의 범주형 변수가 있는 경우"></a>두개 이상의 범주형 변수가 있는 경우</h2><ul>
-<li>두개 이상의 범주형 변수가 있는 경우 축소형 방식을 사용</li>
-<li>모든 범주형 변수의 가중치는 기준값 상수항에 더해지는 상수항으로 취급.</li>
-</ul>
-<h2 id="범주형-독립변수와-실수-독립변수의-상호작용"><a href="#범주형-독립변수와-실수-독립변수의-상호작용" class="headerlink" title="범주형 독립변수와 실수 독립변수의 상호작용"></a>범주형 독립변수와 실수 독립변수의 상호작용</h2><p>Case1)</p>
-<ul>
-<li>범주형 독립변수 $x_1$과 실수 독립변수 $x_2$를 가지는 회귀모형에서 연속값 독립변수 $x_2$가 미치는 영향, 즉 가중치가 범주형 독립변수 $x_1$에 따라 달라진다면</li>
-<li>범주형 독립변수를 더미변수 $d_1$으로 인코딩하고 연속값 독립변수  $x_2$는 $d_1$과의 상호작용항 <code>d_1:x_2</code>를 추가한다.</li>
-<li>$x_1$범주값에 따라 $x_2$의 기울기가 달라지는 모형이 된다.</li>
-</ul>
-<p>Case2)</p>
-<ul>
-<li>범주형 독립변수도 종속변수에 영향을 미치고, 범주형 독립변수와 실수 독립변수의 “상호작용”도 종속변수에 영향을 미치면</li>
-<li>$x_1$의 범주값에 따라 상수항과 $x_2$의 기울기가 모두 달라지는 모형이 된다.</li>
-</ul>
-
+          <h4 id="OLS방법을-사용하여-최적의-가중치를-계산할수-있지만-오차범위를-알지-못하면-가중치를-알아도-아무것도-모르는-거랑-같다"><a href="#OLS방법을-사용하여-최적의-가중치를-계산할수-있지만-오차범위를-알지-못하면-가중치를-알아도-아무것도-모르는-거랑-같다" class="headerlink" title="OLS방법을 사용하여 최적의 가중치를 계산할수 있지만, 오차범위를 알지 못하면 가중치를 알아도 아무것도 모르는 거랑 같다!"></a>OLS방법을 사용하여 최적의 가중치를 계산할수 있지만, 오차범위를 알지 못하면 가중치를 알아도 아무것도 모르는 거랑 같다!</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning/" class="post-title-link" itemprop="url">부분회귀</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-26 10:03:53 / Modified: 10:32:35" itemprop="dateCreated datePublished" datetime="2020-02-26T10:03:53+09:00">2020-02-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index">
+                    <span itemprop="name">머신러닝</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="부분회귀"><a href="#부분회귀" class="headerlink" title="부분회귀"></a>부분회귀</h1><ul>
+<li>회귀분석을 한 후 새로운 독립변수를 추가하여 다시 회귀분석 한다면?
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </li></ul></div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/25/TIL-machine-learning-2020-02-25-machinelearning2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/25/TIL-machine-learning-2020-02-25-machinelearning2/" class="post-title-link" itemprop="url">범주형 독립변수</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-25 22:36:19" itemprop="dateCreated datePublished" datetime="2020-02-25T22:36:19+09:00">2020-02-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-26 10:32:36" itemprop="dateModified" datetime="2020-02-26T10:32:36+09:00">2020-02-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index">
+                    <span itemprop="name">머신러닝</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="범주형-변수가-하나인-경우"><a href="#범주형-변수가-하나인-경우" class="headerlink" title="범주형 변수가 하나인 경우"></a>범주형 변수가 하나인 경우</h2><ul>
+<li>더미변수 방법은 변주형 변수를 두개의 변수로 바꾸는 것
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/25/TIL-machine-learning-2020-02-25-machinelearning2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </li></ul></div>
 
     
     
@@ -366,8 +535,7 @@
 
       
           <h2 id="조건수"><a href="#조건수" class="headerlink" title="조건수"></a>조건수</h2><ul>
-<li><p>가장큰 고유값와 가장 작은 고유값의 비율</p>
-</li>
+<li>가장큰 고유값와 가장 작은 고유값의 비율</li>
 <li><p>조건수가 크면 민감도가 커진다. 즉, 오차가 생기면 해에 미치는 영향이 커진다.</p>
           <!--noindex-->
             <div class="post-button">
@@ -463,7 +631,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="sklearn-preprocessing-패키지"><a href="#sklearn-preprocessing-패키지" class="headerlink" title="sklearn.preprocessing 패키지"></a>sklearn.preprocessing 패키지</h2><p>스케일링 및 변수변환을 위한 <code>StandardScaler</code> 클래스에서</p>
+          <h2 id="sklearn-preprocessing-패키지"><a href="#sklearn-preprocessing-패키지" class="headerlink" title="sklearn.preprocessing 패키지"></a>sklearn.preprocessing 패키지</h2><p>스케일링 및 변수변환을 위한 <code>StandardScaler</code> 클래스에서<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning/#more" rel="contents">
@@ -473,7 +641,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
     
@@ -558,7 +726,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="회귀분석"><a href="#회귀분석" class="headerlink" title="회귀분석"></a>회귀분석</h1><p>독립변수에 대응하는 종속변수와 가장 비슷한값 y^을 출력하는 함수를 찾는 과정<br>만약 함수 f(x)가 선형함수면, 이 함수를 선형회귀모형(linear regression model)이라 한다.</p>
+          <h1 id="회귀분석"><a href="#회귀분석" class="headerlink" title="회귀분석"></a>회귀분석</h1><p>독립변수에 대응하는 종속변수와 가장 비슷한값 y^을 출력하는 함수를 찾는 과정<br>만약 함수 f(x)가 선형함수면, 이 함수를 선형회귀모형(linear regression model)이라 한다.<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning3/#more" rel="contents">
@@ -568,7 +736,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
     
@@ -653,7 +821,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="범주형-데이터"><a href="#범주형-데이터" class="headerlink" title="범주형 데이터"></a>범주형 데이터</h1><p>혈액형, 성별과 같이 종류를 표시하는 데이터</p>
+          <h1 id="범주형-데이터"><a href="#범주형-데이터" class="headerlink" title="범주형 데이터"></a>범주형 데이터</h1><p>혈액형, 성별과 같이 종류를 표시하는 데이터<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning2/#more" rel="contents">
@@ -663,7 +831,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
     
@@ -742,7 +910,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="CSS-Selector"><a href="#CSS-Selector" class="headerlink" title="CSS Selector"></a>CSS Selector</h1><p>HTML 엘리먼트에 CSS 스타일을 적용시킬때 엘리먼트를 선택하기 위한 입니다.</p>
+          <h1 id="CSS-Selector"><a href="#CSS-Selector" class="headerlink" title="CSS Selector"></a>CSS Selector</h1><p>HTML 엘리먼트에 CSS 스타일을 적용시킬때 엘리먼트를 선택하기 위한 입니다.<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/22/TIL-crawling-2020-02-22-crawling-css/#more" rel="contents">
@@ -752,7 +920,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
     
@@ -917,7 +1085,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="TRY-EXCEPT"><a href="#TRY-EXCEPT" class="headerlink" title="TRY, EXCEPT"></a>TRY, EXCEPT</h1><p>에러가 발생해도 코드의 실행을 계속 하고 싶을 때 사용합니다.</p>
+          <h1 id="TRY-EXCEPT"><a href="#TRY-EXCEPT" class="headerlink" title="TRY, EXCEPT"></a>TRY, EXCEPT</h1><p>에러가 발생해도 코드의 실행을 계속 하고 싶을 때 사용합니다.<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/21/python-2020-02-21-try-except-finally-raise/#more" rel="contents">
@@ -927,182 +1095,7 @@
           <!--/noindex-->
         
       
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/21/python-2020-02-21-python-module-package/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/21/python-2020-02-21-python-module-package/" class="post-title-link" itemprop="url">모듈과 패키지</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-21 19:19:18" itemprop="dateCreated datePublished" datetime="2020-02-21T19:19:18+09:00">2020-02-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-23 16:40:53" itemprop="dateModified" datetime="2020-02-23T16:40:53+09:00">2020-02-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Module-amp-Package"><a href="#Module-amp-Package" class="headerlink" title="Module &amp; Package"></a>Module &amp; Package</h1><p>모듈 : 변수, 함수, 클래스를 모아놓은 (.py)라는 이름의 확장자를 가진 파일입니다.<br>패키지 : 모듈의 기능을 디렉토리별로 정리해 놓은 개념입니다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/21/python-2020-02-21-python-module-package/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/21/TIL-crawling-2020-02-21-crawling/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/21/TIL-crawling-2020-02-21-crawling/" class="post-title-link" itemprop="url">HTML 파싱을 이용한 크롤링</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-21 18:52:59" itemprop="dateCreated datePublished" datetime="2020-02-21T18:52:59+09:00">2020-02-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-23 16:44:40" itemprop="dateModified" datetime="2020-02-23T16:44:40+09:00">2020-02-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/" itemprop="url" rel="index">
-                    <span itemprop="name">TIL..</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/Crawling/" itemprop="url" rel="index">
-                    <span itemprop="name">Crawling</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="HTML-데이터-파싱을-이용한-크롤링"><a href="#HTML-데이터-파싱을-이용한-크롤링" class="headerlink" title="HTML 데이터 파싱을 이용한 크롤링"></a>HTML 데이터 파싱을 이용한 크롤링</h2><ol>
-<li>웹페이지 분석 : URL 찾기</li>
-<li>요청 -&gt; 응답 : HTML(str) 가져오기</li>
-<li>HTML(str) -&gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&gt; 데이터프레임으로 변환
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/21/TIL-crawling-2020-02-21-crawling/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </li></ol></div>
+    </p></div>
 
     
     
@@ -1186,7 +1179,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1292,6 +1285,56 @@
 
 
   
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
   <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
