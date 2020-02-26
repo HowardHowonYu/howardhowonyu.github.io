@@ -253,7 +253,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Module-amp-Package"><a href="#Module-amp-Package" class="headerlink" title="Module &amp; Package"></a>Module &amp; Package</h1><p>모듈 : 변수, 함수, 클래스를 모아놓은 (.py)라는 이름의 확장자를 가진 파일입니다.<br>패키지 : 모듈의 기능을 디렉토리별로 정리해 놓은 개념입니다.<br>
+          <h1 id="module-package">Module &amp; Package</h1>
+<p>모듈 : 변수, 함수, 클래스를 모아놓은 (.py)라는 이름의 확장자를 가진 파일입니다. 패키지 : 모듈의 기능을 디렉토리별로 정리해 놓은 개념입니다.
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/21/python-2020-02-21-python-module-package/#more" rel="contents">
@@ -342,7 +343,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="HTML-데이터-파싱을-이용한-크롤링"><a href="#HTML-데이터-파싱을-이용한-크롤링" class="headerlink" title="HTML 데이터 파싱을 이용한 크롤링"></a>HTML 데이터 파싱을 이용한 크롤링</h2><ol>
+          <h2 id="html-데이터-파싱을-이용한-크롤링">HTML 데이터 파싱을 이용한 크롤링</h2>
+<ol type="1">
 <li>웹페이지 분석 : URL 찾기</li>
 <li>요청 -&gt; 응답 : HTML(str) 가져오기</li>
 <li>HTML(str) -&gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&gt; 데이터프레임으로 변환
@@ -440,22 +442,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="데이터-전처리에-사용하는-패키지"><a href="#데이터-전처리에-사용하는-패키지" class="headerlink" title="데이터 전처리에 사용하는 패키지"></a>데이터 전처리에 사용하는 패키지</h1><h2 id="missingno"><a href="#missingno" class="headerlink" title="missingno"></a>missingno</h2><ul>
+          <h1 id="데이터-전처리에-사용하는-패키지">데이터 전처리에 사용하는 패키지</h1>
+<h2 id="missingno">missingno</h2>
+<ul>
 <li>결측데이터를 검색하여 시각화 함</li>
 <li><code>.bar()</code>, <code>.matrix()</code>함수로 확인</li>
 </ul>
-<h2 id="scikit-learn-패키지의-SimpleImputer-클래스"><a href="#scikit-learn-패키지의-SimpleImputer-클래스" class="headerlink" title="scikit-learn 패키지의 SimpleImputer 클래스"></a>scikit-learn 패키지의 SimpleImputer 클래스</h2><ul>
-<li><code>SimpleImputer</code>클래스로 객체를 생성할때, 결측값을 채우고자 할때, <code>strategy</code> 인수를 “mean”으로 하면 중앙값 “median”으로 하면 중앙값, <code>most_frequent</code>로 하면 최빈값을 대체값으로 사용한다.</li>
+<h2 id="scikit-learn-패키지의-simpleimputer-클래스">scikit-learn 패키지의 SimpleImputer 클래스</h2>
+<ul>
+<li><code>SimpleImputer</code>클래스로 객체를 생성할때, 결측값을 채우고자 할때, <code>strategy</code> 인수를 &quot;mean&quot;으로 하면 중앙값 &quot;median&quot;으로 하면 중앙값, <code>most_frequent</code>로 하면 최빈값을 대체값으로 사용한다.</li>
 </ul>
-<h2 id="patsy"><a href="#patsy" class="headerlink" title="patsy"></a>patsy</h2><ul>
+<h2 id="patsy">patsy</h2>
+<ul>
 <li>데이터를 선택, 변환, 추가, 스케일링 함</li>
 <li><code>dmatrx()</code> 함수를 사용하면 데이터 프레임에 상수항을 추가하거나 원하는 데이터만 선택하거나 변형할 수 있다.</li>
-<li>스케일링을 위한 함수 <ul>
+<li>스케일링을 위한 함수
+<ul>
 <li><code>center()</code>: 평균을 0으로 스케일링</li>
 <li><code>standardize()</code>: 평균을 0으로하고 표준편차를 1로 스케일링</li>
 <li><code>scale()</code>: <code>standardize()</code> 과 같음</li>
-</ul>
-</li>
+</ul></li>
 <li><code>design_info</code>라는 속성에 평균등 정보가 입력되어 있다.</li>
 </ul>
 
@@ -539,7 +545,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Oauth"><a href="#Oauth" class="headerlink" title="Oauth"></a>Oauth</h2><ul>
+          <h2 id="oauth">Oauth</h2>
+<ul>
 <li>서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급해주는 입니다.
           <!--noindex-->
             <div class="post-button">
@@ -629,7 +636,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="web-crawling"><a href="#web-crawling" class="headerlink" title="web crawling"></a>web crawling</h2><ol>
+          <h2 id="web-crawling">web crawling</h2>
+<ol type="1">
 <li>requests : json : 동적페이지(URL 변경 없이 데이터를 수정 및 추가)</li>
 <li>requests : html : 정적페이지(URL 변경 으로 데이터를 수정 및 추가)</li>
 <li>selenium : web browser : 1,2 번 방법을 사용하지 못할때 사용, 브라우저를 직접 조작
@@ -727,42 +735,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="데이터-분석이란"><a href="#데이터-분석이란" class="headerlink" title="데이터 분석이란?"></a>데이터 분석이란?</h2><ul>
+          <h2 id="데이터-분석이란">데이터 분석이란?</h2>
+<ul>
 <li>데이터 간의 관계를 사용하여 우리가 원하는 새로운 출력데이터를 만들어 내는 과정</li>
 </ul>
-<h2 id="예측"><a href="#예측" class="headerlink" title="예측"></a>예측</h2><ul>
+<h2 id="예측">예측</h2>
+<ul>
 <li>여러가지 입력 데이터를 주면, 데이터 분석의 결과로 다른 데이터를 출력</li>
 </ul>
-<h2 id="입력데이터-input-data-출력데이터-output-data"><a href="#입력데이터-input-data-출력데이터-output-data" class="headerlink" title="입력데이터(input data), 출력데이터(output data)"></a>입력데이터(input data), 출력데이터(output data)</h2><ul>
+<h2 id="입력데이터input-data-출력데이터output-data">입력데이터(input data), 출력데이터(output data)</h2>
+<ul>
 <li>독립변수, 특징, 설명변수</li>
 <li>종속변수, 라벨, 클라스(카테고리 값)</li>
 </ul>
-<h2 id="규칙기반과-학습기반"><a href="#규칙기반과-학습기반" class="headerlink" title="규칙기반과 학습기반"></a>규칙기반과 학습기반</h2><ul>
+<h2 id="규칙기반과-학습기반">규칙기반과 학습기반</h2>
+<ul>
 <li>규칙기반 방법은 사람이 규칙을 미리 만들어 놓는 방법</li>
 <li>학습기반 방법은 규칙을 기계가 만들도록 하는 방법</li>
 </ul>
-<h2 id="지도학습"><a href="#지도학습" class="headerlink" title="지도학습"></a>지도학습</h2><ul>
+<h2 id="지도학습">지도학습</h2>
+<ul>
 <li>목표값이 있어야 학습가능하기 때문에, 입력데이터에 목표값을 붙여주는 작업이 필요하고 이를 레이블링이라 한다.</li>
 <li>지도학습에서 가장 힘든 작업이 레이블링</li>
 </ul>
-<h2 id="인코딩"><a href="#인코딩" class="headerlink" title="인코딩"></a>인코딩</h2><ul>
+<h2 id="인코딩">인코딩</h2>
+<ul>
 <li>현실의 데이터를 컴퓨터가 처리할수 있는 데이터로 바꾸는것</li>
-<li>이미지는 벡터화 시키고, 문서는 BOW방식을 사용<ul>
+<li>이미지는 벡터화 시키고, 문서는 BOW방식을 사용
+<ul>
 <li>BOW(Bag of words): 특정 단어가 몇번 나왔는지를 세어 빈도를 벡터로 표시하는 방법, 단어장을 만들어 각 단어별 번호를 메긴후 문서별로 번호를 셈</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="입력차원"><a href="#입력차원" class="headerlink" title="입력차원"></a>입력차원</h2><ul>
+<h2 id="입력차원">입력차원</h2>
+<ul>
 <li>데이터를 입력받는 구멍, 한번 정하면 바꾸기 힘듦</li>
 </ul>
-<h2 id="카테고리값"><a href="#카테고리값" class="headerlink" title="카테고리값"></a>카테고리값</h2><ul>
+<h2 id="카테고리값">카테고리값</h2>
+<ul>
 <li>범주형 값이라고 하며, 비교가 불가능한 데이터</li>
 </ul>
-<h2 id="회기분석과-분류문제"><a href="#회기분석과-분류문제" class="headerlink" title="회기분석과 분류문제"></a>회기분석과 분류문제</h2><ul>
+<h2 id="회기분석과-분류문제">회기분석과 분류문제</h2>
+<ul>
 <li>회기분석은 답이 되는 숫자를 써야하는 단답형 문제를 푸는것</li>
 <li>분류 문제는 4지 선다 문제 같이 답을 정하는 것</li>
 </ul>
-<h2 id="비지도-학습"><a href="#비지도-학습" class="headerlink" title="비지도 학습"></a>비지도 학습</h2><ul>
+<h2 id="비지도-학습">비지도 학습</h2>
+<ul>
 <li>지도학습을 제외한 모든 머신러닝 방식</li>
 <li>클러스터링 : 비슷한 데이터를 같은 그룹으로 모으는것</li>
 <li>imputation(impating): 빠진 그림을 채우는 등의 작업</li>
@@ -854,26 +872,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="검정"><a href="#검정" class="headerlink" title="검정"></a>검정</h2><ul>
+          <h2 id="검정">검정</h2>
+<ul>
 <li>확률분포에 대한 어떤 주장: 가설</li>
 <li>검정: 가설을 증명하는 행위</li>
 </ul>
-<h2 id="귀무가설과-대립가설"><a href="#귀무가설과-대립가설" class="headerlink" title="귀무가설과 대립가설"></a>귀무가설과 대립가설</h2><ul>
+<h2 id="귀무가설과-대립가설">귀무가설과 대립가설</h2>
+<ul>
 <li>등식으로 표현(=)</li>
 <li>귀무가설과 함께 고려하는 대립가설은, 진실임을 증명하고자 하는 가설</li>
 </ul>
-<h2 id="검정통계량"><a href="#검정통계량" class="headerlink" title="검정통계량"></a>검정통계량</h2><ul>
+<h2 id="검정통계량">검정통계량</h2>
+<ul>
 <li>표본데이터 집합을 입력으로 계산되는 함수의 값</li>
 <li>베르누이분포 확률변수의 검정통계량은 이항분포를 따른다.</li>
 <li>분산 시그마^2값을 알고있는 정규분포 확률변수는, 표본평균 m을 분산으로 정규화한 값을 정규통계량으로 쓰고, 이 검정통계량은 표준정규분포를 따른다.</li>
 <li>분산 시그마^2값을 모르는 정규분포 확률변수는, 자유도가 N-1인 스튜던트 t분포를 따른다.</li>
 </ul>
-<h2 id="유의확률-P-value"><a href="#유의확률-P-value" class="headerlink" title="유의확률(P-value)"></a>유의확률(P-value)</h2><ul>
+<h2 id="유의확률p-value">유의확률(P-value)</h2>
+<ul>
 <li>확률분포와 확률분포의 표본값이 주어졌을때, 그 확률분포에서 해당 표본값 혹은 더 희귀한 값이 나올수 있는 확률</li>
 <li>유의확률값이 작으면 귀무가설을 기각하고 대립가설을 채택할수 있다.</li>
 </ul>
-<h2 id="유의수준과-기각역"><a href="#유의수준과-기각역" class="headerlink" title="유의수준과 기각역"></a>유의수준과 기각역</h2><ul>
-<li>유의확률값이 작으면 귀무가설을 기각하고 대립가설을 채택할수 있다, 에서 “작다”는 판단을 하는 기준.</li>
+<h2 id="유의수준과-기각역">유의수준과 기각역</h2>
+<ul>
+<li>유의확률값이 작으면 귀무가설을 기각하고 대립가설을 채택할수 있다, 에서 &quot;작다&quot;는 판단을 하는 기준.</li>
 <li>기각역 : 유의수준에 대해 계산된 검정통계량</li>
 </ul>
 
@@ -951,8 +974,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="SQL-in-python"><a href="#SQL-in-python" class="headerlink" title="SQL in python"></a>SQL in python</h2><blockquote>
-<p>데이터 베이스 연결<br>
+          <h2 id="sql-in-python">SQL in python</h2>
+<blockquote>
+<p>데이터 베이스 연결
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/15/Database-2020-02-15-mysql-with-python/#more" rel="contents">
@@ -1035,7 +1059,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="MongDB"><a href="#MongDB" class="headerlink" title="MongDB"></a>MongDB</h2>
+          <h2 id="mongdb">MongDB</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/14/Database-2020-02-14-mongdb/#more" rel="contents">
@@ -1124,7 +1148,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="world-sql-데이터로-푼-퀴즈"><a href="#world-sql-데이터로-푼-퀴즈" class="headerlink" title="world.sql 데이터로 푼 퀴즈"></a>world.sql 데이터로 푼 퀴즈</h1>
+          <h1 id="world.sql-데이터로-푼-퀴즈">world.sql 데이터로 푼 퀴즈</h1>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/14/TIL-Database-2020-02-14-mySQL/#more" rel="contents">

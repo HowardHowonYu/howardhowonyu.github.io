@@ -58,12 +58,12 @@
   };
 </script>
 
-  <meta name="description" content="범주형 데이터혈액형, 성별과 같이 종류를 표시하는 데이터">
+  <meta name="description" content="범주형 데이터 혈액형, 성별과 같이 종류를 표시하는 데이터">
 <meta property="og:type" content="article">
 <meta property="og:title" content="범주형 데이터 처리">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning2/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="범주형 데이터혈액형, 성별과 같이 종류를 표시하는 데이터">
+<meta property="og:description" content="범주형 데이터 혈액형, 성별과 같이 종류를 표시하는 데이터">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-24T11:13:02.000Z">
 <meta property="article:modified_time" content="2020-02-25T13:32:27.103Z">
@@ -270,21 +270,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="범주형-데이터"><a href="#범주형-데이터" class="headerlink" title="범주형 데이터"></a>범주형 데이터</h1><p>혈액형, 성별과 같이 종류를 표시하는 데이터<br><a id="more"></a></p>
-<h2 id="범주형-데이터의-변형"><a href="#범주형-데이터의-변형" class="headerlink" title="범주형 데이터의 변형"></a>범주형 데이터의 변형</h2><ul>
+        <h1 id="범주형-데이터">범주형 데이터</h1>
+<p>혈액형, 성별과 같이 종류를 표시하는 데이터 <a id="more"></a></p>
+<h2 id="범주형-데이터의-변형">범주형 데이터의 변형</h2>
+<ul>
 <li>더미변수화</li>
 <li>카테고리 임베딩</li>
 </ul>
-<h2 id="더미변수화"><a href="#더미변수화" class="headerlink" title="더미변수화"></a>더미변수화</h2><p>0 또는 1만 가지는 값으로 어떤 특징의 존재 여부를 표시.<br>이진지시자(Boolean indicator),이진변수(binary variable),지시변수(indicator variable),설계변수(design variable),처치(treatment)등으로 불린다.</p>
-<h2 id="patsy를-활용한-더미변수화"><a href="#patsy를-활용한-더미변수화" class="headerlink" title="patsy를 활용한 더미변수화"></a>patsy를 활용한 더미변수화</h2><ul>
-<li>풀랭크 방식<br>  patsy패키지의 <code>dmatrix()</code>함수는 범주값을 더미변수로 바꿔준다.  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> patsy <span class="keyword">import</span> dmatrix</span><br><span class="line">df = pd.DataFrame([<span class="string">"A"</span>, <span class="string">"B"</span>], columns=[<span class="string">"x"</span>])</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line">dmatrix(<span class="string">"x + 0"</span>, df1)</span><br></pre></td></tr></table></figure></li>
-<li>축소랭크 방식<br>  특정한 하나의 범주값을 기준값으로 하고 기준값에 대응하는 더미변수의 가중치는 항상 1로 한다.<br>  더미변수화 할떄 <code>dmatrix()</code>함수의 문자열에 +0을 생략함</li>
+<h2 id="더미변수화">더미변수화</h2>
+<p>0 또는 1만 가지는 값으로 어떤 특징의 존재 여부를 표시. 이진지시자(Boolean indicator),이진변수(binary variable),지시변수(indicator variable),설계변수(design variable),처치(treatment)등으로 불린다.</p>
+<h2 id="patsy를-활용한-더미변수화">patsy를 활용한 더미변수화</h2>
+<ul>
+<li>풀랭크 방식 patsy패키지의 <code>dmatrix()</code>함수는 범주값을 더미변수로 바꿔준다. <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> patsy <span class="keyword">import</span> dmatrix</span><br><span class="line">df = pd.DataFrame([<span class="string">"A"</span>, <span class="string">"B"</span>], columns=[<span class="string">"x"</span>])</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line">dmatrix(<span class="string">"x + 0"</span>, df1)</span><br></pre></td></tr></table></figure></li>
+<li>축소랭크 방식 특정한 하나의 범주값을 기준값으로 하고 기준값에 대응하는 더미변수의 가중치는 항상 1로 한다. 더미변수화 할떄 <code>dmatrix()</code>함수의 문자열에 +0을 생략함</li>
 </ul>
-<h2 id="두개의-범주형-변수"><a href="#두개의-범주형-변수" class="headerlink" title="두개의 범주형 변수"></a>두개의 범주형 변수</h2><ul>
+<h2 id="두개의-범주형-변수">두개의 범주형 변수</h2>
+<ul>
 <li>통합 축소형 방식</li>
 <li>상호작용 방식</li>
 </ul>
-<h2 id="카테고리-임베딩"><a href="#카테고리-임베딩" class="headerlink" title="카테고리 임베딩"></a>카테고리 임베딩</h2><p>범주값 대신 범주값의 특성을 나타내는 연속값 혹은 연속값 벡터를 사용<br>예를들어 운동선수의 이름을 나타내는 범주값의 경우, 운동선수의 나이, 연봉, 신체능력치 등을 사용하고, 지역명을 나타내느 범주값은 지역의 면적, 인구수 등을 사용한다.</p>
+<h2 id="카테고리-임베딩">카테고리 임베딩</h2>
+<p>범주값 대신 범주값의 특성을 나타내는 연속값 혹은 연속값 벡터를 사용 예를들어 운동선수의 이름을 나타내는 범주값의 경우, 운동선수의 나이, 연봉, 신체능력치 등을 사용하고, 지역명을 나타내느 범주값은 지역의 면적, 인구수 등을 사용한다.</p>
 
     </div>
 

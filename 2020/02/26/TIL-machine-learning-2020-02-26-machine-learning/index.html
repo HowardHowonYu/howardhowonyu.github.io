@@ -58,12 +58,12 @@
   };
 </script>
 
-  <meta name="description" content="부분회귀 회귀분석을 한 후 새로운 독립변수를 추가하여 다시 회귀분석 한다면?">
+  <meta name="description" content="부분회귀  회귀분석을 한 후 새로운 독립변수를 추가하여 다시 회귀분석 한다면?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="부분회귀">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="부분회귀 회귀분석을 한 후 새로운 독립변수를 추가하여 다시 회귀분석 한다면?">
+<meta property="og:description" content="부분회귀  회귀분석을 한 후 새로운 독립변수를 추가하여 다시 회귀분석 한다면?">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-26T01:03:53.000Z">
 <meta property="article:modified_time" content="2020-02-26T01:32:35.483Z">
@@ -264,42 +264,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="부분회귀"><a href="#부분회귀" class="headerlink" title="부분회귀"></a>부분회귀</h1><ul>
-<li>회귀분석을 한 후 새로운 독립변수를 추가하여 다시 회귀분석 한다면?<a id="more"></a>
+        <h1 id="부분회귀">부분회귀</h1>
 <ul>
-<li>처음에 나온 w1의 값과 두번째 나온 w’1의 값은 다르다.</li>
+<li>회귀분석을 한 후 새로운 독립변수를 추가하여 다시 회귀분석 한다면? <a id="more"></a>
+<ul>
+<li>처음에 나온 w1의 값과 두번째 나온 w'1의 값은 다르다.</li>
 <li>종속변수에 영향을 미치는 모든 독립변수들이 회귀모형에 포함되지 않는한, 모형의 가중치는 항상 편향된(biased)값 이다.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <blockquote>
 <p><strong>새로운 독립변수 그룹을 추가해서 다시 회귀분석을 하면, 기존 가중치 벡터의 값이 달라진다.</strong></p>
 </blockquote>
-<h3 id="두가지-회귀분석-결과가-같을수-있는-경우"><a href="#두가지-회귀분석-결과가-같을수-있는-경우" class="headerlink" title="두가지 회귀분석 결과가 같을수 있는 경우"></a>두가지 회귀분석 결과가 같을수 있는 경우</h3><ul>
-<li>$w’2 = 0$, 즉 $X_2$와 $y$의 상관관계가 없는 경우</li>
-<li>$X_1^TX_2 = 0$, 즉 독립변수 $X_1$과 독립변수 $X_2$가 직교하는 경우. 서로 상관관계가 없으면 직교할 가능성이 높다.</li>
+<h3 id="두가지-회귀분석-결과가-같을수-있는-경우">두가지 회귀분석 결과가 같을수 있는 경우</h3>
+<ul>
+<li><span class="math inline">\(w&#39;2 = 0\)</span>, 즉 <span class="math inline">\(X_2\)</span>와 <span class="math inline">\(y\)</span>의 상관관계가 없는 경우</li>
+<li><span class="math inline">\(X_1^TX_2 = 0\)</span>, 즉 독립변수 <span class="math inline">\(X_1\)</span>과 독립변수 <span class="math inline">\(X_2\)</span>가 직교하는 경우. 서로 상관관계가 없으면 직교할 가능성이 높다.</li>
 </ul>
-<h2 id="프리슈-워-로벨-정리"><a href="#프리슈-워-로벨-정리" class="headerlink" title="프리슈-워-로벨 정리"></a>프리슈-워-로벨 정리</h2><ul>
-<li>1 : 특정한 독립변수 그룸 $X_1$로 종속변수 $y$를 선형회귀분석하여 잔차 $y^*$를 구한다.</li>
-<li>2 : $X_1$로 다른 독립변수 $x_2$를 선형 회귀분석하여 나온 잔차 $x^*_2$를 구한다.</li>
-<li>3 : $y^<em>$를 종속변수로 하고 $x^</em>_2$ 를 독립변수로 하여 선형회귀분석하여 구한 가중치는 $X_1$과 $x_2$를 모두 사용하여 $y$를 선형 회귀분석하였을때 $x_2$에 대한 가중치와 같다.</li>
+<h2 id="프리슈-워-로벨-정리">프리슈-워-로벨 정리</h2>
+<ul>
+<li>1 : 특정한 독립변수 그룸 <span class="math inline">\(X_1\)</span>로 종속변수 <span class="math inline">\(y\)</span>를 선형회귀분석하여 잔차 <span class="math inline">\(y^*\)</span>를 구한다.</li>
+<li>2 : <span class="math inline">\(X_1\)</span>로 다른 독립변수 <span class="math inline">\(x_2\)</span>를 선형 회귀분석하여 나온 잔차 <span class="math inline">\(x^*_2\)</span>를 구한다.</li>
+<li>3 : <span class="math inline">\(y^*\)</span>를 종속변수로 하고 <span class="math inline">\(x^*_2\)</span> 를 독립변수로 하여 선형회귀분석하여 구한 가중치는 <span class="math inline">\(X_1\)</span>과 <span class="math inline">\(x_2\)</span>를 모두 사용하여 <span class="math inline">\(y\)</span>를 선형 회귀분석하였을때 <span class="math inline">\(x_2\)</span>에 대한 가중치와 같다.</li>
 </ul>
-<h2 id="부분회귀-플롯-Partial-Regression-Plot-Added-Variable-Plot"><a href="#부분회귀-플롯-Partial-Regression-Plot-Added-Variable-Plot" class="headerlink" title="부분회귀 플롯(Partial Regression Plot, Added Variable Plot)"></a>부분회귀 플롯(Partial Regression Plot, Added Variable Plot)</h2><ul>
+<h2 id="부분회귀-플롯partial-regression-plot-added-variable-plot">부분회귀 플롯(Partial Regression Plot, Added Variable Plot)</h2>
+<ul>
 <li>특정한 하나의 독립변수의 영향력을 시각화하는 방법</li>
 </ul>
 <blockquote>
 <p><strong>순서</strong></p>
 </blockquote>
-<ol>
-<li>특정한 독립변수  $𝑥_2$ 를 제외한 나머지 독립변수  $𝑋_1$ 들로 종속변수  $𝑦$ 를 선형 회귀분석하여 잔차  $𝑦^∗$ 를 구한다.</li>
-<li>특정한 독립변수  $𝑥_2$ 를 제외한 나머지 독립변수  $𝑋_1$ 들로 특정한 독립변수  $𝑥_2$ 를 선형 회귀분석하여 잔차  $x_2^*$ 를 구한다.</li>
-<li>잔차  $𝑥_2^<em>$ 를 독립변수로, 잔차  $𝑦^∗$ 를 종속변수로 하여 선형 회귀분석한다. 이렇게 구한  $𝑥_2^</em>$ ,  $𝑦^∗$ 의 스캐터 플롯과 회귀분석 결과를 나타낸 것이 부분회귀 플롯이다.</li>
+<ol type="1">
+<li>특정한 독립변수 <span class="math inline">\(𝑥_2\)</span> 를 제외한 나머지 독립변수 <span class="math inline">\(𝑋_1\)</span> 들로 종속변수 <span class="math inline">\(𝑦\)</span> 를 선형 회귀분석하여 잔차 <span class="math inline">\(𝑦^∗\)</span> 를 구한다.</li>
+<li>특정한 독립변수 <span class="math inline">\(𝑥_2\)</span> 를 제외한 나머지 독립변수 <span class="math inline">\(𝑋_1\)</span> 들로 특정한 독립변수 <span class="math inline">\(𝑥_2\)</span> 를 선형 회귀분석하여 잔차 <span class="math inline">\(x_2^*\)</span> 를 구한다.</li>
+<li>잔차 <span class="math inline">\(𝑥_2^*\)</span> 를 독립변수로, 잔차 <span class="math inline">\(𝑦^∗\)</span> 를 종속변수로 하여 선형 회귀분석한다. 이렇게 구한 <span class="math inline">\(𝑥_2^*\)</span> , <span class="math inline">\(𝑦^∗\)</span> 의 스캐터 플롯과 회귀분석 결과를 나타낸 것이 부분회귀 플롯이다.</li>
 </ol>
 <ul>
-<li>부분회귀 플롯에서 가로축의 값은 독립변수 자체의 값이 아닌, 다른 독립변수의 영향을 제거한 일종의 “순수한 독립변수 성분”</li>
+<li>부분회귀 플롯에서 가로축의 값은 독립변수 자체의 값이 아닌, 다른 독립변수의 영향을 제거한 일종의 &quot;순수한 독립변수 성분&quot;</li>
 </ul>
-<h2 id="CCPR-플롯"><a href="#CCPR-플롯" class="headerlink" title="CCPR 플롯"></a>CCPR 플롯</h2><ul>
-<li>부분회귀플롯과 마찬가지, “가로축의 값은 독립변수 그대로의 값”</li>
+<h2 id="ccpr-플롯">CCPR 플롯</h2>
+<ul>
+<li>부분회귀플롯과 마찬가지, &quot;가로축의 값은 독립변수 그대로의 값&quot;</li>
 </ul>
 
     </div>
@@ -386,7 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#부분회귀"><span class="nav-number">1.</span> <span class="nav-text">부분회귀</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#두가지-회귀분석-결과가-같을수-있는-경우"><span class="nav-number">1.0.1.</span> <span class="nav-text">두가지 회귀분석 결과가 같을수 있는 경우</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#프리슈-워-로벨-정리"><span class="nav-number">1.1.</span> <span class="nav-text">프리슈-워-로벨 정리</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#부분회귀-플롯-Partial-Regression-Plot-Added-Variable-Plot"><span class="nav-number">1.2.</span> <span class="nav-text">부분회귀 플롯(Partial Regression Plot, Added Variable Plot)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CCPR-플롯"><span class="nav-number">1.3.</span> <span class="nav-text">CCPR 플롯</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#부분회귀"><span class="nav-number">1.</span> <span class="nav-text">부분회귀</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#두가지-회귀분석-결과가-같을수-있는-경우"><span class="nav-number">1.0.1.</span> <span class="nav-text">두가지 회귀분석 결과가 같을수 있는 경우</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#프리슈-워-로벨-정리"><span class="nav-number">1.1.</span> <span class="nav-text">프리슈-워-로벨 정리</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#부분회귀-플롯partial-regression-plot-added-variable-plot"><span class="nav-number">1.2.</span> <span class="nav-text">부분회귀 플롯(Partial Regression Plot, Added Variable Plot)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ccpr-플롯"><span class="nav-number">1.3.</span> <span class="nav-text">CCPR 플롯</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -58,12 +58,12 @@
   };
 </script>
 
-  <meta name="description" content="범주형 변수가 하나인 경우 더미변수 방법은 변주형 변수를 두개의 변수로 바꾸는 것">
+  <meta name="description" content="범주형 변수가 하나인 경우  더미변수 방법은 변주형 변수를 두개의 변수로 바꾸는 것">
 <meta property="og:type" content="article">
 <meta property="og:title" content="범주형 독립변수">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/02/25/TIL-machine-learning-2020-02-25-machinelearning2/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="범주형 변수가 하나인 경우 더미변수 방법은 변주형 변수를 두개의 변수로 바꾸는 것">
+<meta property="og:description" content="범주형 변수가 하나인 경우  더미변수 방법은 변주형 변수를 두개의 변수로 바꾸는 것">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-25T13:36:19.000Z">
 <meta property="article:modified_time" content="2020-02-26T01:32:36.766Z">
@@ -270,35 +270,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="범주형-변수가-하나인-경우"><a href="#범주형-변수가-하나인-경우" class="headerlink" title="범주형 변수가 하나인 경우"></a>범주형 변수가 하나인 경우</h2><ul>
-<li>더미변수 방법은 변주형 변수를 두개의 변수로 바꾸는 것<a id="more"></a>
-<h3 id="풀랭크-방식과-축소랭크-방식"><a href="#풀랭크-방식과-축소랭크-방식" class="headerlink" title="풀랭크 방식과 축소랭크 방식"></a>풀랭크 방식과 축소랭크 방식</h3></li>
+        <h2 id="범주형-변수가-하나인-경우">범주형 변수가 하나인 경우</h2>
+<ul>
+<li>더미변수 방법은 변주형 변수를 두개의 변수로 바꾸는 것 <a id="more"></a> ### 풀랭크 방식과 축소랭크 방식</li>
 <li>풀랭크 : 더미변수의 값을 원핫인코딩 방식으로 지정.</li>
 <li>축소랭크 : 특정한 하나의 범주값을 기준값으로 하고 기준값에 대응하는 더미변수의 가중치는 항상 1로 놓는다.</li>
 </ul>
 <blockquote>
-<p>월별기온예측</p>
-<pre><code>- 풀랭크 방식: 각 월의 대표값
-- 축소랭크 방식: 기준값(1월의 평균기온)에서 &quot;차이&quot;가 얼마나 나는가
-</code></pre></blockquote>
-<h2 id="두개-이상의-범주형-변수가-있는-경우"><a href="#두개-이상의-범주형-변수가-있는-경우" class="headerlink" title="두개 이상의 범주형 변수가 있는 경우"></a>두개 이상의 범주형 변수가 있는 경우</h2><ul>
+<p>월별기온예측 - 풀랭크 방식: 각 월의 대표값 - 축소랭크 방식: 기준값(1월의 평균기온)에서 &quot;차이&quot;가 얼마나 나는가</p>
+</blockquote>
+<h2 id="두개-이상의-범주형-변수가-있는-경우">두개 이상의 범주형 변수가 있는 경우</h2>
+<ul>
 <li>두개 이상의 범주형 변수가 있는 경우 축소형 방식을 사용</li>
 <li>모든 범주형 변수의 가중치는 기준값 상수항에 더해지는 상수항으로 취급.</li>
 </ul>
-<h2 id="범주형-독립변수와-실수-독립변수의-상호작용"><a href="#범주형-독립변수와-실수-독립변수의-상호작용" class="headerlink" title="범주형 독립변수와 실수 독립변수의 상호작용"></a>범주형 독립변수와 실수 독립변수의 상호작용</h2><p>Case1)</p>
+<h2 id="범주형-독립변수와-실수-독립변수의-상호작용">범주형 독립변수와 실수 독립변수의 상호작용</h2>
+<p>Case1) - 범주형 독립변수 <span class="math inline">\(x_1\)</span>과 실수 독립변수 <span class="math inline">\(x_2\)</span>를 가지는 회귀모형에서 연속값 독립변수 <span class="math inline">\(x_2\)</span>가 미치는 영향, 즉 가중치가 범주형 독립변수 <span class="math inline">\(x_1\)</span>에 따라 달라진다면</p>
 <ul>
-<li><p>범주형 독립변수 $x_1$과 실수 독립변수 $x_2$를 가지는 회귀모형에서 연속값 독립변수 $x_2$가 미치는 영향, 즉 가중치가 범주형 독립변수 $x_1$에 따라 달라진다면</p>
-</li>
-<li><p>범주형 독립변수를 더미변수 $d_1$으로 인코딩하고 연속값 독립변수  $x_2$는 $d_1$과의 상호작용항 <code>d_1:x_2</code>를 추가한다.</p>
-</li>
-<li>$x_1$범주값에 따라 $x_2$의 기울기가 달라지는 모형이 된다.</li>
+<li>범주형 독립변수를 더미변수 <span class="math inline">\(d_1\)</span>으로 인코딩하고 연속값 독립변수 <span class="math inline">\(x_2\)</span>는 <span class="math inline">\(d_1\)</span>과의 상호작용항 <code>d_1:x_2</code>를 추가한다.</li>
+<li><span class="math inline">\(x_1\)</span>범주값에 따라 <span class="math inline">\(x_2\)</span>의 기울기가 달라지는 모형이 된다.</li>
 </ul>
-<p>Case2)</p>
+<p>Case2) - 범주형 독립변수도 종속변수에 영향을 미치고, 범주형 독립변수와 실수 독립변수의 &quot;상호작용&quot;도 종속변수에 영향을 미치면</p>
 <ul>
-<li><p>범주형 독립변수도 종속변수에 영향을 미치고, 범주형 독립변수와 실수 독립변수의 “상호작용”도 종속변수에 영향을 미치면</p>
-</li>
-<li><p>$x_1$의 범주값에 따라 상수항과 $x_2$의 기울기가 모두 달라지는 모형이 된다.</p>
-</li>
+<li><span class="math inline">\(x_1\)</span>의 범주값에 따라 상수항과 <span class="math inline">\(x_2\)</span>의 기울기가 모두 달라지는 모형이 된다.</li>
 </ul>
 
     </div>
@@ -385,7 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#범주형-변수가-하나인-경우"><span class="nav-number">1.</span> <span class="nav-text">범주형 변수가 하나인 경우</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#풀랭크-방식과-축소랭크-방식"><span class="nav-number">1.1.</span> <span class="nav-text">풀랭크 방식과 축소랭크 방식</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#두개-이상의-범주형-변수가-있는-경우"><span class="nav-number">2.</span> <span class="nav-text">두개 이상의 범주형 변수가 있는 경우</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#범주형-독립변수와-실수-독립변수의-상호작용"><span class="nav-number">3.</span> <span class="nav-text">범주형 독립변수와 실수 독립변수의 상호작용</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#범주형-변수가-하나인-경우"><span class="nav-number">1.</span> <span class="nav-text">범주형 변수가 하나인 경우</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#두개-이상의-범주형-변수가-있는-경우"><span class="nav-number">2.</span> <span class="nav-text">두개 이상의 범주형 변수가 있는 경우</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#범주형-독립변수와-실수-독립변수의-상호작용"><span class="nav-number">3.</span> <span class="nav-text">범주형 독립변수와 실수 독립변수의 상호작용</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

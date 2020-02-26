@@ -58,12 +58,12 @@
   };
 </script>
 
-  <meta name="description" content="결정론적 데이터 이미 결정되어 바뀌지 않는 데이터(성별 등)">
+  <meta name="description" content="결정론적 데이터  이미 결정되어 바뀌지 않는 데이터(성별 등)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="확률적 데이터와 확률변수">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/02/06/TIL-mathematics-2020-02-06-probability-md/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="결정론적 데이터 이미 결정되어 바뀌지 않는 데이터(성별 등)">
+<meta property="og:description" content="결정론적 데이터  이미 결정되어 바뀌지 않는 데이터(성별 등)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-06T12:17:45.000Z">
 <meta property="article:modified_time" content="2020-02-24T13:14:14.043Z">
@@ -270,128 +270,158 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="결정론적-데이터"><a href="#결정론적-데이터" class="headerlink" title="결정론적 데이터"></a>결정론적 데이터</h2><ul>
-<li>이미 결정되어 바뀌지 않는 데이터(성별 등)<a id="more"></a>
-</li>
+        <h2 id="결정론적-데이터">결정론적 데이터</h2>
+<ul>
+<li>이미 결정되어 바뀌지 않는 데이터(성별 등) <a id="more"></a></li>
 </ul>
-<h2 id="확률적-데이터"><a href="#확률적-데이터" class="headerlink" title="확률적 데이터"></a>확률적 데이터</h2><ul>
+<h2 id="확률적-데이터">확률적 데이터</h2>
+<ul>
 <li>여러 조건, 상황에 따라 데이터값이 영향을 받거나, 측정시 오차가 생길수 있는 데이터</li>
 </ul>
-<h2 id="분포-distribution"><a href="#분포-distribution" class="headerlink" title="분포(distribution)"></a>분포(distribution)</h2><ul>
+<h2 id="분포distribution">분포(distribution)</h2>
+<ul>
 <li>어떤값이 자주 등장, 혹은 드물게 등장하는지를 나타낸 것</li>
 <li>카운트 플롯(번주형 데이터)과 히스토그램(실수형 데이터)으로 표현</li>
 </ul>
-<h2 id="기술통계-descriptive-stastics"><a href="#기술통계-descriptive-stastics" class="headerlink" title="기술통계(descriptive stastics)"></a>기술통계(descriptive stastics)</h2><ul>
+<h2 id="기술통계descriptive-stastics">기술통계(descriptive stastics)</h2>
+<ul>
 <li>표본평균, 표본중앙값, 표본최빈값</li>
 <li>표본분산, 표본표준편차</li>
 <li>표본비대칭도, 표본첨도</li>
 </ul>
-<h2 id="표본중앙값-sample-median"><a href="#표본중앙값-sample-median" class="headerlink" title="표본중앙값(sample median)"></a>표본중앙값(sample median)</h2><ul>
+<h2 id="표본중앙값sample-median">표본중앙값(sample median)</h2>
+<ul>
 <li>자료를 크기별로 정렬해서 가장 중앙에 위치하는 값</li>
 </ul>
-<h2 id="표본최빈값-sample-mode"><a href="#표본최빈값-sample-mode" class="headerlink" title="표본최빈값(sample mode)"></a>표본최빈값(sample mode)</h2><ul>
+<h2 id="표본최빈값sample-mode">표본최빈값(sample mode)</h2>
+<ul>
 <li>가장 빈번하게 나오는 값</li>
 </ul>
-<h2 id="단봉-분포-uni-modal-다봉분포-multi-nodal"><a href="#단봉-분포-uni-modal-다봉분포-multi-nodal" class="headerlink" title="단봉 분포(uni modal), 다봉분포(multi nodal)"></a>단봉 분포(uni modal), 다봉분포(multi nodal)</h2><h2 id="대칭-분포"><a href="#대칭-분포" class="headerlink" title="대칭 분포"></a>대칭 분포</h2><ul>
+<h2 id="단봉-분포uni-modal-다봉분포multi-nodal">단봉 분포(uni modal), 다봉분포(multi nodal)</h2>
+<h2 id="대칭-분포">대칭 분포</h2>
+<ul>
 <li>표본평균을 기준으로 대칭인 대칭분포이면, 표본중앙값 = 표본평균</li>
 <li>대칭분포이면서 하나의 최고값을 가지는 단봉분포이면, 표본최빈값 = 표본평균</li>
 <li>대칭분포를 비대칭으로 만드는 데이터가 더해지면(outlier) 표본평균 &gt; 중앙값 &gt; 최빈값 순으로 영향을 받는다.</li>
 </ul>
-<h2 id="분산-variance-과-표준편차-standard-deviation"><a href="#분산-variance-과-표준편차-standard-deviation" class="headerlink" title="분산(variance)과 표준편차(standard deviation)"></a>분산(variance)과 표준편차(standard deviation)</h2><ul>
+<h2 id="분산variance과-표준편차standard-deviation">분산(variance)과 표준편차(standard deviation)</h2>
+<ul>
 <li>표준편차 = 분산의 양의 제곱근</li>
 <li></li>
 <li>편향 표본분산 : 데이터와 평균 사이의 거리의 제곱의 평균</li>
-<li>비편향 표본분산 :  데이터와 평균 사이의 거리의 제곱의 평균할떄 N-1로 나눔</li>
+<li>비편향 표본분산 : 데이터와 평균 사이의 거리의 제곱의 평균할떄 N-1로 나눔</li>
 </ul>
-<h2 id="표본-비대칭도-sample-skewness"><a href="#표본-비대칭도-sample-skewness" class="headerlink" title="표본 비대칭도(sample skewness)"></a>표본 비대칭도(sample skewness)</h2><ul>
+<h2 id="표본-비대칭도sample-skewness">표본 비대칭도(sample skewness)</h2>
+<ul>
 <li>데이터와 평균 사이의 거리의 3제곱 이용</li>
 <li>0이면 대칭, 음수이면 표본평균값 기준 왼쪽, 양수이면 오른쪽</li>
 </ul>
-<h2 id="표본첨도-sample-kuerosis"><a href="#표본첨도-sample-kuerosis" class="headerlink" title="표본첨도(sample kuerosis)"></a>표본첨도(sample kuerosis)</h2><ul>
+<h2 id="표본첨도sample-kuerosis">표본첨도(sample kuerosis)</h2>
+<ul>
 <li>4제곱 이용</li>
 <li>데이터가 중앙에 몰려있는 정도를 정밀하게 비교할때 사용. 사람눈으로 구분 힘듦</li>
 </ul>
-<h2 id="표본모멘트-sample-momoent"><a href="#표본모멘트-sample-momoent" class="headerlink" title="표본모멘트(sample momoent)"></a>표본모멘트(sample momoent)</h2><ul>
+<h2 id="표본모멘트sample-momoent">표본모멘트(sample momoent)</h2>
+<ul>
 <li>k제곱을 이용함</li>
 </ul>
-<h1 id="확률변수"><a href="#확률변수" class="headerlink" title="확률변수"></a>확률변수</h1><ul>
+<h1 id="확률변수">확률변수</h1>
+<ul>
 <li>데이터 생성기, 수학적으로 확률공간의 표본을 입력받아서 실수인 숫자로 바꾸어 출력하는 함수!</li>
 </ul>
-<h2 id="이산확률변수"><a href="#이산확률변수" class="headerlink" title="이산확률변수"></a>이산확률변수</h2><ul>
+<h2 id="이산확률변수">이산확률변수</h2>
+<ul>
 <li>연속적이지 않고 떨어져 있도록 정의할수 있는 확률변수(주사위,동전)</li>
 </ul>
-<h2 id="연속확률변수"><a href="#연속확률변수" class="headerlink" title="연속확률변수"></a>연속확률변수</h2><ul>
+<h2 id="연속확률변수">연속확률변수</h2>
+<ul>
 <li>연속적이고 무한대의 실수 표본값을 가지는 확률변수(원판의 각도)</li>
 </ul>
-<h2 id="확률변수를-이용한-데이터-분석"><a href="#확률변수를-이용한-데이터-분석" class="headerlink" title="확률변수를 이용한 데이터 분석"></a>확률변수를 이용한 데이터 분석</h2><ol>
+<h2 id="확률변수를-이용한-데이터-분석">확률변수를 이용한 데이터 분석</h2>
+<ol type="1">
 <li>데이터 수집 및 전처리</li>
 <li>수집한 데이터를 임의의 확률변수의 표본 데이터라 가정</li>
-<li>확률변수의 확률분포함수 모양 결정 = “역설계, 추정”</li>
+<li>확률변수의 확률분포함수 모양 결정 = &quot;역설계, 추정&quot;</li>
 <li>결정된 확률변수로 다음에 생성될 데이터의 특성 예측</li>
 </ol>
-<h2 id="확률변수의-기대값"><a href="#확률변수의-기대값" class="headerlink" title="확률변수의 기대값"></a>확률변수의 기대값</h2><ul>
+<h2 id="확률변수의-기대값">확률변수의 기대값</h2>
+<ul>
 <li>E[X] 는 범함수:함수를 받아 함수를 뱉어내는 함수</li>
 <li>이산확률변수의 기대값은 표본공간의 원소 x_i의 가중평균</li>
 <li>연속확률변수의 기대값은 p(x)를 가중치로 하여 모든 가능한 표본x를 적분한값</li>
 </ul>
-<h2 id="확률변수의-변환"><a href="#확률변수의-변환" class="headerlink" title="확률변수의 변환"></a>확률변수의 변환</h2><ul>
+<h2 id="확률변수의-변환">확률변수의 변환</h2>
+<ul>
 <li>기존의 확률변수를 사용하여 새로운 확률변수를 만드는것</li>
 </ul>
-<h2 id="기대값의-성질"><a href="#기대값의-성질" class="headerlink" title="기대값의 성질"></a>기대값의 성질</h2><ul>
+<h2 id="기대값의-성질">기대값의 성질</h2>
+<ul>
 <li>E[c] = c</li>
 <li>E[cX] = cE[X]</li>
 <li>E[X+Y] = E[X] + E[Y]</li>
 <li>E[cX+xY] = cE[X] + xE[Y]</li>
 </ul>
-<h2 id="통계량"><a href="#통계량" class="headerlink" title="통계량"></a>통계량</h2><ul>
+<h2 id="통계량">통계량</h2>
+<ul>
 <li>데이터집합의 모든 값을 정해진 어떤 공식에 넣어서 하나의 숫자를 구한 것</li>
 </ul>
-<h2 id="기대값과-표본평균의-관계"><a href="#기대값과-표본평균의-관계" class="headerlink" title="기대값과 표본평균의 관계"></a>기대값과 표본평균의 관계</h2><ul>
+<h2 id="기대값과-표본평균의-관계">기대값과 표본평균의 관계</h2>
+<ul>
 <li>E[Xbar] = E[X] : 평균의 중앙위치는 원래 데이터의 중앙위치와 같다</li>
 </ul>
-<h2 id="중앙값"><a href="#중앙값" class="headerlink" title="중앙값"></a>중앙값</h2><ul>
+<h2 id="중앙값">중앙값</h2>
+<ul>
 <li>확률변수의 중앙값은 중앙값보다 큰 값이 나올 확률과 작은 값이 나올 확률이 0.5로 같은 값</li>
 </ul>
-<h2 id="최빈값"><a href="#최빈값" class="headerlink" title="최빈값"></a>최빈값</h2><ul>
+<h2 id="최빈값">최빈값</h2>
+<ul>
 <li>이산확률분포에서 : 가장 확률값이 큰수</li>
 <li>연속확률분포에서 : 확률밀도함수 p(x)의 값이 가장 큰 확률변수</li>
 </ul>
-<h2 id="확률분포의-분산-variation"><a href="#확률분포의-분산-variation" class="headerlink" title="확률분포의 분산(variation)"></a>확률분포의 분산(variation)</h2><ul>
+<h2 id="확률분포의-분산variation">확률분포의 분산(variation)</h2>
+<ul>
 <li>Var[X]</li>
 </ul>
-<h2 id="분산의-성질"><a href="#분산의-성질" class="headerlink" title="분산의 성질"></a>분산의 성질</h2><ul>
+<h2 id="분산의-성질">분산의 성질</h2>
+<ul>
 <li>Var[X] &gt;= 0</li>
 <li>Var[C] = 0</li>
 <li>Var[cX] = c**2Var[X]</li>
-<li>Var[X] = E[X<strong>2] - m</strong>2</li>
+<li>Var[X] = E[X**2] - m**2</li>
 <li>Var[X+Y] = Var[X] + Var[Y] + 2E[(X-m)(Y-m)]</li>
 </ul>
-<h2 id="확률변수의-독립"><a href="#확률변수의-독립" class="headerlink" title="확률변수의 독립"></a>확률변수의 독립</h2><ul>
+<h2 id="확률변수의-독립">확률변수의 독립</h2>
+<ul>
 <li>두 확률변수가 서로에게 영향을 미치지 않는다</li>
 <li>E[(X-m)(Y-m)] = 0</li>
 <li>Var[X+Y] = Var[X] + Var[Y]</li>
 </ul>
-<h2 id="표본분산의-기대값"><a href="#표본분산의-기대값" class="headerlink" title="표본분산의 기대값"></a>표본분산의 기대값</h2><ul>
-<li><h2 id="비대칭도와-첨도"><a href="#비대칭도와-첨도" class="headerlink" title="비대칭도와 첨도"></a>비대칭도와 첨도</h2></li>
+<h2 id="표본분산의-기대값">## 표본분산의 기대값</h2>
+<h2 id="비대칭도와-첨도">비대칭도와 첨도</h2>
+<ul>
 <li>비대칭도는 3차 모멘트 , 첨도는 4차 모멘트</li>
 </ul>
-<h2 id="모멘트"><a href="#모멘트" class="headerlink" title="모멘트"></a>모멘트</h2><ul>
+<h2 id="모멘트">모멘트</h2>
+<ul>
 <li>기대값, 분산은 확률분포의 모멘트</li>
 <li>E[Y] = E[X]가 같고 여러 제곱들이 계속 같으면</li>
 <li>X와 Y는 같은 확률분포</li>
 </ul>
-<h1 id="다변수-확률변수"><a href="#다변수-확률변수" class="headerlink" title="다변수 확률변수"></a>다변수 확률변수</h1><h2 id="이산확률변수-에서-다변수-확률변수"><a href="#이산확률변수-에서-다변수-확률변수" class="headerlink" title="이산확률변수 에서 다변수 확률변수"></a>이산확률변수 에서 다변수 확률변수</h2><ul>
+<h1 id="다변수-확률변수">다변수 확률변수</h1>
+<h2 id="이산확률변수-에서-다변수-확률변수">이산확률변수 에서 다변수 확률변수</h2>
+<ul>
 <li>결합확률질량함수</li>
 <li>주변확률질량함수</li>
 <li>조건부확률질량함수</li>
 </ul>
-<h2 id="연속확률변수-에서-다변수-확률변수"><a href="#연속확률변수-에서-다변수-확률변수" class="headerlink" title="연속확률변수 에서 다변수 확률변수"></a>연속확률변수 에서 다변수 확률변수</h2><ul>
-<li>결합누적확률분포함수<ul>
+<h2 id="연속확률변수-에서-다변수-확률변수">연속확률변수 에서 다변수 확률변수</h2>
+<ul>
+<li>결합누적확률분포함수
+<ul>
 <li>결합확률밀도함수</li>
 <li>결함확률밀도함수</li>
 <li>조건부확률밀도함수</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
     </div>
@@ -478,7 +508,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#결정론적-데이터"><span class="nav-number">1.</span> <span class="nav-text">결정론적 데이터</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률적-데이터"><span class="nav-number">2.</span> <span class="nav-text">확률적 데이터</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#분포-distribution"><span class="nav-number">3.</span> <span class="nav-text">분포(distribution)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#기술통계-descriptive-stastics"><span class="nav-number">4.</span> <span class="nav-text">기술통계(descriptive stastics)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본중앙값-sample-median"><span class="nav-number">5.</span> <span class="nav-text">표본중앙값(sample median)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본최빈값-sample-mode"><span class="nav-number">6.</span> <span class="nav-text">표본최빈값(sample mode)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#단봉-분포-uni-modal-다봉분포-multi-nodal"><span class="nav-number">7.</span> <span class="nav-text">단봉 분포(uni modal), 다봉분포(multi nodal)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#대칭-분포"><span class="nav-number">8.</span> <span class="nav-text">대칭 분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#분산-variance-과-표준편차-standard-deviation"><span class="nav-number">9.</span> <span class="nav-text">분산(variance)과 표준편차(standard deviation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본-비대칭도-sample-skewness"><span class="nav-number">10.</span> <span class="nav-text">표본 비대칭도(sample skewness)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본첨도-sample-kuerosis"><span class="nav-number">11.</span> <span class="nav-text">표본첨도(sample kuerosis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본모멘트-sample-momoent"><span class="nav-number">12.</span> <span class="nav-text">표본모멘트(sample momoent)</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#확률변수"><span class="nav-number"></span> <span class="nav-text">확률변수</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#이산확률변수"><span class="nav-number">1.</span> <span class="nav-text">이산확률변수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#연속확률변수"><span class="nav-number">2.</span> <span class="nav-text">연속확률변수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률변수를-이용한-데이터-분석"><span class="nav-number">3.</span> <span class="nav-text">확률변수를 이용한 데이터 분석</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률변수의-기대값"><span class="nav-number">4.</span> <span class="nav-text">확률변수의 기대값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률변수의-변환"><span class="nav-number">5.</span> <span class="nav-text">확률변수의 변환</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#기대값의-성질"><span class="nav-number">6.</span> <span class="nav-text">기대값의 성질</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#통계량"><span class="nav-number">7.</span> <span class="nav-text">통계량</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#기대값과-표본평균의-관계"><span class="nav-number">8.</span> <span class="nav-text">기대값과 표본평균의 관계</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#중앙값"><span class="nav-number">9.</span> <span class="nav-text">중앙값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#최빈값"><span class="nav-number">10.</span> <span class="nav-text">최빈값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률분포의-분산-variation"><span class="nav-number">11.</span> <span class="nav-text">확률분포의 분산(variation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#분산의-성질"><span class="nav-number">12.</span> <span class="nav-text">분산의 성질</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률변수의-독립"><span class="nav-number">13.</span> <span class="nav-text">확률변수의 독립</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본분산의-기대값"><span class="nav-number">14.</span> <span class="nav-text">표본분산의 기대값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#비대칭도와-첨도"><span class="nav-number">15.</span> <span class="nav-text">비대칭도와 첨도</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#모멘트"><span class="nav-number">16.</span> <span class="nav-text">모멘트</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#다변수-확률변수"><span class="nav-number"></span> <span class="nav-text">다변수 확률변수</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#이산확률변수-에서-다변수-확률변수"><span class="nav-number">1.</span> <span class="nav-text">이산확률변수 에서 다변수 확률변수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#연속확률변수-에서-다변수-확률변수"><span class="nav-number">2.</span> <span class="nav-text">연속확률변수 에서 다변수 확률변수</span></a></li></ol></li></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#결정론적-데이터"><span class="nav-number">1.</span> <span class="nav-text">결정론적 데이터</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률적-데이터"><span class="nav-number">2.</span> <span class="nav-text">확률적 데이터</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#분포distribution"><span class="nav-number">3.</span> <span class="nav-text">분포(distribution)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#기술통계descriptive-stastics"><span class="nav-number">4.</span> <span class="nav-text">기술통계(descriptive stastics)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본중앙값sample-median"><span class="nav-number">5.</span> <span class="nav-text">표본중앙값(sample median)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본최빈값sample-mode"><span class="nav-number">6.</span> <span class="nav-text">표본최빈값(sample mode)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#단봉-분포uni-modal-다봉분포multi-nodal"><span class="nav-number">7.</span> <span class="nav-text">단봉 분포(uni modal), 다봉분포(multi nodal)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#대칭-분포"><span class="nav-number">8.</span> <span class="nav-text">대칭 분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#분산variance과-표준편차standard-deviation"><span class="nav-number">9.</span> <span class="nav-text">분산(variance)과 표준편차(standard deviation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본-비대칭도sample-skewness"><span class="nav-number">10.</span> <span class="nav-text">표본 비대칭도(sample skewness)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본첨도sample-kuerosis"><span class="nav-number">11.</span> <span class="nav-text">표본첨도(sample kuerosis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본모멘트sample-momoent"><span class="nav-number">12.</span> <span class="nav-text">표본모멘트(sample momoent)</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#확률변수"><span class="nav-number"></span> <span class="nav-text">확률변수</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#이산확률변수"><span class="nav-number">1.</span> <span class="nav-text">이산확률변수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#연속확률변수"><span class="nav-number">2.</span> <span class="nav-text">연속확률변수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률변수를-이용한-데이터-분석"><span class="nav-number">3.</span> <span class="nav-text">확률변수를 이용한 데이터 분석</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률변수의-기대값"><span class="nav-number">4.</span> <span class="nav-text">확률변수의 기대값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률변수의-변환"><span class="nav-number">5.</span> <span class="nav-text">확률변수의 변환</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#기대값의-성질"><span class="nav-number">6.</span> <span class="nav-text">기대값의 성질</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#통계량"><span class="nav-number">7.</span> <span class="nav-text">통계량</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#기대값과-표본평균의-관계"><span class="nav-number">8.</span> <span class="nav-text">기대값과 표본평균의 관계</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#중앙값"><span class="nav-number">9.</span> <span class="nav-text">중앙값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#최빈값"><span class="nav-number">10.</span> <span class="nav-text">최빈값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률분포의-분산variation"><span class="nav-number">11.</span> <span class="nav-text">확률분포의 분산(variation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#분산의-성질"><span class="nav-number">12.</span> <span class="nav-text">분산의 성질</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률변수의-독립"><span class="nav-number">13.</span> <span class="nav-text">확률변수의 독립</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#표본분산의-기대값"><span class="nav-number">14.</span> <span class="nav-text">## 표본분산의 기대값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#비대칭도와-첨도"><span class="nav-number">15.</span> <span class="nav-text">비대칭도와 첨도</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#모멘트"><span class="nav-number">16.</span> <span class="nav-text">모멘트</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#다변수-확률변수"><span class="nav-number"></span> <span class="nav-text">다변수 확률변수</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#이산확률변수-에서-다변수-확률변수"><span class="nav-number">1.</span> <span class="nav-text">이산확률변수 에서 다변수 확률변수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#연속확률변수-에서-다변수-확률변수"><span class="nav-number">2.</span> <span class="nav-text">연속확률변수 에서 다변수 확률변수</span></a></li></ol></li></div>
       </div>
       <!--/noindex-->
 

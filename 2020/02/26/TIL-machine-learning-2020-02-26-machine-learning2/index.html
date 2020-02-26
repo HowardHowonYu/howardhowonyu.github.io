@@ -264,58 +264,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="OLS방법을-사용하여-최적의-가중치를-계산할수-있지만-오차범위를-알지-못하면-가중치를-알아도-아무것도-모르는-거랑-같다"><a href="#OLS방법을-사용하여-최적의-가중치를-계산할수-있지만-오차범위를-알지-못하면-가중치를-알아도-아무것도-모르는-거랑-같다" class="headerlink" title="OLS방법을 사용하여 최적의 가중치를 계산할수 있지만, 오차범위를 알지 못하면 가중치를 알아도 아무것도 모르는 거랑 같다!"></a>OLS방법을 사용하여 최적의 가중치를 계산할수 있지만, 오차범위를 알지 못하면 가중치를 알아도 아무것도 모르는 거랑 같다!</h4><a id="more"></a>
+        <h4 id="ols방법을-사용하여-최적의-가중치를-계산할수-있지만-오차범위를-알지-못하면-가중치를-알아도-아무것도-모르는-거랑-같다">OLS방법을 사용하여 최적의 가중치를 계산할수 있지만, 오차범위를 알지 못하면 가중치를 알아도 아무것도 모르는 거랑 같다!</h4>
+<a id="more"></a>
 <ul>
 <li>가중치의 오차 범위 혹은 신뢰 구간을 계산할 수 없다면 OLS 결과로부터 실질적인 결론을 이끌어내기 어렵다.</li>
 </ul>
-<h2 id="부트스트래핑"><a href="#부트스트래핑" class="headerlink" title="부트스트래핑"></a>부트스트래핑</h2><ul>
+<h2 id="부트스트래핑">부트스트래핑</h2>
+<ul>
 <li>OLS로 구한 가중치의 추정값은 표본 데이터에 따라 달라진다.</li>
 <li>여러 다른 표본 데이터 집합이 있다면 넣어보면서 가중치가 어떻게 달라지는지 알아 볼수 있지만, 현실적으로 다시 데이터를 얻기는 힘듦</li>
 <li>따라서 기존 데이터를 재표본화하여(re-sampling)하여 여러가지 다양한 표본 데이터를 만드는 방법을 부트스트래핑이라 한다.</li>
 </ul>
-<h2 id="확률론적-선형-회귀모형"><a href="#확률론적-선형-회귀모형" class="headerlink" title="확률론적 선형 회귀모형"></a>확률론적 선형 회귀모형</h2><p><strong>확률론적 선형회귀모형을 쓰면 빠르고 안정적으로 가중치 추정값의 오차를 구할수 있다.</strong></p>
+<h2 id="확률론적-선형-회귀모형">확률론적 선형 회귀모형</h2>
+<p><strong>확률론적 선형회귀모형을 쓰면 빠르고 안정적으로 가중치 추정값의 오차를 구할수 있다.</strong></p>
 <ul>
 <li>확률론적 선형 회귀모형에서는 데이터가 확률 변수로 부터 생성된 표본이라고 가정한다.</li>
 </ul>
 <p><strong>1. 선형 정규 분포 가정</strong></p>
 <ul>
-<li>종속변수 $y$가 독립변수$x$의 선형조합으로 결정되는 “기대값”과 고정된 분산$\sigma^2$를 가지는 “정규 분포”라는 것이다.</li>
+<li>종속변수 <span class="math inline">\(y\)</span>가 독립변수<span class="math inline">\(x\)</span>의 선형조합으로 결정되는 &quot;기대값&quot;과 고정된 분산<span class="math inline">\(\sigma^2\)</span>를 가지는 &quot;정규 분포&quot;라는 것이다.</li>
 </ul>
-<script type="math/tex; mode=display">y \sim N(w^Tx,\sigma^2)</script><script type="math/tex; mode=display">\epsilon = y - w^Tx</script><script type="math/tex; mode=display">p(\epsilon|\theta) = N(0,\sigma^2)</script><p><strong>2. 외생성 가정</strong></p>
+<p><span class="math display">\[y \sim N(w^Tx,\sigma^2)\]</span> <span class="math display">\[\epsilon = y - w^Tx\]</span> <span class="math display">\[p(\epsilon|\theta) = N(0,\sigma^2)\]</span></p>
+<p><strong>2. 외생성 가정</strong></p>
 <ul>
-<li>잡음 $\epsilon$의 기대값은 독립변수 $x$의 크기에 상관없이 항상 0이라고 가정.</li>
+<li>잡음 <span class="math inline">\(\epsilon\)</span>의 기대값은 독립변수 <span class="math inline">\(x\)</span>의 크기에 상관없이 항상 0이라고 가정.</li>
 </ul>
-<script type="math/tex; mode=display">E[\epsilon|x] = 0</script><p><strong>3. 조건부 독립 가정</strong></p>
+<p><span class="math display">\[E[\epsilon|x] = 0\]</span></p>
+<p><strong>3. 조건부 독립 가정</strong></p>
 <ul>
-<li>$i$번쨰 표본의 잡음 $\epsilon_i$와 $j$번쨰 표본의 잡음 $\epsilon_j$의 공분산 값이 $x$와 상관없이 항상 0이라고 가정한다.</li>
+<li><span class="math inline">\(i\)</span>번쨰 표본의 잡음 <span class="math inline">\(\epsilon_i\)</span>와 <span class="math inline">\(j\)</span>번쨰 표본의 잡음 <span class="math inline">\(\epsilon_j\)</span>의 공분산 값이 <span class="math inline">\(x\)</span>와 상관없이 항상 0이라고 가정한다.</li>
 </ul>
-<script type="math/tex; mode=display">Cov[\epsilon_i,\epsilon_j]=0 (i,j = 1,2,...,N)</script><ul>
+<p><span class="math display">\[Cov[\epsilon_i,\epsilon_j]=0 (i,j = 1,2,...,N)\]</span></p>
+<ul>
 <li>이는 서로 독립이라는 가정과 같다.</li>
 </ul>
-<script type="math/tex; mode=display">E[\epsilon_i\epsilon_j]=0(i,j = 1,2,...,N)</script><ul>
-<li>잡음 벡터 $\epsilon$의 공분산 행렬이 대각행렬이 되어야 한다.(비대각 성분 모두 0)</li>
-</ul>
-<script type="math/tex; mode=display">Cov[\epsilon] = E[\epsilon\epsilon^T] = Diagonal matrix</script><p><strong>4. 등분산성 가정</strong></p>
+<p><span class="math display">\[E[\epsilon_i\epsilon_j]=0(i,j = 1,2,...,N)\]</span></p>
 <ul>
-<li><p>$i$번쨰 표본의 잡음 $\epsilon_i$와 $j$번쨰 표본의 잡음 $\epsilon_j$의 분산 값이 표본과 상관없이 항상 같다고 가정</p>
-<script type="math/tex; mode=display">Cov[\epsilon]=E[\epsilon\epsilon^T]=\sigma^2I</script></li>
-<li><p>잡음 벡터 \epsilon의 공분산 행렬이 항등행렬 형태가 되어야 한다는 조건과 같다.</p>
-</li>
+<li>잡음 벡터 <span class="math inline">\(\epsilon\)</span>의 공분산 행렬이 대각행렬이 되어야 한다.(비대각 성분 모두 0)</li>
 </ul>
-<h2 id="최대-가능도-방법을-사용한-선형-회귀분석"><a href="#최대-가능도-방법을-사용한-선형-회귀분석" class="headerlink" title="최대 가능도 방법을 사용한 선형 회귀분석"></a>최대 가능도 방법을 사용한 선형 회귀분석</h2><ul>
-<li>최대 가능도 방법(Maximum Likelihood Estimation)을 사용하여 가중치 벡터  𝑤 의 값을 구해보면, OLS의 직교 방정식과 같은 직교 방정식을 얻을 수 있다</li>
+<p><span class="math display">\[Cov[\epsilon] = E[\epsilon\epsilon^T] = Diagonal matrix \]</span></p>
+<p><strong>4. 등분산성 가정</strong></p>
+<ul>
+<li><span class="math inline">\(i\)</span>번쨰 표본의 잡음 <span class="math inline">\(\epsilon_i\)</span>와 <span class="math inline">\(j\)</span>번쨰 표본의 잡음 <span class="math inline">\(\epsilon_j\)</span>의 분산 값이 표본과 상관없이 항상 같다고 가정</li>
 </ul>
-<h2 id="잔차의-분포"><a href="#잔차의-분포" class="headerlink" title="잔차의 분포"></a>잔차의 분포</h2><p>$ e = M\epsilon$</p>
+<p><span class="math display">\[Cov[\epsilon]=E[\epsilon\epsilon^T]=\sigma^2I\]</span></p>
+<ul>
+<li>잡음 벡터 공분산 행렬이 항등행렬 형태가 되어야 한다는 조건과 같다.</li>
+</ul>
+<h2 id="최대-가능도-방법을-사용한-선형-회귀분석">최대 가능도 방법을 사용한 선형 회귀분석</h2>
+<ul>
+<li>최대 가능도 방법(Maximum Likelihood Estimation)을 사용하여 가중치 벡터 𝑤 의 값을 구해보면, OLS의 직교 방정식과 같은 직교 방정식을 얻을 수 있다</li>
+</ul>
+<h2 id="잔차의-분포">잔차의 분포</h2>
+<p>$ e = M$</p>
 <ul>
 <li>M : 잔차행렬</li>
-<li>잔차 $e$는 잡음 $\epsilon$의 선형변환이다.</li>
+<li>잔차 <span class="math inline">\(e\)</span>는 잡음 <span class="math inline">\(\epsilon\)</span>의 선형변환이다.</li>
 <li>정규분포의 선형변환은 마찬가지로 정규분포 이므로 잔차는 정규분포를 따른다.</li>
 </ul>
-<h2 id="회귀계수의-표준오차"><a href="#회귀계수의-표준오차" class="headerlink" title="회귀계수의 표준오차"></a>회귀계수의 표준오차</h2><ul>
-<li>실제 가중치 계수 $w_i$와 우리가 추정한 가중치 계수 $\hat{w}_i$의 차이를 표준오차로 나눈값, 즉 <strong>정규화된 모수 오차는 자유도가 $N-K$인 표준 스튜던트 t분포를 따른다.</strong></li>
+<h2 id="회귀계수의-표준오차">회귀계수의 표준오차</h2>
+<ul>
+<li>실제 가중치 계수 <span class="math inline">\(w_i\)</span>와 우리가 추정한 가중치 계수 <span class="math inline">\(\hat{w}_i\)</span>의 차이를 표준오차로 나눈값, 즉 <strong>정규화된 모수 오차는 자유도가 <span class="math inline">\(N-K\)</span>인 표준 스튜던트 t분포를 따른다.</strong></li>
 </ul>
-<h2 id="단일-계수-t-검정"><a href="#단일-계수-t-검정" class="headerlink" title="단일 계수 t-검정"></a>단일 계수 t-검정</h2><ul>
-<li>정규화된 모수 오차를 검정통계량으로 사용하면 $w_i$가 0인지 아닌지에 대한 검정을 실시할수 있다.</li>
+<h2 id="단일-계수-t-검정">단일 계수 t-검정</h2>
+<ul>
+<li>정규화된 모수 오차를 검정통계량으로 사용하면 <span class="math inline">\(w_i\)</span>가 0인지 아닌지에 대한 검정을 실시할수 있다.</li>
 <li>StatsModels summary 메서드가 출력하는 회귀분석 보고서에서 <code>std err</code>로 표시된 열이 모형계수의 표준오차, <code>t</code>로 표시된 열이 단일 계수 t-검정의 검정 통계량, 그리고 <code>P&gt;|t|</code>로 표시된 열이 유의확률을 뜻한다.</li>
 <li><strong>두 독립변수의 계수값을 비교할때도 사용</strong></li>
 <li><strong>범주형 독립변수의 범주값이 가지는 유의성을 판단하는데 유용하다.</strong></li>
@@ -402,7 +415,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#OLS방법을-사용하여-최적의-가중치를-계산할수-있지만-오차범위를-알지-못하면-가중치를-알아도-아무것도-모르는-거랑-같다"><span class="nav-number">1.</span> <span class="nav-text">OLS방법을 사용하여 최적의 가중치를 계산할수 있지만, 오차범위를 알지 못하면 가중치를 알아도 아무것도 모르는 거랑 같다!</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#부트스트래핑"><span class="nav-number"></span> <span class="nav-text">부트스트래핑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률론적-선형-회귀모형"><span class="nav-number"></span> <span class="nav-text">확률론적 선형 회귀모형</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#최대-가능도-방법을-사용한-선형-회귀분석"><span class="nav-number"></span> <span class="nav-text">최대 가능도 방법을 사용한 선형 회귀분석</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#잔차의-분포"><span class="nav-number"></span> <span class="nav-text">잔차의 분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#회귀계수의-표준오차"><span class="nav-number"></span> <span class="nav-text">회귀계수의 표준오차</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#단일-계수-t-검정"><span class="nav-number"></span> <span class="nav-text">단일 계수 t-검정</span></a></li></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ols방법을-사용하여-최적의-가중치를-계산할수-있지만-오차범위를-알지-못하면-가중치를-알아도-아무것도-모르는-거랑-같다"><span class="nav-number">1.</span> <span class="nav-text">OLS방법을 사용하여 최적의 가중치를 계산할수 있지만, 오차범위를 알지 못하면 가중치를 알아도 아무것도 모르는 거랑 같다!</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#부트스트래핑"><span class="nav-number"></span> <span class="nav-text">부트스트래핑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률론적-선형-회귀모형"><span class="nav-number"></span> <span class="nav-text">확률론적 선형 회귀모형</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#최대-가능도-방법을-사용한-선형-회귀분석"><span class="nav-number"></span> <span class="nav-text">최대 가능도 방법을 사용한 선형 회귀분석</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#잔차의-분포"><span class="nav-number"></span> <span class="nav-text">잔차의 분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#회귀계수의-표준오차"><span class="nav-number"></span> <span class="nav-text">회귀계수의 표준오차</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#단일-계수-t-검정"><span class="nav-number"></span> <span class="nav-text">단일 계수 t-검정</span></a></li></div>
       </div>
       <!--/noindex-->
 
