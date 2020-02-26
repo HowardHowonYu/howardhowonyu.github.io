@@ -52,7 +52,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
@@ -174,9 +174,32 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -223,7 +246,7 @@
               17 categories in total
             </div>
             <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MongDB/">MongDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL..</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Crawling/">Crawling</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Database/">Database</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/">Math</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/">머신러닝</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/%EB%AF%B8%EC%A0%81%EB%B6%84/">미적분</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/%EC%84%A0%ED%98%95%EB%8C%80%EC%88%98/">선형대수</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/%EC%B5%9C%EC%A0%81%ED%99%94/">최적화</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/%ED%99%95%EB%A5%A0/">확률</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/git/">git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/python/">python</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mySQL/">mySQL</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C/">알고리즘 문제</a><span class="category-list-count">2</span></li></ul>
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MongDB/">MongDB</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL..</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Crawling/">Crawling</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Database/">Database</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/">Math</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/">머신러닝</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/%EB%AF%B8%EC%A0%81%EB%B6%84/">미적분</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/%EC%84%A0%ED%98%95%EB%8C%80%EC%88%98/">선형대수</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/%EC%B5%9C%EC%A0%81%ED%99%94/">최적화</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/Math/%ED%99%95%EB%A5%A0/">확률</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/git/">git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/python/">python</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/mySQL/">mySQL</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C/">알고리즘 문제</a><span class="category-list-count">2</span></li></ul>
             </div>
           </div>
         
@@ -302,7 +325,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -394,6 +417,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
