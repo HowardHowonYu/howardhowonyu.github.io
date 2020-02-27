@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>https://howardhowonyu.github.io/2020/02/20/TIL-crawling-2020-02-20-Oauth/</loc>
+        <lastmod>2020-02-27T05:37:19.050Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/26/TIL-crawling-2020-02-26-crawling-selenium/</loc>
+        <lastmod>2020-02-26T11:40:18.847Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/03/TIL-mathematics-2020-02-03-optimization-probability-md/</loc>
+        <lastmod>2020-02-26T11:18:09.569Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://howardhowonyu.github.io/2020/02/01/TIL-mathematics-2020-02-01-set-md/</loc>
         <lastmod>2020-02-26T09:58:56.385Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,14 +42,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/01/31/TIL-mathematics-2020-01-31-optimization-md/</loc>
         <lastmod>2020-02-26T09:58:46.791Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/26/TIL-crawling-2020-02-26-crawling-selenium/</loc>
-        <lastmod>2020-02-26T08:58:13.544Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -160,14 +176,6 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/02/03/TIL-mathematics-2020-02-03-optimization-probability-md/</loc>
-        <lastmod>2020-02-24T13:17:25.933Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-02-07-probability-md/</loc>
         <lastmod>2020-02-24T13:17:17.532Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -274,14 +282,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/20/TIL-crawling-2020-02-20-crawling/</loc>
         <lastmod>2020-02-23T07:44:47.277Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/20/TIL-crawling-2020-02-20-Oauth/</loc>
-        <lastmod>2020-02-23T07:44:44.451Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

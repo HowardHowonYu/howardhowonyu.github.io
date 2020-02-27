@@ -9,7 +9,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 26 Feb 2020 08:58:13 GMT</pubDate>
+    <pubDate>Wed, 26 Feb 2020 11:40:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -21,12 +21,12 @@
       
         &lt;h2 id=&quot;selenium&quot;&gt;Selenium&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;브라우저를 직접 실행하여 자동화하고 브라우저상에 있는 데이터를 수집
+&lt;li&gt;브라우저를 직접 실행하여 자동화하고 브라우저상에 있는 데이터를 수집
       
       </description>
       
       
-      <content:encoded><![CDATA[<h2 id="selenium">Selenium</h2><ul><li><p>브라우저를 직접 실행하여 자동화하고 브라우저상에 있는 데이터를 수집 <a id="more"></a></p></li><li>웹 테스트 자동화를 위해서 만들어진 라이브러리</li><li>다양한 브라우져 지원</li><li><p>다양한 언어를 지원</p></li></ul><h1 id="thread를-사용한-데이터-수집">thread를 사용한 데이터 수집</h1><ul><li>원래 파이썬 프로그램은 기본적으로 Single Thread 에서 실행됨. 즉 하나의 쓰레드가 순차적으로 코드를 실행함.</li><li>여기에서 별도의 쓰레드를 생성해 코드를 병렬로 실행하면 컴퓨터의 리소스가 허락하는 한도내에서 코드를 더 빨리 실행시킬수 있음.</li></ul>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="selenium">Selenium</h2><ul><li>브라우저를 직접 실행하여 자동화하고 브라우저상에 있는 데이터를 수집 <a id="more"></a></li><li>웹 테스트 자동화를 위해서 만들어진 라이브러리</li><li>다양한 브라우져 지원</li><li>다양한 언어를 지원</li></ul><h1 id="thread를-사용한-데이터-수집">thread를 사용한 데이터 수집</h1><ul><li>원래 파이썬 프로그램은 기본적으로 Single Thread 에서 실행됨. 즉 하나의 쓰레드가 순차적으로 코드를 실행함.</li><li>여기에서 별도의 쓰레드를 생성해 코드를 병렬로 실행하면 컴퓨터의 리소스가 허락하는 한도내에서 코드를 더 빨리 실행시킬수 있음.</li></ul><h1 id="pickle">Pickle</h1><ul><li>객체를 파일로 저장할때 직렬화(Serialization)라는 과정을 거쳐서 저장.</li><li><strong>직렬화</strong><ul><li>객체(데이터타입)과, 저장되는 파일의(데이터타입)은 다릅니다.</li><li>서로 다른 데이터 타입을 맞춰주는 과정이 필요</li></ul></li><li>파일을 읽고 저장하는데 속도가 더 빠릅니다.</li></ul>]]></content:encoded>
       
       <comments>https://howardhowonyu.github.io/2020/02/26/TIL-crawling-2020-02-26-crawling-selenium/#disqus_thread</comments>
     </item>
@@ -289,12 +289,12 @@
       
         &lt;h2 id=&quot;oauth&quot;&gt;Oauth&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급해주는 입니다.
+&lt;li&gt;서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급 해줍니다
       
       </description>
       
       
-      <content:encoded><![CDATA[<h2 id="oauth">Oauth</h2><ul><li>서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급해주는 입니다. <a id="more"></a></li></ul><blockquote><p>1단계: 서비스에서 페이스북, 구글등에 등록을 요청하면, request_token을 발급 2단계: 유저가 서비스에서 서드파티의 데이터를 가져오고자 하면, 서드파티에 oauth page를 띄움, 수락하면 이 유저에 대한 access_token을 발급 3단계: 서비스는 request_token과 access_token으로 서드파티에 데이터를 요청하고 받아옴</p></blockquote><h2 id="oauth를-활용한-구글-스프레드시트-데이터-업로드-작업-순서">Oauth를 활용한 구글 스프레드시트 데이터 업로드 작업 순서</h2><ol type="1"><li>oauth 인증 파일 생성</li><li>프로젝트 생성<ul><li>라이브러리 탭선택: Google Drive API, Google sheet API 사용설정</li><li>Oauth 동의화면<ul><li>어플리케이션 이름 설정</li><li>google api 범위 추가: drive, spreadsheets</li><li>저장</li></ul></li><li>사용자 인증정보<ul><li>Oauth클라이언트 ID 만들기</li></ul></li></ul></li><li>스프레드 시트에 크롤링한 데이터 저장 및 로드</li></ol><h2 id="fake_useragent">fake_useragent</h2><ul><li>user_agent를 랜덤으로 생성하는 패키지</li><li>headers에 임의로 값을 지정해주고 requests해주는 방법으로 데이터 접근 가능</li><li>user-agent외에도 refere(접근 이전에 방문했던 페이지의 URL)등도 지정 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">"https://finance.daum.net/api/exchanges/summaries"</span></span><br><span class="line">headers=&#123;</span><br><span class="line">    <span class="string">"user-agent"</span> : UserAgent().chrome,</span><br><span class="line">    <span class="string">"referer"</span> : <span class="string">"https://finance.daum.net/exchanges"</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url,headers=headers)</span><br><span class="line">response</span><br></pre></td></tr></table></figure></li></ul>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="oauth">Oauth</h2><ul><li>서비스(서드파티)에서 페이스북, 구글등의 서비스에 접근할수 있는 권한을 요청하고 이를 사용할수 있는 키를 발급 해줍니다 <a id="more"></a></li></ul><blockquote><p>1단계: 서비스에서 페이스북, 구글등에 등록을 요청하면, request_token을 발급 2단계: 유저가 서비스에서 서드파티의 데이터를 가져오고자 하면, 서드파티에 oauth page를 띄움, 수락하면 이 유저에 대한 access_token을 발급 3단계: 서비스는 request_token과 access_token으로 서드파티에 데이터를 요청하고 받아옴</p></blockquote><h2 id="oauth를-활용한-구글-스프레드시트-데이터-업로드-작업-순서">Oauth를 활용한 구글 스프레드시트 데이터 업로드 작업 순서</h2><ol type="1"><li>oauth 인증 파일 생성</li><li>프로젝트 생성<ul><li>라이브러리 탭선택: Google Drive API, Google sheet API 사용설정</li><li>Oauth 동의화면<ul><li>어플리케이션 이름 설정</li><li>google api 범위 추가: drive, spreadsheets</li><li>저장</li></ul></li><li>사용자 인증정보<ul><li>Oauth클라이언트 ID 만들기</li></ul></li></ul></li><li>스프레드 시트에 크롤링한 데이터 저장 및 로드</li></ol><h2 id="fake_useragent">fake_useragent</h2><ul><li>user_agent를 랜덤으로 생성하는 패키지</li><li>headers에 임의로 값을 지정해주고 requests해주는 방법으로 데이터 접근 가능</li><li>user-agent외에도 refere(접근 이전에 방문했던 페이지의 URL)등도 지정 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">"https://finance.daum.net/api/exchanges/summaries"</span></span><br><span class="line">headers=&#123;</span><br><span class="line">    <span class="string">"user-agent"</span> : UserAgent().chrome,</span><br><span class="line">    <span class="string">"referer"</span> : <span class="string">"https://finance.daum.net/exchanges"</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url,headers=headers)</span><br><span class="line">response</span><br></pre></td></tr></table></figure></li></ul>]]></content:encoded>
       
       <comments>https://howardhowonyu.github.io/2020/02/20/TIL-crawling-2020-02-20-Oauth/#disqus_thread</comments>
     </item>
