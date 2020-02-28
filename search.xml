@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>crawling</title>
+      <link href="/2020/02/28/TIL-crawling-2020-02-28-crawling/"/>
+      <url>/2020/02/28/TIL-crawling-2020-02-28-crawling/</url>
+      
+        <content type="html"><![CDATA[<h3 id="정규표현식-regx">정규표현식 : regx</h3><ul><li>문자열을 처리할때 특정 <strong>패턴</strong>으로 분자열을 처리하는 방법</li><li>BeautifulSoup같이 html만이 아닌 JS코드 등 여러개 혼합 되어있는 페이지를 크롤링 할때 사용 가능</li><li>예제<ul><li>문자열에서 정규표현식 패턴으로 이메일 찾아내기</li><li>문자열에서 주민등록번호 패턴을 찾아서 마지막 6자리의 숫자를 <code>*</code>로 치환</li><li>중고나라의 전화번호 패턴을 찾아서 숫자로 치환하기</li></ul></li></ul><h3 id="함수">함수</h3><ul><li><code>findall()</code> : 일치하는 패턴의 문자열을 찾아서 리스트로 리턴해주는 함수</li><li><code>sub()</code> : 특정 패턴에 맞는 문자열을 찾아서 특정 규칙에 따라 치환해주는 함수</li></ul><h4 id="패턴">패턴</h4><ul><li><code>[]</code> : 문자</li><li><code>-</code> : 범위</li><li><code>.</code> : 하나의 문자</li><li><code>?</code> : 0또는 1회 반복</li><li><code>*</code> : 0회 이상 반복</li><li><code>+</code> : 1회 이상 반복</li><li><code>{m}</code> : m회 반복</li><li><code>{m,n}</code> : m~n회 반복</li><li><code>()</code> : 그룹핑</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> TIL.. </category>
+          
+          <category> Crawling </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> regx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Selenium</title>
       <link href="/2020/02/26/TIL-crawling-2020-02-26-crawling-selenium/"/>
       <url>/2020/02/26/TIL-crawling-2020-02-26-crawling-selenium/</url>

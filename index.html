@@ -220,6 +220,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/28/TIL-crawling-2020-02-28-crawling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/28/TIL-crawling-2020-02-28-crawling/" class="post-title-link" itemprop="url">crawling</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-28 22:38:37 / Modified: 22:39:43" itemprop="dateCreated datePublished" datetime="2020-02-28T22:38:37+09:00">2020-02-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Crawling/" itemprop="url" rel="index">
+                    <span itemprop="name">Crawling</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="정규표현식-regx">정규표현식 : regx</h3>
+<ul>
+<li>문자열을 처리할때 특정 <strong>패턴</strong>으로 분자열을 처리하는 방법</li>
+<li>BeautifulSoup같이 html만이 아닌 JS코드 등 여러개 혼합 되어있는 페이지를 크롤링 할때 사용 가능</li>
+<li>예제
+<ul>
+<li>문자열에서 정규표현식 패턴으로 이메일 찾아내기</li>
+<li>문자열에서 주민등록번호 패턴을 찾아서 마지막 6자리의 숫자를 <code>*</code>로 치환</li>
+<li>중고나라의 전화번호 패턴을 찾아서 숫자로 치환하기</li>
+</ul></li>
+</ul>
+<h3 id="함수">함수</h3>
+<ul>
+<li><code>findall()</code> : 일치하는 패턴의 문자열을 찾아서 리스트로 리턴해주는 함수</li>
+<li><code>sub()</code> : 특정 패턴에 맞는 문자열을 찾아서 특정 규칙에 따라 치환해주는 함수</li>
+</ul>
+<h4 id="패턴">패턴</h4>
+<ul>
+<li><code>[]</code> : 문자</li>
+<li><code>-</code> : 범위</li>
+<li><code>.</code> : 하나의 문자</li>
+<li><code>?</code> : 0또는 1회 반복</li>
+<li><code>*</code> : 0회 이상 반복</li>
+<li><code>+</code> : 1회 이상 반복</li>
+<li><code>{m}</code> : m회 반복</li>
+<li><code>{m,n}</code> : m~n회 반복</li>
+<li><code>()</code> : 그룹핑</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/26/TIL-crawling-2020-02-26-crawling-selenium/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1054,99 +1157,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/22/TIL-crawling-2020-02-22-html-css-selector/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/22/TIL-crawling-2020-02-22-html-css-selector/" class="post-title-link" itemprop="url">HTML</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-22 19:38:19" itemprop="dateCreated datePublished" datetime="2020-02-22T19:38:19+09:00">2020-02-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-23 16:56:05" itemprop="dateModified" datetime="2020-02-23T16:56:05+09:00">2020-02-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/" itemprop="url" rel="index">
-                    <span itemprop="name">TIL..</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="html">HTML</h1>
-<ul>
-<li>Hyper Text Markup Language</li>
-<li>웹 문서를 작성하는 마크업 언어입니다.</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/22/TIL-crawling-2020-02-22-html-css-selector/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1218,7 +1228,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1231,7 +1241,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
