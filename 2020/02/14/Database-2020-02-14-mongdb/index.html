@@ -66,7 +66,7 @@
 <meta property="og:description" content="MongDB">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-14T11:31:09.000Z">
-<meta property="article:modified_time" content="2020-02-23T07:41:39.165Z">
+<meta property="article:modified_time" content="2020-03-01T05:37:14.260Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="database">
 <meta property="article:tag" content="MongDB">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-23 16:41:39" itemprop="dateModified" datetime="2020-02-23T16:41:39+09:00">2020-02-23</time>
+                <time title="Modified: 2020-03-01 14:37:14" itemprop="dateModified" datetime="2020-03-01T14:37:14+09:00">2020-03-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -281,70 +281,78 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="mongdb">MongDB</h2>
+        <h2 id="mongdb"><a class="markdownIt-Anchor" href="#mongdb"></a> MongDB</h2>
 <a id="more"></a>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>RDBMS</strong></th>
 <th><strong>NoSQL(Not Only SQL)</strong></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Database</td>
 <td>Database</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Table</td>
 <td>Collection</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Row / Record</td>
 <td>Document</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Column</td>
 <td>Key / Filed</td>
 </tr>
 </tbody>
 </table>
-<h3 id="컬렉션-생성">컬렉션 생성</h3>
+<h3 id="컬렉션-생성"><a class="markdownIt-Anchor" href="#컬렉션-생성"></a> 컬렉션 생성</h3>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">use dss</span><br><span class="line">db.createCollection(<span class="string">"user"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">db.createCollection(<span class="string">"user2"</span>,</span><br><span class="line">    &#123;<span class="attr">autoIndexId</span>:<span class="literal">true</span>, <span class="attr">capped</span>:<span class="literal">true</span>, <span class="attr">size</span>:<span class="number">50</span>, <span class="attr">max</span>:<span class="number">5</span>&#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">-- 지우기</span><br><span class="line">db.user.drop()</span><br></pre></td></tr></table></figure>
-<p>크기가 500바이트, document 최대 5개 까지, 5개가 되기전에 용량이 500바이트를 넘기면, 제일 과거의 데이터를 삭제하면서 들어감</p>
-<h3 id="insert">Insert</h3>
+<p>크기가 500바이트, document 최대 5개 까지만 생성합니다.<br>
+5개가 되기전에 용량이 50바이트를 넘기면, 제일 과거의 데이터를 삭제하면서 들어갑니다.</p>
+<h3 id="insert"><a class="markdownIt-Anchor" href="#insert"></a> Insert</h3>
+<p>데이터를 넣어 보겠습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.user1.insert(&#123;<span class="string">"subject"</span>:<span class="string">"python"</span>,<span class="string">"level"</span>:<span class="number">3</span>&#125;)</span><br><span class="line">db.user1.insert(&#123;<span class="string">"subject"</span>:<span class="string">"web"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;)</span><br><span class="line">db.user1.insert(&#123;<span class="string">"subject"</span>:<span class="string">"sql"</span>,<span class="string">"level"</span>:<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>여러개 Insert SQL 처럼 collection 생성하고 넣을 필요 없이. 이름 정해서 데이터 바로 넣으면 그냥 생성됨 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.info.insert([</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"python"</span>,<span class="string">"level"</span>:<span class="number">3</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"web"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"sql"</span>,<span class="string">"level"</span>:<span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"python"</span>,<span class="string">"level"</span>:<span class="number">3</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"web"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"sql"</span>,<span class="string">"level"</span>:<span class="number">1</span>&#125;,</span><br><span class="line">])</span><br></pre></td></tr></table></figure> 제약조건이 있으면 remove 쓸수 없음 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.remove(&#123;<span class="attr">level</span>:<span class="number">2</span>&#125;)</span><br></pre></td></tr></table></figure> ## FIND (필터링) find(query, projection) query : where 절 projection : select, 보여지는 filed <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="string">"subject"</span>:<span class="string">"python"</span>&#125;)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>lte : 작거나 같다 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="string">"level"</span>:  &#123;<span class="attr">$lte</span>:<span class="number">2</span>&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>in : 선택 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="string">"subject"</span>: &#123;<span class="attr">$in</span>: [<span class="string">"java"</span>,<span class="string">"python"</span>]&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>논리연산자 : $or, $and, $not, $nor <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="attr">$and</span> : [&#123;<span class="string">"subject"</span>:<span class="string">"python"</span>&#125;,&#123;<span class="string">"level"</span>:&#123;<span class="attr">$gte</span>:<span class="number">3</span>&#125;&#125;]&#125;)</span><br><span class="line">db.info.find(&#123;<span class="attr">$nor</span> : [&#123;<span class="string">"subject"</span>:<span class="string">"python"</span>&#125;,&#123;<span class="string">"level"</span>:&#123;<span class="attr">$gte</span>:<span class="number">3</span>&#125;&#125;]&#125;)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>자바스크립트 문법 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="attr">$where</span>:<span class="string">"this.level == 1"</span>&#125;)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>projection : mysql에서 select 할때 column 지정 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;&#125;,&#123;<span class="string">"_id"</span>:<span class="literal">false</span>,<span class="string">"level"</span>:<span class="literal">false</span>&#125;)</span><br><span class="line">db.info.find(&#123;&#125;,&#123;<span class="string">"subject"</span>:<span class="literal">true</span>,<span class="string">"level"</span>:<span class="literal">true</span>&#125;)</span><br><span class="line">db.info.find(&#123;&#125;,&#123;<span class="string">"subject"</span>:<span class="literal">true</span>,<span class="string">"level"</span>:<span class="literal">true</span>,<span class="string">"_id"</span>:<span class="literal">false</span>&#125;)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>sort : 1(오름차순),-1(내림차순) <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">1</span>&#125;)</span><br><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">-1</span>&#125;)</span><br><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">-1</span>,<span class="string">"subject"</span>:<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>limit &amp; skip : limit는 아래로 몇개, skip은 몇개 뛰어넘고 그 다음 부터 시작 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- limit</span><br><span class="line">db.info.find().limit(<span class="number">3</span>)</span><br><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">1</span>&#125;).limit(<span class="number">3</span>)</span><br><span class="line">-- skip </span><br><span class="line">db.info.find().skip(<span class="number">2</span>).limit(<span class="number">3</span>)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="update">UPDATE</h2>
+<p>여러개를 Insert 해보겠습니다.<br>
+SQL 처럼 collection 생성하고 넣을 필요 없이. 이름 정해서 데이터 바로 넣으면 그냥 생성됩니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.user.insert([</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"python"</span>,<span class="string">"level"</span>:<span class="number">3</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"web"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"sql"</span>,<span class="string">"level"</span>:<span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"python"</span>,<span class="string">"level"</span>:<span class="number">3</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"web"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"sql"</span>,<span class="string">"level"</span>:<span class="number">1</span>&#125;,</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+<p>위에서 설정한 것과 같은 제약조건이 있으면 remove 함수는 쓸수 없습니다.<br>
+지우려면 전체를 다 지워야 합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.user1.remove(&#123;<span class="attr">level</span>:<span class="number">2</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// error ; cannot remove from a capped collection: dss.user1</span></span><br></pre></td></tr></table></figure>
+<h2 id="find-필터링"><a class="markdownIt-Anchor" href="#find-필터링"></a> FIND (필터링)</h2>
+<p><code>find(query, projection)</code><br>
+<strong>query</strong> : SQL의 where 절<br>
+<strong>projection</strong> : SQL의 select, 보여지는 filed</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="string">"subject"</span>:<span class="string">"python"</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>lte : 작거나 같다</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="string">"level"</span>:  &#123;<span class="attr">$lte</span>:<span class="number">2</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p>in : 선택</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="string">"subject"</span>: &#123;<span class="attr">$in</span>: [<span class="string">"java"</span>,<span class="string">"python"</span>]&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p>논리연산자 : $or, $and, $not, $nor</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="attr">$and</span> : [&#123;<span class="string">"subject"</span>:<span class="string">"python"</span>&#125;,&#123;<span class="string">"level"</span>:&#123;<span class="attr">$gte</span>:<span class="number">3</span>&#125;&#125;]&#125;)</span><br><span class="line">db.info.find(&#123;<span class="attr">$nor</span> : [&#123;<span class="string">"subject"</span>:<span class="string">"python"</span>&#125;,&#123;<span class="string">"level"</span>:&#123;<span class="attr">$gte</span>:<span class="number">3</span>&#125;&#125;]&#125;)</span><br></pre></td></tr></table></figure>
+<p>자바스크립트 문법을 그대로 사용 가능합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;<span class="attr">$where</span>:<span class="string">"this.level == 1"</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>projection : mysql에서 select 할때 column 지정하는 것과 같습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.info.find(&#123;&#125;,&#123;<span class="string">"_id"</span>:<span class="literal">false</span>,<span class="string">"level"</span>:<span class="literal">false</span>&#125;)</span><br><span class="line">db.info.find(&#123;&#125;,&#123;<span class="string">"subject"</span>:<span class="literal">true</span>,<span class="string">"level"</span>:<span class="literal">true</span>&#125;)</span><br><span class="line">db.info.find(&#123;&#125;,&#123;<span class="string">"subject"</span>:<span class="literal">true</span>,<span class="string">"level"</span>:<span class="literal">true</span>,<span class="string">"_id"</span>:<span class="literal">false</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>sort : 1(오름차순),-1(내림차순)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">1</span>&#125;)</span><br><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">-1</span>&#125;)</span><br><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">-1</span>,<span class="string">"subject"</span>:<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>limit &amp; skip : limit는 아래로 n개를 선택합니다.<br>
+skip은 n개 뛰어넘고 그 다음 부터 시작합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- limit</span><br><span class="line">db.info.find().limit(<span class="number">3</span>)</span><br><span class="line">db.info.find().sort(&#123;<span class="string">"level"</span>:<span class="number">1</span>&#125;).limit(<span class="number">3</span>)</span><br><span class="line">-- skip </span><br><span class="line">db.info.find().skip(<span class="number">2</span>).limit(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="update"><a class="markdownIt-Anchor" href="#update"></a> UPDATE</h2>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.info.update(</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"html"</span>&#125;,<span class="comment">//query</span></span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"sass"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;<span class="comment">//수정할내용</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>upsert : 데이터가 있으면 update, 없으면 insert 기본적으로 1개만 업데이트. multi:true 해줘야 여러개 업데이트 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.info.update(</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"less"</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"less"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"upsert"</span>:<span class="literal">true</span>&#125; </span><br><span class="line">    -- subject에 less가 없는데 upsert: <span class="literal">true</span>이므로 &#123;<span class="string">"subject"</span>:<span class="string">"less"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;로 데이터 입력했음</span><br><span class="line">)</span><br></pre></td></tr></table></figure> ## $set, $unset 특정 데이터를 수정 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.info.update(</span><br><span class="line">    &#123;<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"$set"</span>:&#123;<span class="string">"level"</span>:<span class="number">1</span>&#125;&#125;,</span><br><span class="line">    &#123;<span class="attr">multi</span>:<span class="literal">true</span>&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="function">function</h2>
-<p>함수 사용가능 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> showSkip = <span class="function"><span class="keyword">function</span>(<span class="params">start</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> db.info.find().skip(start<span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">showSkip(<span class="number">2</span>)</span><br></pre></td></tr></table></figure></p>
+<p>upsert : 데이터가 있으면 update, 없으면 insert를 합니다.<br>
+기본적으로 1개만 업데이트. multi:true 해줘야 여러개 데이터를 업데이트 합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.info.update(</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"less"</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"subject"</span>:<span class="string">"less"</span>,<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"upsert"</span>:<span class="literal">true</span>&#125; </span><br><span class="line">    <span class="comment">// subject에 less가 없는데 upsert: true이므로 &#123;"subject":"less","level":2&#125;로 데이터 입력했음</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="set-unset"><a class="markdownIt-Anchor" href="#set-unset"></a> $set, $unset</h2>
+<p>특정 데이터를 수정합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.info.update(</span><br><span class="line">    &#123;<span class="string">"level"</span>:<span class="number">2</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"$set"</span>:&#123;<span class="string">"level"</span>:<span class="number">1</span>&#125;&#125;,</span><br><span class="line">    &#123;<span class="attr">multi</span>:<span class="literal">true</span>&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="function"><a class="markdownIt-Anchor" href="#function"></a> function</h2>
+<p>자바스크립트로 함수를 사용할수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> showSkip = <span class="function"><span class="keyword">function</span>(<span class="params">start</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> db.info.find().skip(start<span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">showSkip(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -430,7 +438,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mongdb"><span class="nav-number">1.</span> <span class="nav-text">MongDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#컬렉션-생성"><span class="nav-number">1.1.</span> <span class="nav-text">컬렉션 생성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insert"><span class="nav-number">1.2.</span> <span class="nav-text">Insert</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#update"><span class="nav-number">2.</span> <span class="nav-text">UPDATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function"><span class="nav-number">3.</span> <span class="nav-text">function</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mongdb"><span class="nav-number">1.</span> <span class="nav-text"> MongDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#컬렉션-생성"><span class="nav-number">1.1.</span> <span class="nav-text"> 컬렉션 생성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insert"><span class="nav-number">1.2.</span> <span class="nav-text"> Insert</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-필터링"><span class="nav-number">2.</span> <span class="nav-text"> FIND (필터링)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#update"><span class="nav-number">3.</span> <span class="nav-text"> UPDATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-unset"><span class="nav-number">4.</span> <span class="nav-text"> $set, $unset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function"><span class="nav-number">5.</span> <span class="nav-text"> function</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
