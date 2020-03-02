@@ -66,7 +66,7 @@
 <meta property="og:description" content="확률">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-03T13:11:42.000Z">
-<meta property="article:modified_time" content="2020-03-01T06:24:15.890Z">
+<meta property="article:modified_time" content="2020-03-02T03:52:30.152Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="Math">
 <meta property="article:tag" content="Probability">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-01 15:24:15" itemprop="dateModified" datetime="2020-03-01T15:24:15+09:00">2020-03-01</time>
+                <time title="Modified: 2020-03-02 12:52:30" itemprop="dateModified" datetime="2020-03-02T12:52:30+09:00">2020-03-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -293,54 +293,103 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="확률"><a class="markdownIt-Anchor" href="#확률"></a> 확률</h2>
+        <h2 id="확률">확률</h2>
 <a id="more"></a>
 <ul>
 <li>확률이란 사건(표본공간의 부분집합)을 입력으로 받는 함수!</li>
 <li>확률의 정의역은 표본공간의 가능한 모든 부분집합</li>
 <li>표본공간 : 가능한 모든 표본의 집합</li>
 <li>사건 : 부분집합</li>
-<li>콜모고로프의 공리
+<li><strong>콜모고로프의 공리</strong>
 <ul>
-<li>확률은 0보다 같거나 크다</li>
-<li>모든 확률의 합은 1이다</li>
-<li>공통 원소가 없는 두 사건의 합집합의 확률은 각 사건의 확률의 합과 같다.</li>
+<li>모든 사건에 대해 확률은 실수이고 0또는 양수다
+<p align="center">
+$P(A) 0 $
+</p></li>
+<li>표본공간(전체집합)이라는 사건(부분집합)에 대한 확률은 1이다.
+<p align="center">
+<span class="math inline">\(p(\Omega) = 1\)</span>
+</p></li>
+<li>공통 원소가 없는 두 사건의 합집합의 확률은 사건별 확률의 합이다.
+<p align="center">
+$A B = P(A B) = P(A) + P(B) $
+</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="확률의-의미"><a class="markdownIt-Anchor" href="#확률의-의미"></a> 확률의 의미</h2>
+<h2 id="확률의-의미">확률의 의미</h2>
 <ul>
-<li>빈도주의적 관점 : 반복 + 경향</li>
-<li>베이지안 관점 : 진실성, 신뢰도, 믿음</li>
+<li><strong>확률이란 사건(부분집합)을 입력하면 숫자(확률값)이 출력되는 함수다.</strong></li>
+<li><strong>빈도주의적 관점</strong>
+<ul>
+<li><strong>반복적으로 선택된 표본이 사건</strong>(부분 집합) <strong>A의 원소가될 경향</strong>을 사건의 확률이라고 본다.</li>
+</ul></li>
+<li><strong>베이지안 관점</strong>
+<ul>
+<li><strong>선택된 표본이 특정한 사건(부분 집합)에 속한다는 가설(hypothesis), 명제(proposition) 혹은 주장(assertion)</strong> 의 <strong>신뢰도(degree of belief)</strong></li>
+<li>베이지안 관점에서 사건이 일어났다(occur) 혹은 발생했다하는 말은 그 사건(부분집합)의 원소 중에 정말로 선택된 표본이 있다는 사실을 알게 되었다는 것을 말한다.</li>
+</ul></li>
 </ul>
-<h2 id="확률의-성질"><a class="markdownIt-Anchor" href="#확률의-성질"></a> 확률의 성질</h2>
-<ol>
-<li>공집합의 확률은 0이다</li>
-<li>여집합인 사건의 확률은 1-원래사건의 확률이다. 확률은  0 &lt;= P(x) &lt;=1</li>
-<li>포함-배제원리 : 두사건의 합집합의 확률은 각 사건의 확률의 합에서 두 사건의 교집합의 확률을 뺸것과 같다</li>
-<li>전체확률의 법칙 : 복수의 사건 C_i는</li>
+<h2 id="확률의-성질">확률의 성질</h2>
+<ol type="1">
+<li><strong>공집합의 확률</strong> : <strong>공집합의 확률은 0이다</strong>
+<p align="center">
+$P() = 0 $
+</p></li>
+<li><strong>여집합의 확률</strong> : <strong>어떤 사건의 여집합인 사건의 확률은 (1 - 원래 사건의 확률)과 같다.</strong>
+<p align="center">
+$ P(A^c) = 1 - P(A) $ , $ 0 P(A) 1$
+</p></li>
+<li><strong>포함-배제원리</strong> : 두사건의 합집합의 확률은 각 사건의 확률의 합에서 두 사건의 교집합의 확률을 뺸것과 같다
+<p align="center">
+$ P(A B) = P(A) + P(B) - P(AB) $
+</p></li>
+<li><strong>전체확률의 법칙</strong><br>
+복수의 사건 <span class="math inline">\(C_{i}\)</span>가 다음을 만족하는 사건들이라고 가정한다.</li>
 </ol>
 <ul>
-<li>서로 교집합이 없다</li>
-<li>모든 집합의 합집합이 전체공간(표본공간)이다. 이 경우 완전한 부분집합들 이라고 한다.</li>
+<li>서로 교집합이 없다. 서로 배타적이다.
+<p align="center">
+$ C_iC_j = $
+</p></li>
+<li>모든 집합의 합집합이 전체집합이다.
+<p align="center">
+$ C_1C_2 = $
+</p></li>
 </ul>
-<h2 id="확률-분포-함수"><a class="markdownIt-Anchor" href="#확률-분포-함수"></a> 확률 분포 함수</h2>
+<p>이경우 &gt; <strong>사건 A의 확률은 사건 A와 사건 <span class="math inline">\(C_i\)</span>가 동시에 발생할 사건들의 확률의 합과 같다.</strong> $ P(A) = _{i} P(A C_i)$</p>
+<h2 id="확률-분포-함수">확률 분포 함수</h2>
 <ul>
-<li>확률질량함수(PMF) : 유한개의 사건이 존재하는 경우 각 단순사건에 대한 확률만 정의하는 함수</li>
-<li>누적분포함수(CDF): 무한개의 사건이 존재하는 경우, 시작점을 -무한대로 고정하고 통일된 특수구간을 사용하는 함수
+<li><strong>확률질량함수(PMF)</strong> : 유한개의 사건이 존재하는 경우 각 단순사건에 대한 확률만 정의하는 함수
+<p align="center">
+$ p(1) = 0.2 P({1})=0.2$
+</p></li>
+<li><strong>누적분포함수(CDF)</strong>: 무한개의 사건이 존재하는 경우, 시작점을 <span class="math inline">\(-\infty\)</span>로 고정하고 통일된 특수구간을 사용하는 함수
 <ul>
-<li>음의 무한대에 대한 누적분포 함수값은 0이다</li>
-<li>양의 무한대에 대한 누적분포 함수값은 1이다</li>
-<li>입력이 크면 누적분포 함수값은 같거나 커진다.</li>
+<li>음의 무한대에 대한 누적분포함수값은 0이다
+<p align="center">
+$ F(-) = 0 $
+</p></li>
+<li>양의 무한대에 대한 누적분포함수값은 1이다.
+<p align="center">
+$ F(+) = 1$
+</p></li>
+<li>입력이 크면 누적분포함수값은 같거나 커진다.
+<p align="center">
+$ x y F(x)F(y)$
+</p></li>
 <li>단조증가 성질에 따라 절대 내려가지 않는다.</li>
-</ul>
-</li>
-<li>확률밀도함수(PDF) : 누적분포 함수를 미분하여 구한 도함수, 어떤 확률 변수값이 더 자주 나오는지에 대해 잘 파악할수 있다.
+</ul></li>
+<li><strong>확률밀도함수(PDF)</strong>: 누적분포 함수를 미분하여 구한 도함수, 어떤 확률 변수값이 더 자주 나오는지에 대해 잘 파악할수 있다.
 <ul>
-<li>적분함수기 때문에 0보다 같거나 크다</li>
-<li>음의 무한대 부터 양의 무한대 까지 적분하면 표본공간의 확률이 되므로 1이다.</li>
-</ul>
-</li>
+<li>누적분포함수의 기울기가 음수가 될수 없기 때문에(단조증가 성질, 절대 값이 내려가지 않기 때문에) pdf는 0보다 같거나 크다.
+<p align="center">
+$ p(x) 0$
+</p></li>
+<li><span class="math inline">\(-\infty\)</span>부터 <span class="math inline">\(\infty\)</span>까지 적분하면 표본공간의 확률이 되므로 값은 1이다.
+<p align="center">
+$ ^{-}_{}p(u)du = 1$$
+</p></li>
+</ul></li>
 </ul>
 
     </div>
@@ -427,7 +476,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#확률"><span class="nav-number">1.</span> <span class="nav-text"> 확률</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률의-의미"><span class="nav-number">2.</span> <span class="nav-text"> 확률의 의미</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률의-성질"><span class="nav-number">3.</span> <span class="nav-text"> 확률의 성질</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률-분포-함수"><span class="nav-number">4.</span> <span class="nav-text"> 확률 분포 함수</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#확률"><span class="nav-number">1.</span> <span class="nav-text">확률</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률의-의미"><span class="nav-number">2.</span> <span class="nav-text">확률의 의미</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률의-성질"><span class="nav-number">3.</span> <span class="nav-text">확률의 성질</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#확률-분포-함수"><span class="nav-number">4.</span> <span class="nav-text">확률 분포 함수</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -442,7 +491,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -554,6 +603,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
