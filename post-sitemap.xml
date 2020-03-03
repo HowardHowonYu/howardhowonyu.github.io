@@ -8,8 +8,32 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-02-probability2/</loc>
-        <lastmod>2020-03-02T10:24:04.010Z</lastmod>
+        <loc>https://howardhowonyu.github.io/2020/02/26/TIL-crawling-2020-02-26-crawling-selenium/</loc>
+        <lastmod>2020-03-03T08:54:43.092Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-03-probability/</loc>
+        <lastmod>2020-03-03T08:54:40.912Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-03-probability2/</loc>
+        <lastmod>2020-03-03T08:54:39.522Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-02-07-probability-md/</loc>
+        <lastmod>2020-03-03T08:52:19.566Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +41,15 @@
 
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-02-probability/</loc>
-        <lastmod>2020-03-02T10:23:05.576Z</lastmod>
+        <lastmod>2020-03-03T08:44:53.741Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-02-probability2/</loc>
+        <lastmod>2020-03-03T03:14:08.576Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -42,22 +74,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/03/TIL-mathematics-2020-02-03-optimization-probability-md/</loc>
         <lastmod>2020-03-02T03:52:30.152Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-02-07-probability-md/</loc>
-        <lastmod>2020-03-01T09:43:25.687Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/26/TIL-crawling-2020-02-26-crawling-selenium/</loc>
-        <lastmod>2020-03-01T06:23:01.412Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="PuabxBMO8NRn3Cqf2FJ5ojfaEm9Y2HledT8S-2IGNoI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
+    <script>
+      var url = window.location.href;     // Returns full URL
+      if(!url.includes("localhost:4000")){
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-134152064-2');
+          }
+    </script>
+
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://howardhowonyu.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: true,
+    sidebar: {"position":"left","width":230,"display":"always","padding":10,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="이산확률변수 에서 다변수 확률변수  결합확률질량함수 \[P_{XY}(x,y)\]  결합확률 질량함수에서는 독립변수가 𝑥,𝑦 두 개가 된다. 종속변수는 그 숫자 쌍이 나타날 확률이다. \(P_{XY}(2,3)\) 은 \({𝑥&#x3D;2,𝑦&#x3D;3}\) 이라는 특정한 숫자 쌍으로만 이루어진 사건의 확률이다. 만약 공정한 주사위 두 개를 던지는 경우라면 결합확률질량">
+<meta property="og:type" content="article">
+<meta property="og:title" content="다변수 확률변수">
+<meta property="og:url" content="https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-03-probability/index.html">
+<meta property="og:site_name" content="Howard&#39;s nest">
+<meta property="og:description" content="이산확률변수 에서 다변수 확률변수  결합확률질량함수 \[P_{XY}(x,y)\]  결합확률 질량함수에서는 독립변수가 𝑥,𝑦 두 개가 된다. 종속변수는 그 숫자 쌍이 나타날 확률이다. \(P_{XY}(2,3)\) 은 \({𝑥&#x3D;2,𝑦&#x3D;3}\) 이라는 특정한 숫자 쌍으로만 이루어진 사건의 확률이다. 만약 공정한 주사위 두 개를 던지는 경우라면 결합확률질량">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-07T10:45:43.000Z">
+<meta property="article:modified_time" content="2020-03-03T08:54:40.912Z">
+<meta property="article:author" content="Howard Howon Yu">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="Probability">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-03-probability/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>다변수 확률변수 | Howard's nest</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-134152064-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Howard's nest" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Howard's nest</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-03-probability/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          다변수 확률변수
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-07 19:45:43" itemprop="dateCreated datePublished" datetime="2020-02-07T19:45:43+09:00">2020-02-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-03 17:54:40" itemprop="dateModified" datetime="2020-03-03T17:54:40+09:00">2020-03-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/%ED%99%95%EB%A5%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">확률</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="이산확률변수-에서-다변수-확률변수">이산확률변수 에서 다변수 확률변수</h2>
+<ul>
+<li><h3 id="결합확률질량함수"><strong>결합확률질량함수</strong></h3>
+<span class="math display">\[P_{XY}(x,y)\]</span>
+<ul>
+<li>결합확률 질량함수에서는 독립변수가 𝑥,𝑦 두 개가 된다. 종속변수는 그 숫자 쌍이 나타날 확률이다.</li>
+<li><span class="math inline">\(P_{XY}(2,3)\)</span> 은 <span class="math inline">\({𝑥=2,𝑦=3}\)</span> 이라는 특정한 숫자 쌍으로만 이루어진 사건의 확률이다. 만약 공정한 주사위 두 개를 던지는 경우라면 결합확률질량함수는 <span class="math inline">\(1\over 36\)</span>이다.</li>
+</ul></li>
+<li><h3 id="주변확률질량함수"><strong>주변확률질량함수</strong></h3>
+<ul>
+<li>주변확률질량함수(marginal probability mass function)는 두 확률변수 중 하나의 확률변수 값에 대해서만 확률분포를 표시한 함수</li>
+</ul></li>
+<li><h3 id="조건부확률질량함수"><strong>조건부확률질량함수</strong></h3>
+<ul>
+<li>조건부확률질량함수(conditional probability mass function)는 다변수 확률변수 중 하나의 값이 특정 값으로 고정되어 상수가 되어 버린 경우, 나머지 변수에 대한 확률질량함수를 말한다. <span class="math display">\[P_{X|Y}(x|y) = {P_{XY}(x,y) \over P_X(y)}\]</span></li>
+</ul>
+<p><span class="math display">\[P_{Y|X}(y|x) = {P_{XY}(x,y) \over P_X(x)}\]</span></p>
+<ul>
+<li>조건부확률질량함수의 모양은 결합질량함수 <span class="math inline">\(P_{XY}(x,y)\)</span>에서 <span class="math inline">\(y\)</span>값이 고정된 함수, 즉, 결합질량함수의 단면과 같아진다. 조건부확률질량함수의 합은 1이 된다.</li>
+</ul></li>
+</ul>
+<h2 id="연속확률변수-에서-다변수-확률변수">연속확률변수 에서 다변수 확률변수</h2>
+<p>연속확률분포에서는 이산확률분포와 같이 단순사건을 이용하여 확률을 정의할 수 없으므로 단변수 연속확률변수처럼 누적확률분포함수(cdf)를 먼저 정의한 후 이를 미분하여 확률밀도함수(pdf)를 정의하는 방법을 사용한다.</p>
+<ul>
+<li><h3 id="결합누적확률분포함수">결합누적확률분포함수</h3>
+<ul>
+<li>두 연속 확률변수 <span class="math inline">\(X,Y\)</span>에 대한 결합누적확률분포함수는</li>
+</ul>
+<p><span class="math display">\[F_{XY}(x,y) = P({X &lt; x} \cap {Y &lt; y}) = P({X &lt; x, Y &lt; y})\]</span></p>
+<ul>
+<li>결합누적확률분포함수의 특성</li>
+</ul>
+<p><span class="math display">\[F_{XY}(\infty,\infty) = 1\]</span></p>
+<p><span class="math display">\[F_{XY}(-\infty,y) = F_{XY}(x,-\infty) = 0\]</span></p>
+<ul>
+<li><h3 id="결합확률밀도함수">결합확률밀도함수</h3>
+<ul>
+<li>단변수 확률변수의 경우처럼 결합누적확률분포함수를 미분하여 결합확률밀도함수(joint probability density function)를 정의할 수 있다.</li>
+<li>독립 변수가 2개이므로 각각 <span class="math inline">\(x,y\)</span>에 대해모두 편미분(partial differentication)해야 한다.</li>
+</ul>
+<p><span class="math display">\[P_{XY} = {\partial^2F_{XY}(x,y) \over \partial x \partial y} \]</span></p>
+<ul>
+<li>결합확률밀도함수를 특정 구간에 대해 적분하면 해당 구간에 대한 확률이 된다.</li>
+</ul>
+<span class="math display">\[ \int_{x_1}^{x_2}  \int_{y_1}^{y_2} P_{XY}(x,y)dxdy = P(\{x_1 \leq X \leq x_2,y_1 \leq Y \leq y_2\})\]</span>
+<ul>
+<li>결합확률밀도함수를 모든 변수에 대해 적분하면 1이된다.</li>
+</ul>
+<p><span class="math display">\[\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} P_{XY}(x,y)dxdy = 1\]</span></p></li>
+<li><h3 id="주변확률밀도함수">주변확률밀도함수</h3>
+<ul>
+<li><p>주변확률밀도함수(marginal probability density function)는 결합확률밀도함수를 특정한 하나의 변수에 대해 가중평균한 값을 말한다. 따라서 결합확률밀도함수를 하나의 확률변수에 대해서만 적분하여 구한다.</p></li>
+<li><p>그래프를 밀가루 반죽이라고 생각하고 <span class="math inline">\(x\)</span> 혹은 <span class="math inline">\(y\)</span> 방향으로 밀어서 눌렀다고 생각</p></li>
+</ul>
+<p><span class="math display">\[P_X(x) = \int_{-\infty}^{\infty} P_{XY}(x,y)dy\]</span></p>
+<p><span class="math display">\[P_Y(y) = \int_{-\infty}^{\infty} P_{XY}(x,y)dx\]</span></p></li>
+<li><h3 id="조건부확률밀도함수">조건부확률밀도함수</h3>
+<ul>
+<li><p>조건부확률밀도함수(conditional probability density function)는 다변수 확률변수 중 하나의 값이 특정 값이라는 사실이 알려진 경우, 이러한 조건(가정)에 의해 변화한 나머지 확률변수에 대한 확률밀도함수를 말한다.</p></li>
+<li><p>그래프를 밀가루 반죽이라고 생각하고 <span class="math inline">\(x\)</span>또는 <span class="math inline">\(y\)</span>값의 위치를 칼로 잘라낸 단면이라고 생각</p></li>
+</ul>
+<p><span class="math display">\[ P_{X|Y}(x|y) = {P_{XY}(x,y) \over P_y(y)}\]</span></p>
+<p><span class="math display">\[ P_{Y|X}(y|x) = {P_{XY}(x,y) \over P_X(x)}\]</span></p>
+<ul>
+<li>조건부확률밀도함수에서 조건이 되는 확률변수의 값은 특정한 값으로 고정되어 있으므로 변수가 아니라 모수로 생각할 수 있다. 예를 들어 <span class="math inline">\(P_{X|Y}(x|y)\)</span> 에서 <span class="math inline">\(y\)</span> 의 값은 고정되어 있으므로 이 값은 <span class="math inline">\(x\)</span>의 함수가 된다.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="독립과-상관관계">독립과 상관관계</h2>
+<ul>
+<li>확률변수 <span class="math inline">\(X\)</span>의 표본값이 달라져서 다른 확률변수<span class="math inline">\(Y\)</span>의 조건부 분포 모양이 달라질때 서로 상관관계라 한다.</li>
+<li>두 확률변수가 상관 관계가 아니면 서로 독립(independent)이라고 한다.</li>
+<li>두 확률변수 <span class="math inline">\(X,Y\)</span> 의 결합확률밀도함수(joint pdf)가 주변확률밀도함수(marginal pdf)의 곱과 같으면 서로 독립(independent)이다.</li>
+</ul>
+<p><span class="math display">\[P_{XY}(x,y) = P_X(x)P_Y(y)\]</span></p>
+<ul>
+<li>분리가능 다변수 함수 참고</li>
+<li>이 법칙은 확률변수가 두개 이상이어도 성립된다.</li>
+</ul>
+<h2 id="반복시행">반복시행</h2>
+<ul>
+<li>같은 확률변수에서 복수의 표본 데이터를 취하는 경우에는 이 표본들은 서로 독립인 확률변수에서 나온 표본으로 볼수있다.</li>
+<li>확률밀도 함수가 <span class="math inline">\(f(x)\)</span>이고 표본 데이터가 <span class="math inline">\(\{x_1,x_2,x_3,\dots,x_N \}\)</span>이면 이 데이터, 즉 벡터 <span class="math inline">\((x_1,x_2,x_3,\dots,x_N)\)</span>이 나올 확률은</li>
+</ul>
+<p><span class="math display">\[p(x_1,x_2,x_3,\dots,x_N)= \prod_{i=1}^N p(x_i)\]</span></p>
+<h2 id="조건부-확률분포">조건부 확률분포</h2>
+<ul>
+<li>독립인 두 확률변수 <span class="math inline">\(X,Y\)</span>의 조건부확률밀도함수 = 주변확률밀도함수</li>
+<li>서로 독립이면 영향을 주지 않기 때문에, &quot;조건부&quot;라는것이 성립자체가 안됨</li>
+<li>pdf의 모양을 보고 독립여부를 판단할수 있어야 한다.
+<ul>
+<li>pdf그래프의 밀가루 산을 어느 위치에서 칼로 잘라도(<span class="math inline">\(x\)</span>값을 변경해도)크기는 다르지만 스케일링 한후의 모양이 동일하다면, <span class="math inline">\(x\)</span>가 <span class="math inline">\(y\)</span>의 값에 영향을 주지않는다고 볼수있기 때문에, 독립이다.</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[P_{X|Y}(x|y) = {P_{XY}(x,y) \over P_Y(y)} = {P_X(x)P_Y(y) \over P_Y(y)} = P_X(x)\]</span></p>
+<p><span class="math display">\[P_{Y|X}(y|x) = {P_{XY}(x,y) \over P_X(x)} = {P_X(x)P_Y(y) \over P_X(x)} = P_Y(y)\]</span></p>
+<h3 id="독립-확률변수의-기대값-성질">독립 확률변수의 기대값 성질</h3>
+<ul>
+<li>앞장에서 다뤘던 독립인 두 확률변수의 기대값 성질을 되짚어 보면</li>
+</ul>
+<p><span class="math display">\[E[XY] = E[X]E[Y]\]</span></p>
+<p><span class="math display">\[E[(X - \mu X)(Y - \mu Y)] = 0\]</span></p>
+<h3 id="독립-확률변수의-분산">독립 확률변수의 분산</h3>
+<ul>
+<li>독립인 두 확률변수 <span class="math inline">\(X,Y\)</span>의 분산은</li>
+</ul>
+<p><span class="math display">\[Var[X + Y] = Var[X] + Var[Y]\]</span></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Math/" rel="tag"># Math</a>
+              <a href="/tags/Probability/" rel="tag"># Probability</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/07/TIL-mathematics-2020-03-02-probability2/" rel="prev" title="분산과 표준편차">
+      <i class="fa fa-chevron-left"></i> 분산과 표준편차
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/07/TIL-mathematics-2020-02-07-probability-md/" rel="next" title="공분산, 상관계수">
+      공분산, 상관계수 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#이산확률변수-에서-다변수-확률변수"><span class="nav-number">1.</span> <span class="nav-text">이산확률변수 에서 다변수 확률변수</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#결합확률질량함수"><span class="nav-number">1.1.</span> <span class="nav-text">결합확률질량함수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#주변확률질량함수"><span class="nav-number">1.2.</span> <span class="nav-text">주변확률질량함수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#조건부확률질량함수"><span class="nav-number">1.3.</span> <span class="nav-text">조건부확률질량함수</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#연속확률변수-에서-다변수-확률변수"><span class="nav-number">2.</span> <span class="nav-text">연속확률변수 에서 다변수 확률변수</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#결합누적확률분포함수"><span class="nav-number">2.1.</span> <span class="nav-text">결합누적확률분포함수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#결합확률밀도함수"><span class="nav-number">2.2.</span> <span class="nav-text">결합확률밀도함수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#주변확률밀도함수"><span class="nav-number">2.3.</span> <span class="nav-text">주변확률밀도함수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#조건부확률밀도함수"><span class="nav-number">2.4.</span> <span class="nav-text">조건부확률밀도함수</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#독립과-상관관계"><span class="nav-number">3.</span> <span class="nav-text">독립과 상관관계</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#반복시행"><span class="nav-number">4.</span> <span class="nav-text">반복시행</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#조건부-확률분포"><span class="nav-number">5.</span> <span class="nav-text">조건부 확률분포</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#독립-확률변수의-기대값-성질"><span class="nav-number">5.1.</span> <span class="nav-text">독립 확률변수의 기대값 성질</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#독립-확률변수의-분산"><span class="nav-number">5.2.</span> <span class="nav-text">독립 확률변수의 분산</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Howard Howon Yu" src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Howard Howon Yu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hvd2FyZGhvd29ueXU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;howardhowonyu"><i class="fa fa-fw fa-github"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnlvb2hvd29uQGdtYWlsLmNvbQ==" title="E-Mail → mailto:yoohowon@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Howard Howon Yu</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>
