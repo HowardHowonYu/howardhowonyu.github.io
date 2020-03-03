@@ -834,11 +834,73 @@
     
     
     <entry>
-      <title>확률분포</title>
+      <title>정규분포와 중심극한정리</title>
+      <link href="/2020/02/11/TIL-mathematics-2020-03-03-probability4/"/>
+      <url>/2020/02/11/TIL-mathematics-2020-03-03-probability4/</url>
+      
+        <content type="html"><![CDATA[<h2 id="정규분포와-중심극한정리">정규분포와 중심극한정리</h2><ul><li>여러 확률변수를 더하면 정규분포와 비슷해 진다.</li></ul><h2 id="정규분포의-통계량-분포">정규분포의 통계량 분포</h2><ul><li>N개의 정규분포로 부터 얻은 표본의 합은 N과 상관없이 정규분포다</li></ul><h2 id="선형회기모형과-정규분포">선형회기모형과 정규분포</h2><ul><li>선형회기모형에서 잡음 e를 모형화 하는데 정규분포를 사용한다</li><li>e를 기대값이 0인 정규분포라고 가정한다.</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> TIL.. </category>
+          
+          <category> Math </category>
+          
+          <category> 확률 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Math </tag>
+            
+            <tag> Probability </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>카테고리분포와 다항분포</title>
+      <link href="/2020/02/10/TIL-mathematics-2020-03-03-probability3/"/>
+      <url>/2020/02/10/TIL-mathematics-2020-03-03-probability3/</url>
+      
+        <content type="html"><![CDATA[<h2 id="카테고리-확률변수">카테고리 확률변수</h2><ul><li>카테고리 확률변수는 1부터 <span class="math inline">\(K\)</span>까지의 <span class="math inline">\(K\)</span>개 정수값 중 하나가 나온다. 이 정수값을 범주값, 카테고리, 클래스 등으로 부른다. (주사위를 던져서 나오는 눈금 수는 <span class="math inline">\(K=6\)</span>인 카테고리분포다)</li></ul><h3 id="원핫인코딩one-hot-encoding">원핫인코딩(One-Hot-Encoding)</h3><ul><li>카테고리는 스칼라값이지만, 카테고리 확률변수는 1과0으로만 이루어진 다차원 벡터를 출력한다.</li><li>스칼라값을 이렇게 벡터로 변환하는 것을 원핫인코딩이라고 한다.</li></ul><p><span class="math display">\[x = 1 \rightarrow x = (1,0,0,0,0,0) \\x = 2 \rightarrow x = (0,1,0,0,0,0) \\x = 3 \rightarrow x = (0,0,1,0,0,0) \\x = 4 \rightarrow x = (0,0,0,1,0,0) \\x = 5 \rightarrow x = (0,0,0,0,1,0) \\x = 6 \rightarrow x = (0,0,0,0,0,1) \\\]</span></p><ul><li>따라서 카테고리 확률변수의 값도 벡터로 표시한다. <span class="math display">\[x = (x_1,x_2,x_3,x_4,x_5,x_6)\]</span><ul><li>벡터의 원소 <span class="math inline">\(x_k\)</span>값으로 0 또는 1만 가능하고,</li><li>벡터의 원소 <span class="math inline">\(x_k\)</span>중 하나만 1일수 있다.</li></ul></li><li>각각의 <span class="math inline">\(x_k\)</span>는 베르누이 확률변수로 볼 수 잇기 때문에, 1이 나올 확률을 나타내는 모수 <span class="math inline">\(\mu_k\)</span>를 가진다. 따라서 카테고리분포의 모수는 벡터로 나타낸다</li></ul><p><span class="math display">\[\mu = (\mu_1,\dots,\mu_k)\]</span></p><ul><li>모수벡터의 조건은 <span class="math display">\[0 \leq \mu_i \leq 1\]</span> <span class="math display">\[\sum_{k=1}^{K}\mu_k = 1\]</span><ul><li>모수값 <span class="math inline">\(\mu_k\)</span>는 0과 1사이의 값이고</li><li>모수값 <span class="math inline">\(\mu_k\)</span>의 전체 합은 1이다</li></ul></li></ul><h2 id="카테고리-확률분포">카테고리 확률분포</h2><p><span class="math display">\[Cat(x_1,x_2,\dots,x_k;\mu_1,\dots,\mu_k)\]</span></p><p>로 표기하거나 벡터 <span class="math inline">\(x,mu\)</span>를 이용하여</p><p><span class="math display">\[Cat(x;mu)\]</span> 로 표기한다</p><ul><li>카테고리 확률변수의 확률질량함수는 원핫인코딩을 사용해보면</li></ul><p><span class="math display">\[Cat(x;\mu) = \mu_1^{x_1}\mu_2^{x_2}\dots \mu_k^{x_k} = \prod_{k=1}^{k}\mu_k^{x_k}\]</span></p><h2 id="카테고리분포의-모멘트">카테고리분포의 모멘트</h2><ul><li>기대값</li></ul><p><span class="math display">\[E[x_k] = \mu_k\]</span></p><ul><li>분산</li></ul><p><span class="math display">\[Var[x_k] = \mu_k(1-\mu_k)\]</span></p><h2 id="다항분포">다항분포</h2><ul><li>베르누이 확률변수의 데이터가 복수이면 이 데이터의 합은 : 이항분포</li><li><p>카테고리 확률변수의 데이터가 복수이면 이 데이터의 합은 : 다항분포</p></li><li>동전을 <span class="math inline">\(N\)</span>번 던져 앞면이 나온 횟수의 분포 = 이항분포</li><li><p>주사위를 <span class="math inline">\(N\)</span>번 던져 각 면이 나온 횟수의 집합의 분포 = 다항분포</p></li><li>다항분포는 카테고리가 <span class="math inline">\(K\)</span>개인 카테고리 확률변수의 표본데이터를 <span class="math inline">\(N\)</span>개 얻었을 때, 각각의 카테고리 <span class="math inline">\(k = (x_1,\dots,x_k)\)</span>가 각각 <span class="math inline">\(x_k\)</span>번 나올 확률분포, 즉 표본값이 벡터 <span class="math inline">\(x = (x_1,\dots,x_k)\)</span>가 되는 확률분포이다.<ul><li><span class="math inline">\(x = (1,2,1,2,3,1)\)</span>은 주사위를 10번 던져서 1인면이 1번, 2인면이 2번, 3인면이 1번 ... 나왔다는 뜻이다.</li></ul></li><li><p>다항분포의 확률질량함수는</p></li></ul><p><span class="math display">\[Mu(x;N,\mu) = \begin{pmatrix}N \\ x \end{pmatrix} \prod_{k=1}^{k}\mu_k^{x_k} = \begin{pmatrix}N \\ x_1,\dots,x_k \end{pmatrix} \prod_{k=1}^{k}\mu_k^{x_k}\]</span></p><h3 id="다항분포의-모멘트">다항분포의 모멘트</h3><ul><li>기대값</li></ul><p><span class="math display">\[E[x_k] = N\mu_k\]</span></p><ul><li>분산</li></ul><p><span class="math display">\[Var[x_k] = N\mu_k(1-\mu_k)\]</span></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> TIL.. </category>
+          
+          <category> Math </category>
+          
+          <category> 확률 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Math </tag>
+            
+            <tag> Probability </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>베르누이분포와 이항분포</title>
       <link href="/2020/02/10/TIL-mathematics-2020-02-10-bernoilli-md/"/>
       <url>/2020/02/10/TIL-mathematics-2020-02-10-bernoilli-md/</url>
       
-        <content type="html"><![CDATA[<h2 id="베르누이-시행bernoulli-trial">베르누이 시행(Bernoulli trial)</h2><ul><li>결과가 두가지 중 하나로만 나오는 실험이나 시행</li><li>0,1로 제일 많이 표현</li></ul><h2 id="베르누이-확률분포">베르누이 확률분포</h2><ul><li>X ~ Bern(x;m)</li><li>모수는 m와 1-m</li></ul><h2 id="베르누이-분포의-모멘트">베르누이 분포의 모멘트</h2><ul><li>E[X] = m</li><li>Var[X] = m(1-m)</li></ul><h2 id="이항분포">이항분포</h2><ul><li>베르누이 시행을 N번 반복하는 경우, N번 시도했을때 성공한 횟수를 확률변수라 하면, X값은 0~N까지의 정수중 하나.</li><li>X ~ Bin(x;N,m) = 펙토리얼</li></ul><h2 id="이항분포의-모멘트">이항분포의 모멘트</h2><ul><li>E[X] = Nm</li><li>Var[X] = Nm(1-m)</li></ul><h2 id="베르누이분포와-이항분포의-모수추정">베르누이분포와 이항분포의 모수추정</h2><ul><li>N1 / N</li></ul><h4 id="베르누이-분포를-활용한-스팸메일-예제">베르누이 분포를 활용한 스팸메일 예제</h4><h2 id="카테고리-확률변수">카테고리 확률변수</h2><ul><li>1부터 k까지 k개 정수값 중 하나가 나온다.(k= 카테고리, 범주값, 클래스)</li><li>원핫인코딩</li></ul><h2 id="카테고리-확률분포">카테고리 확률분포</h2><ul><li>Cat(x;m)</li></ul><h2 id="카테고리-분포의-모멘트">카테고리 분포의 모멘트</h2><ul><li>E[xk] = mk</li><li>Var[xk] = mk(1-mk)</li></ul><table><thead><tr class="header"><th>베르누이 확률변수</th><th>카테고리 확률변수</th></tr></thead><tbody><tr class="odd"><td>이항분포</td><td>다항분포</td></tr></tbody></table><h2 id="다항분포">다항분포</h2><ul><li>주사위를 10번 던져서 1이 몇번, 2가 몇번... 등</li></ul><h2 id="다항분포의-모멘트">다항분포의 모멘트</h2><ul><li>E[xk] = Nmk</li><li>Var[xk] = Nmk(1-mk)</li></ul><h2 id="정규분포와-중심극한정리">정규분포와 중심극한정리</h2><ul><li>여러 확률변수를 더하면 정규분포와 비슷해 진다.</li></ul><h2 id="정규분포의-통계량-분포">정규분포의 통계량 분포</h2><ul><li>N개의 정규분포로 부터 얻은 표본의 합은 N과 상관없이 정규분포다</li></ul><h2 id="선형회기모형과-정규분포">선형회기모형과 정규분포</h2><ul><li>선형회기모형에서 잡음 e를 모형화 하는데 정규분포를 사용한다</li><li>e를 기대값이 0인 정규분포라고 가정한다.</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="베르누이-시행bernoulli-trial">베르누이 시행(Bernoulli trial)</h2><ul><li>결과가 두가지 중 하나로만 나오는 실험이나 시행</li></ul><h2 id="베르누이-확률변수">베르누이 확률변수</h2><ul><li>베르누이 시행결과를 0 또는 1로 바꾼것을 베르누이 확률변수라고 한다.</li><li>베르누이 확률변수는 두 값중 하나만 가지므로, 셀수있는 이산확률변수이다.</li></ul><h2 id="베르누이-확률분포">베르누이 확률분포</h2><ul><li>베르누이 확률변수의 분포를 베르누이 확률분포라고 한다.</li><li>어떤 확률변수 <span class="math inline">\(X\)</span>가 베르누이분포에 의해 발생된다면, <code>확률변수 $X$가 베르누이분포를 따른다</code> 라고 명명한다.</li></ul><p><span class="math display">\[X \sim  Bern(x;\,u)\]</span></p><ul><li>베르누이 분포의 확률질량함수(pmf)의 수식은 <span class="math display">\[Bern(x;\mu) = \mu^x(1-\mu)^{(1-x)}\]</span></li></ul><h2 id="베르누이분포의-모멘트">베르누이분포의 모멘트</h2><ul><li>기대값</li></ul><p><span class="math display">\[E[X] = \mu\]</span></p><ul><li>분산</li></ul><p><span class="math display">\[Var[x] = \mu(1-\mu)\]</span></p><h2 id="이항분포bianomial-distribution">이항분포(bianomial distribution)</h2><ul><li>성공확률이 <span class="math inline">\(\mu\)</span>인 베르누이 시행을 <span class="math inline">\(N\)</span>번 반복하는 경우, 성공한 횟수를 확률변수 <span class="math inline">\(X\)</span>라고 한다면 <span class="math inline">\(X\)</span>의 값은 0부터 <span class="math inline">\(N\)</span>까지의 정수중 하나가 된다.</li><li>이런 확률변수를 이항분포를 따르는 확률변수라고 한다</li></ul><p><span class="math display">\[X \sim Bin(x;N,\mu)\]</span></p><ul><li>이항분포를 따르는 확률변수 <span class="math inline">\(X\)</span>의 확률질량함수</li></ul><p><span class="math display">\[Bin(x;N,\mu) = \begin{pmatrix} N \\x\end{pmatrix}\mu^x(1-\mu)^{N-x}\]</span></p><p><span class="math display">\[\begin{pmatrix} N \\x\end{pmatrix} = {N! \over x!(N -x)!}\]</span></p><h2 id="이항분포의-모멘트">이항분포의 모멘트</h2><ul><li>기대값</li></ul><p><span class="math display">\[E[X] = N\mu\]</span></p><ul><li>분산</li></ul><p><span class="math display">\[Var[X] = N\mu(1-\mu)\]</span></p><h3 id="베르누이분포와-이항분포의-모수추정">베르누이분포와 이항분포의 모수추정</h3><ul><li>데이터에서 모수의 값을 찾아내는 과정을 모수추정이라고 한다.</li></ul><p><span class="math display">\[\hat \mu = {\sum_{i=1}^{N}x_i \over N} = {N_1 \over N}\]</span></p><ul><li><span class="math inline">\(N\)</span>은 전체 데이터의수, <span class="math inline">\(N_1\)</span>은 1이 나온 횟수이다.</li></ul><h4 id="베르누이-분포를-활용한-스팸메일-예제">베르누이 분포를 활용한 스팸메일 예제</h4>]]></content>
       
       
       <categories>
