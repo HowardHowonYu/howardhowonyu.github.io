@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>https://howardhowonyu.github.io/2020/02/29/Database-2020-02-29-sqlalchemy/</loc>
+        <lastmod>2020-03-04T08:34:16.352Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/28/TIL-crawling-2020-02-28-crawling/</loc>
+        <lastmod>2020-03-04T08:32:01.019Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/20/TIL-crawling-2020-02-20-Oauth/</loc>
+        <lastmod>2020-03-04T08:29:47.869Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://howardhowonyu.github.io/2020/02/11/TIL-mathematics-2020-03-03-probability4/</loc>
         <lastmod>2020-03-03T12:11:58.994Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -112,32 +136,8 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/02/29/Database-2020-02-29-sqlalchemy/</loc>
-        <lastmod>2020-02-29T11:22:29.627Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/02/15/Database-2020-02-15-mysql-with-python/</loc>
         <lastmod>2020-02-29T11:13:46.011Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/28/TIL-crawling-2020-02-28-crawling/</loc>
-        <lastmod>2020-02-28T13:39:43.945Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/20/TIL-crawling-2020-02-20-Oauth/</loc>
-        <lastmod>2020-02-28T13:38:06.319Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
