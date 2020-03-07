@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>crawling</title>
+      <link href="/2020/03/07/crawling/"/>
+      <url>/2020/03/07/crawling/</url>
+      
+        <content type="html"><![CDATA[<h2 id="beatiful"><a class="markdownIt-Anchor" href="#beatiful"></a> Beatiful</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> TIL.. </category>
+          
+          <category> Crawling </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQLAlchemy</title>
       <link href="/2020/02/29/Database-2020-02-29-sqlalchemy/"/>
       <url>/2020/02/29/Database-2020-02-29-sqlalchemy/</url>
