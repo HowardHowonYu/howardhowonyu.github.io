@@ -293,15 +293,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="sklearn.preprocessing-패키지">sklearn.preprocessing 패키지</h2>
-<p>스케일링 및 변수변환을 위한 <code>StandardScaler</code> 클래스에서 <a id="more"></a></p>
+        <h2 id="sklearnpreprocessing-패키지"><a class="markdownIt-Anchor" href="#sklearnpreprocessing-패키지"></a> sklearn.preprocessing 패키지</h2>
+<p>스케일링 및 변수변환을 위한 <code>StandardScaler</code> 클래스에서</p>
+<a id="more"></a>
 <ul>
 <li><code>fit()</code>: 학습용 데이터를 입력으로 실행하면 평균값과 표준편차를 계산하여 객체내에 저장</li>
 <li><code>transform()</code>: 저장했던 평균값을 빼서 새로운 평균값이 0이 되도록 만들고, 저장한 표준편차로 나누어 새로운 표준편차가 1이 되도록 데이터를 변환하여 출력</li>
 <li><code>fit_transform()</code>: 1,2단계를 합친것</li>
 </ul>
-<p>데이터에 아웃라이어가 있을 경우 <code>RobustScaler</code> 클래스를 사용 - 중앙값이 0, IQR(interquartile range)이 1이 되도록 변환하여, 아웃라이어가 섞여 있어도 데이터는 0주위에 남게 된다.</p>
-<p><code>FunctionTransformer</code>클래스와 <code>PolynomialFeatures</code>클래스 - <code>PolynomialFeatures</code>클래스는 입력데이터를 여러개의 다항식으로 변환 - degree: 차수 - include_bias: 상수항 생성 여부 - <code>FunctionTransformer</code>클래스는 사용자가 지정한 함수를 사용하여 입력값을 변환 - 각도 0도와 360도를 구분하기위한 sin,cos함수 사용 예제</p>
+<p>데이터에 아웃라이어가 있을 경우 <code>RobustScaler</code> 클래스를 사용</p>
+<ul>
+<li>중앙값이 0, IQR(interquartile range)이 1이 되도록 변환하여, 아웃라이어가 섞여 있어도 데이터는 0주위에 남게 된다.</li>
+</ul>
+<p><code>FunctionTransformer</code>클래스와 <code>PolynomialFeatures</code>클래스</p>
+<ul>
+<li><code>PolynomialFeatures</code>클래스는 입력데이터를 여러개의 다항식으로 변환
+<ul>
+<li>degree: 차수</li>
+<li>include_bias: 상수항 생성 여부</li>
+</ul>
+</li>
+<li><code>FunctionTransformer</code>클래스는 사용자가 지정한 함수를 사용하여 입력값을 변환
+<ul>
+<li>각도 0도와 360도를 구분하기위한 sin,cos함수 사용 예제</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -387,7 +404,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn.preprocessing-패키지"><span class="nav-number">1.</span> <span class="nav-text">sklearn.preprocessing 패키지</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearnpreprocessing-패키지"><span class="nav-number">1.</span> <span class="nav-text"> sklearn.preprocessing 패키지</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -409,13 +426,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

@@ -8,8 +8,40 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/03/07/crawling/</loc>
-        <lastmod>2020-03-07T11:22:01.790Z</lastmod>
+        <loc>https://howardhowonyu.github.io/2020/01/29/TIL-mathematics-201028-linear-algebra-function/</loc>
+        <lastmod>2020-03-09T12:19:05.394Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/03/09/TIL-mathematics-2020-03-09-entropy1/</loc>
+        <lastmod>2020-03-09T12:18:49.070Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/01/TIL-mathematics-2020-02-01-set-md/</loc>
+        <lastmod>2020-03-09T12:18:42.027Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/01/31/TIL-mathematics-2020-01-31-optimization-md/</loc>
+        <lastmod>2020-03-09T12:18:37.942Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/10/TIL-mathematics-2020-02-10-bernoilli-md/</loc>
+        <lastmod>2020-03-09T12:18:33.443Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -50,14 +82,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/10/TIL-mathematics-2020-03-03-probability3/</loc>
         <lastmod>2020-03-03T12:11:51.179Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/10/TIL-mathematics-2020-02-10-bernoilli-md/</loc>
-        <lastmod>2020-03-03T12:08:51.494Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -152,22 +176,6 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/02/01/TIL-mathematics-2020-02-01-set-md/</loc>
-        <lastmod>2020-02-26T09:58:56.385Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/01/31/TIL-mathematics-2020-01-31-optimization-md/</loc>
-        <lastmod>2020-02-26T09:58:46.791Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning2/</loc>
         <lastmod>2020-02-26T07:54:31.815Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -218,14 +226,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning3/</loc>
         <lastmod>2020-02-25T13:32:25.387Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/01/29/TIL-mathematics-201028-linear-algebra-function/</loc>
-        <lastmod>2020-02-25T13:22:03.518Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
