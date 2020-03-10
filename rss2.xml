@@ -9,8 +9,33 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 09 Mar 2020 12:18:49 GMT</pubDate>
+    <pubDate>Tue, 10 Mar 2020 13:00:16 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>entropy</title>
+      <link>https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/</link>
+      <guid>https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/</guid>
+      <pubDate>Tue, 10 Mar 2020 12:59:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h3 id=&quot;결합엔트로피&quot;&gt;결합엔트로피&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;결합확률분포를 사용하여 정의한 엔트로피&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;이산확률변수 &lt;span class=&quot;math inline&quot;&gt;\(X,Y\)&lt;/span&gt;에 대한 결합엔트로피는
+&lt;ul&gt;
+
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h3 id="결합엔트로피">결합엔트로피</h3><ul><li><p>결합확률분포를 사용하여 정의한 엔트로피</p></li><li>이산확률변수 <span class="math inline">\(X,Y\)</span>에 대한 결합엔트로피는<ul><li>이 식에서 <span class="math inline">\(K_X,K_Y\)</span>는 각각 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>가 가질수 있는 값의 개수</li><li><span class="math inline">\(p\)</span>는 확률질량함수</li></ul></li></ul><p><span class="math display">\[H[X,Y] = - \sum_{i=1}^{K_X}\sum_{j=1}^{K_Y}p(x_i,y_j)log_2p(x_i,y_j)\]</span></p><ul><li>연속확률변수 <span class="math inline">\(X,Y\)</span>에 대한 결합엔트로피는<ul><li>이 식에서 <span class="math inline">\(p\)</span>는 확률밀도함수</li></ul></li></ul><p><span class="math display">\[H[X,Y] = - \int_x \int_y p(x,y)log_2p(x,y)dxdy\]</span></p><h3 id="조건부엔트로피">조건부엔트로피</h3><ul><li><p>확률변수 <span class="math inline">\(X\)</span>가 다른 확률변수 <span class="math inline">\(Y\)</span>의 값을 예측하는데 도움이 되는지를 측정하는 방법 중의 하나(상관관계와는 조금 다른 개념)</p></li><li>조건부엔트로피는 조건에 따라 나눈 데이터의 엔트로피의 가중평균<ul><li>의사결정나무에서 어떤 것이 더 좋은 분류인가를 판단할때 조건부엔트로피를 활용</li><li>조건부엔트로피가 가장 낮은걸 분류 기준으로 두고 진행</li></ul></li><li><p>이산확률변수일떄의 조건부엔트로피</p></li></ul><p><span class="math display">\[H[Y | X] = - \sum_{i=1}^{K_X}\sum_{j=1}^{K_Y}p(x_i,y_j)log_2p(y_i|x_i)\]</span></p><ul><li>연속확률변수일떄의 조건부엔트로피</li></ul><p><span class="math display">\[H[Y | X] = - \int_x \int_y p(x_i,y_j)log_2p(y_i|x_i)\]</span></p>]]></content:encoded>
+      
+      <comments>https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>엔트로피란?</title>
@@ -384,28 +409,6 @@
       <content:encoded><![CDATA[<h2 id="web-crawling"><a class="markdownIt-Anchor" href="#web-crawling"></a> web crawling</h2><ol><li>requests : json : 동적페이지(URL 변경 없이 데이터를 수정 및 추가)</li><li>requests : html : 정적페이지(URL 변경 으로 데이터를 수정 및 추가)</li><li>selenium : web browser : 1,2 번 방법을 사용하지 못할때 사용, 브라우저를 직접 조작</li></ol><a id="more"></a><h2 id="json"><a class="markdownIt-Anchor" href="#json"></a> json</h2><ul><li>문자열 데이터를 dict로 바꿔서 저장</li></ul><h2 id="크롤링-절차"><a class="markdownIt-Anchor" href="#크롤링-절차"></a> 크롤링 절차</h2><ol><li>웹서비스 분석 : URL 분석하기,</li><li>request, response 하기 : json을 얻음</li><li>문자열 json 데이터를 dict로 파싱후 데이터 프레임으로 생성</li></ol><h2 id="requestsgeturlheadersparams"><a class="markdownIt-Anchor" href="#requestsgeturlheadersparams"></a> requests.get(url,headers=params)</h2><ul><li>params라는 변수에 딕셔너리 형해로, user agent, cookie등을 임의로 설정을 해주는 방식으로 해결</li></ul><h2 id="정규화-normalization"><a class="markdownIt-Anchor" href="#정규화-normalization"></a> 정규화 : Normalization</h2><ul><li><code>z = (x - min(x)) / (max(x) - min(x))</code></li><li>같은 기준을 놓고 비교하기 위한 절차</li></ul><h2 id="api로-날씨-정보-가져오기"><a class="markdownIt-Anchor" href="#api로-날씨-정보-가져오기"></a> API로 날씨 정보 가져오기</h2><ul><li><span class="exturl" data-url="aHR0cDovL2Rhcmtza3kubmV0" title="http://darksky.net">darksky.net<i class="fa fa-external-link"></i></span> 서비스를 이용</li><li>restAPI : 키값을 감춰서 깔끔한 URL을 만들수 있다.</li></ul><h2 id="직방-데이터-크롤링"><a class="markdownIt-Anchor" href="#직방-데이터-크롤링"></a> 직방 데이터 크롤링</h2><ul><li>동이름을 입력하여 아파트 메물을 데이터 프레임으로 만드는 작업</li><li><code>%%writefile</code> -&gt; 모듈화 하여 저장</li></ul><h2 id="robotstxt"><a class="markdownIt-Anchor" href="#robotstxt"></a> robots.txt</h2><ul><li>각 도메인 별로 접근 권한 등의 규칙을 저장해 놓은 파일</li></ul><blockquote><p>예) User-agent : *<br>Allow : /</p></blockquote>]]></content:encoded>
       
       <comments>https://howardhowonyu.github.io/2020/02/20/TIL-crawling-2020-02-20-crawling/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>데이터 분석</title>
-      <link>https://howardhowonyu.github.io/2020/02/18/TIL-regression-analysis-2020-02-18-regression-analysis/</link>
-      <guid>https://howardhowonyu.github.io/2020/02/18/TIL-regression-analysis-2020-02-18-regression-analysis/</guid>
-      <pubDate>Tue, 18 Feb 2020 13:09:46 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;h2 id=&quot;데이터-분석이란&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#데이터-분석이란&quot;&gt;&lt;/a&gt; 데이터 분석이란?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;데이터 간의 관계를 사용하여 우리가 원하는 새로운 출력데이터를 만들어 내는 과정&lt;/l
-        
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<h2 id="데이터-분석이란"><a class="markdownIt-Anchor" href="#데이터-분석이란"></a> 데이터 분석이란?</h2><ul><li>데이터 간의 관계를 사용하여 우리가 원하는 새로운 출력데이터를 만들어 내는 과정</li></ul><h2 id="예측"><a class="markdownIt-Anchor" href="#예측"></a> 예측</h2><ul><li>여러가지 입력 데이터를 주면, 데이터 분석의 결과로 다른 데이터를 출력</li></ul><h2 id="입력데이터input-data-출력데이터output-data"><a class="markdownIt-Anchor" href="#입력데이터input-data-출력데이터output-data"></a> 입력데이터(input data), 출력데이터(output data)</h2><ul><li>독립변수, 특징, 설명변수</li><li>종속변수, 라벨, 클라스(카테고리 값)</li></ul><h2 id="규칙기반과-학습기반"><a class="markdownIt-Anchor" href="#규칙기반과-학습기반"></a> 규칙기반과 학습기반</h2><ul><li>규칙기반 방법은 사람이 규칙을 미리 만들어 놓는 방법</li><li>학습기반 방법은 규칙을 기계가 만들도록 하는 방법</li></ul><h2 id="지도학습"><a class="markdownIt-Anchor" href="#지도학습"></a> 지도학습</h2><ul><li>목표값이 있어야 학습가능하기 때문에, 입력데이터에 목표값을 붙여주는 작업이 필요하고 이를 레이블링이라 한다.</li><li>지도학습에서 가장 힘든 작업이 레이블링</li></ul><h2 id="인코딩"><a class="markdownIt-Anchor" href="#인코딩"></a> 인코딩</h2><ul><li>현실의 데이터를 컴퓨터가 처리할수 있는 데이터로 바꾸는것</li><li>이미지는 벡터화 시키고, 문서는 BOW방식을 사용<ul><li>BOW(Bag of words): 특정 단어가 몇번 나왔는지를 세어 빈도를 벡터로 표시하는 방법, 단어장을 만들어 각 단어별 번호를 메긴후 문서별로 번호를 셈</li></ul></li></ul><h2 id="입력차원"><a class="markdownIt-Anchor" href="#입력차원"></a> 입력차원</h2><ul><li>데이터를 입력받는 구멍, 한번 정하면 바꾸기 힘듦</li></ul><h2 id="카테고리값"><a class="markdownIt-Anchor" href="#카테고리값"></a> 카테고리값</h2><ul><li>범주형 값이라고 하며, 비교가 불가능한 데이터</li></ul><h2 id="회기분석과-분류문제"><a class="markdownIt-Anchor" href="#회기분석과-분류문제"></a> 회기분석과 분류문제</h2><ul><li>회기분석은 답이 되는 숫자를 써야하는 단답형 문제를 푸는것</li><li>분류 문제는 4지 선다 문제 같이 답을 정하는 것</li></ul><h2 id="비지도-학습"><a class="markdownIt-Anchor" href="#비지도-학습"></a> 비지도 학습</h2><ul><li>지도학습을 제외한 모든 머신러닝 방식</li><li>클러스터링 : 비슷한 데이터를 같은 그룹으로 모으는것</li><li>imputation(impating): 빠진 그림을 채우는 등의 작업</li></ul>]]></content:encoded>
-      
-      <comments>https://howardhowonyu.github.io/2020/02/18/TIL-regression-analysis-2020-02-18-regression-analysis/#disqus_thread</comments>
     </item>
     
   </channel>

@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>entropy</title>
+      <link href="/2020/03/10/TIL-mathematics-2020-03-10-entropy/"/>
+      <url>/2020/03/10/TIL-mathematics-2020-03-10-entropy/</url>
+      
+        <content type="html"><![CDATA[<h3 id="결합엔트로피">결합엔트로피</h3><ul><li><p>결합확률분포를 사용하여 정의한 엔트로피</p></li><li>이산확률변수 <span class="math inline">\(X,Y\)</span>에 대한 결합엔트로피는<ul><li>이 식에서 <span class="math inline">\(K_X,K_Y\)</span>는 각각 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>가 가질수 있는 값의 개수</li><li><span class="math inline">\(p\)</span>는 확률질량함수</li></ul></li></ul><p><span class="math display">\[H[X,Y] = - \sum_{i=1}^{K_X}\sum_{j=1}^{K_Y}p(x_i,y_j)log_2p(x_i,y_j)\]</span></p><ul><li>연속확률변수 <span class="math inline">\(X,Y\)</span>에 대한 결합엔트로피는<ul><li>이 식에서 <span class="math inline">\(p\)</span>는 확률밀도함수</li></ul></li></ul><p><span class="math display">\[H[X,Y] = - \int_x \int_y p(x,y)log_2p(x,y)dxdy\]</span></p><h3 id="조건부엔트로피">조건부엔트로피</h3><ul><li><p>확률변수 <span class="math inline">\(X\)</span>가 다른 확률변수 <span class="math inline">\(Y\)</span>의 값을 예측하는데 도움이 되는지를 측정하는 방법 중의 하나(상관관계와는 조금 다른 개념)</p></li><li>조건부엔트로피는 조건에 따라 나눈 데이터의 엔트로피의 가중평균<ul><li>의사결정나무에서 어떤 것이 더 좋은 분류인가를 판단할때 조건부엔트로피를 활용</li><li>조건부엔트로피가 가장 낮은걸 분류 기준으로 두고 진행</li></ul></li><li><p>이산확률변수일떄의 조건부엔트로피</p></li></ul><p><span class="math display">\[H[Y | X] = - \sum_{i=1}^{K_X}\sum_{j=1}^{K_Y}p(x_i,y_j)log_2p(y_i|x_i)\]</span></p><ul><li>연속확률변수일떄의 조건부엔트로피</li></ul><p><span class="math display">\[H[Y | X] = - \int_x \int_y p(x_i,y_j)log_2p(y_i|x_i)\]</span></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> TIL.. </category>
+          
+          <category> Math </category>
+          
+          <category> Entropy </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Math </tag>
+            
+            <tag> Entropy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>엔트로피란?</title>
       <link href="/2020/03/09/TIL-mathematics-2020-03-09-entropy1/"/>
       <url>/2020/03/09/TIL-mathematics-2020-03-09-entropy1/</url>

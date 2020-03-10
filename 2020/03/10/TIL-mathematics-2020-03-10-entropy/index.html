@@ -58,15 +58,21 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Howard&#39;s nest">
-<meta property="og:url" content="https://howardhowonyu.github.io/tags/json/index.html">
+  <meta name="description" content="결합엔트로피  결합확률분포를 사용하여 정의한 엔트로피 이산확률변수 \(X,Y\)에 대한 결합엔트로피는  이 식에서 \(K_X,K_Y\)는 각각 \(X\)와 \(Y\)가 가질수 있는 값의 개수 \(p\)는 확률질량함수   \[H[X,Y] &#x3D; - \sum_{i&#x3D;1}^{K_X}\sum_{j&#x3D;1}^{K_Y}p(x_i,y_j)log_2p(x_i,y_j)\]  연속확">
+<meta property="og:type" content="article">
+<meta property="og:title" content="entropy">
+<meta property="og:url" content="https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
+<meta property="og:description" content="결합엔트로피  결합확률분포를 사용하여 정의한 엔트로피 이산확률변수 \(X,Y\)에 대한 결합엔트로피는  이 식에서 \(K_X,K_Y\)는 각각 \(X\)와 \(Y\)가 가질수 있는 값의 개수 \(p\)는 확률질량함수   \[H[X,Y] &#x3D; - \sum_{i&#x3D;1}^{K_X}\sum_{j&#x3D;1}^{K_Y}p(x_i,y_j)log_2p(x_i,y_j)\]  연속확">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-10T12:59:00.000Z">
+<meta property="article:modified_time" content="2020-03-10T13:00:16.385Z">
 <meta property="article:author" content="Howard Howon Yu">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="Entropy">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://howardhowonyu.github.io/tags/json/">
+<link rel="canonical" href="https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/">
 
 
 <script id="page-configurations">
@@ -74,11 +80,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Tag: json | Howard's nest</title>
+  <title>entropy | Howard's nest</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
     <script>
@@ -215,48 +221,136 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">json
-          <small>Tag</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          entropy
         </h2>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-10 21:59:00 / Modified: 22:00:16" itemprop="dateCreated datePublished" datetime="2020-03-10T21:59:00+09:00">2020-03-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/Entropy/" itemprop="url" rel="index">
+                    <span itemprop="name">Entropy</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h2 class="collection-header">2020</h2>
+        <h3 id="결합엔트로피">결합엔트로피</h3>
+<ul>
+<li><p>결합확률분포를 사용하여 정의한 엔트로피</p></li>
+<li>이산확률변수 <span class="math inline">\(X,Y\)</span>에 대한 결합엔트로피는
+<ul>
+<li>이 식에서 <span class="math inline">\(K_X,K_Y\)</span>는 각각 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>가 가질수 있는 값의 개수</li>
+<li><span class="math inline">\(p\)</span>는 확률질량함수</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[H[X,Y] = - \sum_{i=1}^{K_X}\sum_{j=1}^{K_Y}p(x_i,y_j)log_2p(x_i,y_j)\]</span></p>
+<ul>
+<li>연속확률변수 <span class="math inline">\(X,Y\)</span>에 대한 결합엔트로피는
+<ul>
+<li>이 식에서 <span class="math inline">\(p\)</span>는 확률밀도함수</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[H[X,Y] = - \int_x \int_y p(x,y)log_2p(x,y)dxdy\]</span></p>
+<h3 id="조건부엔트로피">조건부엔트로피</h3>
+<ul>
+<li><p>확률변수 <span class="math inline">\(X\)</span>가 다른 확률변수 <span class="math inline">\(Y\)</span>의 값을 예측하는데 도움이 되는지를 측정하는 방법 중의 하나(상관관계와는 조금 다른 개념)</p></li>
+<li>조건부엔트로피는 조건에 따라 나눈 데이터의 엔트로피의 가중평균
+<ul>
+<li>의사결정나무에서 어떤 것이 더 좋은 분류인가를 판단할때 조건부엔트로피를 활용</li>
+<li>조건부엔트로피가 가장 낮은걸 분류 기준으로 두고 진행</li>
+</ul></li>
+<li><p>이산확률변수일떄의 조건부엔트로피</p></li>
+</ul>
+<p><span class="math display">\[H[Y | X] = - \sum_{i=1}^{K_X}\sum_{j=1}^{K_Y}p(x_i,y_j)log_2p(y_i|x_i)\]</span></p>
+<ul>
+<li>연속확률변수일떄의 조건부엔트로피</li>
+</ul>
+<p><span class="math display">\[H[Y | X] = - \int_x \int_y p(x_i,y_j)log_2p(y_i|x_i)\]</span></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2020-02-20T14:16:02+09:00" content="2020-02-20">
-          02-20
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Math/" rel="tag"># Math</a>
+              <a href="/tags/Entropy/" rel="tag"># Entropy</a>
+          </div>
 
-      <h3 class="post-title">
-          <a class="post-title-link" href="/2020/02/20/TIL-crawling-2020-02-20-crawling/" itemprop="url">
-            <span itemprop="name">데이터 크롤링, 시각화, 정규화</span>
-          </a>
-      </h3>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/09/TIL-mathematics-2020-03-09-entropy1/" rel="prev" title="엔트로피란?">
+      <i class="fa fa-chevron-left"></i> 엔트로피란?
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -307,6 +401,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#결합엔트로피"><span class="nav-number">1.</span> <span class="nav-text">결합엔트로피</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#조건부엔트로피"><span class="nav-number">2.</span> <span class="nav-text">조건부엔트로피</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -433,6 +528,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
