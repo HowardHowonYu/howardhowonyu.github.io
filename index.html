@@ -234,7 +234,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/10/TIL-mathematics-2020-03-10-entropy/" class="post-title-link" itemprop="url">entropy</a>
+            <a href="/2020/03/10/TIL-mathematics-2020-03-10-entropy/" class="post-title-link" itemprop="url">결합엔트로피와 조건부엔트로피</a>
         </h2>
 
         <div class="post-meta">
@@ -243,10 +243,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-10 21:59:00 / Modified: 22:00:16" itemprop="dateCreated datePublished" datetime="2020-03-10T21:59:00+09:00">2020-03-10</time>
+              <time title="Created: 2020-03-10 21:59:00" itemprop="dateCreated datePublished" datetime="2020-03-10T21:59:00+09:00">2020-03-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-11 19:14:45" itemprop="dateModified" datetime="2020-03-11T19:14:45+09:00">2020-03-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -282,38 +288,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="결합엔트로피">결합엔트로피</h3>
-<ul>
-<li><p>결합확률분포를 사용하여 정의한 엔트로피</p></li>
-<li>이산확률변수 <span class="math inline">\(X,Y\)</span>에 대한 결합엔트로피는
-<ul>
-<li>이 식에서 <span class="math inline">\(K_X,K_Y\)</span>는 각각 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>가 가질수 있는 값의 개수</li>
-<li><span class="math inline">\(p\)</span>는 확률질량함수</li>
-</ul></li>
-</ul>
-<p><span class="math display">\[H[X,Y] = - \sum_{i=1}^{K_X}\sum_{j=1}^{K_Y}p(x_i,y_j)log_2p(x_i,y_j)\]</span></p>
-<ul>
-<li>연속확률변수 <span class="math inline">\(X,Y\)</span>에 대한 결합엔트로피는
-<ul>
-<li>이 식에서 <span class="math inline">\(p\)</span>는 확률밀도함수</li>
-</ul></li>
-</ul>
-<p><span class="math display">\[H[X,Y] = - \int_x \int_y p(x,y)log_2p(x,y)dxdy\]</span></p>
-<h3 id="조건부엔트로피">조건부엔트로피</h3>
-<ul>
-<li><p>확률변수 <span class="math inline">\(X\)</span>가 다른 확률변수 <span class="math inline">\(Y\)</span>의 값을 예측하는데 도움이 되는지를 측정하는 방법 중의 하나(상관관계와는 조금 다른 개념)</p></li>
-<li>조건부엔트로피는 조건에 따라 나눈 데이터의 엔트로피의 가중평균
-<ul>
-<li>의사결정나무에서 어떤 것이 더 좋은 분류인가를 판단할때 조건부엔트로피를 활용</li>
-<li>조건부엔트로피가 가장 낮은걸 분류 기준으로 두고 진행</li>
-</ul></li>
-<li><p>이산확률변수일떄의 조건부엔트로피</p></li>
-</ul>
-<p><span class="math display">\[H[Y | X] = - \sum_{i=1}^{K_X}\sum_{j=1}^{K_Y}p(x_i,y_j)log_2p(y_i|x_i)\]</span></p>
-<ul>
-<li>연속확률변수일떄의 조건부엔트로피</li>
-</ul>
-<p><span class="math display">\[H[Y | X] = - \int_x \int_y p(x_i,y_j)log_2p(y_i|x_i)\]</span></p>
+          
 
       
     </div>
@@ -356,10 +331,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-09 21:12:42 / Modified: 21:18:49" itemprop="dateCreated datePublished" datetime="2020-03-09T21:12:42+09:00">2020-03-09</time>
+              <time title="Created: 2020-03-09 21:12:42" itemprop="dateCreated datePublished" datetime="2020-03-09T21:12:42+09:00">2020-03-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-11 19:14:42" itemprop="dateModified" datetime="2020-03-11T19:14:42+09:00">2020-03-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -395,12 +376,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="엔트로피entropy"><a class="markdownIt-Anchor" href="#엔트로피entropy"></a> 엔트로피(entropy)</h2>
+          <h2 id="엔트로피entropy">엔트로피(entropy)</h2>
 <ul>
 <li>수학적인 엔트로피는 확률분포가 가지는 정보의 확신도 또는 정보량을 수치로 표현한 것.</li>
 <li>확률분포에서 특정한 값이 나올 확률이 높고, 나머지 값의 확률이 낮아진다면 엔트로피는 작아지고, 반대로 확률이 대부분 비슷한 경우 엔트로피가 높아진다.</li>
-<li><strong>확률분포의 모양이 어떤지를 나타낼수 있는 특성값중 하나</strong> 이다.</li>
-</ul>
+<li><p><strong>확률분포의 모양이 어떤지를 나타낼수 있는 특성값중 하나</strong> 이다.
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/03/09/TIL-mathematics-2020-03-09-entropy1/#more" rel="contents">
@@ -410,7 +390,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></li></ul></div>
 
     
     
