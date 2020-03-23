@@ -220,6 +220,139 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/03/23/TIL-mathematics-2020-03-10-entropy-copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/23/TIL-mathematics-2020-03-10-entropy-copy/" class="post-title-link" itemprop="url">교차엔트로피와 쿨백-라이블러 발산</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-23 19:59:00 / Modified: 19:37:24" itemprop="dateCreated datePublished" datetime="2020-03-23T19:59:00+09:00">2020-03-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/" itemprop="url" rel="index">
+                    <span itemprop="name">TIL..</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TIL/Math/Entropy/" itemprop="url" rel="index">
+                    <span itemprop="name">Entropy</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="교차엔트로피cross-entropy">교차엔트로피(cross entropy)</h3>
+<ul>
+<li>두 확률분포 <span class="math inline">\(p,q\)</span>의 교차엔트로피 <span class="math inline">\(H[p,q]\)</span>의
+<ul>
+<li><p>이산확률분포의 경우는 <span class="math display">\[H[p,q] = - \sum_{k=1}^{K}p(y_k)log_2q(y_k)\]</span></p></li>
+<li>연속확률분포의 경우는 <span class="math display">\[H[p,q] = - \int_y p(y)log_2 q(y)dy\]</span></li>
+</ul></li>
+<li>교차엔트로피는 <strong>확률분포</strong> 를 인수로</li>
+<li>엔트로피, 결합엔트로피, 조건부엔트로피는 <strong>확률변수</strong> 를 인수로</li>
+<li><p><span class="math inline">\(q\)</span>가 <span class="math inline">\(p\)</span>(기준)를 얼마나 닮았는지를 나타낸다(유사도와는 다름)</p></li>
+<li>교차엔트로피는 분류모형의 성능을 측정하는데 사용된다.</li>
+<li>이진분류문제를 예로들면
+<ul>
+<li><span class="math inline">\(p\)</span>는 <span class="math inline">\(X\)</span>값이 정해졌을 때 정답인 <span class="math inline">\(Y\)</span>의 확률분포다. 따라서 p는
+<ul>
+<li>정답이 <span class="math inline">\(Y = 1\)</span>일때, <span class="math display">\[p(Y=0) = 0, p(y=1)=1\]</span></li>
+<li>정답이 <span class="math inline">\(Y = 0\)</span>일때, <span class="math display">\[p(Y=0) = 1, p(y=1)=0\]</span></li>
+</ul></li>
+</ul></li>
+<li><p>따라서 분포 <span class="math inline">\(q\)</span>는 <span class="math inline">\(X\)</span>값이 정해졌을때 예측값의 확률분포다. 모수가 <span class="math inline">\(\mu\)</span>인 베르누이분포라고 가정하면 <span class="math display">\[ q(Y=0) =1 - \mu, q(Y=1) = \mu\]</span></p></li>
+<li><p>확률분포 <span class="math inline">\(p\)</span>와 <span class="math inline">\(q\)</span>의 교차엔트로피는</p>
+<ul>
+<li>정답이 <span class="math inline">\(Y = 1\)</span>일 때, <span class="math display">\[H[p,q] = -p(Y=0)log_2q(y=0) -p(Y=1)log_2q(y=1) = -log_2\mu\]</span></li>
+<li><p>정답이 <span class="math inline">\(Y = 0\)</span>일 때, <span class="math display">\[H[p,q] = -p(Y=0)log_2q(y=0) -p(Y=1)log_2q(y=1) = -log_2(1-\mu)\]</span></p></li>
+<li>이 값은 분류성능이 좋을수록 작아지고, 분류성능이 나쁠수록 커진다.
+<ul>
+<li><span class="math inline">\(Y=1\)</span>일 때는 <span class="math inline">\(\mu\)</span>가 작아질수록 즉, 예측이 틀릴수록 <span class="math inline">\(-log_2\mu\)</span>의 값이 커진다</li>
+<li><span class="math inline">\(Y=0\)</span>일 때는 <span class="math inline">\(\mu\)</span>가 작아질수록 즉, 예측이 틀릴수록 <span class="math inline">\(-log_2(1 - \mu)\)</span>의 값이 커진다</li>
+</ul></li>
+</ul></li>
+<li>교차엔트로피값은 예측의 틀린 정도를 나타내는 오차함수의 역할을 할수 있다.</li>
+<li>로그 손실 : <span class="math inline">\(N\)</span>개의 학습데이터 전체에 대해 교차 엔트로피의 평균을 구하면 <span class="math display">\[\text{log loss} = - {1\over 1}\sum_{i=1}^{N}(y_ilog_2\mu_i + (1 - y_i)log_2(1-\mu_i))\]</span></li>
+<li>카테고리 로그손실 : 다중분류문제의 교차엔트로피의 손실함수 <span class="math display">\[\text{categorical log loss} = -{1\over N}\sum_{i=1}^{N}\sum_{k=1}^{K}(\mathbb{I}(y_i = k)log_2p(y_i=k))\]</span>
+<ul>
+<li>위 식에서 <span class="math inline">\(?(y_i = k)\)</span>sms <span class="math inline">\(y_i\)</span>가 <span class="math inline">\(k\)</span>인 경우에만 1인 지시함수</li>
+<li><span class="math inline">\(p(y_i=k)\)</span>는 <span class="math inline">\(y_i = k\)</span>일 확률이다</li>
+</ul></li>
+</ul>
+<h3 id="쿨벡-라이블러-발산">쿨벡-라이블러 발산</h3>
+<ul>
+<li>두 확률분포 <span class="math inline">\(p(y),q(y)\)</span>의 <strong>분포모양이 얼마나 다른지를 숫자로 계산한 값</strong> 이다.</li>
+<li><p>이산확률분포에 대해서는 <span class="math display">\[
+\begin{aligned}
+KL(p||q) &amp;= H[p,q] - H[p] \\ &amp;= \sum_{i=1}^{K} p(y_i) \log_2 \left(\dfrac{p(y_i)}{q(y_i)}\right)
+\end{aligned}
+\]</span></p></li>
+<li><p>연속확률분포에 대해서는 <span class="math display">\[\begin{aligned}
+KL(p||q) &amp; = H[p,q] - H[p] \\ &amp; = \int p(y) \log_2 \left(p(y)\over q(y)\right)
+\end{aligned}\]</span></p></li>
+<li>쿨백-라이블러 발산은 교차엔트로피에서 기준이 되는 <span class="math inline">\(p\)</span>분포의 엔트로피 값을 뺀 값이므로 상대엔트로피라고도 한다. 값은 항상 양수이며 두 확률분포가 완전히 같은 경우에만 0이된다.</li>
+<li><p>쿨백-라이블러 발산은 거리가 아니라 두 확률분포가 얼마나 다른지를 나타내는 값이므로. 두 확률분포의 위치가 달라지면 일반적으로 값이 달라진다.</p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -251,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-11 19:14:45" itemprop="dateModified" datetime="2020-03-11T19:14:45+09:00">2020-03-11</time>
+                <time title="Modified: 2020-03-23 19:41:20" itemprop="dateModified" datetime="2020-03-23T19:41:20+09:00">2020-03-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,10 +421,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-
+          <h3 id="결합엔트로피">결합엔트로피</h3>
+<ul>
+<li><p>결합확률분포를 사용하여 정의한 엔트로피
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/10/TIL-mathematics-2020-03-10-entropy/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
-    </div>
+    </p></li></ul></div>
 
     
     
@@ -339,7 +481,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-11 19:14:42" itemprop="dateModified" datetime="2020-03-11T19:14:42+09:00">2020-03-11</time>
+                <time title="Modified: 2020-03-23 19:41:53" itemprop="dateModified" datetime="2020-03-23T19:41:53+09:00">2020-03-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -463,8 +605,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="sql-alchemy"><a class="markdownIt-Anchor" href="#sql-alchemy"></a> SQL Alchemy</h2>
-<p>python 에서 사용하는 ORM 입니다.</p>
+          <h2 id="sql-alchemy">SQL Alchemy</h2>
+<p>python 에서 사용하는 ORM 입니다.
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/29/Database-2020-02-29-sqlalchemy/#more" rel="contents">
@@ -474,7 +616,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
     
@@ -553,10 +695,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="정규표현식-regx"><a class="markdownIt-Anchor" href="#정규표현식-regx"></a> 정규표현식 : regx</h3>
+          <h3 id="정규표현식-regx">정규표현식 : regx</h3>
 <ul>
-<li>문자열을 처리할때 특정 <strong>패턴</strong>으로 문자열을 처리하는 방법</li>
-</ul>
+<li><p>문자열을 처리할때 특정 <strong>패턴</strong>으로 문자열을 처리하는 방법
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/28/TIL-crawling-2020-02-28-crawling/#more" rel="contents">
@@ -566,7 +707,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></li></ul></div>
 
     
     
@@ -645,10 +786,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="selenium"><a class="markdownIt-Anchor" href="#selenium"></a> Selenium</h2>
+          <h2 id="selenium">Selenium</h2>
 <ul>
-<li>브라우저를 직접 실행하여 자동화하고 브라우저상에 있는 데이터를 수집</li>
-</ul>
+<li>브라우저를 직접 실행하여 자동화하고 브라우저상에 있는 데이터를 수집
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/26/TIL-crawling-2020-02-26-crawling-selenium/#more" rel="contents">
@@ -658,7 +798,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ul></div>
 
     
     
@@ -737,7 +877,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="ols방법을-사용하여-최적의-가중치를-계산할수-있지만-오차범위를-알지-못하면-가중치를-알아도-아무것도-모르는-거랑-같다"><a class="markdownIt-Anchor" href="#ols방법을-사용하여-최적의-가중치를-계산할수-있지만-오차범위를-알지-못하면-가중치를-알아도-아무것도-모르는-거랑-같다"></a> OLS방법을 사용하여 최적의 가중치를 계산할수 있지만, 오차범위를 알지 못하면 가중치를 알아도 아무것도 모르는 거랑 같다!</h4>
+          <h4 id="ols방법을-사용하여-최적의-가중치를-계산할수-있지만-오차범위를-알지-못하면-가중치를-알아도-아무것도-모르는-거랑-같다">OLS방법을 사용하여 최적의 가중치를 계산할수 있지만, 오차범위를 알지 못하면 가중치를 알아도 아무것도 모르는 거랑 같다!</h4>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning2/#more" rel="contents">
@@ -826,10 +966,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="부분회귀"><a class="markdownIt-Anchor" href="#부분회귀"></a> 부분회귀</h1>
+          <h1 id="부분회귀">부분회귀</h1>
 <ul>
-<li>회귀분석을 한 후 새로운 독립변수를 추가하여 다시 회귀분석 한다면?</li>
-</ul>
+<li>회귀분석을 한 후 새로운 독립변수를 추가하여 다시 회귀분석 한다면?
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning/#more" rel="contents">
@@ -839,7 +978,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ul></div>
 
     
     
@@ -924,10 +1063,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="풀랭크-방식"><a class="markdownIt-Anchor" href="#풀랭크-방식"></a> 풀랭크 방식</h3>
+          <h3 id="풀랭크-방식">풀랭크 방식</h3>
 <ul>
-<li>더미변수의 값을 원핫인코딩 방식으로 지정.</li>
-</ul>
+<li>더미변수의 값을 원핫인코딩 방식으로 지정.
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/25/TIL-machine-learning-2020-02-25-machinelearning2/#more" rel="contents">
@@ -937,7 +1075,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </li></ul></div>
 
     
     
@@ -1022,11 +1160,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="조건수"><a class="markdownIt-Anchor" href="#조건수"></a> 조건수</h2>
+          <h2 id="조건수">조건수</h2>
 <ul>
 <li>가장큰 고유값와 가장 작은 고유값의 비율</li>
-<li>조건수가 크면 민감도가 커진다. 즉, 오차가 생기면 해에 미치는 영향이 커진다.</li>
-</ul>
+<li><p>조건수가 크면 민감도가 커진다. 즉, 오차가 생기면 해에 미치는 영향이 커진다.
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/25/TIL-machine-learning-2020-02-25-machine-learning/#more" rel="contents">
@@ -1036,103 +1173,7 @@
           <!--/noindex-->
         
       
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Howard Howon Yu">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's nest">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning/" class="post-title-link" itemprop="url">데이터 전처리 기초 2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-24 20:15:23" itemprop="dateCreated datePublished" datetime="2020-02-24T20:15:23+09:00">2020-02-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-25 22:32:28" itemprop="dateModified" datetime="2020-02-25T22:32:28+09:00">2020-02-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/" itemprop="url" rel="index">
-                    <span itemprop="name">TIL..</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/Math/" itemprop="url" rel="index">
-                    <span itemprop="name">Math</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TIL/Math/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/" itemprop="url" rel="index">
-                    <span itemprop="name">머신러닝</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="sklearnpreprocessing-패키지"><a class="markdownIt-Anchor" href="#sklearnpreprocessing-패키지"></a> sklearn.preprocessing 패키지</h2>
-<p>스케일링 및 변수변환을 위한 <code>StandardScaler</code> 클래스에서</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
+    </p></li></ul></div>
 
     
     
@@ -1216,7 +1257,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
