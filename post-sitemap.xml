@@ -8,8 +8,24 @@
     </url>
 
     <url>
+        <loc>https://howardhowonyu.github.io/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning2/</loc>
+        <lastmod>2020-03-31T06:49:20.164Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/03/23/TIL-mathematics-2020-03-10-entropy-copy/</loc>
+        <lastmod>2020-03-31T05:56:40.083Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://howardhowonyu.github.io/2020/03/09/TIL-mathematics-2020-03-09-entropy1/</loc>
-        <lastmod>2020-03-23T10:41:53.014Z</lastmod>
+        <lastmod>2020-03-24T10:32:55.117Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,14 +34,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/</loc>
         <lastmod>2020-03-23T10:41:20.770Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/03/23/TIL-mathematics-2020-03-10-entropy-copy/</loc>
-        <lastmod>2020-03-23T10:37:24.058Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -186,14 +194,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/15/Database-2020-02-15-mysql-with-python/</loc>
         <lastmod>2020-02-29T11:13:46.011Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning2/</loc>
-        <lastmod>2020-02-26T07:54:31.815Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
