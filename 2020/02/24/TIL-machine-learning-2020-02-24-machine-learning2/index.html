@@ -283,6 +283,20 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/24/TIL-machine-learning-2020-02-24-machine-learning2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -337,8 +351,8 @@
       <i class="fa fa-chevron-left"></i> CSS-selector
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning/" rel="next" title="데이터 전처리 기초 2">
-      데이터 전처리 기초 2 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning3/" rel="next" title="선형회귀분석의 기초">
+      선형회귀분석의 기초 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -353,6 +367,13 @@
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -528,6 +549,37 @@
   
 
   
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://howards-nest.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://howardhowonyu.github.io/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning2/";
+    this.page.identifier = "2020/02/24/TIL-machine-learning-2020-02-24-machine-learning2/";
+    this.page.title = "범주형 데이터 처리";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://howards-nest.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
 
 </body>
 </html>

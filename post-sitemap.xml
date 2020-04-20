@@ -9,7 +9,23 @@
 
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-03-probability2/</loc>
-        <lastmod>2020-04-01T11:07:03.696Z</lastmod>
+        <lastmod>2020-04-20T07:38:58.952Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/21/python-2020-02-21-try-except-finally-raise/</loc>
+        <lastmod>2020-04-20T05:55:01.881Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/03/23/TIL-mathematics-2020-03-10-entropy-copy/</loc>
+        <lastmod>2020-04-14T06:22:01.998Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +33,15 @@
 
     <url>
         <loc>https://howardhowonyu.github.io/2020/01/31/TIL-mathematics-2020-01-31-optimization-md/</loc>
-        <lastmod>2020-04-01T11:05:59.097Z</lastmod>
+        <lastmod>2020-04-14T06:16:56.585Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/</loc>
+        <lastmod>2020-04-14T06:12:12.238Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -32,24 +56,8 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/03/23/TIL-mathematics-2020-03-10-entropy-copy/</loc>
-        <lastmod>2020-03-31T05:56:40.083Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/03/09/TIL-mathematics-2020-03-09-entropy1/</loc>
         <lastmod>2020-03-24T10:32:55.117Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/</loc>
-        <lastmod>2020-03-23T10:41:20.770Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -418,14 +426,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/12/Database-2020-02-12-mySQL-md/</loc>
         <lastmod>2020-02-23T07:41:16.188Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/21/python-2020-02-21-try-except-finally-raise/</loc>
-        <lastmod>2020-02-23T07:40:54.989Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
