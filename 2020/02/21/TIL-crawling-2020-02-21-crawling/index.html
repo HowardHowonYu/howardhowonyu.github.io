@@ -66,7 +66,7 @@
 <meta property="og:description" content="HTML 데이터 파싱을 이용한 크롤링  웹페이지 분석 : URL 찾기 요청 -&gt; 응답 : HTML(str) 가져오기 HTML(str) -&gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&gt; 데이터프레임으로 변환">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-21T09:52:59.000Z">
-<meta property="article:modified_time" content="2020-02-23T07:44:40.906Z">
+<meta property="article:modified_time" content="2020-05-05T10:30:17.303Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta name="twitter:card" content="summary">
 
@@ -254,7 +254,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-23 16:44:40" itemprop="dateModified" datetime="2020-02-23T16:44:40+09:00">2020-02-23</time>
+                <time title="Modified: 2020-05-05 19:30:17" itemprop="dateModified" datetime="2020-05-05T19:30:17+09:00">2020-05-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -310,8 +310,8 @@
 <li>BeautifulSoup라는 클래스의 매서드 활용 response안에 있는 애들을 BeautifulSoup으로 HTML로 파싱</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># requests.get 매서드로 요철</span></span><br><span class="line">response = requests.get(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># response.content로 내용 선택, html.parser로 HTML로 파싱</span></span><br><span class="line">dom = BeautifulSoup(response.content, <span class="string">"html.parser"</span>)</span><br></pre></td></tr></table></figure>
-<blockquote>
 <h4 id="bs4.beautifulsoupr"><code>bs4.BeautifulSoupr</code></h4>
+<blockquote>
 <p>select 매서드 : 여러개의 element 객체를 리스트로 가져옴 select_one 매서드 : 하나의 element 객체를 가져옴</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 크롬 개발자 도구에서 copy selector했을때 id가 나올때 까지 찾아 복사함</span></span><br><span class="line"><span class="comment"># 리스트안의 딕셔너리 형태로 만들어줌&#123;"컬럼명":내용&#125;</span></span><br><span class="line">datas = []</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> elements:</span><br><span class="line">    datas.append(&#123;</span><br><span class="line">        <span class="string">"title"</span>: element.select_one(<span class="string">'.tit_g'</span>).text.strip().replace(<span class="string">"\n"</span>,<span class="string">""</span>), <span class="comment">#tit_g이름의 클래스 안에 텍스트를 잡음</span></span><br><span class="line">        <span class="string">"link"</span> : element.select_one(<span class="string">'a'</span>).get(<span class="string">"href"</span>), <span class="comment">#href속성의 값을 가져옴</span></span><br><span class="line">    &#125;)</span><br><span class="line">article_df = pd.DataFrame(datas)</span><br></pre></td></tr></table></figure>

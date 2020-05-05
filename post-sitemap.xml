@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>https://howardhowonyu.github.io/2020/04/23/regression-project/</loc>
+        <lastmod>2020-05-05T10:31:08.448Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/21/TIL-crawling-2020-02-21-crawling/</loc>
+        <lastmod>2020-05-05T10:30:17.303Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/14/Database-2020-02-14-mongdb/</loc>
+        <lastmod>2020-05-05T10:27:20.352Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://howardhowonyu.github.io/2020/02/18/TIL-regression-analysis-2020-02-18-regression-analysis/</loc>
         <lastmod>2020-05-04T09:45:18.880Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -50,22 +74,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/11/TIL-mathematics-2020-02-11-math-md/</loc>
         <lastmod>2020-05-01T04:06:33.962Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/04/23/regression-project/</loc>
-        <lastmod>2020-04-22T05:45:25.216Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/14/Database-2020-02-14-mongdb/</loc>
-        <lastmod>2020-04-20T07:43:27.135Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -402,14 +410,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/20/TIL-crawling-2020-02-20-crawling/</loc>
         <lastmod>2020-02-23T07:44:47.277Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/21/TIL-crawling-2020-02-21-crawling/</loc>
-        <lastmod>2020-02-23T07:44:40.906Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
