@@ -351,7 +351,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-01 13:06:33" itemprop="dateModified" datetime="2020-05-01T13:06:33+09:00">2020-05-01</time>
+                <time title="Modified: 2020-05-06 18:31:36" itemprop="dateModified" datetime="2020-05-06T18:31:36+09:00">2020-05-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -402,116 +402,92 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="정규-분포에서-파생된-분포">정규 분포에서 파생된 분포</h1>
-<ul>
-<li>통계량 중요!!</li>
-</ul>
-<h2 id="스튜던트-t분포">스튜던트 t분포</h2>
-<ul>
-<li>펫테일을 보이는 데이터모형에 적합</li>
-<li>t(x;m(모수),lambda(표준편차),nu(자유도))</li>
+          <h1 id="정규-분포에서-파생된-분포"><a href="#정규-분포에서-파생된-분포" class="headerlink" title="정규 분포에서 파생된 분포"></a>정규 분포에서 파생된 분포</h1><h2 id="스튜던트-t분포"><a href="#스튜던트-t분포" class="headerlink" title="스튜던트 t분포"></a>스튜던트 t분포</h2><ul>
+<li>펫테일을 보이는 데이터모형에 적합(주식 데이터 등)</li>
+<li>스튜던트 t 분포는 의 확률밀도 함수 <script type="math/tex; mode=display">t \sim (x;\mu(모수),\lambda(표준편차), \nu(자유도))</script></li>
 <li>자유도가 1이면 코시분포, 코시분포의 양수인 부분을 하프코시분포</li>
+<li>정규분포를 따르는 확률 변수의 $N$ 개의 표본의 합(또는 평균)은 표본 분산으로 정규화하면 스튜던트 t분포를 따른다</li>
 </ul>
-<h2 id="t-통계량">t 통계량</h2>
-<ul>
-<li>정규분포에서 표본을 뽑아서 더한다음 표준편차로 나눈 것.</li>
+<h2 id="t-통계량"><a href="#t-통계량" class="headerlink" title="t 통계량"></a>t 통계량</h2><ul>
+<li>정규분포로 부터 얻은 $N$ 개의 표본에서 계산한 <strong>표본평균</strong>을 <strong>표본표준편차</strong>로 정규화한 값</li>
 </ul>
-<h2 id="카이제곱분포">카이제곱분포</h2>
-<ul>
-<li>정규분포에서 표본을 뽑아서 제곱해서 더한 것.</li>
-<li>N이 커질수록(여러개를 더할수록, 중심극한정리에 의해) 정규분포 처럼 된다.</li>
+<h2 id="카이제곱분포"><a href="#카이제곱분포" class="headerlink" title="카이제곱분포"></a>카이제곱분포</h2><ul>
+<li>정규분포를 따르는 확률 변수의 $N$ 개의 표본을 제곱하여 더하면 <strong>양수값만을 가지는 분포가 된다.</strong></li>
+<li>$N$이 커질수록(여러개를 더할수록, 중심극한정리에 의해) 정규분포 처럼 된다.</li>
 </ul>
-<h2 id="f분포">F분포</h2>
-<ul>
-<li>카이제곱 분포를 따르는 독립적인 두 확률변수를 각각 N1,N2로 나눈뒤 비율을 구한 분포</li>
+<h2 id="F분포"><a href="#F분포" class="headerlink" title="F분포"></a>F분포</h2><ul>
+<li>카이제곱분포를 따르는 독립적인 두 개의 확률 변수의 확률 변수 표본을 각각 $x<em>{1}, x</em>{2}$ 라고 할때, 이를 각각 표본의 갯수 $N<em>{1}, N</em>{2}$로 나눈뒤 비율을 구한 분포를 F분포라고 한다.</li>
 </ul>
-<h2 id="가지-통계량-공식">5가지 통계량 공식</h2>
-<h2 id="다변수-정규분포">다변수 정규분포</h2>
-<ul>
+<h2 id="5가지-통계량-공식"><a href="#5가지-통계량-공식" class="headerlink" title="5가지 통계량 공식"></a>5가지 통계량 공식</h2><h2 id="다변수-정규분포"><a href="#다변수-정규분포" class="headerlink" title="다변수 정규분포"></a>다변수 정규분포</h2><ul>
 <li>고유값분해 : 다변수정규분포 함수의 정밀도행렬이 가지는 고유값: 타원의 폭, 고유벡터: 타원의 방향</li>
-<li>고유값 분해해서 나온 공분산 행렬 sigma를 변환행렬로 생각하고, 새로운 기저벡터를 만든다. (회전하고 이동한다)</li>
+<li>고유값 분해해서 나온 공분산 행렬 $\Sigma$를 변환행렬로 생각하고, 새로운 기저벡터를 만든다. (회전하고 이동한다)</li>
 <li>다변수 정규분포의 조건부 확률분포(자른다): 다변수 정규분포인 확률변수벡터 중 어떤 원소의 값이 주어지면 다른 확률변수의 조건부 확률 분포는 다변수 정규분포이다.</li>
 <li>다변수 정규분포의 주변 확률분포(누른다): 다변수 정규분포의 주변확률분포는 다변수 정규분포이다.</li>
 </ul>
-<h2 id="베타분포">베타분포</h2>
-<ul>
-<li>0~1까지 가질수 있는 베르누이 분포의 모수 mu의 값을 베이지안 추정한 결과로 표현한것.</li>
-<li>Beta(x;a,b) : a,b가 커질수록 모수추정의 정확도가 높아짐(그래프가 더 뾰족)</li>
+<h2 id="베타분포"><a href="#베타분포" class="headerlink" title="베타분포"></a>베타분포</h2><ul>
+<li>0~1까지 가질수 있는 베르누이 분포의 모수 $\mu$의 값을 베이지안 추정한 결과로 표현한것.</li>
+<li>$Beta \sim (x;a,b)$ : a,b가 커질수록 모수추정의 정확도가 높아짐(그래프가 더 뾰족)</li>
 </ul>
-<h2 id="감마분포">감마분포</h2>
-<ul>
+<h2 id="감마분포"><a href="#감마분포" class="headerlink" title="감마분포"></a>감마분포</h2><ul>
 <li>0부터 무한대의 값을 가지는 양수값을 추정하는데 사용</li>
 </ul>
-<h2 id="디리클레-분포">디리클레 분포</h2>
-<ul>
-<li>베타분포의 확장판</li>
-<li>다변수 확률변수의 베이지안 모형에 사용</li>
-<li>베타분포는 k=2인 디리클레 분포</li>
+<h2 id="디리클레-분포"><a href="#디리클레-분포" class="headerlink" title="디리클레 분포"></a>디리클레 분포</h2><ul>
+<li>디리클레분포는 베타분포의 확장판. 베타분포는 0과 1사이의 값을 가지는 단일(univariate) 확률변수의 베이지안 모형에 사용되고 디리클레분포는 0과 1사이의 사이의 값을 가지는 다변수(multivariate) 확률변수의 베이지안 모형에 사용된다.</li>
+<li>베타분포는 변수의 갯수 k=2인 디리클레 분포</li>
 </ul>
-<h2 id="하이퍼모수">하이퍼모수</h2>
-<ul>
-<li>베타분포, 디리클레분포의 모수 (베르누이분포, 카테고리분포의 모수의 모수)</li>
+<h2 id="하이퍼모수"><a href="#하이퍼모수" class="headerlink" title="하이퍼모수"></a>하이퍼모수</h2><ul>
+<li>베타분포, 디리클레분포의 모수 (=&gt; 베르누이분포, 카테고리분포의 모수의 모수)</li>
 </ul>
-<h1 id="확률분포의-추정">확률분포의 추정</h1>
-<ul>
+<h1 id="확률분포의-추정"><a href="#확률분포의-추정" class="headerlink" title="확률분포의 추정"></a>확률분포의 추정</h1><ul>
 <li>데이터로 부터 확률변수의 분포를 알아내는 과정</li>
 <li>step1 : 확률변수가 어떤 확률분포를 따르는지 확인</li>
 <li>step2 : 모수추정</li>
 </ul>
-<h2 id="모수추정">모수추정</h2>
-<ul>
+<h2 id="모수추정"><a href="#모수추정" class="headerlink" title="모수추정"></a>모수추정</h2><ul>
 <li>모수의 값으로 가장 가능성이 높은 하나의 숫자를 찾아내는 작업</li>
-<li>모멘트 방법: 표본자료의 &quot;표본 모멘트&quot;와 확률분포의 &quot;이론적 모멘트&quot;가 같다고 가정
-<ul>
+<li>모멘트 방법: 표본자료의 “표본 모멘트”와 확률분포의 “이론적 모멘트”가 같다고 가정<ul>
 <li>베르누의 분포의 모수추정</li>
 <li>정규분포의 모수추정</li>
 <li>베타분포의 모수추정</li>
-</ul></li>
 </ul>
-<h1 id="최대-가능도-추정법">최대 가능도 추정법</h1>
-<ul>
+</li>
+</ul>
+<h1 id="최대-가능도-추정법"><a href="#최대-가능도-추정법" class="headerlink" title="최대 가능도 추정법"></a>최대 가능도 추정법</h1><ul>
 <li>가능도 함수를 사용</li>
 </ul>
-<h2 id="가능도-함수">가능도 함수</h2>
-<ul>
+<h2 id="가능도-함수"><a href="#가능도-함수" class="headerlink" title="가능도 함수"></a>가능도 함수</h2><ul>
 <li>확률 밀도 함수는 일반적으로 모수를 알고 표본값을 찾아내지만</li>
 <li>가능도 함수는 표본값을 가지고 있고 이를 뽑아내는 모수를 찾아내는 함수</li>
 </ul>
-<h2 id="최대가능도-추정법">최대가능도 추정법</h2>
-<ul>
+<h2 id="최대가능도-추정법"><a href="#최대가능도-추정법" class="headerlink" title="최대가능도 추정법"></a>최대가능도 추정법</h2><ul>
 <li>주어진 표본에 대해 가능도를 가장 크게 하는 모수를 찾는 방법</li>
 </ul>
-<h2 id="로그-가능도-함수">로그 가능도 함수</h2>
-<ul>
+<h2 id="로그-가능도-함수"><a href="#로그-가능도-함수" class="headerlink" title="로그 가능도 함수"></a>로그 가능도 함수</h2><ul>
 <li>반복시행으로 인한 복수데이터는 pdf들의 곱으로 나타내야 하는데, 로그를 취하면 더하기로 표현 가능</li>
 </ul>
-<h2 id="각-분포별-최대가능도-모수추정">각 분포별 최대가능도 모수추정</h2>
-<ul>
+<h2 id="각-분포별-최대가능도-모수추정"><a href="#각-분포별-최대가능도-모수추정" class="headerlink" title="각 분포별 최대가능도 모수추정"></a>각 분포별 최대가능도 모수추정</h2><ul>
 <li>베르누이 분포 : 모수는 1이 나온 횟수와 전체 시행횟수의 비율</li>
 <li>카테고리 분포 : 모수는 각 범주값이 나온 횟수와 전체 시행횟수의 비율</li>
 <li>정규분포 : 기대값은 표본평균, 분산은 (편향)표본평균</li>
 <li>다변수 정규분포 : 기대값은 표본평균벡터, 분산은 표본공분산 행렬</li>
 </ul>
-<h1 id="베이즈-추정법">베이즈 추정법</h1>
-<ul>
+<h1 id="베이즈-추정법"><a href="#베이즈-추정법" class="headerlink" title="베이즈 추정법"></a>베이즈 추정법</h1><ul>
 <li>모수를 숫자 하나로 얘기하지 않고, 모수값을 가질수 있는 모든 가능성의 분포를 계산</li>
 </ul>
-<h2 id="베이즈-추정법의-기본-원리">베이즈 추정법의 기본 원리</h2>
-<ul>
+<h2 id="베이즈-추정법의-기본-원리"><a href="#베이즈-추정법의-기본-원리" class="headerlink" title="베이즈 추정법의 기본 원리"></a>베이즈 추정법의 기본 원리</h2><ul>
 <li>사전분포, 사후분포, 가능도 분포로 구성</li>
 <li>모수적 방법, 비모수적 방법(MCMC - 몬테 카를로 방법)</li>
 </ul>
-<h2 id="베이즈-추정법의-모수적-방법">베이즈 추정법의 모수적 방법</h2>
-<ul>
+<h2 id="베이즈-추정법의-모수적-방법"><a href="#베이즈-추정법의-모수적-방법" class="headerlink" title="베이즈 추정법의 모수적 방법"></a>베이즈 추정법의 모수적 방법</h2><ul>
 <li>켤레 사전확률 분포 : 사전분포와 사후분포가 형태는 같고, 모수값만 다른 경우</li>
-<li>베르누이 분포의 모수 추정
-<ul>
+<li>베르누이 분포의 모수 추정<ul>
 <li>베타분포라고 가정</li>
-</ul></li>
-<li>카테고리 분포의 모수추정
-<ul>
+</ul>
+</li>
+<li>카테고리 분포의 모수추정<ul>
 <li>디리클레 분포라고 가정</li>
-</ul></li>
+</ul>
+</li>
 <li>정규분포의 기대값, 모수추정</li>
 </ul>
 
@@ -1966,13 +1942,13 @@ x
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-count">54</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
