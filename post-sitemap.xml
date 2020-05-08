@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://howardhowonyu.github.io/2020/02/08/TIL-python-2020-02-08-pandas-md/</loc>
+        <lastmod>2020-05-08T13:21:55.590Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://howardhowonyu.github.io/2020/02/11/TIL-mathematics-2020-02-11-math-md/</loc>
         <lastmod>2020-05-06T09:31:36.751Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -338,14 +346,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/06/Coding-2020-02-06-set-md/</loc>
         <lastmod>2020-02-23T08:04:23.135Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/08/TIL-python-2020-02-08-pandas-md/</loc>
-        <lastmod>2020-02-23T08:00:26.955Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

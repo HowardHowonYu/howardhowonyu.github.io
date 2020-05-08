@@ -1037,7 +1037,7 @@ x
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-23 17:00:26" itemprop="dateModified" datetime="2020-02-23T17:00:26+09:00">2020-02-23</time>
+                <time title="Modified: 2020-05-08 22:21:55" itemprop="dateModified" datetime="2020-05-08T22:21:55+09:00">2020-05-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1082,16 +1082,14 @@ x
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="인덱스를-다른-컬럼의-값으로-채워줌">인덱스를 다른 컬럼의 값으로 채워줌</h2>
-<ul>
-<li><code>df = df.set_index('컬럼 이름')</code></li>
-</ul>
-<h2 id="새로운-컬럼만들고-소문자로-바꿔줌">새로운 컬럼만들고 소문자로 바꿔줌</h2>
-<p><code>df['컬럼 이름'] = df['Gender'].str.lower()</code></p>
-<h1 id="값을-세줌">값을 세줌</h1>
-<p><code>df['컬럼 이름'].value_counts()</code></p>
-<h1 id="특정-컬럼의-값들을-기준으로-내가-원하는-컬럼의-값의-평균">특정 컬럼의 값들을 기준으로 내가 원하는 컬럼의 값의 평균</h1>
-<p><code>height_mean_by_gender = df.groupby(['값이 기준이 되는 컬럼'])['내가 평균을 구하고자 하는 컬럼'].mean() height_mean_by_gender</code></p>
+          <h2 id="인덱스를-다른-컬럼의-값으로-채워줌"><a class="markdownIt-Anchor" href="#인덱스를-다른-컬럼의-값으로-채워줌"></a> 인덱스를 다른 컬럼의 값으로 채워줌</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = df.set_index(<span class="string">'컬럼 이름'</span>)`</span><br></pre></td></tr></table></figure>
+<h2 id="새로운-컬럼만들고-소문자로-바꿔줌"><a class="markdownIt-Anchor" href="#새로운-컬럼만들고-소문자로-바꿔줌"></a> 새로운 컬럼만들고 소문자로 바꿔줌</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'컬럼 이름'</span>] = df[<span class="string">'Gender'</span>].str.lower()`</span><br></pre></td></tr></table></figure>
+<h1 id="값을-세줌"><a class="markdownIt-Anchor" href="#값을-세줌"></a> 값을 세줌</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'컬럼 이름'</span>].value_counts()`</span><br></pre></td></tr></table></figure>
+<h1 id="특정-컬럼의-값들을-기준으로-내가-원하는-컬럼의-값의-평균"><a class="markdownIt-Anchor" href="#특정-컬럼의-값들을-기준으로-내가-원하는-컬럼의-값의-평균"></a> 특정 컬럼의 값들을 기준으로 내가 원하는 컬럼의 값의 평균</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">height_mean_by_gender = df.groupby([<span class="string">'값이 기준이 되는 컬럼'</span>])[<span class="string">'내가 평균을 구하고자 하는 컬럼'</span>].mean()</span><br><span class="line">height_mean_by_gender`</span><br></pre></td></tr></table></figure>
 
       
     </div>
