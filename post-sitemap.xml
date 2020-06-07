@@ -8,6 +8,38 @@
     </url>
 
     <url>
+        <loc>https://howardhowonyu.github.io/2020/01/25/TIL-git-200125-hexo-blog/</loc>
+        <lastmod>2020-06-07T08:16:19.255Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/01/22/TIL-git-200122-start-git/</loc>
+        <lastmod>2020-06-07T08:16:14.411Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/04/23/regression-project/</loc>
+        <lastmod>2020-05-31T08:16:04.074Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/22/TIL-crawling-2020-02-22-crawling-css/</loc>
+        <lastmod>2020-05-13T10:49:01.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/</loc>
         <lastmod>2020-05-10T14:37:42.719Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -90,14 +122,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/01/31/TIL-mathematics-2020-01-31-optimization-md/</loc>
         <lastmod>2020-05-06T09:11:32.124Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/04/23/regression-project/</loc>
-        <lastmod>2020-05-05T10:31:08.448Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -352,14 +376,6 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/01/25/TIL-git-200125-hexo-blog/</loc>
-        <lastmod>2020-02-23T08:00:03.294Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/02/22/TIL-crawling-2020-02-22-html-css-selector/</loc>
         <lastmod>2020-02-23T07:56:05.578Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -370,14 +386,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/01/29/python-2020-01-29-python-basic-syntax02-md/</loc>
         <lastmod>2020-02-23T07:52:58.342Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/01/22/TIL-git-200122-start-git/</loc>
-        <lastmod>2020-02-23T07:47:09.956Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -410,14 +418,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/20/TIL-crawling-2020-02-20-crawling/</loc>
         <lastmod>2020-02-23T07:44:47.277Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/22/TIL-crawling-2020-02-22-crawling-css/</loc>
-        <lastmod>2020-02-23T07:44:37.639Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
