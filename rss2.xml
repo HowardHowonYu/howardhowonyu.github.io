@@ -9,8 +9,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 08 Jun 2020 07:09:26 GMT</pubDate>
+    <pubDate>Mon, 08 Jun 2020 07:16:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Portfolio</title>
+      <link>https://howardhowonyu.github.io/2020/06/08/portfolio-post/</link>
+      <guid>https://howardhowonyu.github.io/2020/06/08/portfolio-post/</guid>
+      <pubDate>Mon, 08 Jun 2020 07:10:59 GMT</pubDate>
+      <description>
+      
+        &lt;h2 id=&quot;portfolio&quot;&gt;Portfolio&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;포트폴리오 포스트 입니다.&lt;/li&gt;
+&lt;li&gt;ver.200608
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h2 id="portfolio">Portfolio</h2><ul><li>포트폴리오 포스트 입니다.</li><li>ver.200608 <a id="more"></a></li></ul><p><img src="/images/portfolio.001.jpeg" width="100%"> <img src="/images/portfolio.002.jpeg" width="100%"> <img src="/images/portfolio.003.jpeg" width="100%"> <img src="/images/portfolio.004.jpeg" width="100%"> <img src="/images/portfolio.005.jpeg" width="100%"> <img src="/images/portfolio.006.jpeg" width="100%"> <img src="/images/portfolio.007.jpeg" width="100%"> <img src="/images/portfolio.008.jpeg" width="100%"> <img src="/images/portfolio.009.jpeg" width="100%"></p>]]></content:encoded>
+      
+      <comments>https://howardhowonyu.github.io/2020/06/08/portfolio-post/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>회귀분석 프로젝트</title>
@@ -376,30 +396,6 @@
       <content:encoded><![CDATA[<h2 id="html-데이터-파싱을-이용한-크롤링">HTML 데이터 파싱을 이용한 크롤링</h2><ol type="1"><li>웹페이지 분석 : URL 찾기</li><li>요청 -&gt; 응답 : HTML(str) 가져오기</li><li>HTML(str) -&gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&gt; 데이터프레임으로 변환 <a id="more"></a></li></ol><h2 id="크롤링-과정">크롤링 과정</h2><ul><li>BeautifulSoup라는 클래스의 매서드 활용 response안에 있는 애들을 BeautifulSoup으로 HTML로 파싱</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># requests.get 매서드로 요철</span></span><br><span class="line">response = requests.get(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># response.content로 내용 선택, html.parser로 HTML로 파싱</span></span><br><span class="line">dom = BeautifulSoup(response.content, <span class="string">"html.parser"</span>)</span><br></pre></td></tr></table></figure><h4 id="bs4.beautifulsoupr"><code>bs4.BeautifulSoupr</code></h4><blockquote><p>select 매서드 : 여러개의 element 객체를 리스트로 가져옴 select_one 매서드 : 하나의 element 객체를 가져옴</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 크롬 개발자 도구에서 copy selector했을때 id가 나올때 까지 찾아 복사함</span></span><br><span class="line"><span class="comment"># 리스트안의 딕셔너리 형태로 만들어줌&#123;"컬럼명":내용&#125;</span></span><br><span class="line">datas = []</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> elements:</span><br><span class="line">    datas.append(&#123;</span><br><span class="line">        <span class="string">"title"</span>: element.select_one(<span class="string">'.tit_g'</span>).text.strip().replace(<span class="string">"\n"</span>,<span class="string">""</span>), <span class="comment">#tit_g이름의 클래스 안에 텍스트를 잡음</span></span><br><span class="line">        <span class="string">"link"</span> : element.select_one(<span class="string">'a'</span>).get(<span class="string">"href"</span>), <span class="comment">#href속성의 값을 가져옴</span></span><br><span class="line">    &#125;)</span><br><span class="line">article_df = pd.DataFrame(datas)</span><br></pre></td></tr></table></figure>]]></content:encoded>
       
       <comments>https://howardhowonyu.github.io/2020/02/21/TIL-crawling-2020-02-21-crawling/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>데이터 전처리 기초 1</title>
-      <link>https://howardhowonyu.github.io/2020/02/20/TIL-regression-analysis-2020-02-20-regression-analysis/</link>
-      <guid>https://howardhowonyu.github.io/2020/02/20/TIL-regression-analysis-2020-02-20-regression-analysis/</guid>
-      <pubDate>Thu, 20 Feb 2020 13:32:43 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;h1 id=&quot;데이터-전처리에-사용하는-패키지&quot;&gt;데이터 전처리에 사용하는 패키지&lt;/h1&gt;
-&lt;h2 id=&quot;missingno&quot;&gt;missingno&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;결측데이터를 검색하여 시각화 함&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.bar()&lt;/code&gt;,
-        
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<h1 id="데이터-전처리에-사용하는-패키지">데이터 전처리에 사용하는 패키지</h1><h2 id="missingno">missingno</h2><ul><li>결측데이터를 검색하여 시각화 함</li><li><code>.bar()</code>, <code>.matrix()</code>함수로 확인</li></ul><h2 id="scikit-learn-패키지의-simpleimputer-클래스">scikit-learn 패키지의 SimpleImputer 클래스</h2><ul><li><code>SimpleImputer</code>클래스로 객체를 생성할때, 결측값을 채우고자 할때, <code>strategy</code> 인수를 &quot;mean&quot;으로 하면 중앙값 &quot;median&quot;으로 하면 중앙값, <code>most_frequent</code>로 하면 최빈값을 대체값으로 사용한다.</li></ul><h2 id="patsy">patsy</h2><ul><li>데이터를 선택, 변환, 추가, 스케일링 함</li><li><code>dmatrx()</code> 함수를 사용하면 데이터 프레임에 상수항을 추가하거나 원하는 데이터만 선택하거나 변형할 수 있다.</li><li>스케일링을 위한 함수<ul><li><code>center()</code>: 평균을 0으로 스케일링</li><li><code>standardize()</code>: 평균을 0으로하고 표준편차를 1로 스케일링</li><li><code>scale()</code>: <code>standardize()</code> 과 같음</li></ul></li><li><code>design_info</code>라는 속성에 평균등 정보가 입력되어 있다.</li></ul>]]></content:encoded>
-      
-      <comments>https://howardhowonyu.github.io/2020/02/20/TIL-regression-analysis-2020-02-20-regression-analysis/#disqus_thread</comments>
     </item>
     
   </channel>
