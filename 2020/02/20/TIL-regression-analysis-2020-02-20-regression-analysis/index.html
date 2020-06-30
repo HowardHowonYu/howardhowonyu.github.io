@@ -58,15 +58,15 @@
   };
 </script>
 
-  <meta name="description" content="데이터 전처리에 사용하는 패키지 missingno  결측데이터를 검색하여 시각화 함 .bar(), .matrix()함수로 확인  scikit-learn 패키지의 SimpleImputer 클래스  SimpleImputer클래스로 객체를 생성할때, 결측값을 채우고자 할때, strategy 인수를 &quot;mean&quot;으로 하면 중앙값 &quot;medi">
+  <meta name="description" content="데이터 전처리에 사용하는 패키지  missingno  결측데이터를 검색하여 시각화 함 .bar(), .matrix()함수로 확인">
 <meta property="og:type" content="article">
-<meta property="og:title" content="데이터 전처리 기초 1">
+<meta property="og:title" content="데이터 전처리 기초">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/02/20/TIL-regression-analysis-2020-02-20-regression-analysis/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="데이터 전처리에 사용하는 패키지 missingno  결측데이터를 검색하여 시각화 함 .bar(), .matrix()함수로 확인  scikit-learn 패키지의 SimpleImputer 클래스  SimpleImputer클래스로 객체를 생성할때, 결측값을 채우고자 할때, strategy 인수를 &quot;mean&quot;으로 하면 중앙값 &quot;medi">
+<meta property="og:description" content="데이터 전처리에 사용하는 패키지  missingno  결측데이터를 검색하여 시각화 함 .bar(), .matrix()함수로 확인">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-20T13:32:43.000Z">
-<meta property="article:modified_time" content="2020-02-24T13:20:10.716Z">
+<meta property="article:modified_time" content="2020-06-30T06:00:18.826Z">
 <meta property="article:author" content="Howard Howon Yu">
 <meta property="article:tag" content="Math">
 <meta property="article:tag" content="머신러닝">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>데이터 전처리 기초 1 | Howard's nest</title>
+  <title>데이터 전처리 기초 | Howard's nest</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
     <script>
@@ -239,7 +239,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          데이터 전처리 기초 1
+          데이터 전처리 기초
         </h2>
 
         <div class="post-meta">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-24 22:20:10" itemprop="dateModified" datetime="2020-02-24T22:20:10+09:00">2020-02-24</time>
+                <time title="Modified: 2020-06-30 15:00:18" itemprop="dateModified" datetime="2020-06-30T15:00:18+09:00">2020-06-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -307,17 +307,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="데이터-전처리에-사용하는-패키지">데이터 전처리에 사용하는 패키지</h1>
-<h2 id="missingno">missingno</h2>
+        <h1 id="데이터-전처리에-사용하는-패키지"><a class="markdownIt-Anchor" href="#데이터-전처리에-사용하는-패키지"></a> 데이터 전처리에 사용하는 패키지</h1>
+<h2 id="missingno"><a class="markdownIt-Anchor" href="#missingno"></a> missingno</h2>
 <ul>
 <li>결측데이터를 검색하여 시각화 함</li>
 <li><code>.bar()</code>, <code>.matrix()</code>함수로 확인</li>
 </ul>
-<h2 id="scikit-learn-패키지의-simpleimputer-클래스">scikit-learn 패키지의 SimpleImputer 클래스</h2>
+<a id="more"></a>
+<h2 id="scikit-learn-패키지의-simpleimputer-클래스"><a class="markdownIt-Anchor" href="#scikit-learn-패키지의-simpleimputer-클래스"></a> scikit-learn 패키지의 SimpleImputer 클래스</h2>
 <ul>
 <li><code>SimpleImputer</code>클래스로 객체를 생성할때, 결측값을 채우고자 할때, <code>strategy</code> 인수를 &quot;mean&quot;으로 하면 중앙값 &quot;median&quot;으로 하면 중앙값, <code>most_frequent</code>로 하면 최빈값을 대체값으로 사용한다.</li>
 </ul>
-<h2 id="patsy">patsy</h2>
+<h2 id="patsy"><a class="markdownIt-Anchor" href="#patsy"></a> patsy</h2>
 <ul>
 <li>데이터를 선택, 변환, 추가, 스케일링 함</li>
 <li><code>dmatrx()</code> 함수를 사용하면 데이터 프레임에 상수항을 추가하거나 원하는 데이터만 선택하거나 변형할 수 있다.</li>
@@ -326,8 +327,37 @@
 <li><code>center()</code>: 평균을 0으로 스케일링</li>
 <li><code>standardize()</code>: 평균을 0으로하고 표준편차를 1로 스케일링</li>
 <li><code>scale()</code>: <code>standardize()</code> 과 같음</li>
-</ul></li>
+</ul>
+</li>
 <li><code>design_info</code>라는 속성에 평균등 정보가 입력되어 있다.</li>
+</ul>
+<h2 id="sklearnpreprocessing-패키지"><a class="markdownIt-Anchor" href="#sklearnpreprocessing-패키지"></a> sklearn.preprocessing 패키지</h2>
+<p>스케일링 및 변수변환을 위한 <code>StandardScaler</code> 클래스에서</p>
+<!-- more -->
+<ul>
+<li><code>fit()</code>: 학습용 데이터를 입력으로 실행하면 평균값과 표준편차를 계산하여 객체내에 저장</li>
+<li><code>transform()</code>: 저장했던 평균값을 빼서 새로운 평균값이 0이 되도록 만들고, 저장한 표준편차로 나누어 새로운 표준편차가 1이 되도록 데이터를 변환하여 출력</li>
+<li><code>fit_transform()</code>: 1,2단계를 합친것</li>
+</ul>
+<p>데이터에 아웃라이어가 있을 경우 <code>RobustScaler</code> 클래스를 사용</p>
+<ul>
+<li>중앙값이 0, IQR(interquartile range)이 1이 되도록 변환하여, 아웃라이어가 섞여 있어도 데이터는 0주위에 남게 된다.</li>
+</ul>
+<p><code>FunctionTransformer</code>클래스와 <code>PolynomialFeatures</code>클래스</p>
+<ul>
+<li>
+<p><code>PolynomialFeatures</code>클래스는 입력데이터를 여러개의 다항식으로 변환</p>
+<ul>
+<li>degree: 차수</li>
+<li>include_bias: 상수항 생성 여부</li>
+</ul>
+</li>
+<li>
+<p><code>FunctionTransformer</code>클래스는 사용자가 지정한 함수를 사용하여 입력값을 변환</p>
+<ul>
+<li>각도 0도와 360도를 구분하기위한 sin,cos함수 사용 예제</li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -421,7 +451,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#데이터-전처리에-사용하는-패키지"><span class="nav-number">1.</span> <span class="nav-text">데이터 전처리에 사용하는 패키지</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#missingno"><span class="nav-number">1.1.</span> <span class="nav-text">missingno</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scikit-learn-패키지의-simpleimputer-클래스"><span class="nav-number">1.2.</span> <span class="nav-text">scikit-learn 패키지의 SimpleImputer 클래스</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#patsy"><span class="nav-number">1.3.</span> <span class="nav-text">patsy</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#데이터-전처리에-사용하는-패키지"><span class="nav-number">1.</span> <span class="nav-text"> 데이터 전처리에 사용하는 패키지</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#missingno"><span class="nav-number">1.1.</span> <span class="nav-text"> missingno</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scikit-learn-패키지의-simpleimputer-클래스"><span class="nav-number">1.2.</span> <span class="nav-text"> scikit-learn 패키지의 SimpleImputer 클래스</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#patsy"><span class="nav-number">1.3.</span> <span class="nav-text"> patsy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearnpreprocessing-패키지"><span class="nav-number">1.4.</span> <span class="nav-text"> sklearn.preprocessing 패키지</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -436,20 +466,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -565,7 +595,7 @@
   var disqus_config = function() {
     this.page.url = "https://howardhowonyu.github.io/2020/02/20/TIL-regression-analysis-2020-02-20-regression-analysis/";
     this.page.identifier = "2020/02/20/TIL-regression-analysis-2020-02-20-regression-analysis/";
-    this.page.title = "데이터 전처리 기초 1";
+    this.page.title = "데이터 전처리 기초";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

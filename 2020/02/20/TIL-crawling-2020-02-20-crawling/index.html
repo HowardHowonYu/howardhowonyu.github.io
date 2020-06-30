@@ -304,45 +304,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="web-crawling">web crawling</h2>
-<ol type="1">
+        <h2 id="web-crawling"><a class="markdownIt-Anchor" href="#web-crawling"></a> web crawling</h2>
+<ol>
 <li>requests : json : 동적페이지(URL 변경 없이 데이터를 수정 및 추가)</li>
 <li>requests : html : 정적페이지(URL 변경 으로 데이터를 수정 및 추가)</li>
-<li>selenium : web browser : 1,2 번 방법을 사용하지 못할때 사용, 브라우저를 직접 조작 <a id="more"></a></li>
+<li>selenium : web browser : 1,2 번 방법을 사용하지 못할때 사용, 브라우저를 직접 조작</li>
 </ol>
-<h2 id="json">json</h2>
+<a id="more"></a>
+<h2 id="json"><a class="markdownIt-Anchor" href="#json"></a> json</h2>
 <ul>
 <li>문자열 데이터를 dict로 바꿔서 저장</li>
 </ul>
-<h2 id="크롤링-절차">크롤링 절차</h2>
-<ol type="1">
+<h2 id="크롤링-절차"><a class="markdownIt-Anchor" href="#크롤링-절차"></a> 크롤링 절차</h2>
+<ol>
 <li>웹서비스 분석 : URL 분석하기,</li>
 <li>request, response 하기 : json을 얻음</li>
 <li>문자열 json 데이터를 dict로 파싱후 데이터 프레임으로 생성</li>
 </ol>
-<h2 id="requests.geturlheadersparams">requests.get(url,headers=params)</h2>
+<h2 id="requestsgeturlheadersparams"><a class="markdownIt-Anchor" href="#requestsgeturlheadersparams"></a> requests.get(url,headers=params)</h2>
 <ul>
 <li>params라는 변수에 딕셔너리 형해로, user agent, cookie등을 임의로 설정을 해주는 방식으로 해결</li>
 </ul>
-<h2 id="정규화-normalization">정규화 : Normalization</h2>
+<h2 id="정규화-normalization"><a class="markdownIt-Anchor" href="#정규화-normalization"></a> 정규화 : Normalization</h2>
 <ul>
 <li><code>z = (x - min(x)) / (max(x) - min(x))</code></li>
 <li>같은 기준을 놓고 비교하기 위한 절차</li>
 </ul>
-<h2 id="api로-날씨-정보-가져오기">API로 날씨 정보 가져오기</h2>
+<h2 id="api로-날씨-정보-가져오기"><a class="markdownIt-Anchor" href="#api로-날씨-정보-가져오기"></a> API로 날씨 정보 가져오기</h2>
 <ul>
-<li>darksky.net 서비스를 이용</li>
+<li><span class="exturl" data-url="aHR0cDovL2Rhcmtza3kubmV0" title="http://darksky.net">darksky.net<i class="fa fa-external-link"></i></span> 서비스를 이용</li>
 <li>restAPI : 키값을 감춰서 깔끔한 URL을 만들수 있다.</li>
 </ul>
-<h2 id="직방-데이터-크롤링">직방 데이터 크롤링</h2>
+<h2 id="직방-데이터-크롤링"><a class="markdownIt-Anchor" href="#직방-데이터-크롤링"></a> 직방 데이터 크롤링</h2>
 <ul>
 <li>동이름을 입력하여 아파트 메물을 데이터 프레임으로 만드는 작업</li>
 <li><code>%%writefile</code> -&gt; 모듈화 하여 저장</li>
 </ul>
-<h2 id="robots.txt">robots.txt</h2>
+<h2 id="robotstxt"><a class="markdownIt-Anchor" href="#robotstxt"></a> robots.txt</h2>
 <ul>
-<li>각 도메인 별로 접근 권한 등의 규칙을 저장해 놓은 파일 &gt; 예) User-agent : * &gt; Allow : /</li>
+<li>각 도메인 별로 접근 권한 등의 규칙을 저장해 놓은 파일</li>
 </ul>
+<blockquote>
+<p>예) User-agent : *<br>
+Allow : /</p>
+</blockquote>
 
     </div>
 
@@ -438,7 +443,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#web-crawling"><span class="nav-number">1.</span> <span class="nav-text">web crawling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#json"><span class="nav-number">2.</span> <span class="nav-text">json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#크롤링-절차"><span class="nav-number">3.</span> <span class="nav-text">크롤링 절차</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#requests.geturlheadersparams"><span class="nav-number">4.</span> <span class="nav-text">requests.get(url,headers&#x3D;params)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#정규화-normalization"><span class="nav-number">5.</span> <span class="nav-text">정규화 : Normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#api로-날씨-정보-가져오기"><span class="nav-number">6.</span> <span class="nav-text">API로 날씨 정보 가져오기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#직방-데이터-크롤링"><span class="nav-number">7.</span> <span class="nav-text">직방 데이터 크롤링</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#robots.txt"><span class="nav-number">8.</span> <span class="nav-text">robots.txt</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#web-crawling"><span class="nav-number">1.</span> <span class="nav-text"> web crawling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#json"><span class="nav-number">2.</span> <span class="nav-text"> json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#크롤링-절차"><span class="nav-number">3.</span> <span class="nav-text"> 크롤링 절차</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#requestsgeturlheadersparams"><span class="nav-number">4.</span> <span class="nav-text"> requests.get(url,headers&#x3D;params)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#정규화-normalization"><span class="nav-number">5.</span> <span class="nav-text"> 정규화 : Normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#api로-날씨-정보-가져오기"><span class="nav-number">6.</span> <span class="nav-text"> API로 날씨 정보 가져오기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#직방-데이터-크롤링"><span class="nav-number">7.</span> <span class="nav-text"> 직방 데이터 크롤링</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#robotstxt"><span class="nav-number">8.</span> <span class="nav-text"> robots.txt</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -453,20 +458,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

@@ -300,27 +300,58 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="css-selector">CSS Selector</h1>
-<p>HTML 엘리먼트에 CSS 스타일을 적용시킬때 엘리먼트를 선택하는 방법입니다. <a id="more"></a></p>
-<h4 id="태그-이름으로-선택">1. 태그 이름으로 선택</h4>
-<p>&quot;data 1 엘리먼트를 선택&quot; - css-selector : <code>div</code></p>
-<h4 id="아이디-값으로-선택">2. 아이디 값으로 선택</h4>
-<p>&quot;data 2를 아이디 값으로 선택&quot; - css-selector : <code>#text</code></p>
-<h4 id="클래스-값으로-선택">3.클래스 값으로 선택</h4>
-<p>&quot;data 3를 클래스 값으로 선택&quot; - css-selector : <code>.no1</code> - <code>.dss-txt</code> : data2, data 3가 선택</p>
-<h4 id="속성값으로-선택">4. 속성값으로 선택</h4>
-<p>&quot;data 4를 속성값으로 선택&quot; - css-selector : <code>[val=&quot;d4&quot;]</code>, <code>[id=&quot;da4&quot;]</code></p>
-<h4 id="혼합해서-사용">5. 혼합해서 사용</h4>
-<p>&quot;span 태그, class 값이 no5인 엘리먼트 선택&quot; - css-selector : <code>span.no5</code></p>
+        <h1 id="css-selector"><a class="markdownIt-Anchor" href="#css-selector"></a> CSS Selector</h1>
+<p>HTML 엘리먼트에 CSS 스타일을 적용시킬때 엘리먼트를 선택하는 방법입니다.</p>
+<a id="more"></a>
+<h4 id="1-태그-이름으로-선택"><a class="markdownIt-Anchor" href="#1-태그-이름으로-선택"></a> 1. 태그 이름으로 선택</h4>
+<p>“data 1 엘리먼트를 선택”</p>
+<ul>
+<li>css-selector : <code>div</code></li>
+</ul>
+<h4 id="2-아이디-값으로-선택"><a class="markdownIt-Anchor" href="#2-아이디-값으로-선택"></a> 2. 아이디 값으로 선택</h4>
+<p>“data 2를 아이디 값으로 선택”</p>
+<ul>
+<li>css-selector : <code>#text</code></li>
+</ul>
+<h4 id="3클래스-값으로-선택"><a class="markdownIt-Anchor" href="#3클래스-값으로-선택"></a> 3.클래스 값으로 선택</h4>
+<p>“data 3를 클래스 값으로 선택”</p>
+<ul>
+<li>css-selector : <code>.no1</code></li>
+<li><code>.dss-txt</code> : data2, data 3가 선택</li>
+</ul>
+<h4 id="4-속성값으로-선택"><a class="markdownIt-Anchor" href="#4-속성값으로-선택"></a> 4. 속성값으로 선택</h4>
+<p>“data 4를 속성값으로 선택”</p>
+<ul>
+<li>css-selector : <code>[val=&quot;d4&quot;]</code>, <code>[id=&quot;da4&quot;]</code></li>
+</ul>
+<h4 id="5-혼합해서-사용"><a class="markdownIt-Anchor" href="#5-혼합해서-사용"></a> 5. 혼합해서 사용</h4>
+<p>“span 태그, class 값이 no5인 엘리먼트 선택”</p>
+<ul>
+<li>css-selector : <code>span.no5</code></li>
+</ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrap"</span>&gt;</span>data 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"dss-txt no1"</span>&gt;</span>data 2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"dss-txt no2"</span> <span class="attr">val</span>=<span class="string">"d3"</span>&gt;</span>data 3<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"da4"</span> <span class="attr">val</span>=<span class="string">"d4"</span>&gt;</span>data 4<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"no5"</span> &gt;</span>data 5<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="not-selector">6. not selector</h4>
-<p>선택된 엘리먼트에서 특정 조건의 엘리먼트를 제거해서 선택 data 2 엘리먼트만 제외한 ds 클래스를 선택 - css-selector : <code>.ds:not(.dss2)</code></p>
-<h4 id="nth-child">7.nth-child</h4>
+<h4 id="6-not-selector"><a class="markdownIt-Anchor" href="#6-not-selector"></a> 6. not selector</h4>
+<p>선택된 엘리먼트에서 특정 조건의 엘리먼트를 제거해서 선택<br>
+data 2 엘리먼트만 제외한 ds 클래스를 선택</p>
+<ul>
+<li>css-selector : <code>.ds:not(.dss2)</code></li>
+</ul>
+<h4 id="7nth-child"><a class="markdownIt-Anchor" href="#7nth-child"></a> 7.nth-child</h4>
 <p>n번째의 엘리먼트를 선택</p>
-<p>data 3 선택하는 방법 - css-selector : <code>.ds:nth-child(3)</code> 뒤의 조건(.ds라는 클래스를 가진 상위 클래스의 자식중에 3번째)이 먼저, 다음 ds라는 클래스를 가진거를 선택</p>
+<p>data 3 선택하는 방법</p>
+<ul>
+<li>css-selector : <code>.ds:nth-child(3)</code><br>
+뒤의 조건(.ds라는 클래스를 가진 상위 클래스의 자식중에 3번째)이 먼저, 다음 ds라는 클래스를 가진거를 선택</li>
+</ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>data 0<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss1"</span>&gt;</span>data 1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss2"</span>&gt;</span>data 2<span class="tag">&lt;/<span class="name">p</span>&gt;</span> # 얘도 3번째 ds</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss3"</span>&gt;</span>data 3<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss4"</span>&gt;</span>data 4<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss1"</span>&gt;</span>data 1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss2"</span>&gt;</span>data 2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss3"</span>&gt;</span>data 3<span class="tag">&lt;/<span class="name">p</span>&gt;</span> # 얘도 3번째 ds</span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"ds dss4"</span>&gt;</span>data 4<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ds"</span>&gt;</span> data5<span class="tag">&lt;/<span class="name">div</span>&gt;</span> # 얘도 3번째 ds</span><br></pre></td></tr></table></figure>
-<h4 id="계층구조로-엘리먼트-선택">8. 계층구조로 엘리먼트 선택</h4>
-<p>바로 아래 단계의 엘리먼트 선택 - <code>.wrap-1 &gt; h5</code> : inner 1선택 모든 하위 엘리먼트를 선택 - <code>.wrap-1 h5</code> : inner 1,inner 2선택 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap-1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h5</span>&gt;</span>inner 1 <span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap-2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h5</span>&gt;</span>inner 2 <span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="8-계층구조로-엘리먼트-선택"><a class="markdownIt-Anchor" href="#8-계층구조로-엘리먼트-선택"></a> 8. 계층구조로 엘리먼트 선택</h4>
+<p>바로 아래 단계의 엘리먼트 선택</p>
+<ul>
+<li><code>.wrap-1 &gt; h5</code> : inner 1선택<br>
+모든 하위 엘리먼트를 선택</li>
+<li><code>.wrap-1 h5</code> : inner 1,inner 2선택</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap-1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h5</span>&gt;</span>inner 1 <span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap-2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h5</span>&gt;</span>inner 2 <span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -412,7 +443,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#css-selector"><span class="nav-number">1.</span> <span class="nav-text">CSS Selector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#태그-이름으로-선택"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1. 태그 이름으로 선택</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#아이디-값으로-선택"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2. 아이디 값으로 선택</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#클래스-값으로-선택"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3.클래스 값으로 선택</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#속성값으로-선택"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4. 속성값으로 선택</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#혼합해서-사용"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">5. 혼합해서 사용</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#not-selector"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">6. not selector</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nth-child"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">7.nth-child</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#계층구조로-엘리먼트-선택"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">8. 계층구조로 엘리먼트 선택</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#css-selector"><span class="nav-number">1.</span> <span class="nav-text"> CSS Selector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-태그-이름으로-선택"><span class="nav-number">1.0.0.1.</span> <span class="nav-text"> 1. 태그 이름으로 선택</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-아이디-값으로-선택"><span class="nav-number">1.0.0.2.</span> <span class="nav-text"> 2. 아이디 값으로 선택</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3클래스-값으로-선택"><span class="nav-number">1.0.0.3.</span> <span class="nav-text"> 3.클래스 값으로 선택</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-속성값으로-선택"><span class="nav-number">1.0.0.4.</span> <span class="nav-text"> 4. 속성값으로 선택</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-혼합해서-사용"><span class="nav-number">1.0.0.5.</span> <span class="nav-text"> 5. 혼합해서 사용</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-not-selector"><span class="nav-number">1.0.0.6.</span> <span class="nav-text"> 6. not selector</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7nth-child"><span class="nav-number">1.0.0.7.</span> <span class="nav-text"> 7.nth-child</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-계층구조로-엘리먼트-선택"><span class="nav-number">1.0.0.8.</span> <span class="nav-text"> 8. 계층구조로 엘리먼트 선택</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -427,20 +458,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

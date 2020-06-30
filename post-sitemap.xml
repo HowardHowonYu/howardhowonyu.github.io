@@ -8,8 +8,192 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/04/23/regression-project/</loc>
-        <lastmod>2020-06-08T07:15:49.880Z</lastmod>
+        <loc>https://howardhowonyu.github.io/2020/06/30/keras/</loc>
+        <lastmod>2020-06-30T06:46:30.969Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/06/30/regression-project/</loc>
+        <lastmod>2020-06-30T06:42:14.486Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/01/30/TIL-mathematics-201030-function-md/</loc>
+        <lastmod>2020-06-30T06:04:59.145Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/11/TIL-mathematics-2020-03-03-probability4/</loc>
+        <lastmod>2020-06-30T06:04:13.917Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/10/TIL-mathematics-2020-03-03-probability3/</loc>
+        <lastmod>2020-06-30T06:04:09.450Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-03-probability2/</loc>
+        <lastmod>2020-06-30T06:04:04.229Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-03-probability/</loc>
+        <lastmod>2020-06-30T06:03:59.353Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-02-07-probability-md/</loc>
+        <lastmod>2020-06-30T06:03:48.968Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/10/TIL-mathematics-2020-02-10-bernoilli-md/</loc>
+        <lastmod>2020-06-30T06:03:44.142Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/11/TIL-mathematics-2020-02-11-math-md/</loc>
+        <lastmod>2020-06-30T06:03:40.734Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-02-probability2/</loc>
+        <lastmod>2020-06-30T06:03:35.094Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-02-probability/</loc>
+        <lastmod>2020-06-30T06:03:31.942Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/17/TIL-mathematics-2020-02-17-math/</loc>
+        <lastmod>2020-06-30T06:02:24.044Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/12/TIL-Database-2020-02-12-mysql-md/</loc>
+        <lastmod>2020-06-30T06:02:23.375Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/18/TIL-regression-analysis-2020-02-18-regression-analysis/</loc>
+        <lastmod>2020-06-30T06:01:02.958Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/20/TIL-regression-analysis-2020-02-20-regression-analysis/</loc>
+        <lastmod>2020-06-30T06:00:18.826Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning3/</loc>
+        <lastmod>2020-06-30T05:59:01.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/21/python-2020-02-21-python-module-package/</loc>
+        <lastmod>2020-06-30T05:55:32.316Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/22/TIL-crawling-2020-02-22-html-css-selector/</loc>
+        <lastmod>2020-06-30T05:54:07.580Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning2/</loc>
+        <lastmod>2020-06-30T05:52:39.436Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/25/TIL-machine-learning-2020-02-25-machinelearning2/</loc>
+        <lastmod>2020-06-30T05:48:11.633Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/28/TIL-crawling-2020-02-28-crawling/</loc>
+        <lastmod>2020-06-30T05:46:33.859Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/26/TIL-crawling-2020-02-26-crawling-selenium/</loc>
+        <lastmod>2020-06-30T05:46:31.872Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://howardhowonyu.github.io/2020/02/29/Database-2020-02-29-sqlalchemy/</loc>
+        <lastmod>2020-06-30T05:43:37.289Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -32,14 +216,6 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/02/28/TIL-crawling-2020-02-28-crawling/</loc>
-        <lastmod>2020-06-07T08:38:50.754Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/02/22/TIL-crawling-2020-02-22-crawling-css/</loc>
         <lastmod>2020-05-13T10:49:01.174Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -50,38 +226,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/03/10/TIL-mathematics-2020-03-10-entropy/</loc>
         <lastmod>2020-05-10T14:37:42.719Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/26/TIL-machine-learning-2020-02-26-machine-learning2/</loc>
-        <lastmod>2020-05-10T14:36:24.422Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/11/TIL-mathematics-2020-02-11-math-md/</loc>
-        <lastmod>2020-05-06T09:31:36.751Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/17/TIL-mathematics-2020-02-17-math/</loc>
-        <lastmod>2020-05-06T09:16:54.334Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/01/30/TIL-mathematics-201030-function-md/</loc>
-        <lastmod>2020-05-06T09:13:37.188Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -152,48 +296,8 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/02/18/TIL-regression-analysis-2020-02-18-regression-analysis/</loc>
-        <lastmod>2020-05-04T09:45:18.880Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-03-probability/</loc>
-        <lastmod>2020-05-03T13:18:00.109Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-02-probability2/</loc>
-        <lastmod>2020-05-03T13:17:53.713Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-02-07-probability-md/</loc>
-        <lastmod>2020-05-03T13:17:49.346Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/02/06/TIL-mathematics-2020-02-06-probability-md/</loc>
         <lastmod>2020-05-01T04:07:35.994Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-03-probability2/</loc>
-        <lastmod>2020-04-20T07:38:58.952Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -224,30 +328,6 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/02/10/TIL-mathematics-2020-02-10-bernoilli-md/</loc>
-        <lastmod>2020-03-09T12:18:33.443Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/11/TIL-mathematics-2020-03-03-probability4/</loc>
-        <lastmod>2020-03-06T03:00:05.261Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/29/Database-2020-02-29-sqlalchemy/</loc>
-        <lastmod>2020-03-04T08:35:37.352Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/02/20/TIL-crawling-2020-02-20-Oauth/</loc>
         <lastmod>2020-03-04T08:29:47.869Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -256,40 +336,8 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/02/10/TIL-mathematics-2020-03-03-probability3/</loc>
-        <lastmod>2020-03-03T12:11:51.179Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/26/TIL-crawling-2020-02-26-crawling-selenium/</loc>
-        <lastmod>2020-03-03T08:54:43.092Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/07/TIL-mathematics-2020-03-02-probability/</loc>
-        <lastmod>2020-03-03T08:44:53.741Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/02/15/Database-2020-02-15-mysql-with-python/</loc>
         <lastmod>2020-02-29T11:13:46.011Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/25/TIL-machine-learning-2020-02-25-machinelearning2/</loc>
-        <lastmod>2020-02-26T07:14:16.152Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -312,32 +360,8 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning/</loc>
-        <lastmod>2020-02-25T13:32:28.802Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning2/</loc>
         <lastmod>2020-02-25T13:32:27.103Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/24/TIL-machine-learning-2020-02-24-machine-learning3/</loc>
-        <lastmod>2020-02-25T13:32:25.387Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/20/TIL-regression-analysis-2020-02-20-regression-analysis/</loc>
-        <lastmod>2020-02-24T13:20:10.716Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -352,14 +376,6 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/02/22/TIL-crawling-2020-02-22-html-css-selector/</loc>
-        <lastmod>2020-02-23T07:56:05.578Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/01/29/python-2020-01-29-python-basic-syntax02-md/</loc>
         <lastmod>2020-02-23T07:52:58.342Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -368,24 +384,8 @@
     </url>
 
     <url>
-        <loc>https://howardhowonyu.github.io/2020/02/12/TIL-Database-2020-02-12-mysql-md/</loc>
-        <lastmod>2020-02-23T07:47:08.730Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://howardhowonyu.github.io/2020/02/14/TIL-Database-2020-02-14-mySQL/</loc>
         <lastmod>2020-02-23T07:45:18.352Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/13/TIL-Database-2020-02-13-mysql-study/</loc>
-        <lastmod>2020-02-23T07:45:14.580Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -410,14 +410,6 @@
     <url>
         <loc>https://howardhowonyu.github.io/2020/02/12/Database-2020-02-12-mySQL-md/</loc>
         <lastmod>2020-02-23T07:41:16.188Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://howardhowonyu.github.io/2020/02/21/python-2020-02-21-python-module-package/</loc>
-        <lastmod>2020-02-23T07:40:53.151Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
