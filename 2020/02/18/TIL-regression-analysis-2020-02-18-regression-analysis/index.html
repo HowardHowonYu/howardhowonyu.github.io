@@ -58,12 +58,12 @@
   };
 </script>
 
-  <meta name="description" content="데이터 분석이란?  데이터 간의 관계를 사용하여 우리가 원하는 새로운 출력데이터를 만들어 내는 과정   예측  여러가지 입력 데이터를 주면, 데이터 분석의 결과로 다른 데이터를 출력">
+  <meta name="description" content="데이터 분석이란?  데이터 간의 관계를 사용하여 우리가 원하는 새로운 출력데이터를 만들어 내는 과정  예측  여러가지 입력 데이터를 주면, 데이터 분석의 결과로 다른 데이터를 출력">
 <meta property="og:type" content="article">
 <meta property="og:title" content="데이터 분석이란?">
 <meta property="og:url" content="https://howardhowonyu.github.io/2020/02/18/TIL-regression-analysis-2020-02-18-regression-analysis/index.html">
 <meta property="og:site_name" content="Howard&#39;s nest">
-<meta property="og:description" content="데이터 분석이란?  데이터 간의 관계를 사용하여 우리가 원하는 새로운 출력데이터를 만들어 내는 과정   예측  여러가지 입력 데이터를 주면, 데이터 분석의 결과로 다른 데이터를 출력">
+<meta property="og:description" content="데이터 분석이란?  데이터 간의 관계를 사용하여 우리가 원하는 새로운 출력데이터를 만들어 내는 과정  예측  여러가지 입력 데이터를 주면, 데이터 분석의 결과로 다른 데이터를 출력">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-18T13:09:46.000Z">
 <meta property="article:modified_time" content="2020-06-30T06:01:02.958Z">
@@ -307,53 +307,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="데이터-분석이란"><a class="markdownIt-Anchor" href="#데이터-분석이란"></a> 데이터 분석이란?</h2>
+        <h2 id="데이터-분석이란">데이터 분석이란?</h2>
 <ul>
 <li>데이터 간의 관계를 사용하여 우리가 원하는 새로운 출력데이터를 만들어 내는 과정</li>
 </ul>
-<h2 id="예측"><a class="markdownIt-Anchor" href="#예측"></a> 예측</h2>
+<h2 id="예측">예측</h2>
 <ul>
 <li>여러가지 입력 데이터를 주면, 데이터 분석의 결과로 다른 데이터를 출력</li>
 </ul>
 <a id="more"></a>
-<h2 id="입력데이터input-data-출력데이터output-data"><a class="markdownIt-Anchor" href="#입력데이터input-data-출력데이터output-data"></a> 입력데이터(input data), 출력데이터(output data)</h2>
+<h2 id="입력데이터input-data-출력데이터output-data">입력데이터(input data), 출력데이터(output data)</h2>
 <ul>
 <li>독립변수, 특징, 설명변수</li>
 <li>종속변수, 라벨, 클라스(카테고리 값)</li>
 </ul>
-<h2 id="규칙기반과-학습기반"><a class="markdownIt-Anchor" href="#규칙기반과-학습기반"></a> 규칙기반과 학습기반</h2>
+<h2 id="규칙기반과-학습기반">규칙기반과 학습기반</h2>
 <ul>
 <li>규칙기반 방법은 사람이 규칙을 미리 만들어 놓는 방법</li>
 <li>학습기반 방법은 규칙을 기계가 만들도록 하는 방법</li>
 </ul>
-<h2 id="지도학습"><a class="markdownIt-Anchor" href="#지도학습"></a> 지도학습</h2>
+<h2 id="지도학습">지도학습</h2>
 <ul>
 <li>목표값이 있어야 학습가능하기 때문에, 입력데이터에 목표값을 붙여주는 작업이 필요하고 이를 레이블링이라 한다.</li>
 <li>지도학습에서 가장 힘든 작업이 레이블링</li>
 </ul>
-<h2 id="인코딩"><a class="markdownIt-Anchor" href="#인코딩"></a> 인코딩</h2>
+<h2 id="인코딩">인코딩</h2>
 <ul>
 <li>현실의 데이터를 컴퓨터가 처리할수 있는 데이터로 바꾸는것</li>
 <li>이미지는 벡터화 시키고, 문서는 BOW방식을 사용
 <ul>
 <li>BOW(Bag of words): 특정 단어가 몇번 나왔는지를 세어 빈도를 벡터로 표시하는 방법, 단어장을 만들어 각 단어별 번호를 메긴후 문서별로 번호를 셈</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="입력차원"><a class="markdownIt-Anchor" href="#입력차원"></a> 입력차원</h2>
+<h2 id="입력차원">입력차원</h2>
 <ul>
 <li>데이터를 입력받는 구멍, 한번 정하면 바꾸기 힘듦</li>
 </ul>
-<h2 id="카테고리값"><a class="markdownIt-Anchor" href="#카테고리값"></a> 카테고리값</h2>
+<h2 id="카테고리값">카테고리값</h2>
 <ul>
 <li>범주형 값이라고 하며, 비교가 불가능한 데이터</li>
 </ul>
-<h2 id="회기분석과-분류문제"><a class="markdownIt-Anchor" href="#회기분석과-분류문제"></a> 회기분석과 분류문제</h2>
+<h2 id="회기분석과-분류문제">회기분석과 분류문제</h2>
 <ul>
 <li>회기분석은 답이 되는 숫자를 써야하는 단답형 문제를 푸는것</li>
 <li>분류 문제는 4지 선다 문제 같이 답을 정하는 것</li>
 </ul>
-<h2 id="비지도-학습"><a class="markdownIt-Anchor" href="#비지도-학습"></a> 비지도 학습</h2>
+<h2 id="비지도-학습">비지도 학습</h2>
 <ul>
 <li>지도학습을 제외한 모든 머신러닝 방식</li>
 <li>클러스터링 : 비슷한 데이터를 같은 그룹으로 모으는것</li>
@@ -451,7 +450,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#데이터-분석이란"><span class="nav-number">1.</span> <span class="nav-text"> 데이터 분석이란?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#예측"><span class="nav-number">2.</span> <span class="nav-text"> 예측</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#입력데이터input-data-출력데이터output-data"><span class="nav-number">3.</span> <span class="nav-text"> 입력데이터(input data), 출력데이터(output data)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#규칙기반과-학습기반"><span class="nav-number">4.</span> <span class="nav-text"> 규칙기반과 학습기반</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#지도학습"><span class="nav-number">5.</span> <span class="nav-text"> 지도학습</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#인코딩"><span class="nav-number">6.</span> <span class="nav-text"> 인코딩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#입력차원"><span class="nav-number">7.</span> <span class="nav-text"> 입력차원</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#카테고리값"><span class="nav-number">8.</span> <span class="nav-text"> 카테고리값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#회기분석과-분류문제"><span class="nav-number">9.</span> <span class="nav-text"> 회기분석과 분류문제</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#비지도-학습"><span class="nav-number">10.</span> <span class="nav-text"> 비지도 학습</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#데이터-분석이란"><span class="nav-number">1.</span> <span class="nav-text">데이터 분석이란?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#예측"><span class="nav-number">2.</span> <span class="nav-text">예측</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#입력데이터input-data-출력데이터output-data"><span class="nav-number">3.</span> <span class="nav-text">입력데이터(input data), 출력데이터(output data)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#규칙기반과-학습기반"><span class="nav-number">4.</span> <span class="nav-text">규칙기반과 학습기반</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#지도학습"><span class="nav-number">5.</span> <span class="nav-text">지도학습</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#인코딩"><span class="nav-number">6.</span> <span class="nav-text">인코딩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#입력차원"><span class="nav-number">7.</span> <span class="nav-text">입력차원</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#카테고리값"><span class="nav-number">8.</span> <span class="nav-text">카테고리값</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#회기분석과-분류문제"><span class="nav-number">9.</span> <span class="nav-text">회기분석과 분류문제</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#비지도-학습"><span class="nav-number">10.</span> <span class="nav-text">비지도 학습</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

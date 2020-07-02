@@ -279,7 +279,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="pcaprincipal-component-analysis"><a class="markdownIt-Anchor" href="#pcaprincipal-component-analysis"></a> PCA(Principal Component Analysis)</h2>
+          <h2 id="pcaprincipal-component-analysis">PCA(Principal Component Analysis)</h2>
 <ul>
 <li>주성분 분석</li>
 <li>차원축소와 투영 == 특이분해의 로우-랭크 근사문제</li>
@@ -376,8 +376,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="데이터-타입"><a class="markdownIt-Anchor" href="#데이터-타입"></a> 데이터 타입</h1>
-<p>RAM 저장공간을 효율적으로 사용하기 위해 저장공간의 타입을 설정합니다.</p>
+          <h1 id="데이터-타입">데이터 타입</h1>
+<p>RAM 저장공간을 효율적으로 사용하기 위해 저장공간의 타입을 설정합니다.
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/01/29/python-2020-01-29-python-basic-syntax02-md/#more" rel="contents">
@@ -387,7 +387,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
 
     
     
@@ -463,22 +463,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="linear-algebra"><a class="markdownIt-Anchor" href="#linear-algebra"></a> linear-algebra</h2>
+          <h2 id="linear-algebra">linear-algebra</h2>
 <ul>
 <li>고유값 분해</li>
 <li>특이값 분해
 <ul>
 <li>사진 손실 압축 방식에 활용</li>
-</ul>
-</li>
+</ul></li>
 <li>PCA 분석
 <ul>
 <li>데이터가 움직이는 경향을 찾는다</li>
 <li>보스턴 집값 분석 : 데이터 별로 크기가 상이하기 떄문에, sclae맞춰주고 PCA분석</li>
 <li>올리베티 얼굴 : 주성분에 따라, 사진이 다르게 변화함</li>
 <li>주식가격의 PCA</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
       
@@ -569,21 +567,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="두-정수-a-b가-주어졌을-때-a와-b-사이에-속한-모든-정수의-합을-리턴하는-함수-solution을-완성하세요"><a class="markdownIt-Anchor" href="#두-정수-a-b가-주어졌을-때-a와-b-사이에-속한-모든-정수의-합을-리턴하는-함수-solution을-완성하세요"></a> 두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요.</h4>
+          <h4 id="두-정수-a-b가-주어졌을-때-a와-b-사이에-속한-모든-정수의-합을-리턴하는-함수-solution을-완성하세요.">두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요.</h4>
 <ul>
-<li>
-<p>예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.</p>
-</li>
-<li>
-<p>제한 조건</p>
+<li><p>예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.</p></li>
+<li>제한 조건
 <ul>
 <li>a와 b가 같은 경우는 둘 중 아무 수나 리턴하세요.</li>
 <li>a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.</li>
 <li>a와 b의 대소관계는 정해져있지 않습니다.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="해답"><a class="markdownIt-Anchor" href="#해답"></a> 해답</h4>
+<h4 id="해답">해답</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> a &gt; b: </span><br><span class="line">        a,b = b,a</span><br><span class="line">    <span class="comment"># a가 b보다 큰경우 두 값을 바꿔줬습니다.</span></span><br><span class="line">    <span class="keyword">return</span> sum(list(range(a,b+<span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
 
       
@@ -674,7 +668,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="주석comment과-출력print"><a class="markdownIt-Anchor" href="#주석comment과-출력print"></a> 주석(comment)과 출력(print)</h1>
+          <h1 id="주석comment과-출력print">주석(comment)과 출력(print)</h1>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/01/28/python-2020-01-28-python-basic-syntax/#more" rel="contents">
@@ -760,7 +754,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="essence-of-linear-algebra-by-3blue1brown-part2"><a class="markdownIt-Anchor" href="#essence-of-linear-algebra-by-3blue1brown-part2"></a> Essence of linear algebra by 3blue1brown / Part.2</h2>
+          <h2 id="essence-of-linear-algebra-by-3blue1brown-part.2">Essence of linear algebra by 3blue1brown / Part.2</h2>
 <ul>
 <li>크래머 공식 : 왜 전체 행렬의 행렬식 / 특정 행렬의 행렬식이 성립되는지.</li>
 <li>선형대수학의 범용성 : 선형대수학의 실수배와 합의 &quot;8가지 공리&quot;만 만족하면 어떤 형테는 벡터로 취급할수 있다.</li>
@@ -774,21 +768,18 @@
 <li>고유값의 개수와 행렬식, 대각식의 연관</li>
 <li>대각화</li>
 <li>분산 행렬</li>
-</ul>
-</li>
+</ul></li>
 <li>특이값 분해
 <ul>
 <li>특이값 분해 행렬의 크기</li>
 <li>특이값 분해의 축소형</li>
-</ul>
-</li>
+</ul></li>
 <li>1차원 근사</li>
 <li>벡터w와 점ai들 과의 거리 구하는 방법</li>
 <li>k차원 근사
 <ul>
 <li>1차원 근사에서 확장한 개념</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
       
@@ -868,7 +859,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="essence-of-linear-algebra-by-3blue1brown"><a class="markdownIt-Anchor" href="#essence-of-linear-algebra-by-3blue1brown"></a> Essence of linear algebra by 3blue1brown</h2>
+          <h2 id="essence-of-linear-algebra-by-3blue1brown">Essence of linear algebra by 3blue1brown</h2>
 <ul>
 <li>Vector</li>
 <li>Span</li>
