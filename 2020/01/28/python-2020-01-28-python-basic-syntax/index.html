@@ -296,41 +296,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="주석comment과-출력print"><a class="markdownIt-Anchor" href="#주석comment과-출력print"></a> 주석(comment)과 출력(print)</h1>
+        <h1 id="주석comment과-출력print">주석(comment)과 출력(print)</h1>
 <a id="more"></a>
-<p>#을 붙이면 코드로 실행이 안됩니다. 코드에 대한 설명, 혹은 중간에 코드를 실행시키고 싶지 않을때 사용합니다.<br>
-해당 라인에 커서를 옮기고, cmd(ctrl) + / 키를 누르면 주석처리 할수 있습니다.</p>
-<pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  1,3을 출력하는 코드</span></span><br><span class="line">print(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># print(2)</span></span><br><span class="line">print(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"><span class="comment"># 3</span></span><br></pre></td></tr></table></figure>
-</code></pre>
+<p>#을 붙이면 코드로 실행이 안됩니다. 코드에 대한 설명, 혹은 중간에 코드를 실행시키고 싶지 않을때 사용합니다. 해당 라인에 커서를 옮기고, cmd(ctrl) + / 키를 누르면 주석처리 할수 있습니다.</p>
+<pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  1,3을 출력하는 코드</span></span><br><span class="line">print(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># print(2)</span></span><br><span class="line">print(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"><span class="comment"># 3</span></span><br></pre></td></tr></table></figure></code></pre>
 <blockquote>
 <p><strong>print( )</strong> : 값을 출력할때 사용합니다</p>
 </blockquote>
-<pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">print(b)</span><br><span class="line">c = <span class="number">3</span></span><br><span class="line">b = <span class="number">4</span></span><br><span class="line">print(b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="comment"># 4</span></span><br></pre></td></tr></table></figure>
-</code></pre>
+<pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">print(b)</span><br><span class="line">c = <span class="number">3</span></span><br><span class="line">b = <span class="number">4</span></span><br><span class="line">print(b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="comment"># 4</span></span><br></pre></td></tr></table></figure></code></pre>
 <blockquote>
 <p><strong>print( )</strong> 함수 옵션</p>
 </blockquote>
-<pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">1</span>,<span class="number">2</span>,sep = <span class="string">'-'</span>, end = <span class="string">'\t'</span>)</span><br><span class="line">print(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#1-2	3</span></span><br></pre></td></tr></table></figure>
-</code></pre>
-<p>alt+tab 키를 눌러 docstring을 확인합니다.<br>
-docsting : 함수에 대한 설명서 개념입니다. 함수를 만들때 추가하여 활용할수 있습니다.<br>
-sep : 각 출력 결과물을 '-'로 구분하라는 뜻입니다.<br>
-end : 출력후 끝에 tab키를 추가하라라는 뜻입니다.</p>
-<h1 id="변수-선언"><a class="markdownIt-Anchor" href="#변수-선언"></a> 변수 선언</h1>
+<pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">1</span>,<span class="number">2</span>,sep = <span class="string">'-'</span>, end = <span class="string">'\t'</span>)</span><br><span class="line">print(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#1-2	3</span></span><br></pre></td></tr></table></figure></code></pre>
+<p>alt+tab 키를 눌러 docstring을 확인합니다. docsting : 함수에 대한 설명서 개념입니다. 함수를 만들때 추가하여 활용할수 있습니다. sep : 각 출력 결과물을 '-'로 구분하라는 뜻입니다. end : 출력후 끝에 tab키를 추가하라라는 뜻입니다.</p>
+<h1 id="변수-선언">변수 선언</h1>
 <p>RAM 저장공간에 값을 할당하는 행위입니다.</p>
-<pre><code><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre&gt;</span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">c = a + b</span><br><span class="line">c</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line">&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
-</code></pre>
-<h1 id="식별자"><a class="markdownIt-Anchor" href="#식별자"></a> 식별자</h1>
-<p>변수, 함수, 클래스, 모듈등의 &quot;이름&quot;을 식별자 라고 합니다.<br>
-식별자를 만드는 데는 규칙이 존재합니다.</p>
-<ol>
-<li>소문자, 대문자, 숫자, _,등을 사용합니다.</li>
-<li>가장 앞에 숫자 사용 불가합니다.</li>
-<li>예약어는 사용 불가 합니다. 예) def,class,try,except,…</li>
-<li>컨벤션을 지켜야 합니다. 이름만 보고 변수, 함수, 클래스를 구분할수 있게 하기 위해 알맞은 식별자를 지정해 줘야 합니다.<br>
-snake case : fast_campus : 변수, 함수<br>
-camel case : FastCampus, fastCampus : 클래스</li>
-</ol>
+<pre><code><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre&gt;</span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">c = a + b</span><br><span class="line">c</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line">&lt;/pre&gt;</span><br></pre></td></tr></table></figure></code></pre>
+<h1 id="식별자">식별자</h1>
+<p>변수, 함수, 클래스, 모듈등의 "이름"을 식별자 라고 합니다. 식별자를 만드는 데는 규칙이 존재합니다. 1. 소문자, 대문자, 숫자, _,등을 사용합니다. 2. 가장 앞에 숫자 사용 불가합니다. 3. 예약어는 사용 불가 합니다. 예) def,class,try,except,... 4. 컨벤션을 지켜야 합니다. 이름만 보고 변수, 함수, 클래스를 구분할수 있게 하기 위해 알맞은 식별자를 지정해 줘야 합니다. snake case : fast_campus : 변수, 함수 camel case : FastCampus, fastCampus : 클래스</p>
 
     </div>
 
@@ -424,7 +407,7 @@ camel case : FastCampus, fastCampus : 클래스</li>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#주석comment과-출력print"><span class="nav-number">1.</span> <span class="nav-text"> 주석(comment)과 출력(print)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#변수-선언"><span class="nav-number">2.</span> <span class="nav-text"> 변수 선언</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#식별자"><span class="nav-number">3.</span> <span class="nav-text"> 식별자</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#주석comment과-출력print"><span class="nav-number">1.</span> <span class="nav-text">주석(comment)과 출력(print)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#변수-선언"><span class="nav-number">2.</span> <span class="nav-text">변수 선언</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#식별자"><span class="nav-number">3.</span> <span class="nav-text">식별자</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

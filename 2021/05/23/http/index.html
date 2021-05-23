@@ -278,19 +278,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="http-hypertext-tranfer-protocol"><a class="markdownIt-Anchor" href="#http-hypertext-tranfer-protocol"></a> HTTP (HyperText Tranfer Protocol)?</h1>
+        <h1 id="http-hypertext-tranfer-protocol">HTTP (HyperText Tranfer Protocol)?</h1>
 <ul>
 <li>하이퍼텍스트를 교환하기 위한 프로토콜(TCP, SMTP과 같이 서버와 클라이언트 사이에서 어떻게 정보를 교환할지 정해놓은 규약의 일종)</li>
 <li>80번 포트를 사용</li>
 <li>Request(요청), Response(응답)으로 구성</li>
-<li>작성중</li>
+<li>작성중 <a id="more"></a></li>
 </ul>
-<a id="more"></a>
-<h2 id="http의-동작-방식"><a class="markdownIt-Anchor" href="#http의-동작-방식"></a> HTTP의 동작 방식</h2>
+<h2 id="http의-동작-방식">HTTP의 동작 방식</h2>
 <ul>
 <li>클라이언트가 서버로 요청 -&gt; 서버가 응답</li>
 </ul>
-<h2 id="http-reqeust-메시지-종류"><a class="markdownIt-Anchor" href="#http-reqeust-메시지-종류"></a> HTTP Reqeust 메시지 종류</h2>
+<h2 id="http-reqeust-메시지-종류">HTTP Reqeust 메시지 종류</h2>
 <ul>
 <li>GET : URL에 해당하는 자료의 전송을 요청</li>
 <li>POST : 서버에서 처리될 자료를 보내는 요청(게시글 작성 등)</li>
@@ -302,15 +301,15 @@
 <li>HEAD : GET 요청을 했을떄 반환되는 데이터중 헤더부분만 요청</li>
 <li>OPRIONS : 지원하는 요청 메세지의 목록을 요청</li>
 </ul>
-<h2 id="url-uri"><a class="markdownIt-Anchor" href="#url-uri"></a> URL? URI?</h2>
+<h2 id="url-uri">URL? URI?</h2>
 <ul>
 <li>URI : Uniform Resource Identifier</li>
 <li>URL : Uniform Resource Locator</li>
 <li>웹이라는 세계의 주소 체계. 웹은 수많은 파일이 연결되어 있는 공간인데, 이 수많은 파일을 구분하는 구분자.</li>
 <li>URI &gt; URL : URI가 좀더 포괄 적인 명칭</li>
-<li><a href="https://howardhowonyu.github.io/post">https://howardhowonyu.github.io/post</a> 까지는 url이라고 볼수 있고 특정 포스트에 접근하기 위해 /page=3 등을 추가하게 되면 이는 고유한 식별자이기 떄문에 URI로 볼수 있다(그래서 S3object는 URI라고 표현 하는 듯)</li>
+<li>https://howardhowonyu.github.io/post 까지는 url이라고 볼수 있고 특정 포스트에 접근하기 위해 /page=3 등을 추가하게 되면 이는 고유한 식별자이기 떄문에 URI로 볼수 있다(그래서 S3object는 URI라고 표현 하는 듯)</li>
 </ul>
-<h2 id="http-1x"><a class="markdownIt-Anchor" href="#http-1x"></a> HTTP 1.x</h2>
+<h2 id="http-1.x">HTTP 1.x</h2>
 <ul>
 <li>HTTP 1.0은 요청을 보낼떄 마다 연결을 했다가 끊는 작업을 반복</li>
 <li>HTTP 1.1에서 keepalive 기능을 추가하여, 연결을 한번 수립하면, 데이터 교환이 끝날떄 까지 연결을 유지하고 데이터 교환이 끊나면 연결을 끊기 떄문에 속도 개선.</li>
@@ -319,31 +318,30 @@
 <li>HTTP는 기본적으로 TCP 상에서 동작하기 떄문에, 3-way Handshake가 반복적으로 일어남</li>
 <li>Header에 많은 정보를 실어서 요청 해야 함(user-agent 등)</li>
 </ul>
-<h2 id="http11의-속도-개선을-위한-노력들"><a class="markdownIt-Anchor" href="#http11의-속도-개선을-위한-노력들"></a> HTTP/1.1의 속도 개선을 위한 노력들</h2>
+<h2 id="http1.1의-속도-개선을-위한-노력들">HTTP/1.1의 속도 개선을 위한 노력들</h2>
 <ul>
 <li>Image Spriting : 웹페이지 안에 들어가는 많은 아이콘을 하나의 큰 이미지로 만들고, CSS로 해당 아이콘의 좌표값을 지정해 표시 하는 방식, 이렇게 하면 큰 이미지 라도 한번만 요청할수 있으므로 속도에서 이득</li>
 <li>HYML, CSS, JavaScript의 코드를 축소하여 전송</li>
 <li>Data URI Scheme : 이미지 리소스를 Base64로 인코딩하여, text의 형태로 전송</li>
 </ul>
-<h2 id="http-20"><a class="markdownIt-Anchor" href="#http-20"></a> HTTP 2.0</h2>
+<h2 id="http-2.0">HTTP 2.0</h2>
 <ul>
 <li>SPDY(구글의 비표준 개방형 네트워크 프로토콜)에 기반, HTTP를 완전 대체하는 프로토콜은 아니고, HTTP 전송을 재정의하는 방식</li>
 <li>Multiplexed Streams : HTTP의 keepalive를 개선하여, 한 커넥션으로 동시에 여러개의 메세지를 주고 받고, 응답은 순서에 상관없음.</li>
 <li>Stream Prioritization : 클라이언트가 요청한 HTML 문서안에 무거운 이미지 파일이 존재하고, 이 파일이 다른 CSS파일등보다 수신이 늦어지는 경우, 리소스간의 우선순위를 설정하여 이를 해결하고 있다.</li>
-<li>Server Push : 서버에서 클라이언트가 요청하지 않아도 리소스를 보낼수 있다. 클라이언트가 요청한 HTML 문서에서 페이지를 띄우는데 필요한 리소스(이미지)가 존재하는 경우, 클라이언트는 이 HTML문서를 수신한후 해석하면서 필요한 리소스를 재 요청 한다. 하지만 HTTP 2.0에선, 'server’가 HTML에 포함된 리소스도 함께 'push’함으로서 클라이언트의 요청을 최소화 한다. 이를 Push Promise라고 부르며, 이와같이 서버에서 클라이언트로 전달한 리소스에 대해서 클라이언트는 다시 요청하지 않는다.</li>
+<li>Server Push : 서버에서 클라이언트가 요청하지 않아도 리소스를 보낼수 있다. 클라이언트가 요청한 HTML 문서에서 페이지를 띄우는데 필요한 리소스(이미지)가 존재하는 경우, 클라이언트는 이 HTML문서를 수신한후 해석하면서 필요한 리소스를 재 요청 한다. 하지만 HTTP 2.0에선, 'server'가 HTML에 포함된 리소스도 함께 'push'함으로서 클라이언트의 요청을 최소화 한다. 이를 Push Promise라고 부르며, 이와같이 서버에서 클라이언트로 전달한 리소스에 대해서 클라이언트는 다시 요청하지 않는다.</li>
 <li>Header Compression : 앞서 말했듯 HTTP 1.1은 상당히 큰 헤더를 가지고 있다. HTTP 2.0에서는 헤더에 중복값이 존재하는 경우, 이를 제외한 값만 전송(Static/Dynamic Header Table 기법)하고, 이 값마저 Huffman Encoding 기법으로 인코딩하여 압축하여 전송한다. 이를 HPACK압축 방식이라고 부른다.</li>
 </ul>
-<h2 id="http-30"><a class="markdownIt-Anchor" href="#http-30"></a> HTTP 3.0?</h2>
+<h2 id="http-3.0">HTTP 3.0?</h2>
 <ul>
-<li>UDP 기반<br>
-<span class="exturl" data-url="aHR0cHM6Ly9ldmFuLW1vb24uZ2l0aHViLmlvLzIwMTkvMTAvMDgvd2hhdC1pcy1odHRwMy8=" title="https://evan-moon.github.io/2019/10/08/what-is-http3/">https://evan-moon.github.io/2019/10/08/what-is-http3/<i class="fa fa-external-link"></i></span></li>
+<li>UDP 기반 https://evan-moon.github.io/2019/10/08/what-is-http3/</li>
 </ul>
-<h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zbWFydHNoay50aXN0b3J5LmNvbS8y" title="https://smartshk.tistory.com/2">https://smartshk.tistory.com/2<i class="fa fa-external-link"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLmdvb2dsZS5jb20vd2ViL2Z1bmRhbWVudGFscy9wZXJmb3JtYW5jZS9odHRwMj9obD1rbw==" title="https://developers.google.com/web/fundamentals/performance/http2?hl=ko">https://developers.google.com/web/fundamentals/performance/http2?hl=ko<i class="fa fa-external-link"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucG9waXQua3IvJUVCJTgyJTk4JUVCJUE3JThDLSVFQiVBQSVBOCVFQiVBNSVCNCVFQSVCMyVBMC0lRUMlOUUlODglRUIlOEQlOTgtaHR0cDIv" title="https://www.popit.kr/%EB%82%98%EB%A7%8C-%EB%AA%A8%EB%A5%B4%EA%B3%A0-%EC%9E%88%EB%8D%98-http2/">https://www.popit.kr/나만-모르고-있던-http2/<i class="fa fa-external-link"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmV0dGVyd2ViLm9yLmtyL2Jsb2cvdXJsJUVDJTlEJUI0JUVCJTlFJTgwLw==" title="https://www.betterweb.or.kr/blog/url%EC%9D%B4%EB%9E%80/">https://www.betterweb.or.kr/blog/url이란/<i class="fa fa-external-link"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9wcm9ncmFtbWluZzExOS50aXN0b3J5LmNvbS8xOTQ=" title="https://programming119.tistory.com/194">https://programming119.tistory.com/194<i class="fa fa-external-link"></i></span></p>
+<h2 id="reference">Reference</h2>
+<p>https://smartshk.tistory.com/2</p>
+<p>https://developers.google.com/web/fundamentals/performance/http2?hl=ko</p>
+<p>https://www.popit.kr/%EB%82%98%EB%A7%8C-%EB%AA%A8%EB%A5%B4%EA%B3%A0-%EC%9E%88%EB%8D%98-http2/</p>
+<p>https://www.betterweb.or.kr/blog/url%EC%9D%B4%EB%9E%80/</p>
+<p>https://programming119.tistory.com/194</p>
 <p>모두의 네트워크</p>
 
     </div>
@@ -434,7 +432,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#http-hypertext-tranfer-protocol"><span class="nav-number">1.</span> <span class="nav-text"> HTTP (HyperText Tranfer Protocol)?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http의-동작-방식"><span class="nav-number">1.1.</span> <span class="nav-text"> HTTP의 동작 방식</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-reqeust-메시지-종류"><span class="nav-number">1.2.</span> <span class="nav-text"> HTTP Reqeust 메시지 종류</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#url-uri"><span class="nav-number">1.3.</span> <span class="nav-text"> URL? URI?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-1x"><span class="nav-number">1.4.</span> <span class="nav-text"> HTTP 1.x</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http11의-속도-개선을-위한-노력들"><span class="nav-number">1.5.</span> <span class="nav-text"> HTTP&#x2F;1.1의 속도 개선을 위한 노력들</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-20"><span class="nav-number">1.6.</span> <span class="nav-text"> HTTP 2.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-30"><span class="nav-number">1.7.</span> <span class="nav-text"> HTTP 3.0?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">1.8.</span> <span class="nav-text"> Reference</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#http-hypertext-tranfer-protocol"><span class="nav-number">1.</span> <span class="nav-text">HTTP (HyperText Tranfer Protocol)?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http의-동작-방식"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP의 동작 방식</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-reqeust-메시지-종류"><span class="nav-number">1.2.</span> <span class="nav-text">HTTP Reqeust 메시지 종류</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#url-uri"><span class="nav-number">1.3.</span> <span class="nav-text">URL? URI?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-1.x"><span class="nav-number">1.4.</span> <span class="nav-text">HTTP 1.x</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http1.1의-속도-개선을-위한-노력들"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP&#x2F;1.1의 속도 개선을 위한 노력들</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-2.0"><span class="nav-number">1.6.</span> <span class="nav-text">HTTP 2.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-3.0"><span class="nav-number">1.7.</span> <span class="nav-text">HTTP 3.0?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">1.8.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
