@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="PuabxBMO8NRn3Cqf2FJ5ojfaEm9Y2HledT8S-2IGNoI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
+    <script>
+      var url = window.location.href;     // Returns full URL
+      if(!url.includes("localhost:4000")){
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-134152064-2');
+          }
+    </script>
+
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://howardhowonyu.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: true,
+    sidebar: {"position":"left","width":230,"display":"always","padding":10,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="컬렉션 데이터 타입 컬렉션 데이터 타입에는 list, tuple, dict등이 있습니다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="파이썬 기본 문법_03">
+<meta property="og:url" content="https://howardhowonyu.github.io/2020/01/31/python-2020-01-31-python-basic-syntax03-md/index.html">
+<meta property="og:site_name" content="Howard&#39;s nest">
+<meta property="og:description" content="컬렉션 데이터 타입 컬렉션 데이터 타입에는 list, tuple, dict등이 있습니다.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-31T12:10:48.000Z">
+<meta property="article:modified_time" content="2020-02-23T07:40:42.000Z">
+<meta property="article:author" content="Howard Howon Yu">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="컬렉션 데이터 타입">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://howardhowonyu.github.io/2020/01/31/python-2020-01-31-python-basic-syntax03-md/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>파이썬 기본 문법_03 | Howard's nest</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-134152064-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Howard's nest" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Howard's nest</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/01/31/python-2020-01-31-python-basic-syntax03-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          파이썬 기본 문법_03
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-31 21:10:48" itemprop="dateCreated datePublished" datetime="2020-01-31T21:10:48+09:00">2020-01-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-23 16:40:42" itemprop="dateModified" datetime="2020-02-23T16:40:42+09:00">2020-02-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/01/31/python-2020-01-31-python-basic-syntax03-md/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/31/python-2020-01-31-python-basic-syntax03-md/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="컬렉션-데이터-타입"><a class="markdownIt-Anchor" href="#컬렉션-데이터-타입"></a> 컬렉션 데이터 타입</h1>
+<p>컬렉션 데이터 타입에는 list, tuple, dict등이 있습니다.</p>
+<a id="more"></a>
+<h2 id="리스트list-"><a class="markdownIt-Anchor" href="#리스트list-"></a> 리스트(list) - [ ]</h2>
+<p>&quot;순서&quot;가 있는 수정이 가능한 데이터 타입 입니다.</p>
+<h4 id="리스트-자료형의-매서드"><a class="markdownIt-Anchor" href="#리스트-자료형의-매서드"></a> 리스트 자료형의 매서드</h4>
+<blockquote>
+<p><strong>.append( ): 리스트의 맨 뒤에 값을 추가</strong><br>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">ls.append(<span class="number">3</span>)</span><br><span class="line">print(ls)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1,4,2,4,3</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p><strong>.sort( ) : 오름차순으로 정렬</strong><br>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ls.sort()</span><br><span class="line"><span class="comment"># 내림차순 정렬</span></span><br><span class="line">ls[::<span class="number">-1</span>]</span><br><span class="line">ls.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5,4,3,2,1</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p><strong>.pop( ) : 맨 뒤의 값을 떼어냄</strong><br>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num = ls.pop()  <span class="comment"># 리스트 맨뒤의값 떼어내는 함수</span></span><br><span class="line">print(num, ls)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1, [5,4,3,2]</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="깊은-복사-vs-얕은-복사"><a class="markdownIt-Anchor" href="#깊은-복사-vs-얕은-복사"></a> 깊은 복사 vs 얕은 복사</h4>
+<blockquote>
+<p><strong>얕은 복사</strong><br>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ls1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">ls2 = ls1 </span><br><span class="line">print(ls1, ls2)</span><br><span class="line"><span class="comment"># [1,2,3],[1,2,3]</span></span><br><span class="line">ls1[<span class="number">2</span>] = <span class="number">5</span></span><br><span class="line"><span class="comment"># [1,2,5],[1,2,5]</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p><strong>깊은 복사</strong><br>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ls3 = ls1.copy()</span><br><span class="line"><span class="comment"># 새로운 저장공간을 만들어서 ls1에 들어있던 [1,2,5]를 ls3 에 저장 : 깊은 복사</span></span><br><span class="line">ls1, ls3</span><br><span class="line"><span class="comment"># [1,2,3],[1,2,3]</span></span><br><span class="line">ls1[<span class="number">2</span>] = <span class="number">10</span></span><br><span class="line">ls1, ls3</span><br><span class="line"><span class="comment"># [1,2,10],[1,2,5]</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="튜블tuple-"><a class="markdownIt-Anchor" href="#튜블tuple-"></a> 튜블(tuple) - ( )</h3>
+<p>순서가 있는 수정이 불가능한 데이터 타입 입니다.<br>
+튜플은 리스트 보다 같은 데이터를 가졌을때 공간을 적게 사용<br>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tp1 = <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></span><br><span class="line">tp2 = (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br><span class="line"><span class="comment">#괄호가 없어도 가능</span></span><br><span class="line">print(type(tp1), type(tp2), tp1, tp2)</span><br><span class="line"><span class="comment"># &lt;class 'tuple'&gt;, &lt;class 'tuple'&gt;, (1, 2, 3), (4, 5, 6)</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="offset-index"><a class="markdownIt-Anchor" href="#offset-index"></a> <em>Offset index</em></h2>
+<p>데이터에서 특정 위치의 데이터를 출력할때 사용합니다. 마스크, 혹은 마스킹 이라고도 합니다.</p>
+<pre><code>[idx] : idx 위치 데이터를 출력합니다. (인덱스는 0부터 시작)
+[start:end] : start에서 end까지 출력(end는 미포함)
+[start:end:stride] : stride만큼씩 점프하여 출력
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">g = <span class="string">"abcdefg"</span></span><br><span class="line">g[<span class="number">2</span>], g[<span class="number">-2</span>], g[<span class="number">2</span>:<span class="number">5</span>], g[:<span class="number">2</span>], g[<span class="number">3</span>:], g[<span class="number">-2</span>:], g[::<span class="number">3</span>], g[::<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 'c', 'f', 'cde', 'ab', 'defg', 'fg', 'adg', 'gfedcba'</span></span><br><span class="line"></span><br><span class="line">numbers = <span class="string">"123456789"</span>  <span class="comment"># 97531로 출력하고자 한다면</span></span><br><span class="line">numbers[::<span class="number">2</span>][::<span class="number">-1</span>] <span class="comment"># [::-1]은 역수</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 97531</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="딕셔너리dict-"><a class="markdownIt-Anchor" href="#딕셔너리dict-"></a> 딕셔너리(dict) - { }</h2>
+<p>순서가 없고, key : value 로 구성되어 있는 데이터 타입입니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 선언 : 키는 정수(실수도 가능), 문자열 데이터 타입만 사용이 가능</span></span><br><span class="line">dic = &#123;</span><br><span class="line">    <span class="number">1</span>: <span class="string">"one"</span>,</span><br><span class="line">    <span class="string">"two"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">"three"</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">&#125;</span><br><span class="line">print(dic)</span><br><span class="line"><span class="comment"># &#123;1: 'one', 'two': 2, 'three': [1, 2, 3]&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dic[<span class="number">1</span>], dic[<span class="string">"three"</span>]  <span class="comment"># 인덱스로는 못부름, 키를 정확히 입력해야 값을 찾을수 있음</span></span><br><span class="line">dic[<span class="string">"four"</span>] = <span class="number">1234</span>  <span class="comment"># 키로 찾아서 새로운 값을 넣어줌,혹은 새로운 키값에 밸류 추가 가능</span></span><br><span class="line">print(dic)</span><br><span class="line"><span class="comment"># &#123;1: 'one', 'two': 2, 'three': [1, 2, 3], 'four': 1234&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="형변환"><a class="markdownIt-Anchor" href="#형변환"></a> 형변환</h2>
+<p>이미 변수에 설정된 데이터 타입을 변경하는 행위입니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="string">"2"</span></span><br><span class="line">print(a + int(b))</span><br><span class="line">print(str(a) + b)</span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"><span class="comment"># 12</span></span><br></pre></td></tr></table></figure>
+<h2 id="연산자"><a class="markdownIt-Anchor" href="#연산자"></a> 연산자</h2>
+<blockquote>
+<p>산술연산자 : +, -, *, /, //(몫), %(나머지), **</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="number">1</span> + <span class="number">4</span> / <span class="number">2</span> ** <span class="number">2</span></span><br><span class="line">print(b)</span><br><span class="line"><span class="comment"># 2.0</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>할당연산자 : 변수에 누적시켜서 연산 : +=, //=, **=, …</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">10</span></span><br><span class="line">a = a + <span class="number">10</span></span><br><span class="line">a = a + <span class="number">10</span></span><br><span class="line">a += <span class="number">10</span></span><br><span class="line">a += <span class="number">10</span></span><br><span class="line">print(a)</span><br><span class="line"><span class="comment"># 50</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>비교연산자 : &gt;, &lt;, ==, !=, &lt;=, &gt;= : 결과로 True,False</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(a, b)</span><br><span class="line">print(a &lt; b, a == b, a != b)</span><br><span class="line"><span class="comment"># 50, 2.0</span></span><br><span class="line"><span class="comment"># False, True, True</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>논리연산자 : True,False 를 연산 : or,and,not</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 논리연산</span></span><br><span class="line"><span class="literal">True</span> <span class="keyword">and</span> <span class="literal">False</span>, <span class="literal">True</span> <span class="keyword">or</span> <span class="literal">False</span>, <span class="keyword">not</span> (</span><br><span class="line">    <span class="literal">True</span> <span class="keyword">or</span> <span class="literal">True</span>), <span class="keyword">not</span> <span class="literal">True</span> <span class="keyword">or</span> <span class="literal">True</span>  <span class="comment"># 왼쪽부터 연산. 괄호안 먼저</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># (False, True, False, True)</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>멤버연산자 : 특정 데이터가 있는지 확인할때 사용 : not in, in</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 멤버연산</span></span><br><span class="line">ls = [<span class="string">"jin"</span>, <span class="string">"andy"</span>, <span class="string">"john"</span>]</span><br><span class="line"><span class="string">"andy"</span> <span class="keyword">in</span> ls  <span class="comment"># andy가 ls에 있냐?</span></span><br><span class="line"><span class="comment"># True</span></span><br><span class="line"><span class="string">"howard"</span> <span class="keyword">in</span> ls  <span class="comment"># howard가 ls에 있냐?</span></span><br><span class="line"><span class="comment"># False</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>연산자 우선순위 : 산술 &gt; 비교 &gt; 멤버 &gt; 논리</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%EC%BB%AC%EB%A0%89%EC%85%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85/" rel="tag"># 컬렉션 데이터 타입</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/31/TIL-mathematics-2020-01-31-optimization-md/" rel="prev" title="최적화 문제란?">
+      <i class="fa fa-chevron-left"></i> 최적화 문제란?
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/01/TIL-mathematics-2020-02-01-set-md/" rel="next" title="집합">
+      집합 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#컬렉션-데이터-타입"><span class="nav-number">1.</span> <span class="nav-text"> 컬렉션 데이터 타입</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#리스트list-"><span class="nav-number">1.1.</span> <span class="nav-text"> 리스트(list) - [ ]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#리스트-자료형의-매서드"><span class="nav-number">1.1.0.1.</span> <span class="nav-text"> 리스트 자료형의 매서드</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#깊은-복사-vs-얕은-복사"><span class="nav-number">1.1.0.2.</span> <span class="nav-text"> 깊은 복사 vs 얕은 복사</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#튜블tuple-"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 튜블(tuple) - ( )</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#offset-index"><span class="nav-number">1.2.</span> <span class="nav-text"> Offset index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#딕셔너리dict-"><span class="nav-number">1.3.</span> <span class="nav-text"> 딕셔너리(dict) - { }</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#형변환"><span class="nav-number">1.4.</span> <span class="nav-text"> 형변환</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#연산자"><span class="nav-number">1.5.</span> <span class="nav-text"> 연산자</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Howard Howon Yu" src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Howard Howon Yu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hvd2FyZGhvd29ueXU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;howardhowonyu"><i class="fa fa-fw fa-github"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnlvb2hvd29uQGdtYWlsLmNvbQ==" title="E-Mail → mailto:yoohowon@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Howard Howon Yu</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://howards-nest.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://howardhowonyu.github.io/2020/01/31/python-2020-01-31-python-basic-syntax03-md/";
+    this.page.identifier = "2020/01/31/python-2020-01-31-python-basic-syntax03-md/";
+    this.page.title = "파이썬 기본 문법_03";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://howards-nest.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

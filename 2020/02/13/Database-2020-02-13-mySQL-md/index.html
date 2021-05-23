@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="PuabxBMO8NRn3Cqf2FJ5ojfaEm9Y2HledT8S-2IGNoI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
+    <script>
+      var url = window.location.href;     // Returns full URL
+      if(!url.includes("localhost:4000")){
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-134152064-2');
+          }
+    </script>
+
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://howardhowonyu.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: true,
+    sidebar: {"position":"left","width":230,"display":"always","padding":10,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="JOIN  left join 왼쪽 테이블을 기준으로 왼쪽 테이블의 모든 데이터가 출력되고 매핑되는 키값이 없으면 NULL로 출력된다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mySQL 2">
+<meta property="og:url" content="https://howardhowonyu.github.io/2020/02/13/Database-2020-02-13-mySQL-md/index.html">
+<meta property="og:site_name" content="Howard&#39;s nest">
+<meta property="og:description" content="JOIN  left join 왼쪽 테이블을 기준으로 왼쪽 테이블의 모든 데이터가 출력되고 매핑되는 키값이 없으면 NULL로 출력된다.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-13T10:11:25.000Z">
+<meta property="article:modified_time" content="2020-02-23T07:41:19.000Z">
+<meta property="article:author" content="Howard Howon Yu">
+<meta property="article:tag" content="mySQL">
+<meta property="article:tag" content="database">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://howardhowonyu.github.io/2020/02/13/Database-2020-02-13-mySQL-md/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>mySQL 2 | Howard's nest</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134152064-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-134152064-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Howard's nest" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Howard's nest</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Searching..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://howardhowonyu.github.io/2020/02/13/Database-2020-02-13-mySQL-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Howard Howon Yu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's nest">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          mySQL 2
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-13 19:11:25" itemprop="dateCreated datePublished" datetime="2020-02-13T19:11:25+09:00">2020-02-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-23 16:41:19" itemprop="dateModified" datetime="2020-02-23T16:41:19+09:00">2020-02-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">mySQL</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/02/13/Database-2020-02-13-mySQL-md/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/13/Database-2020-02-13-mySQL-md/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="join"><a class="markdownIt-Anchor" href="#join"></a> JOIN</h1>
+<h3 id="left-join"><a class="markdownIt-Anchor" href="#left-join"></a> left join</h3>
+<p>왼쪽 테이블을 기준으로 왼쪽 테이블의 모든 데이터가 출력되고 매핑되는 키값이 없으면 NULL로 출력된다.</p>
+<a id="more"></a>
+<blockquote>
+<p>두 테이블을 합쳐 id, name, addr 출력</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> addr.id ,addr.addr, <span class="keyword">IFNULL</span>(user.name,<span class="string">"-"</span>) <span class="keyword">as</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">FROM</span> addr</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">ON</span> user.user_id = addr.user_id;</span><br></pre></td></tr></table></figure>
+<h3 id="right-join"><a class="markdownIt-Anchor" href="#right-join"></a> right join</h3>
+<p>오른쪽 테이블을 기준으로 왼쪽 테이블의 모든 데이터가 출력되고 매핑되는 키값이 없으면 NULL로 출력된다.</p>
+<blockquote>
+<p>두 테이블을 합쳐 id, name, addr 출력</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> addr.id, user.name, <span class="keyword">IFNULL</span>(addr.addr,<span class="string">'='</span>) <span class="keyword">as</span> addr</span><br><span class="line"><span class="keyword">FROM</span> addr</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">ON</span> user.user_id = addr.user_id;</span><br></pre></td></tr></table></figure>
+<h3 id="unionouter-join"><a class="markdownIt-Anchor" href="#unionouter-join"></a> union(outer join)</h3>
+<p>select 문의 결과를 합쳐서 출력</p>
+<blockquote>
+<p>자동으로 중복을 제거</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span> addr</span><br><span class="line"><span class="keyword">from</span> addr;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line"><span class="keyword">select</span> addr</span><br><span class="line"><span class="keyword">from</span> addr;</span><br></pre></td></tr></table></figure>
+<h3 id="outer-join"><a class="markdownIt-Anchor" href="#outer-join"></a> outer join</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> user.name, addr.addr, addr.user_id</span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> addr</span><br><span class="line"><span class="keyword">on</span> user.user_id = addr.user_id</span><br><span class="line"><span class="keyword">union</span> </span><br><span class="line"><span class="keyword">select</span> user.name, addr.addr, addr.user_id</span><br><span class="line"><span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">right</span> <span class="keyword">join</span> addr</span><br><span class="line"><span class="keyword">on</span> user.user_id = addr.user_id;</span><br></pre></td></tr></table></figure>
+<h1 id="sub-query"><a class="markdownIt-Anchor" href="#sub-query"></a> SUB-QUERY</h1>
+<p>쿼리문 안에 쿼리가 있는 문법</p>
+<h3 id="select-from-where"><a class="markdownIt-Anchor" href="#select-from-where"></a> select, from, where</h3>
+<blockquote>
+<p>전체 나라수, 전체 도시수, 전체 언어수를 출력</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*)</span><br><span class="line"><span class="keyword">from</span> country) <span class="keyword">as</span> total_country,</span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*)</span><br><span class="line"><span class="keyword">from</span> city) <span class="keyword">as</span> total_city,</span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span>(<span class="keyword">language</span>))</span><br><span class="line"><span class="keyword">from</span> countrylanguage) <span class="keyword">as</span> total_language;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>800만 이상이 되는 도시의 국가 코드, 도시이름, 도시인구수를 출력</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	(<span class="keyword">select</span> countrycode, <span class="keyword">name</span>, population</span><br><span class="line">	<span class="keyword">from</span> city</span><br><span class="line">	<span class="keyword">where</span> population &gt;= <span class="number">8000000</span>) <span class="keyword">as</span> city</span><br><span class="line"><span class="keyword">join</span></span><br><span class="line">	(<span class="keyword">select</span> code, <span class="keyword">name</span></span><br><span class="line">	<span class="keyword">from</span> country) <span class="keyword">as</span> country</span><br><span class="line"><span class="keyword">on</span> city.countrycode = country.code;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>800만 이상 도시의 국가코드, 국가 이름, 대통령 이름 출력</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> code, <span class="keyword">name</span>, HeadOfState</span><br><span class="line"><span class="keyword">from</span> country</span><br><span class="line"><span class="keyword">where</span> code <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">distinct</span>(Countrycode)</span><br><span class="line">	<span class="keyword">from</span> city</span><br><span class="line">	<span class="keyword">where</span> population &gt;= <span class="number">8000000</span>);</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"><span class="comment"># INDEX</span></span><br><span class="line">데이터를 검색할때 바르게 찾을수 있도록 해주는 기능</span><br><span class="line">index를 해주면 <span class="keyword">insert</span>가 느려짐. 아무때나 쓰는건 아님</span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">`SQL</span></span><br><span class="line"><span class="string">use employees;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">explain</span></span><br><span class="line"><span class="string">select count(*)</span></span><br><span class="line"><span class="string">from salaries</span></span><br><span class="line"><span class="string">where to_date &gt; "2000-01-01";</span></span><br></pre></td></tr></table></figure>
+<h3 id="index-추가"><a class="markdownIt-Anchor" href="#index-추가"></a> index 추가</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> tdate</span><br><span class="line"><span class="comment">-- salaries 테이블에  to_data에 인덱스를 만든다.</span></span><br><span class="line"><span class="keyword">on</span> salaries (<span class="keyword">to_date</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="index-삭제"><a class="markdownIt-Anchor" href="#index-삭제"></a> index 삭제</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">index</span> tdate</span><br><span class="line"><span class="keyword">on</span> salaries;</span><br></pre></td></tr></table></figure>
+<h1 id="view"><a class="markdownIt-Anchor" href="#view"></a> VIEW</h1>
+<p>쿼리문에 대한 결과를 저장하는 개념</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> world;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> code_name <span class="keyword">as</span> </span><br><span class="line"><span class="keyword">select</span> code, <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> country;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>*찍어주면 code_name라는 view에서 만들어진 country.code 와 country.name을 불러줌<br>
+즉 *는 (select code, name from country) as code_name 임</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> city</span><br><span class="line"><span class="keyword">join</span> code_name</span><br><span class="line"><span class="keyword">on</span> city.countrycode = code_name.code;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mySQL/" rel="tag"># mySQL</a>
+              <a href="/tags/database/" rel="tag"># database</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/12/TIL-Database-2020-02-12-mysql-md/" rel="prev" title="mySQL 공부 퀴즈 정리">
+      <i class="fa fa-chevron-left"></i> mySQL 공부 퀴즈 정리
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/14/TIL-Database-2020-02-14-mySQL/" rel="next" title="mySQL quiz">
+      mySQL quiz <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#join"><span class="nav-number">1.</span> <span class="nav-text"> JOIN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#left-join"><span class="nav-number">1.0.1.</span> <span class="nav-text"> left join</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#right-join"><span class="nav-number">1.0.2.</span> <span class="nav-text"> right join</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unionouter-join"><span class="nav-number">1.0.3.</span> <span class="nav-text"> union(outer join)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outer-join"><span class="nav-number">1.0.4.</span> <span class="nav-text"> outer join</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#sub-query"><span class="nav-number">2.</span> <span class="nav-text"> SUB-QUERY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#select-from-where"><span class="nav-number">2.0.1.</span> <span class="nav-text"> select, from, where</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index-추가"><span class="nav-number">2.0.2.</span> <span class="nav-text"> index 추가</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index-삭제"><span class="nav-number">2.0.3.</span> <span class="nav-text"> index 삭제</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#view"><span class="nav-number">3.</span> <span class="nav-text"> VIEW</span></a></li></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Howard Howon Yu" src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Howard Howon Yu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hvd2FyZGhvd29ueXU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;howardhowonyu"><i class="fa fa-fw fa-github"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnlvb2hvd29uQGdtYWlsLmNvbQ==" title="E-Mail → mailto:yoohowon@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Howard Howon Yu</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://howards-nest.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://howardhowonyu.github.io/2020/02/13/Database-2020-02-13-mySQL-md/";
+    this.page.identifier = "2020/02/13/Database-2020-02-13-mySQL-md/";
+    this.page.title = "mySQL 2";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://howards-nest.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
