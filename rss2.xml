@@ -9,8 +9,30 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sun, 23 May 2021 13:53:30 GMT</pubDate>
+    <pubDate>Sun, 30 May 2021 15:10:33 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>http2</title>
+      <link>https://howardhowonyu.github.io/2021/05/30/http2/</link>
+      <guid>https://howardhowonyu.github.io/2021/05/30/http2/</guid>
+      <pubDate>Sun, 30 May 2021 13:43:01 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h2 id=&quot;http-메세지-메시지-바디&quot;&gt;HTTP 메세지, 메시지 바디?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;요청하는 측(클라이언트)에서 보내는 HTTP 메세지를 &quot;Request message&quot;, 요청을 받는 측에서 보내는 메세지를 &quot;Response mess
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h2 id="http-메세지-메시지-바디">HTTP 메세지, 메시지 바디?</h2><ul><li>요청하는 측(클라이언트)에서 보내는 HTTP 메세지를 "Request message", 요청을 받는 측에서 보내는 메세지를 "Response message"라고 한다</li><li>HTTP 메세지는 "메세지 헤더"와 "메세지 바디"로 구성되어 있다.</li><li>Message Header<ul><li>리퀘스트 라인 : 리퀘스트 메시지에서 사용하는 method, URI, HTTP 버전 등을 포함</li><li>상태 라인 : 리퀘스트 라인과 상응하는 개념으로, 상태코드 (200, 404등)과 설명, HTTP 버전을 포함</li><li>헤더 필드 : 여러 조건과 속성 등을 나타내는 헤더필드가 포함된다. 리퀘스트와 리스폰스에 공존하는 일반헤더필드, 리스폰스헤더필드가 있고 각각 리퀘스트헤더필드, 엔티티헤더필드 총 4종류의 헤더필드가 있다.</li></ul></li><li>Message Body<ul><li>전달하고자 하는 실제 내용</li></ul></li><li>흔히, "HTTP 메세지"를 인터넷 운송 시스템의 "컨테이너" 라고 생각하고, "HTTP 엔티티"는 이에 담기는 "화물"이라고 칭하기도 한다.</li></ul><h2 id="http-엔티티-엔티티-바디">HTTP 엔티티?, 엔티티 바디?</h2><ul><li>위에서 설명했듯, HTTP 엔티티는 "화물"인데, 이를 전송할때,</li></ul><h2 id="http에서-인코딩은">HTTP에서 인코딩은?</h2><ul><li>통신을 할떄 데이터를 그대로 보내기 보다, 변환, 압축, 분할등의 과정을 거쳐 효율을 높이는게 유리하다.</li><li>HTTP 통신역시 인코딩을 통해 효율을 높일수 있다. 단, 인코딩 처리를 위한 CPU등의 리소스를 더 소비하게 된다.</li></ul><h2 id="인코딩-전송">## 인코딩 전송?</h2><h2 id="멀티파트">멀티파트</h2><ul><li>복수의 파일(이미지, 음성 등)을 첨부타일을 붙여서 함께 보낼수 있다.</li><li>각 파트마다 해더를 포함하고,</li></ul><h2 id="레인지리퀘스트">레인지리퀘스트</h2><ul><li>대용량 데이터를 전송할때 중단하게 되면 처음부터 받아야 하는 문제가 발생했고, 이를 해결하기 위해 고안되었다.</li><li>엔티티의 범위를 지정해서 호출을 한다.</li></ul><h2 id="콘텐츠-네고시에이션">콘텐츠 네고시에이션</h2><ul><li>클라이언트와 서버가 리소스 내용에 대해 교섭하는것, 같은 URI에 접근해 다른 언어 등을 표시하려 할때, 이를 사용한다.</li></ul><ol type="1"><li>서버 구동형 네고시에이션 : 서버 측에서 리퀘스트 헤더 필드의 정보를 참고해서 자동적으로 처리</li><li>에이전트 구동형 네고시에이션 : 클라리언트 측에서 콘텐츠 네고시에이션을 하는 구조. 유저가 수동으로 선택한다.</li><li>트랜스페이런트 네고시에이션 : 서버와 클라이언트가 각각 콘텐츠 네고시에이션을 하는 방식</li></ol><h2 id="reference">Reference</h2><p>https://velog.io/<span class="citation" data-cites="ljinsk3/03">@ljinsk3/03</span>.-HTTP-%EC%A0%95%EB%B3%B4%EB%8A%94-HTTP-%EB%A9%94%EC%8B%9C%EC%A7%80%EC%97%90-%EC%9E%88%EB%8B%A4</p><p>https://velog.io/<span class="citation" data-cites="akh9804/HTTP">@akh9804/HTTP</span>-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-15-%EC%97%94%ED%84%B0%ED%8B%B0%EC%99%80-%EC%9D%B8%EC%BD%94%EB%94%A9</p><p>https://ideveloper2.dev/blog/2020-01-04--%EC%97%94%ED%84%B0%ED%8B%B0%EC%99%80-%EC%9D%B8%EC%BD%94%EB%94%A9/</p><p>https://web-km.tistory.com/24</p><p>https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&amp;blogId=eqelizer&amp;logNo=20134264633</p><p>https://sleepyeyes.tistory.com/25</p><p>https://kthan.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-Http-%EC%9D%B8%EC%BD%94%EB%94%A9encoding-Hex-FirstNibble-U-UTF-8-%EB%93%B1%EB%93%B1</p>]]></content:encoded>
+      
+      <comments>https://howardhowonyu.github.io/2021/05/30/http2/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>HTTP</title>
@@ -382,27 +404,6 @@
       <content:encoded><![CDATA[<h1 id="module-package">Module &amp; Package</h1><p><strong>모듈</strong> : 변수, 함수, 클래스를 모아놓은 (.py)라는 이름의 확장자를 가진 파일입니다. <strong>패키지</strong> : 모듈의 기능을 디렉토리별로 정리해 놓은 개념입니다. <a id="more"></a></p><h2 id="module모듈">Module(모듈)</h2><p>모듈 생성</p><blockquote><p>매직 매서드를 사용한 모듈 생성</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dss.py라는 이름의 모듈 생성</span></span><br><span class="line">%%writefile dss.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모듈안에 함수 및 클래스를 생성</span></span><br><span class="line">num = <span class="number">1234</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">disp1</span><span class="params">(msg)</span>:</span></span><br><span class="line">    print(<span class="string">"disp1"</span>,msg)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">disp2</span><span class="params">(msg)</span>:</span></span><br><span class="line">    print(<span class="string">"disp2"</span>,msg)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calc</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">plus</span><span class="params">(self,*args)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> sum(args)</span><br></pre></td></tr></table></figure><p>모듈 호출 &gt; <code>import "모듈 이름"</code>으로 호출</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dss </span><br><span class="line"></span><br><span class="line"><span class="comment"># 모듈 속 변수</span></span><br><span class="line">dss.num</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모듈 속 함수</span></span><br><span class="line">dss.disp1(<span class="string">"python"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 클래스로 객체 생성</span></span><br><span class="line">calc = dss.Calc()</span><br></pre></td></tr></table></figure><h2 id="package패키지">Package(패키지)</h2><p><strong>패키지의 생성</strong></p><ul><li>패키지 생성시 디렉토리에 <strong>init</strong>.py 파일을 추가해야 합니다.</li><li>단, python 3.3버전 이상에서는 필요 없습니다.</li><li>패키지의 위치 : 특정 디렉토리(pip,conda등으로 설치하는 등)에 있는 패키지는 어디에서나 import 가능합니다.</li></ul>]]></content:encoded>
       
       <comments>https://howardhowonyu.github.io/2020/02/21/python-2020-02-21-python-module-package/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>HTML 파싱을 이용한 크롤링</title>
-      <link>https://howardhowonyu.github.io/2020/02/21/TIL-crawling-2020-02-21-crawling/</link>
-      <guid>https://howardhowonyu.github.io/2020/02/21/TIL-crawling-2020-02-21-crawling/</guid>
-      <pubDate>Fri, 21 Feb 2020 09:52:59 GMT</pubDate>
-      <description>
-      
-        &lt;h2 id=&quot;html-데이터-파싱을-이용한-크롤링&quot;&gt;HTML 데이터 파싱을 이용한 크롤링&lt;/h2&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;웹페이지 분석 : URL 찾기&lt;/li&gt;
-&lt;li&gt;요청 -&amp;gt; 응답 : HTML(str) 가져오기&lt;/li&gt;
-&lt;li&gt;HTML(str) -&amp;gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&amp;gt; 데이터프레임으로 변환
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<h2 id="html-데이터-파싱을-이용한-크롤링">HTML 데이터 파싱을 이용한 크롤링</h2><ol type="1"><li>웹페이지 분석 : URL 찾기</li><li>요청 -&gt; 응답 : HTML(str) 가져오기</li><li>HTML(str) -&gt; BeautifulSoup 객체에서 css-selector를 통해 내용을 가져옴 -&gt; 데이터프레임으로 변환 <a id="more"></a></li></ol><h2 id="크롤링-과정">크롤링 과정</h2><ul><li>BeautifulSoup라는 클래스의 매서드 활용 response안에 있는 애들을 BeautifulSoup으로 HTML로 파싱</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># requests.get 매서드로 요철</span></span><br><span class="line">response = requests.get(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># response.content로 내용 선택, html.parser로 HTML로 파싱</span></span><br><span class="line">dom = BeautifulSoup(response.content, <span class="string">"html.parser"</span>)</span><br></pre></td></tr></table></figure><h4 id="bs4.beautifulsoupr"><code>bs4.BeautifulSoupr</code></h4><blockquote><p>select 매서드 : 여러개의 element 객체를 리스트로 가져옴 select_one 매서드 : 하나의 element 객체를 가져옴</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 크롬 개발자 도구에서 copy selector했을때 id가 나올때 까지 찾아 복사함</span></span><br><span class="line"><span class="comment"># 리스트안의 딕셔너리 형태로 만들어줌&#123;"컬럼명":내용&#125;</span></span><br><span class="line">datas = []</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> elements:</span><br><span class="line">    datas.append(&#123;</span><br><span class="line">        <span class="string">"title"</span>: element.select_one(<span class="string">'.tit_g'</span>).text.strip().replace(<span class="string">"\n"</span>,<span class="string">""</span>), <span class="comment">#tit_g이름의 클래스 안에 텍스트를 잡음</span></span><br><span class="line">        <span class="string">"link"</span> : element.select_one(<span class="string">'a'</span>).get(<span class="string">"href"</span>), <span class="comment">#href속성의 값을 가져옴</span></span><br><span class="line">    &#125;)</span><br><span class="line">article_df = pd.DataFrame(datas)</span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      <comments>https://howardhowonyu.github.io/2020/02/21/TIL-crawling-2020-02-21-crawling/#disqus_thread</comments>
     </item>
     
   </channel>
